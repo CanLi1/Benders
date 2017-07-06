@@ -1,0 +1,1931 @@
+Solver log file: '/tmp/tmpdHMcNG.baron.log'
+Solver solution file: '/tmp/tmpKM_gpu.baron.soln'
+Solver problem files: ('/tmp/tmp68ERdb.pyomo.bar',)
+===========================================================================
+ BARON version 17.4.1. Built: LNX-64 Sat Apr 1 11:24:13 EDT 2017 
+
+ If you use this software, please cite:
+ Tawarmalani, M. and N. V. Sahinidis, A polyhedral
+ branch-and-cut approach to global optimization,
+ Mathematical Programming, 103(2), 225-249, 2005.
+
+ BARON is a product of The Optimization Firm, LLC. http://www.minlp.com/
+ Parts of the BARON software were created at the
+ University of Illinois at Urbana-Champaign.
+===========================================================================
+ Licensee: Qi Chen at Carnegie Mellon University, qichen@andrew.cmu.edu.
+ Changing option LPSol to 8 (CLP) and continuing.
+ This BARON run may utilize the following subsolver(s)
+ For LP/MIP: CLP/CBC                                         
+ For NLP: IPOPT, FILTERSD
+===========================================================================
+ Doing local search
+ Unable to find/load CPLEX library libcplex.so: cannot open shared object file: No such file or directory
+ Unable to find/load CPLEX library libcplex1270.so: cannot open shared object file: No such file or directory
+ Preprocessing found feasible solution with value -.266504321758E-006
+ Problem solved during preprocessing
+ Lower bound is -.126650432176E-005
+
+ Cleaning up
+
+                         *** Normal completion ***            
+
+ Wall clock time:                     1.36
+ Total CPU time used:                 1.36
+
+ Total no. of BaR iterations:      -1
+ Best solution found at node:      -1
+ Max. no. of nodes in memory:       0
+ 
+ All done
+===========================================================================
+Model unknown
+
+  Variables:
+    x : Size=11, Index=JP
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 4) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 4) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 5) :     0 :   0.0 :     1 : False : False : Binary
+        (4, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (4, 5) :     0 :   0.0 :     1 : False : False : Binary
+    EX : Size=11, Index=JP
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 4) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 4) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 5) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 5) :     0 :   0.0 :  None : False : False : NonNegativeReals
+    y : Size=87, Index=y_index
+        Key          : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1, 1, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 1, 1, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 1, 1, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 1, 2, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 1, 2, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 1, 2, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 1, 3, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 1, 3, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 1, 3, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 1, 4, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 1, 4, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 1, 4, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 1, 5, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 1, 5, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 1, 5, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 2, 1, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 2, 1, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 2, 1, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 2, 2, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 2, 2, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 2, 2, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 2, 3, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 2, 3, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 2, 3, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 2, 4, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 2, 4, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 2, 4, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 2, 5, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 2, 5, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 2, 5, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 3, 1, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 3, 1, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 3, 1, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 3, 2, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 3, 2, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 3, 2, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 3, 3, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 3, 3, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 3, 3, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 3, 4, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 3, 4, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 3, 4, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 3, 5, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 3, 5, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 3, 5, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 1, 1, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 1, 1, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 1, 1, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 1, 2, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 1, 2, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 1, 2, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 1, 3, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 1, 3, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 1, 3, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 1, 4, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 1, 4, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 1, 4, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 3, 1, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 3, 1, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 3, 1, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 3, 2, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 3, 2, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 3, 2, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 3, 3, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 3, 3, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 3, 3, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 3, 4, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 3, 4, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 3, 4, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 2, 2, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 2, 2, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 2, 2, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 2, 3, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 2, 3, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 2, 3, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 2, 5, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 2, 5, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 2, 5, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 3, 2, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 3, 2, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 3, 2, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 3, 3, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 3, 3, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 3, 3, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 3, 5, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 3, 5, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 3, 5, 3) :     0 :   0.0 :     1 : False : False : Binary
+    z : Size=396, Index=z_index
+        Key           : Lower : Value : Upper : Fixed : Stale : Domain
+         (1, 1, 1, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 1, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 1, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 2, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 2, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 2, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 3, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 3, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 3, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 4, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 4, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 4, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 5, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 5, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 5, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 6, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 6, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 6, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 7, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 7, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 7, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 8, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 8, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 8, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 9, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 9, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 1, 9, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 1, 10, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 1, 10, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 1, 10, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 1, 11, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 1, 11, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 1, 11, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 1, 12, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 1, 12, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 1, 12, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 1, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 1, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 1, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 2, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 2, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 2, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 3, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 3, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 3, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 4, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 4, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 4, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 5, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 5, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 5, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 6, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 6, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 6, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 7, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 7, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 7, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 8, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 8, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 8, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 9, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 9, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (1, 4, 9, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 4, 10, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 4, 10, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 4, 10, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 4, 11, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 4, 11, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 4, 11, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 4, 12, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 4, 12, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (1, 4, 12, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 1, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 1, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 1, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 2, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 2, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 2, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 3, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 3, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 3, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 4, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 4, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 4, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 5, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 5, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 5, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 6, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 6, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 6, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 7, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 7, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 7, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 8, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 8, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 8, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 9, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 9, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 1, 9, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 1, 10, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 1, 10, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 1, 10, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 1, 11, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 1, 11, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 1, 11, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 1, 12, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 1, 12, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 1, 12, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 1, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 1, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 1, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 2, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 2, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 2, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 3, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 3, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 3, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 4, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 4, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 4, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 5, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 5, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 5, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 6, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 6, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 6, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 7, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 7, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 7, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 8, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 8, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 8, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 9, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 9, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 2, 9, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 2, 10, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 2, 10, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 2, 10, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 2, 11, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 2, 11, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 2, 11, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 2, 12, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 2, 12, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 2, 12, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 1, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 1, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 1, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 2, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 2, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 2, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 3, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 3, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 3, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 4, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 4, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 4, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 5, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 5, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 5, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 6, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 6, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 6, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 7, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 7, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 7, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 8, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 8, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 8, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 9, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 9, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 3, 9, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 3, 10, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 3, 10, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 3, 10, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 3, 11, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 3, 11, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 3, 11, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 3, 12, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 3, 12, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 3, 12, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 1, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 1, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 1, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 2, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 2, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 2, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 3, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 3, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 3, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 4, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 4, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 4, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 5, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 5, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 5, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 6, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 6, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 6, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 7, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 7, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 7, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 8, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 8, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 8, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 9, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 9, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (2, 4, 9, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 4, 10, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 4, 10, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 4, 10, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 4, 11, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 4, 11, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 4, 11, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 4, 12, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 4, 12, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (2, 4, 12, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 1, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 1, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 1, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 2, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 2, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 2, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 3, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 3, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 3, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 4, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 4, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 4, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 5, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 5, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 5, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 6, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 6, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 6, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 7, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 7, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 7, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 8, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 8, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 8, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 9, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 9, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 2, 9, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 2, 10, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 2, 10, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 2, 10, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 2, 11, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 2, 11, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 2, 11, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 2, 12, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 2, 12, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 2, 12, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 1, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 1, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 1, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 2, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 2, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 2, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 3, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 3, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 3, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 4, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 4, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 4, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 5, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 5, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 5, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 6, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 6, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 6, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 7, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 7, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 7, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 8, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 8, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 8, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 9, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 9, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 3, 9, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 3, 10, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 3, 10, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 3, 10, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 3, 11, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 3, 11, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 3, 11, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 3, 12, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 3, 12, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 3, 12, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 1, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 1, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 1, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 2, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 2, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 2, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 3, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 3, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 3, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 4, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 4, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 4, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 5, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 5, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 5, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 6, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 6, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 6, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 7, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 7, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 7, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 8, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 8, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 8, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 9, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 9, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (3, 5, 9, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 5, 10, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 5, 10, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 5, 10, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 5, 11, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 5, 11, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 5, 11, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 5, 12, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 5, 12, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (3, 5, 12, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 1, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 1, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 1, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 2, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 2, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 2, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 3, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 3, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 3, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 4, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 4, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 4, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 5, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 5, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 5, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 6, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 6, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 6, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 7, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 7, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 7, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 8, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 8, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 8, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 9, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 9, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 3, 9, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (4, 3, 10, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (4, 3, 10, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (4, 3, 10, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (4, 3, 11, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (4, 3, 11, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (4, 3, 11, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (4, 3, 12, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (4, 3, 12, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (4, 3, 12, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 1, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 1, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 1, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 2, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 2, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 2, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 3, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 3, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 3, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 4, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 4, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 4, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 5, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 5, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 5, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 6, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 6, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 6, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 7, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 7, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 7, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 8, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 8, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 8, 3) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 9, 1) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 9, 2) :     0 :   0.0 :     1 : False : False : Binary
+         (4, 5, 9, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (4, 5, 10, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (4, 5, 10, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (4, 5, 10, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (4, 5, 11, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (4, 5, 11, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (4, 5, 11, 3) :     0 :   0.0 :     1 : False : False : Binary
+        (4, 5, 12, 1) :     0 :   0.0 :     1 : False : False : Binary
+        (4, 5, 12, 2) :     0 :   0.0 :     1 : False : False : Binary
+        (4, 5, 12, 3) :     0 :   0.0 :     1 : False : False : Binary
+    F : Size=87, Index=F_index
+        Key          : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 4, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 4, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 4, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 5, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 5, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 5, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 2, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 2, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 2, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 2, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 2, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 2, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 2, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 2, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 2, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 2, 4, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 2, 4, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 2, 4, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 2, 5, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 2, 5, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 2, 5, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 3, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 3, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 3, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 3, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 3, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 3, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 3, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 3, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 3, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 3, 4, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 3, 4, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 3, 4, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 3, 5, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 3, 5, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 3, 5, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 4, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 4, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 4, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 4, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 4, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 4, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 5, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 5, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 5, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 5, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 5, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 5, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+    B : Size=396, Index=B_index
+        Key           : Lower : Value : Upper : Fixed : Stale : Domain
+         (1, 1, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 4, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 4, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 4, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 5, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 5, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 5, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 6, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 6, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 6, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 7, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 7, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 7, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 8, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 8, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 8, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 9, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 9, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 9, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 10, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 10, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 10, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 11, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 11, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 11, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 12, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 12, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 12, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 4, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 4, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 4, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 5, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 5, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 5, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 6, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 6, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 6, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 7, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 7, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 7, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 8, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 8, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 8, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 9, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 9, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 9, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 4, 10, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 4, 10, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 4, 10, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 4, 11, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 4, 11, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 4, 11, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 4, 12, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 4, 12, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 4, 12, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 4, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 4, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 4, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 5, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 5, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 5, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 6, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 6, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 6, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 7, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 7, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 7, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 8, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 8, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 8, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 9, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 9, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 9, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 10, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 10, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 10, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 11, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 11, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 11, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 12, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 12, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 12, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 4, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 4, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 4, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 5, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 5, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 5, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 6, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 6, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 6, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 7, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 7, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 7, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 8, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 8, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 8, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 9, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 9, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 9, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 2, 10, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 2, 10, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 2, 10, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 2, 11, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 2, 11, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 2, 11, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 2, 12, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 2, 12, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 2, 12, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 4, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 4, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 4, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 5, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 5, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 5, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 6, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 6, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 6, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 7, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 7, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 7, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 8, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 8, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 8, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 9, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 9, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 9, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 10, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 10, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 10, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 11, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 11, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 11, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 12, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 12, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 12, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 4, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 4, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 4, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 5, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 5, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 5, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 6, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 6, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 6, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 7, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 7, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 7, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 8, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 8, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 8, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 9, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 9, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 9, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 4, 10, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 4, 10, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 4, 10, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 4, 11, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 4, 11, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 4, 11, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 4, 12, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 4, 12, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 4, 12, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 4, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 4, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 4, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 5, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 5, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 5, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 6, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 6, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 6, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 7, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 7, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 7, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 8, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 8, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 8, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 9, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 9, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 9, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 10, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 10, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 10, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 11, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 11, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 11, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 12, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 12, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 12, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 4, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 4, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 4, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 5, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 5, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 5, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 6, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 6, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 6, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 7, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 7, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 7, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 8, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 8, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 8, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 9, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 9, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 9, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 10, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 10, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 10, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 11, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 11, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 11, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 12, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 12, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 12, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 4, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 4, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 4, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 5, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 5, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 5, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 6, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 6, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 6, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 7, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 7, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 7, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 8, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 8, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 8, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 9, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 9, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 9, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 5, 10, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 5, 10, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 5, 10, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 5, 11, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 5, 11, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 5, 11, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 5, 12, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 5, 12, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 5, 12, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 4, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 4, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 4, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 5, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 5, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 5, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 6, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 6, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 6, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 7, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 7, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 7, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 8, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 8, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 8, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 9, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 9, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 9, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 3, 10, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 3, 10, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 3, 10, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 3, 11, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 3, 11, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 3, 11, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 3, 12, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 3, 12, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 3, 12, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 4, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 4, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 4, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 5, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 5, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 5, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 6, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 6, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 6, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 7, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 7, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 7, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 8, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 8, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 8, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 9, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 9, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 9, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 5, 10, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 5, 10, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 5, 10, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 5, 11, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 5, 11, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 5, 11, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 5, 12, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 5, 12, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 5, 12, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+    Q : Size=33, Index=Q_index
+        Key       : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 4, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 4, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 4, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 4, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 4, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 4, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 5, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 5, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 5, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 5, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 5, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 5, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+    R : Size=21, Index=R_index
+        Key       : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+    s : Size=144, Index=s_index
+        Key        : Lower : Value : Upper : Fixed : Stale : Domain
+         (1, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 4, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 5, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 5, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 5, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 6, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 6, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 6, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 7, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 7, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 7, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 8, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 8, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 8, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 9, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 9, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (1, 9, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 10, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 10, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 10, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 11, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 11, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 11, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 12, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 12, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (1, 12, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 4, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 5, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 5, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 5, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 6, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 6, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 6, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 7, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 7, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 7, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 8, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 8, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 8, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 9, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 9, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (2, 9, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 10, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 10, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 10, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 11, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 11, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 11, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 12, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 12, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (2, 12, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 4, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 4, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 4, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 5, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 6, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 6, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 6, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 7, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 7, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 7, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 8, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 8, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 8, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 9, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 9, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (3, 9, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 10, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 10, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 10, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 11, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 11, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 11, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 12, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 12, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (3, 12, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 1, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 1, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 2, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 2, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 2, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 3, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 4, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 4, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 4, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 5, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 6, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 6, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 6, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 7, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 7, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 7, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 8, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 8, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 8, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 9, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 9, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+         (4, 9, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 10, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 10, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 10, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 11, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 11, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 11, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 12, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 12, 2) :     0 :   0.0 :  None : False : False : NonNegativeReals
+        (4, 12, 3) :     0 :   0.0 :  None : False : False : NonNegativeReals
+    Cost : Size=3, Index=W
+        Key : Lower : Value : Upper : Fixed : Stale : Domain
+          1 :     0 :   0.0 :  None : False : False : NonNegativeReals
+          2 :     0 :   0.0 :  None : False : False : NonNegativeReals
+          3 :     0 :   0.0 :  None : False : False : NonNegativeReals
+    obj : Size=1, Index=None
+        Key  : Lower : Value              : Upper : Fixed : Stale : Domain
+        None :  None : -2.66504321758e-07 :  None : False : False :  Reals
+
+  Objectives:
+    oobjO : Size=1, Index=None, Active=True
+        Key  : Active : Value
+        None :   True : -2.66504321758e-07
+
+  Constraints:
+    c1C : Size=11
+        Key    : Lower : Body : Upper
+        (1, 1) :  None :  0.0 :   0.0
+        (1, 4) :  None :  0.0 :   0.0
+        (2, 1) :  None :  0.0 :   0.0
+        (2, 2) :  None :  0.0 :   0.0
+        (2, 3) :  None :  0.0 :   0.0
+        (2, 4) :  None :  0.0 :   0.0
+        (3, 2) :  None :  0.0 :   0.0
+        (3, 3) :  None :  0.0 :   0.0
+        (3, 5) :  None :  0.0 :   0.0
+        (4, 3) :  None :  0.0 :   0.0
+        (4, 5) :  None :  0.0 :   0.0
+    c2C : Size=33
+        Key       : Lower : Body : Upper
+        (1, 1, 1) :   0.0 :  0.0 :   0.0
+        (1, 1, 2) :   0.0 :  0.0 :   0.0
+        (1, 1, 3) :   0.0 :  0.0 :   0.0
+        (1, 4, 1) :   0.0 :  0.0 :   0.0
+        (1, 4, 2) :   0.0 :  0.0 :   0.0
+        (1, 4, 3) :   0.0 :  0.0 :   0.0
+        (2, 1, 1) :   0.0 :  0.0 :   0.0
+        (2, 1, 2) :   0.0 :  0.0 :   0.0
+        (2, 1, 3) :   0.0 :  0.0 :   0.0
+        (2, 2, 1) :   0.0 :  0.0 :   0.0
+        (2, 2, 2) :   0.0 :  0.0 :   0.0
+        (2, 2, 3) :   0.0 :  0.0 :   0.0
+        (2, 3, 1) :   0.0 :  0.0 :   0.0
+        (2, 3, 2) :   0.0 :  0.0 :   0.0
+        (2, 3, 3) :   0.0 :  0.0 :   0.0
+        (2, 4, 1) :   0.0 :  0.0 :   0.0
+        (2, 4, 2) :   0.0 :  0.0 :   0.0
+        (2, 4, 3) :   0.0 :  0.0 :   0.0
+        (3, 2, 1) :   0.0 :  0.0 :   0.0
+        (3, 2, 2) :   0.0 :  0.0 :   0.0
+        (3, 2, 3) :   0.0 :  0.0 :   0.0
+        (3, 3, 1) :   0.0 :  0.0 :   0.0
+        (3, 3, 2) :   0.0 :  0.0 :   0.0
+        (3, 3, 3) :   0.0 :  0.0 :   0.0
+        (3, 5, 1) :   0.0 :  0.0 :   0.0
+        (3, 5, 2) :   0.0 :  0.0 :   0.0
+        (3, 5, 3) :   0.0 :  0.0 :   0.0
+        (4, 3, 1) :   0.0 :  0.0 :   0.0
+        (4, 3, 2) :   0.0 :  0.0 :   0.0
+        (4, 3, 3) :   0.0 :  0.0 :   0.0
+        (4, 5, 1) :   0.0 :  0.0 :   0.0
+        (4, 5, 2) :   0.0 :  0.0 :   0.0
+        (4, 5, 3) :   0.0 :  0.0 :   0.0
+    c3C : Size=21
+        Key       : Lower : Body     : Upper
+        (1, 1, 1) :  None : -10000.0 :   0.0
+        (1, 1, 2) :  None : -10000.0 :   0.0
+        (1, 1, 3) :  None : -10000.0 :   0.0
+        (1, 2, 1) :  None : -20000.0 :   0.0
+        (1, 2, 2) :  None : -20000.0 :   0.0
+        (1, 2, 3) :  None : -20000.0 :   0.0
+        (1, 3, 1) :  None : -20000.0 :   0.0
+        (1, 3, 2) :  None : -20000.0 :   0.0
+        (1, 3, 3) :  None : -20000.0 :   0.0
+        (2, 1, 1) :  None : -20000.0 :   0.0
+        (2, 1, 2) :  None : -20000.0 :   0.0
+        (2, 1, 3) :  None : -20000.0 :   0.0
+        (2, 3, 1) :  None : -30000.0 :   0.0
+        (2, 3, 2) :  None : -30000.0 :   0.0
+        (2, 3, 3) :  None : -30000.0 :   0.0
+        (3, 2, 1) :  None : -20000.0 :   0.0
+        (3, 2, 2) :  None : -20000.0 :   0.0
+        (3, 2, 3) :  None : -20000.0 :   0.0
+        (3, 3, 1) :  None : -20000.0 :   0.0
+        (3, 3, 2) :  None : -20000.0 :   0.0
+        (3, 3, 3) :  None : -20000.0 :   0.0
+    c10C : Size=21
+        Key       : Lower : Body : Upper
+        (1, 1, 1) :   0.0 :  0.0 :   0.0
+        (1, 1, 2) :   0.0 :  0.0 :   0.0
+        (1, 1, 3) :   0.0 :  0.0 :   0.0
+        (1, 2, 1) :   0.0 :  0.0 :   0.0
+        (1, 2, 2) :   0.0 :  0.0 :   0.0
+        (1, 2, 3) :   0.0 :  0.0 :   0.0
+        (1, 3, 1) :   0.0 :  0.0 :   0.0
+        (1, 3, 2) :   0.0 :  0.0 :   0.0
+        (1, 3, 3) :   0.0 :  0.0 :   0.0
+        (2, 1, 1) :   0.0 :  0.0 :   0.0
+        (2, 1, 2) :   0.0 :  0.0 :   0.0
+        (2, 1, 3) :   0.0 :  0.0 :   0.0
+        (2, 3, 1) :   0.0 :  0.0 :   0.0
+        (2, 3, 2) :   0.0 :  0.0 :   0.0
+        (2, 3, 3) :   0.0 :  0.0 :   0.0
+        (3, 2, 1) :   0.0 :  0.0 :   0.0
+        (3, 2, 2) :   0.0 :  0.0 :   0.0
+        (3, 2, 3) :   0.0 :  0.0 :   0.0
+        (3, 3, 1) :   0.0 :  0.0 :   0.0
+        (3, 3, 2) :   0.0 :  0.0 :   0.0
+        (3, 3, 3) :   0.0 :  0.0 :   0.0
+    c4C : Size=36
+        Key       : Lower : Body : Upper
+        (1, 1, 1) :   0.0 :  0.0 :   0.0
+        (1, 1, 2) :   0.0 :  0.0 :   0.0
+        (1, 1, 3) :   0.0 :  0.0 :   0.0
+        (1, 2, 1) :   0.0 :  0.0 :   0.0
+        (1, 2, 2) :   0.0 :  0.0 :   0.0
+        (1, 2, 3) :   0.0 :  0.0 :   0.0
+        (1, 3, 1) :   0.0 :  0.0 :   0.0
+        (1, 3, 2) :   0.0 :  0.0 :   0.0
+        (1, 3, 3) :   0.0 :  0.0 :   0.0
+        (1, 4, 1) :   0.0 :  0.0 :   0.0
+        (1, 4, 2) :   0.0 :  0.0 :   0.0
+        (1, 4, 3) :   0.0 :  0.0 :   0.0
+        (1, 5, 1) :   0.0 :  0.0 :   0.0
+        (1, 5, 2) :   0.0 :  0.0 :   0.0
+        (1, 5, 3) :   0.0 :  0.0 :   0.0
+        (2, 1, 1) :   0.0 :  0.0 :   0.0
+        (2, 1, 2) :   0.0 :  0.0 :   0.0
+        (2, 1, 3) :   0.0 :  0.0 :   0.0
+        (2, 2, 1) :   0.0 :  0.0 :   0.0
+        (2, 2, 2) :   0.0 :  0.0 :   0.0
+        (2, 2, 3) :   0.0 :  0.0 :   0.0
+        (2, 3, 1) :   0.0 :  0.0 :   0.0
+        (2, 3, 2) :   0.0 :  0.0 :   0.0
+        (2, 3, 3) :   0.0 :  0.0 :   0.0
+        (2, 4, 1) :   0.0 :  0.0 :   0.0
+        (2, 4, 2) :   0.0 :  0.0 :   0.0
+        (2, 4, 3) :   0.0 :  0.0 :   0.0
+        (3, 2, 1) :   0.0 :  0.0 :   0.0
+        (3, 2, 2) :   0.0 :  0.0 :   0.0
+        (3, 2, 3) :   0.0 :  0.0 :   0.0
+        (3, 3, 1) :   0.0 :  0.0 :   0.0
+        (3, 3, 2) :   0.0 :  0.0 :   0.0
+        (3, 3, 3) :   0.0 :  0.0 :   0.0
+        (3, 5, 1) :   0.0 :  0.0 :   0.0
+        (3, 5, 2) :   0.0 :  0.0 :   0.0
+        (3, 5, 3) :   0.0 :  0.0 :   0.0
+    c5C : Size=33
+        Key       : Lower : Body    : Upper
+        (1, 1, 1) :  None : -3000.0 :   0.0
+        (1, 1, 2) :  None : -3000.0 :   0.0
+        (1, 1, 3) :  None : -3000.0 :   0.0
+        (1, 4, 1) :  None : -4000.0 :   0.0
+        (1, 4, 2) :  None : -4000.0 :   0.0
+        (1, 4, 3) :  None : -4000.0 :   0.0
+        (2, 1, 1) :  None : -3000.0 :   0.0
+        (2, 1, 2) :  None : -3000.0 :   0.0
+        (2, 1, 3) :  None : -3000.0 :   0.0
+        (2, 2, 1) :  None : -1500.0 :   0.0
+        (2, 2, 2) :  None : -1500.0 :   0.0
+        (2, 2, 3) :  None : -1500.0 :   0.0
+        (2, 3, 1) :  None : -2500.0 :   0.0
+        (2, 3, 2) :  None : -2500.0 :   0.0
+        (2, 3, 3) :  None : -2500.0 :   0.0
+        (2, 4, 1) :  None : -4000.0 :   0.0
+        (2, 4, 2) :  None : -4000.0 :   0.0
+        (2, 4, 3) :  None : -4000.0 :   0.0
+        (3, 2, 1) :  None : -1500.0 :   0.0
+        (3, 2, 2) :  None : -1500.0 :   0.0
+        (3, 2, 3) :  None : -1500.0 :   0.0
+        (3, 3, 1) :  None : -2500.0 :   0.0
+        (3, 3, 2) :  None : -2500.0 :   0.0
+        (3, 3, 3) :  None : -2500.0 :   0.0
+        (3, 5, 1) :  None : -1500.0 :   0.0
+        (3, 5, 2) :  None : -1500.0 :   0.0
+        (3, 5, 3) :  None : -1500.0 :   0.0
+        (4, 3, 1) :  None : -2500.0 :   0.0
+        (4, 3, 2) :  None : -2500.0 :   0.0
+        (4, 3, 3) :  None : -2500.0 :   0.0
+        (4, 5, 1) :  None : -1500.0 :   0.0
+        (4, 5, 2) :  None : -1500.0 :   0.0
+        (4, 5, 3) :  None : -1500.0 :   0.0
+    c7C : Size=87
+        Key          : Lower : Body : Upper
+        (1, 1, 1, 1) :  None :  0.0 :   0.0
+        (1, 1, 1, 2) :  None :  0.0 :   0.0
+        (1, 1, 1, 3) :  None :  0.0 :   0.0
+        (1, 1, 2, 1) :  None :  0.0 :   0.0
+        (1, 1, 2, 2) :  None :  0.0 :   0.0
+        (1, 1, 2, 3) :  None :  0.0 :   0.0
+        (1, 1, 3, 1) :  None :  0.0 :   0.0
+        (1, 1, 3, 2) :  None :  0.0 :   0.0
+        (1, 1, 3, 3) :  None :  0.0 :   0.0
+        (1, 1, 4, 1) :  None :  0.0 :   0.0
+        (1, 1, 4, 2) :  None :  0.0 :   0.0
+        (1, 1, 4, 3) :  None :  0.0 :   0.0
+        (1, 1, 5, 1) :  None :  0.0 :   0.0
+        (1, 1, 5, 2) :  None :  0.0 :   0.0
+        (1, 1, 5, 3) :  None :  0.0 :   0.0
+        (1, 2, 1, 1) :  None :  0.0 :   0.0
+        (1, 2, 1, 2) :  None :  0.0 :   0.0
+        (1, 2, 1, 3) :  None :  0.0 :   0.0
+        (1, 2, 2, 1) :  None :  0.0 :   0.0
+        (1, 2, 2, 2) :  None :  0.0 :   0.0
+        (1, 2, 2, 3) :  None :  0.0 :   0.0
+        (1, 2, 3, 1) :  None :  0.0 :   0.0
+        (1, 2, 3, 2) :  None :  0.0 :   0.0
+        (1, 2, 3, 3) :  None :  0.0 :   0.0
+        (1, 2, 4, 1) :  None :  0.0 :   0.0
+        (1, 2, 4, 2) :  None :  0.0 :   0.0
+        (1, 2, 4, 3) :  None :  0.0 :   0.0
+        (1, 2, 5, 1) :  None :  0.0 :   0.0
+        (1, 2, 5, 2) :  None :  0.0 :   0.0
+        (1, 2, 5, 3) :  None :  0.0 :   0.0
+        (1, 3, 1, 1) :  None :  0.0 :   0.0
+        (1, 3, 1, 2) :  None :  0.0 :   0.0
+        (1, 3, 1, 3) :  None :  0.0 :   0.0
+        (1, 3, 2, 1) :  None :  0.0 :   0.0
+        (1, 3, 2, 2) :  None :  0.0 :   0.0
+        (1, 3, 2, 3) :  None :  0.0 :   0.0
+        (1, 3, 3, 1) :  None :  0.0 :   0.0
+        (1, 3, 3, 2) :  None :  0.0 :   0.0
+        (1, 3, 3, 3) :  None :  0.0 :   0.0
+        (1, 3, 4, 1) :  None :  0.0 :   0.0
+        (1, 3, 4, 2) :  None :  0.0 :   0.0
+        (1, 3, 4, 3) :  None :  0.0 :   0.0
+        (1, 3, 5, 1) :  None :  0.0 :   0.0
+        (1, 3, 5, 2) :  None :  0.0 :   0.0
+        (1, 3, 5, 3) :  None :  0.0 :   0.0
+        (2, 1, 1, 1) :  None :  0.0 :   0.0
+        (2, 1, 1, 2) :  None :  0.0 :   0.0
+        (2, 1, 1, 3) :  None :  0.0 :   0.0
+        (2, 1, 2, 1) :  None :  0.0 :   0.0
+        (2, 1, 2, 2) :  None :  0.0 :   0.0
+        (2, 1, 2, 3) :  None :  0.0 :   0.0
+        (2, 1, 3, 1) :  None :  0.0 :   0.0
+        (2, 1, 3, 2) :  None :  0.0 :   0.0
+        (2, 1, 3, 3) :  None :  0.0 :   0.0
+        (2, 1, 4, 1) :  None :  0.0 :   0.0
+        (2, 1, 4, 2) :  None :  0.0 :   0.0
+        (2, 1, 4, 3) :  None :  0.0 :   0.0
+        (2, 3, 1, 1) :  None :  0.0 :   0.0
+        (2, 3, 1, 2) :  None :  0.0 :   0.0
+        (2, 3, 1, 3) :  None :  0.0 :   0.0
+        (2, 3, 2, 1) :  None :  0.0 :   0.0
+        (2, 3, 2, 2) :  None :  0.0 :   0.0
+        (2, 3, 2, 3) :  None :  0.0 :   0.0
+        (2, 3, 3, 1) :  None :  0.0 :   0.0
+        (2, 3, 3, 2) :  None :  0.0 :   0.0
+        (2, 3, 3, 3) :  None :  0.0 :   0.0
+        (2, 3, 4, 1) :  None :  0.0 :   0.0
+        (2, 3, 4, 2) :  None :  0.0 :   0.0
+        (2, 3, 4, 3) :  None :  0.0 :   0.0
+        (3, 2, 2, 1) :  None :  0.0 :   0.0
+        (3, 2, 2, 2) :  None :  0.0 :   0.0
+        (3, 2, 2, 3) :  None :  0.0 :   0.0
+        (3, 2, 3, 1) :  None :  0.0 :   0.0
+        (3, 2, 3, 2) :  None :  0.0 :   0.0
+        (3, 2, 3, 3) :  None :  0.0 :   0.0
+        (3, 2, 5, 1) :  None :  0.0 :   0.0
+        (3, 2, 5, 2) :  None :  0.0 :   0.0
+        (3, 2, 5, 3) :  None :  0.0 :   0.0
+        (3, 3, 2, 1) :  None :  0.0 :   0.0
+        (3, 3, 2, 2) :  None :  0.0 :   0.0
+        (3, 3, 2, 3) :  None :  0.0 :   0.0
+        (3, 3, 3, 1) :  None :  0.0 :   0.0
+        (3, 3, 3, 2) :  None :  0.0 :   0.0
+        (3, 3, 3, 3) :  None :  0.0 :   0.0
+        (3, 3, 5, 1) :  None :  0.0 :   0.0
+        (3, 3, 5, 2) :  None :  0.0 :   0.0
+        (3, 3, 5, 3) :  None :  0.0 :   0.0
+    c8C : Size=396
+        Key           : Lower : Body : Upper
+         (1, 1, 1, 1) :  None :  0.0 :   0.0
+         (1, 1, 1, 2) :  None :  0.0 :   0.0
+         (1, 1, 1, 3) :  None :  0.0 :   0.0
+         (1, 1, 2, 1) :  None :  0.0 :   0.0
+         (1, 1, 2, 2) :  None :  0.0 :   0.0
+         (1, 1, 2, 3) :  None :  0.0 :   0.0
+         (1, 1, 3, 1) :  None :  0.0 :   0.0
+         (1, 1, 3, 2) :  None :  0.0 :   0.0
+         (1, 1, 3, 3) :  None :  0.0 :   0.0
+         (1, 1, 4, 1) :  None :  0.0 :   0.0
+         (1, 1, 4, 2) :  None :  0.0 :   0.0
+         (1, 1, 4, 3) :  None :  0.0 :   0.0
+         (1, 1, 5, 1) :  None :  0.0 :   0.0
+         (1, 1, 5, 2) :  None :  0.0 :   0.0
+         (1, 1, 5, 3) :  None :  0.0 :   0.0
+         (1, 1, 6, 1) :  None :  0.0 :   0.0
+         (1, 1, 6, 2) :  None :  0.0 :   0.0
+         (1, 1, 6, 3) :  None :  0.0 :   0.0
+         (1, 1, 7, 1) :  None :  0.0 :   0.0
+         (1, 1, 7, 2) :  None :  0.0 :   0.0
+         (1, 1, 7, 3) :  None :  0.0 :   0.0
+         (1, 1, 8, 1) :  None :  0.0 :   0.0
+         (1, 1, 8, 2) :  None :  0.0 :   0.0
+         (1, 1, 8, 3) :  None :  0.0 :   0.0
+         (1, 1, 9, 1) :  None :  0.0 :   0.0
+         (1, 1, 9, 2) :  None :  0.0 :   0.0
+         (1, 1, 9, 3) :  None :  0.0 :   0.0
+        (1, 1, 10, 1) :  None :  0.0 :   0.0
+        (1, 1, 10, 2) :  None :  0.0 :   0.0
+        (1, 1, 10, 3) :  None :  0.0 :   0.0
+        (1, 1, 11, 1) :  None :  0.0 :   0.0
+        (1, 1, 11, 2) :  None :  0.0 :   0.0
+        (1, 1, 11, 3) :  None :  0.0 :   0.0
+        (1, 1, 12, 1) :  None :  0.0 :   0.0
+        (1, 1, 12, 2) :  None :  0.0 :   0.0
+        (1, 1, 12, 3) :  None :  0.0 :   0.0
+         (1, 4, 1, 1) :  None :  0.0 :   0.0
+         (1, 4, 1, 2) :  None :  0.0 :   0.0
+         (1, 4, 1, 3) :  None :  0.0 :   0.0
+         (1, 4, 2, 1) :  None :  0.0 :   0.0
+         (1, 4, 2, 2) :  None :  0.0 :   0.0
+         (1, 4, 2, 3) :  None :  0.0 :   0.0
+         (1, 4, 3, 1) :  None :  0.0 :   0.0
+         (1, 4, 3, 2) :  None :  0.0 :   0.0
+         (1, 4, 3, 3) :  None :  0.0 :   0.0
+         (1, 4, 4, 1) :  None :  0.0 :   0.0
+         (1, 4, 4, 2) :  None :  0.0 :   0.0
+         (1, 4, 4, 3) :  None :  0.0 :   0.0
+         (1, 4, 5, 1) :  None :  0.0 :   0.0
+         (1, 4, 5, 2) :  None :  0.0 :   0.0
+         (1, 4, 5, 3) :  None :  0.0 :   0.0
+         (1, 4, 6, 1) :  None :  0.0 :   0.0
+         (1, 4, 6, 2) :  None :  0.0 :   0.0
+         (1, 4, 6, 3) :  None :  0.0 :   0.0
+         (1, 4, 7, 1) :  None :  0.0 :   0.0
+         (1, 4, 7, 2) :  None :  0.0 :   0.0
+         (1, 4, 7, 3) :  None :  0.0 :   0.0
+         (1, 4, 8, 1) :  None :  0.0 :   0.0
+         (1, 4, 8, 2) :  None :  0.0 :   0.0
+         (1, 4, 8, 3) :  None :  0.0 :   0.0
+         (1, 4, 9, 1) :  None :  0.0 :   0.0
+         (1, 4, 9, 2) :  None :  0.0 :   0.0
+         (1, 4, 9, 3) :  None :  0.0 :   0.0
+        (1, 4, 10, 1) :  None :  0.0 :   0.0
+        (1, 4, 10, 2) :  None :  0.0 :   0.0
+        (1, 4, 10, 3) :  None :  0.0 :   0.0
+        (1, 4, 11, 1) :  None :  0.0 :   0.0
+        (1, 4, 11, 2) :  None :  0.0 :   0.0
+        (1, 4, 11, 3) :  None :  0.0 :   0.0
+        (1, 4, 12, 1) :  None :  0.0 :   0.0
+        (1, 4, 12, 2) :  None :  0.0 :   0.0
+        (1, 4, 12, 3) :  None :  0.0 :   0.0
+         (2, 1, 1, 1) :  None :  0.0 :   0.0
+         (2, 1, 1, 2) :  None :  0.0 :   0.0
+         (2, 1, 1, 3) :  None :  0.0 :   0.0
+         (2, 1, 2, 1) :  None :  0.0 :   0.0
+         (2, 1, 2, 2) :  None :  0.0 :   0.0
+         (2, 1, 2, 3) :  None :  0.0 :   0.0
+         (2, 1, 3, 1) :  None :  0.0 :   0.0
+         (2, 1, 3, 2) :  None :  0.0 :   0.0
+         (2, 1, 3, 3) :  None :  0.0 :   0.0
+         (2, 1, 4, 1) :  None :  0.0 :   0.0
+         (2, 1, 4, 2) :  None :  0.0 :   0.0
+         (2, 1, 4, 3) :  None :  0.0 :   0.0
+         (2, 1, 5, 1) :  None :  0.0 :   0.0
+         (2, 1, 5, 2) :  None :  0.0 :   0.0
+         (2, 1, 5, 3) :  None :  0.0 :   0.0
+         (2, 1, 6, 1) :  None :  0.0 :   0.0
+         (2, 1, 6, 2) :  None :  0.0 :   0.0
+         (2, 1, 6, 3) :  None :  0.0 :   0.0
+         (2, 1, 7, 1) :  None :  0.0 :   0.0
+         (2, 1, 7, 2) :  None :  0.0 :   0.0
+         (2, 1, 7, 3) :  None :  0.0 :   0.0
+         (2, 1, 8, 1) :  None :  0.0 :   0.0
+         (2, 1, 8, 2) :  None :  0.0 :   0.0
+         (2, 1, 8, 3) :  None :  0.0 :   0.0
+         (2, 1, 9, 1) :  None :  0.0 :   0.0
+         (2, 1, 9, 2) :  None :  0.0 :   0.0
+         (2, 1, 9, 3) :  None :  0.0 :   0.0
+        (2, 1, 10, 1) :  None :  0.0 :   0.0
+        (2, 1, 10, 2) :  None :  0.0 :   0.0
+        (2, 1, 10, 3) :  None :  0.0 :   0.0
+        (2, 1, 11, 1) :  None :  0.0 :   0.0
+        (2, 1, 11, 2) :  None :  0.0 :   0.0
+        (2, 1, 11, 3) :  None :  0.0 :   0.0
+        (2, 1, 12, 1) :  None :  0.0 :   0.0
+        (2, 1, 12, 2) :  None :  0.0 :   0.0
+        (2, 1, 12, 3) :  None :  0.0 :   0.0
+         (2, 2, 1, 1) :  None :  0.0 :   0.0
+         (2, 2, 1, 2) :  None :  0.0 :   0.0
+         (2, 2, 1, 3) :  None :  0.0 :   0.0
+         (2, 2, 2, 1) :  None :  0.0 :   0.0
+         (2, 2, 2, 2) :  None :  0.0 :   0.0
+         (2, 2, 2, 3) :  None :  0.0 :   0.0
+         (2, 2, 3, 1) :  None :  0.0 :   0.0
+         (2, 2, 3, 2) :  None :  0.0 :   0.0
+         (2, 2, 3, 3) :  None :  0.0 :   0.0
+         (2, 2, 4, 1) :  None :  0.0 :   0.0
+         (2, 2, 4, 2) :  None :  0.0 :   0.0
+         (2, 2, 4, 3) :  None :  0.0 :   0.0
+         (2, 2, 5, 1) :  None :  0.0 :   0.0
+         (2, 2, 5, 2) :  None :  0.0 :   0.0
+         (2, 2, 5, 3) :  None :  0.0 :   0.0
+         (2, 2, 6, 1) :  None :  0.0 :   0.0
+         (2, 2, 6, 2) :  None :  0.0 :   0.0
+         (2, 2, 6, 3) :  None :  0.0 :   0.0
+         (2, 2, 7, 1) :  None :  0.0 :   0.0
+         (2, 2, 7, 2) :  None :  0.0 :   0.0
+         (2, 2, 7, 3) :  None :  0.0 :   0.0
+         (2, 2, 8, 1) :  None :  0.0 :   0.0
+         (2, 2, 8, 2) :  None :  0.0 :   0.0
+         (2, 2, 8, 3) :  None :  0.0 :   0.0
+         (2, 2, 9, 1) :  None :  0.0 :   0.0
+         (2, 2, 9, 2) :  None :  0.0 :   0.0
+         (2, 2, 9, 3) :  None :  0.0 :   0.0
+        (2, 2, 10, 1) :  None :  0.0 :   0.0
+        (2, 2, 10, 2) :  None :  0.0 :   0.0
+        (2, 2, 10, 3) :  None :  0.0 :   0.0
+        (2, 2, 11, 1) :  None :  0.0 :   0.0
+        (2, 2, 11, 2) :  None :  0.0 :   0.0
+        (2, 2, 11, 3) :  None :  0.0 :   0.0
+        (2, 2, 12, 1) :  None :  0.0 :   0.0
+        (2, 2, 12, 2) :  None :  0.0 :   0.0
+        (2, 2, 12, 3) :  None :  0.0 :   0.0
+         (2, 3, 1, 1) :  None :  0.0 :   0.0
+         (2, 3, 1, 2) :  None :  0.0 :   0.0
+         (2, 3, 1, 3) :  None :  0.0 :   0.0
+         (2, 3, 2, 1) :  None :  0.0 :   0.0
+         (2, 3, 2, 2) :  None :  0.0 :   0.0
+         (2, 3, 2, 3) :  None :  0.0 :   0.0
+         (2, 3, 3, 1) :  None :  0.0 :   0.0
+         (2, 3, 3, 2) :  None :  0.0 :   0.0
+         (2, 3, 3, 3) :  None :  0.0 :   0.0
+         (2, 3, 4, 1) :  None :  0.0 :   0.0
+         (2, 3, 4, 2) :  None :  0.0 :   0.0
+         (2, 3, 4, 3) :  None :  0.0 :   0.0
+         (2, 3, 5, 1) :  None :  0.0 :   0.0
+         (2, 3, 5, 2) :  None :  0.0 :   0.0
+         (2, 3, 5, 3) :  None :  0.0 :   0.0
+         (2, 3, 6, 1) :  None :  0.0 :   0.0
+         (2, 3, 6, 2) :  None :  0.0 :   0.0
+         (2, 3, 6, 3) :  None :  0.0 :   0.0
+         (2, 3, 7, 1) :  None :  0.0 :   0.0
+         (2, 3, 7, 2) :  None :  0.0 :   0.0
+         (2, 3, 7, 3) :  None :  0.0 :   0.0
+         (2, 3, 8, 1) :  None :  0.0 :   0.0
+         (2, 3, 8, 2) :  None :  0.0 :   0.0
+         (2, 3, 8, 3) :  None :  0.0 :   0.0
+         (2, 3, 9, 1) :  None :  0.0 :   0.0
+         (2, 3, 9, 2) :  None :  0.0 :   0.0
+         (2, 3, 9, 3) :  None :  0.0 :   0.0
+        (2, 3, 10, 1) :  None :  0.0 :   0.0
+        (2, 3, 10, 2) :  None :  0.0 :   0.0
+        (2, 3, 10, 3) :  None :  0.0 :   0.0
+        (2, 3, 11, 1) :  None :  0.0 :   0.0
+        (2, 3, 11, 2) :  None :  0.0 :   0.0
+        (2, 3, 11, 3) :  None :  0.0 :   0.0
+        (2, 3, 12, 1) :  None :  0.0 :   0.0
+        (2, 3, 12, 2) :  None :  0.0 :   0.0
+        (2, 3, 12, 3) :  None :  0.0 :   0.0
+         (2, 4, 1, 1) :  None :  0.0 :   0.0
+         (2, 4, 1, 2) :  None :  0.0 :   0.0
+         (2, 4, 1, 3) :  None :  0.0 :   0.0
+         (2, 4, 2, 1) :  None :  0.0 :   0.0
+         (2, 4, 2, 2) :  None :  0.0 :   0.0
+         (2, 4, 2, 3) :  None :  0.0 :   0.0
+         (2, 4, 3, 1) :  None :  0.0 :   0.0
+         (2, 4, 3, 2) :  None :  0.0 :   0.0
+         (2, 4, 3, 3) :  None :  0.0 :   0.0
+         (2, 4, 4, 1) :  None :  0.0 :   0.0
+         (2, 4, 4, 2) :  None :  0.0 :   0.0
+         (2, 4, 4, 3) :  None :  0.0 :   0.0
+         (2, 4, 5, 1) :  None :  0.0 :   0.0
+         (2, 4, 5, 2) :  None :  0.0 :   0.0
+         (2, 4, 5, 3) :  None :  0.0 :   0.0
+         (2, 4, 6, 1) :  None :  0.0 :   0.0
+         (2, 4, 6, 2) :  None :  0.0 :   0.0
+         (2, 4, 6, 3) :  None :  0.0 :   0.0
+         (2, 4, 7, 1) :  None :  0.0 :   0.0
+         (2, 4, 7, 2) :  None :  0.0 :   0.0
+         (2, 4, 7, 3) :  None :  0.0 :   0.0
+         (2, 4, 8, 1) :  None :  0.0 :   0.0
+         (2, 4, 8, 2) :  None :  0.0 :   0.0
+         (2, 4, 8, 3) :  None :  0.0 :   0.0
+         (2, 4, 9, 1) :  None :  0.0 :   0.0
+         (2, 4, 9, 2) :  None :  0.0 :   0.0
+         (2, 4, 9, 3) :  None :  0.0 :   0.0
+        (2, 4, 10, 1) :  None :  0.0 :   0.0
+        (2, 4, 10, 2) :  None :  0.0 :   0.0
+        (2, 4, 10, 3) :  None :  0.0 :   0.0
+        (2, 4, 11, 1) :  None :  0.0 :   0.0
+        (2, 4, 11, 2) :  None :  0.0 :   0.0
+        (2, 4, 11, 3) :  None :  0.0 :   0.0
+        (2, 4, 12, 1) :  None :  0.0 :   0.0
+        (2, 4, 12, 2) :  None :  0.0 :   0.0
+        (2, 4, 12, 3) :  None :  0.0 :   0.0
+         (3, 2, 1, 1) :  None :  0.0 :   0.0
+         (3, 2, 1, 2) :  None :  0.0 :   0.0
+         (3, 2, 1, 3) :  None :  0.0 :   0.0
+         (3, 2, 2, 1) :  None :  0.0 :   0.0
+         (3, 2, 2, 2) :  None :  0.0 :   0.0
+         (3, 2, 2, 3) :  None :  0.0 :   0.0
+         (3, 2, 3, 1) :  None :  0.0 :   0.0
+         (3, 2, 3, 2) :  None :  0.0 :   0.0
+         (3, 2, 3, 3) :  None :  0.0 :   0.0
+         (3, 2, 4, 1) :  None :  0.0 :   0.0
+         (3, 2, 4, 2) :  None :  0.0 :   0.0
+         (3, 2, 4, 3) :  None :  0.0 :   0.0
+         (3, 2, 5, 1) :  None :  0.0 :   0.0
+         (3, 2, 5, 2) :  None :  0.0 :   0.0
+         (3, 2, 5, 3) :  None :  0.0 :   0.0
+         (3, 2, 6, 1) :  None :  0.0 :   0.0
+         (3, 2, 6, 2) :  None :  0.0 :   0.0
+         (3, 2, 6, 3) :  None :  0.0 :   0.0
+         (3, 2, 7, 1) :  None :  0.0 :   0.0
+         (3, 2, 7, 2) :  None :  0.0 :   0.0
+         (3, 2, 7, 3) :  None :  0.0 :   0.0
+         (3, 2, 8, 1) :  None :  0.0 :   0.0
+         (3, 2, 8, 2) :  None :  0.0 :   0.0
+         (3, 2, 8, 3) :  None :  0.0 :   0.0
+         (3, 2, 9, 1) :  None :  0.0 :   0.0
+         (3, 2, 9, 2) :  None :  0.0 :   0.0
+         (3, 2, 9, 3) :  None :  0.0 :   0.0
+        (3, 2, 10, 1) :  None :  0.0 :   0.0
+        (3, 2, 10, 2) :  None :  0.0 :   0.0
+        (3, 2, 10, 3) :  None :  0.0 :   0.0
+        (3, 2, 11, 1) :  None :  0.0 :   0.0
+        (3, 2, 11, 2) :  None :  0.0 :   0.0
+        (3, 2, 11, 3) :  None :  0.0 :   0.0
+        (3, 2, 12, 1) :  None :  0.0 :   0.0
+        (3, 2, 12, 2) :  None :  0.0 :   0.0
+        (3, 2, 12, 3) :  None :  0.0 :   0.0
+         (3, 3, 1, 1) :  None :  0.0 :   0.0
+         (3, 3, 1, 2) :  None :  0.0 :   0.0
+         (3, 3, 1, 3) :  None :  0.0 :   0.0
+         (3, 3, 2, 1) :  None :  0.0 :   0.0
+         (3, 3, 2, 2) :  None :  0.0 :   0.0
+         (3, 3, 2, 3) :  None :  0.0 :   0.0
+         (3, 3, 3, 1) :  None :  0.0 :   0.0
+         (3, 3, 3, 2) :  None :  0.0 :   0.0
+         (3, 3, 3, 3) :  None :  0.0 :   0.0
+         (3, 3, 4, 1) :  None :  0.0 :   0.0
+         (3, 3, 4, 2) :  None :  0.0 :   0.0
+         (3, 3, 4, 3) :  None :  0.0 :   0.0
+         (3, 3, 5, 1) :  None :  0.0 :   0.0
+         (3, 3, 5, 2) :  None :  0.0 :   0.0
+         (3, 3, 5, 3) :  None :  0.0 :   0.0
+         (3, 3, 6, 1) :  None :  0.0 :   0.0
+         (3, 3, 6, 2) :  None :  0.0 :   0.0
+         (3, 3, 6, 3) :  None :  0.0 :   0.0
+         (3, 3, 7, 1) :  None :  0.0 :   0.0
+         (3, 3, 7, 2) :  None :  0.0 :   0.0
+         (3, 3, 7, 3) :  None :  0.0 :   0.0
+         (3, 3, 8, 1) :  None :  0.0 :   0.0
+         (3, 3, 8, 2) :  None :  0.0 :   0.0
+         (3, 3, 8, 3) :  None :  0.0 :   0.0
+         (3, 3, 9, 1) :  None :  0.0 :   0.0
+         (3, 3, 9, 2) :  None :  0.0 :   0.0
+         (3, 3, 9, 3) :  None :  0.0 :   0.0
+        (3, 3, 10, 1) :  None :  0.0 :   0.0
+        (3, 3, 10, 2) :  None :  0.0 :   0.0
+        (3, 3, 10, 3) :  None :  0.0 :   0.0
+        (3, 3, 11, 1) :  None :  0.0 :   0.0
+        (3, 3, 11, 2) :  None :  0.0 :   0.0
+        (3, 3, 11, 3) :  None :  0.0 :   0.0
+        (3, 3, 12, 1) :  None :  0.0 :   0.0
+        (3, 3, 12, 2) :  None :  0.0 :   0.0
+        (3, 3, 12, 3) :  None :  0.0 :   0.0
+         (3, 5, 1, 1) :  None :  0.0 :   0.0
+         (3, 5, 1, 2) :  None :  0.0 :   0.0
+         (3, 5, 1, 3) :  None :  0.0 :   0.0
+         (3, 5, 2, 1) :  None :  0.0 :   0.0
+         (3, 5, 2, 2) :  None :  0.0 :   0.0
+         (3, 5, 2, 3) :  None :  0.0 :   0.0
+         (3, 5, 3, 1) :  None :  0.0 :   0.0
+         (3, 5, 3, 2) :  None :  0.0 :   0.0
+         (3, 5, 3, 3) :  None :  0.0 :   0.0
+         (3, 5, 4, 1) :  None :  0.0 :   0.0
+         (3, 5, 4, 2) :  None :  0.0 :   0.0
+         (3, 5, 4, 3) :  None :  0.0 :   0.0
+         (3, 5, 5, 1) :  None :  0.0 :   0.0
+         (3, 5, 5, 2) :  None :  0.0 :   0.0
+         (3, 5, 5, 3) :  None :  0.0 :   0.0
+         (3, 5, 6, 1) :  None :  0.0 :   0.0
+         (3, 5, 6, 2) :  None :  0.0 :   0.0
+         (3, 5, 6, 3) :  None :  0.0 :   0.0
+         (3, 5, 7, 1) :  None :  0.0 :   0.0
+         (3, 5, 7, 2) :  None :  0.0 :   0.0
+         (3, 5, 7, 3) :  None :  0.0 :   0.0
+         (3, 5, 8, 1) :  None :  0.0 :   0.0
+         (3, 5, 8, 2) :  None :  0.0 :   0.0
+         (3, 5, 8, 3) :  None :  0.0 :   0.0
+         (3, 5, 9, 1) :  None :  0.0 :   0.0
+         (3, 5, 9, 2) :  None :  0.0 :   0.0
+         (3, 5, 9, 3) :  None :  0.0 :   0.0
+        (3, 5, 10, 1) :  None :  0.0 :   0.0
+        (3, 5, 10, 2) :  None :  0.0 :   0.0
+        (3, 5, 10, 3) :  None :  0.0 :   0.0
+        (3, 5, 11, 1) :  None :  0.0 :   0.0
+        (3, 5, 11, 2) :  None :  0.0 :   0.0
+        (3, 5, 11, 3) :  None :  0.0 :   0.0
+        (3, 5, 12, 1) :  None :  0.0 :   0.0
+        (3, 5, 12, 2) :  None :  0.0 :   0.0
+        (3, 5, 12, 3) :  None :  0.0 :   0.0
+         (4, 3, 1, 1) :  None :  0.0 :   0.0
+         (4, 3, 1, 2) :  None :  0.0 :   0.0
+         (4, 3, 1, 3) :  None :  0.0 :   0.0
+         (4, 3, 2, 1) :  None :  0.0 :   0.0
+         (4, 3, 2, 2) :  None :  0.0 :   0.0
+         (4, 3, 2, 3) :  None :  0.0 :   0.0
+         (4, 3, 3, 1) :  None :  0.0 :   0.0
+         (4, 3, 3, 2) :  None :  0.0 :   0.0
+         (4, 3, 3, 3) :  None :  0.0 :   0.0
+         (4, 3, 4, 1) :  None :  0.0 :   0.0
+         (4, 3, 4, 2) :  None :  0.0 :   0.0
+         (4, 3, 4, 3) :  None :  0.0 :   0.0
+         (4, 3, 5, 1) :  None :  0.0 :   0.0
+         (4, 3, 5, 2) :  None :  0.0 :   0.0
+         (4, 3, 5, 3) :  None :  0.0 :   0.0
+         (4, 3, 6, 1) :  None :  0.0 :   0.0
+         (4, 3, 6, 2) :  None :  0.0 :   0.0
+         (4, 3, 6, 3) :  None :  0.0 :   0.0
+         (4, 3, 7, 1) :  None :  0.0 :   0.0
+         (4, 3, 7, 2) :  None :  0.0 :   0.0
+         (4, 3, 7, 3) :  None :  0.0 :   0.0
+         (4, 3, 8, 1) :  None :  0.0 :   0.0
+         (4, 3, 8, 2) :  None :  0.0 :   0.0
+         (4, 3, 8, 3) :  None :  0.0 :   0.0
+         (4, 3, 9, 1) :  None :  0.0 :   0.0
+         (4, 3, 9, 2) :  None :  0.0 :   0.0
+         (4, 3, 9, 3) :  None :  0.0 :   0.0
+        (4, 3, 10, 1) :  None :  0.0 :   0.0
+        (4, 3, 10, 2) :  None :  0.0 :   0.0
+        (4, 3, 10, 3) :  None :  0.0 :   0.0
+        (4, 3, 11, 1) :  None :  0.0 :   0.0
+        (4, 3, 11, 2) :  None :  0.0 :   0.0
+        (4, 3, 11, 3) :  None :  0.0 :   0.0
+        (4, 3, 12, 1) :  None :  0.0 :   0.0
+        (4, 3, 12, 2) :  None :  0.0 :   0.0
+        (4, 3, 12, 3) :  None :  0.0 :   0.0
+         (4, 5, 1, 1) :  None :  0.0 :   0.0
+         (4, 5, 1, 2) :  None :  0.0 :   0.0
+         (4, 5, 1, 3) :  None :  0.0 :   0.0
+         (4, 5, 2, 1) :  None :  0.0 :   0.0
+         (4, 5, 2, 2) :  None :  0.0 :   0.0
+         (4, 5, 2, 3) :  None :  0.0 :   0.0
+         (4, 5, 3, 1) :  None :  0.0 :   0.0
+         (4, 5, 3, 2) :  None :  0.0 :   0.0
+         (4, 5, 3, 3) :  None :  0.0 :   0.0
+         (4, 5, 4, 1) :  None :  0.0 :   0.0
+         (4, 5, 4, 2) :  None :  0.0 :   0.0
+         (4, 5, 4, 3) :  None :  0.0 :   0.0
+         (4, 5, 5, 1) :  None :  0.0 :   0.0
+         (4, 5, 5, 2) :  None :  0.0 :   0.0
+         (4, 5, 5, 3) :  None :  0.0 :   0.0
+         (4, 5, 6, 1) :  None :  0.0 :   0.0
+         (4, 5, 6, 2) :  None :  0.0 :   0.0
+         (4, 5, 6, 3) :  None :  0.0 :   0.0
+         (4, 5, 7, 1) :  None :  0.0 :   0.0
+         (4, 5, 7, 2) :  None :  0.0 :   0.0
+         (4, 5, 7, 3) :  None :  0.0 :   0.0
+         (4, 5, 8, 1) :  None :  0.0 :   0.0
+         (4, 5, 8, 2) :  None :  0.0 :   0.0
+         (4, 5, 8, 3) :  None :  0.0 :   0.0
+         (4, 5, 9, 1) :  None :  0.0 :   0.0
+         (4, 5, 9, 2) :  None :  0.0 :   0.0
+         (4, 5, 9, 3) :  None :  0.0 :   0.0
+        (4, 5, 10, 1) :  None :  0.0 :   0.0
+        (4, 5, 10, 2) :  None :  0.0 :   0.0
+        (4, 5, 10, 3) :  None :  0.0 :   0.0
+        (4, 5, 11, 1) :  None :  0.0 :   0.0
+        (4, 5, 11, 2) :  None :  0.0 :   0.0
+        (4, 5, 11, 3) :  None :  0.0 :   0.0
+        (4, 5, 12, 1) :  None :  0.0 :   0.0
+        (4, 5, 12, 2) :  None :  0.0 :   0.0
+        (4, 5, 12, 3) :  None :  0.0 :   0.0
+    nlpC : Size=3
+        Key : Lower : Body : Upper
+          1 :  None :  0.0 : 1100000.0
+          2 :  None :  0.0 : 1100000.0
+          3 :  None :  0.0 : 1100000.0
+    c9C : Size=3
+        Key : Lower : Body : Upper
+          1 :   0.0 :  0.0 :   0.0
+          2 :   0.0 :  0.0 :   0.0
+          3 :   0.0 :  0.0 :   0.0
+    cobjC : Size=1
+        Key  : Lower : Body               : Upper
+        None :   0.0 : -2.66504321758e-07 :   0.0
+solution time  4.25568890572

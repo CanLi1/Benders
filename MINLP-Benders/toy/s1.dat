@@ -1,0 +1,24 @@
+set Investments := A B C D ;
+set Scenarios := H L;
+param r :=
+A H 1.5
+B H 1.35
+C H 1.23
+D H 1.16
+A L 0.9
+B L 1
+C L 1.1
+D L 1.12;
+
+param r0 :=
+A 1.5
+B 1.35
+C 1.23
+D 1.16
+;
+param x1 :=
+A 1000
+B 0
+C 0
+D 0;
+

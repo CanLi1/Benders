@@ -1,0 +1,11 @@
+set Investments := A B C D ;
+set Scenario := H L;
+param r :=
+A H 1.5
+B H 1.35
+C H 1.23
+D H 1.16
+A L 0.9
+B L 1
+C L 1.1
+D L 1.12;

@@ -1,0 +1,7 @@
+convex 1
+maxcycles 1E3
+nlpreslim -1
+nlpiterlim -1
+mipreslim -1
+mipiterlim -1
+

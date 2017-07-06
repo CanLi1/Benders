@@ -1,0 +1,132 @@
+===========================================================================
+ BARON version 17.4.1. Built: LNX-64 Sat Apr 1 11:24:13 EDT 2017 
+
+ If you use this software, please cite:
+ Tawarmalani, M. and N. V. Sahinidis, A polyhedral
+ branch-and-cut approach to global optimization,
+ Mathematical Programming, 103(2), 225-249, 2005.
+
+ BARON is a product of The Optimization Firm, LLC. http://www.minlp.com/
+ Parts of the BARON software were created at the
+ University of Illinois at Urbana-Champaign.
+===========================================================================
+ Licensee: Qi Chen at Carnegie Mellon University, qichen@andrew.cmu.edu.
+ This BARON run may utilize the following subsolver(s)
+ For LP/MIP: ILOG CPLEX                                      
+ For NLP: IPOPT, FILTERSD
+===========================================================================
+ Starting solution is feasible with a value of     0.00000000000     
+ Doing local search
+ Solving bounding LP
+ Starting multi-start local search
+ Done with local search
+===========================================================================
+  Iteration    Open nodes         Time (s)    Lower bound      Upper bound
+*         1             1             0.04    -49.1250         -7.87500    
+*         1+            1             0.04    -24.5417         -17.1250    
+*         1+            1             0.05    -20.8237         -17.1267    
+*         1+            1             0.05    -19.7336         -17.1284    
+*         1+            1             0.05    -19.7336         -17.1301    
+*         1+            1             0.06    -19.7133         -17.1319    
+*         1+            1             0.06    -19.7133         -17.1336    
+          1             1             0.06    -19.7133         -17.1336    
+*         2             2             0.06    -19.7133         -19.1592    
+*         3             1             0.06    -19.7133         -19.2586    
+          3             0             0.06    -19.2606         -19.2586    
+
+ Cleaning up
+
+                         *** Normal completion ***            
+
+ Wall clock time:                     0.07
+ Total CPU time used:                 0.06
+
+ Total no. of BaR iterations:       3
+ Best solution found at node:       3
+ Max. no. of nodes in memory:       2
+ 
+ All done
+===========================================================================
+Model unknown
+
+  Variables:
+    x : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   3.0 :     5 : False : False :  Reals
+    y : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False : Binary
+    z1 : Size=3, Index=s
+        Key : Lower : Value : Upper : Fixed : Stale : Domain
+          1 :     0 :   1.0 :     1 : False : False : Binary
+          2 :     0 :   1.0 :     1 : False : False : Binary
+          3 :     0 :   1.0 :     1 : False : False : Binary
+    z2 : Size=3, Index=s
+        Key : Lower : Value : Upper : Fixed : Stale : Domain
+          1 :     0 :   0.0 :     1 : False : False : Binary
+          2 :     0 :   1.0 :     1 : False : False : Binary
+          3 :     0 :   1.0 :     1 : False : False : Binary
+    u1 : Size=3, Index=s
+        Key : Lower : Value         : Upper : Fixed : Stale : Domain
+          1 :     0 :           0.5 :  None : False : False : NonNegativeReals
+          2 :     0 :           2.0 :  None : False : False : NonNegativeReals
+          3 :     0 : 3.54138126515 :  None : False : False : NonNegativeReals
+    u2 : Size=3, Index=s
+        Key : Lower : Value         : Upper : Fixed : Stale : Domain
+          1 :     0 :           0.0 :  None : False : False : NonNegativeReals
+          2 :     0 :           2.0 :  None : False : False : NonNegativeReals
+          3 :     0 : 2.54138126515 :  None : False : False : NonNegativeReals
+    obj : Size=1, Index=None
+        Key  : Lower : Value          : Upper : Fixed : Stale : Domain
+        None :  None : -19.2586329072 :  None : False : False :  Reals
+    theta : Size=3, Index=s
+        Key : Lower : Value          : Upper : Fixed : Stale : Domain
+          1 :  None :          4.375 :  None : False : False :  Reals
+          2 :  None :          -11.0 :  None : False : False :  Reals
+          3 :  None : -12.6336329072 :  None : False : False :  Reals
+
+  Objectives:
+    oobjC : Size=1, Index=None, Active=True
+        Key  : Active : Value
+        None :   True : -19.2586329072
+
+  Constraints:
+    c1C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -2.0 :   0.0
+    c2C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c3C : Size=3
+        Key : Lower : Body            : Upper
+          1 :  None :             0.0 :   0.0
+          2 :  None :             0.0 :   0.0
+          3 :  None : -0.458618734851 :   0.0
+    c4C : Size=3
+        Key : Lower : Body           : Upper
+          1 :  None :            0.0 :   0.0
+          2 :  None :            0.0 :   0.0
+          3 :  None : -7.45861873485 :   0.0
+    c5C : Size=3
+        Key : Lower : Body             : Upper
+          1 :  None :             -9.0 :   0.0
+          2 :  None :             -5.0 :   0.0
+          3 :  None : 1.7763568394e-15 :   0.0
+    c6C : Size=3
+        Key : Lower : Body : Upper
+          1 :  None :  0.5 :   1.0
+          2 :  None :  0.0 :   1.0
+          3 :  None :  1.0 :   1.0
+    c7C : Size=3
+        Key : Lower : Body : Upper
+          1 :  None : -0.5 :   1.0
+          2 :  None :  0.0 :   1.0
+          3 :  None : -1.0 :   1.0
+    c8C : Size=3
+        Key : Lower : Body : Upper
+          1 :   0.0 :  0.0 :   0.0
+          2 :   0.0 :  0.0 :   0.0
+          3 :   0.0 :  0.0 :   0.0
+    cobjC : Size=1
+        Key  : Lower : Body             : Upper
+        None :   0.0 : 3.5527136788e-15 :   0.0

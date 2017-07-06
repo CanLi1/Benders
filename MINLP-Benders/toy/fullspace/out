@@ -1,0 +1,211 @@
+
+Welcome to IBM(R) ILOG(R) CPLEX(R) Interactive Optimizer 12.7.0.0
+  with Simplex, Mixed Integer & Barrier Optimizers
+5725-A06 5725-A29 5724-Y48 5724-Y49 5724-Y54 5724-Y55 5655-Y21
+Copyright IBM Corp. 1988, 2016.  All Rights Reserved.
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> Logfile 'cplex.log' closed.
+Logfile '/tmp/tmpSZ6lzu.cplex.log' open.
+CPLEX> Problem '/tmp/tmp1LVarI.pyomo.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+CPLEX> Problem name         : /tmp/tmp1LVarI.pyomo.lp
+Objective sense      : Maximize
+Variables            :      36  [Nneg: 21,  Box: 2,  Free: 1,  Binary: 12]
+Objective nonzeros   :       1
+Linear constraints   :      24  [Less: 12,  Equal: 12]
+  Nonzeros           :      78
+  RHS nonzeros       :       9
+Quadratic constraints:       2  [Less: 2]
+  Linear terms       :       8
+  Quadratic terms    :       8
+  RHS nonzeros       :       0
+
+Variables            : Min LB: -2000.000        Max UB: 1000.000       
+Objective nonzeros   : Min   : 1.000000         Max   : 1.000000       
+Linear constraints   :
+  Nonzeros           : Min   : 0.5000000        Max   : 1000.000       
+  RHS nonzeros       : Min   : 1.000000         Max   : 1000.000       
+Quadratic constraints:
+  Linear terms       : Min   : 0.9000000        Max   : 1.500000       
+  Quadratic terms    : Min   : 1.000000         Max   : 1.000000       
+  RHS nonzeros       : Min   : all zero         Max   : all zero       
+CPLEX> Tried aggregator 1 time.
+MIQCP Presolve eliminated 2 rows and 2 columns.
+MIQCP Presolve modified 16 coefficients.
+Reduced MIQCP has 28 rows, 46 columns, and 98 nonzeros.
+Reduced MIQCP has 12 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Reduced MIQCP has 2 quadratic constraints.
+Presolve time = 0.00 sec. (0.06 ticks)
+Probing fixed 0 vars, tightened 24 bounds.
+Probing time = 0.00 sec. (0.02 ticks)
+Clique table members: 3.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 24 threads.
+Root relaxation solution time = 0.00 sec. (0.07 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0       46.9450     0                   1000.0000       15         
+      0     0       46.3086     0                     Cone: 2       18         
+      0     0       46.0540     4                     Cone: 4       20         
+      0     0       45.8549     4                     Cone: 6       22         
+      0     0       45.6070     6                     Cone: 8       25         
+      0     0       45.5380     7                    Cone: 10       29         
+      0     0       45.4532     8                    Cone: 12       33         
+      0     0       18.8403     8                    Cone: 22       53         
+      0     0       16.5350     4                    Cone: 26       57         
+      0     0       16.2763     4                    Cone: 27       58         
+      0     0       15.8091     4                    Cone: 28       61         
+      0     0       15.8091     4                     15.8091       61         
+*     0+    0                            3.3760       15.8091           368.28%
+      0     0       11.8166     4        3.3760      Cuts: 18       72  250.02%
+      0     0       10.7617     7        3.3760      Cuts: 10       84  218.77%
+      0     0        7.9196     6        3.3760       Cuts: 7       96  134.59%
+*     0+    0                            3.7339        7.9196           112.10%
+      0     0        6.4253     7        3.7339      Cuts: 16      109   72.08%
+*     0+    0                            4.6413        6.4253            38.44%
+      0     0        5.8248     5        4.6413       Cuts: 8      118   25.50%
+      0     0        5.5933     7        4.6413   LiftProj: 1      124   20.51%
+      0     0        5.3912     5        4.6413    MIRcuts: 1      129   16.16%
+      0     0        5.3808     7        4.6413       Cuts: 5      131   15.93%
+      0     0        5.3731     8        4.6413       Cuts: 4      134   15.77%
+      0     0        5.3725     8        4.6413       Cuts: 4      136   15.75%
+      0     0        5.3625     7        4.6413    MIRcuts: 2      140   15.54%
+*     0+    0                            4.6413        5.3625            15.54%
+*     0+    0                            4.8989        5.3625             9.46%
+      0     1        5.2406     7        4.8989        5.3625      146    9.46%
+Elapsed time = 0.18 sec. (18.90 ticks, tree = 0.01 MB, solutions = 4)
+*     6     1      integral     0        4.9238        4.9905      167    1.35%
+
+Implied bound cuts applied:  3
+Flow cuts applied:  2
+Mixed integer rounding cuts applied:  5
+Lift and project cuts applied:  4
+Cone linearizations applied:  15
+
+Root node processing (before b&c):
+  Real time             =    0.17 sec. (18.78 ticks)
+Parallel b&c, 24 threads:
+  Real time             =    0.07 sec. (3.15 ticks)
+  Sync time (average)   =    0.05 sec.
+  Wait time (average)   =    0.01 sec.
+                          ------------
+Total (root+branch&cut) =    0.24 sec. (21.92 ticks)
+
+Solution pool: 5 solutions saved.
+
+MIP - Integer optimal solution:  Objective =  4.9237609229e+00
+Solution time =    0.24 sec.  Iterations = 173  Nodes = 10
+Deterministic time = 21.92 ticks  (90.52 ticks/sec)
+
+CPLEX> Incumbent solution written to file '/tmp/tmpAkHuBq.cplex.sol'.
+CPLEX> Model unknown
+
+  Variables:
+    y : Size=4, Index=Investments
+        Key : Lower : Value : Upper : Fixed : Stale : Domain
+          A :     0 :  -0.0 :     1 : False : False : Binary
+          B :     0 :  -0.0 :     1 : False : False : Binary
+          C :     0 :   1.0 :     1 : False : False : Binary
+          D :     0 :  -0.0 :     1 : False : False : Binary
+    y2 : Size=8, Index=y2_index
+        Key        : Lower : Value : Upper : Fixed : Stale : Domain
+        ('A', 'H') :     0 :  -0.0 :     1 : False : False : Binary
+        ('A', 'L') :     0 :  -0.0 :     1 : False : False : Binary
+        ('B', 'H') :     0 :   1.0 :     1 : False : False : Binary
+        ('B', 'L') :     0 :  -0.0 :     1 : False : False : Binary
+        ('C', 'H') :     0 :  -0.0 :     1 : False : False : Binary
+        ('C', 'L') :     0 :   1.0 :     1 : False : False : Binary
+        ('D', 'H') :     0 :  -0.0 :     1 : False : False : Binary
+        ('D', 'L') :     0 :  -0.0 :     1 : False : False : Binary
+    x2 : Size=8, Index=x2_index
+        Key        : Lower : Value         : Upper : Fixed : Stale : Domain
+        ('A', 'H') :     0 :           0.0 :  None : False : False : NonNegativeReals
+        ('A', 'L') :     0 :           0.0 :  None : False : False : NonNegativeReals
+        ('B', 'H') :     0 : 35.0713558233 :  None : False : False : NonNegativeReals
+        ('B', 'L') :     0 :           0.0 :  None : False : False : NonNegativeReals
+        ('C', 'H') :     0 :           0.0 :  None : False : False : NonNegativeReals
+        ('C', 'L') :     0 : 33.1662478987 :  None : False : False : NonNegativeReals
+        ('D', 'H') :     0 :           0.0 :  None : False : False : NonNegativeReals
+        ('D', 'L') :     0 :           0.0 :  None : False : False : NonNegativeReals
+    x : Size=4, Index=Investments
+        Key : Lower : Value  : Upper : Fixed : Stale : Domain
+          A :     0 :    0.0 :  None : False : False : NonNegativeReals
+          B :     0 :    0.0 :  None : False : False : NonNegativeReals
+          C :     0 : 1000.0 :  None : False : False : NonNegativeReals
+          D :     0 :    0.0 :  None : False : False : NonNegativeReals
+    f : Size=2, Index=Scenario
+        Key : Lower : Value         : Upper : Fixed : Stale : Domain
+          H : -2000 : 6.20884306729 :  1000 : False : False :  Reals
+          L : -2000 : 3.63867877847 :  1000 : False : False :  Reals
+    d : Size=4, Index=d_index
+        Key        : Lower : Value             : Upper : Fixed : Stale : Domain
+        ('H', 'H') :     0 : 1.48487089652e-08 :  None : False : False : NonNegativeReals
+        ('H', 'L') :     0 : 1.70930789101e-08 :  None : False : False : NonNegativeReals
+        ('L', 'H') :     0 : 1.47389895138e-08 :  None : False : False : NonNegativeReals
+        ('L', 'L') :     0 : 1.51925360832e-08 :  None : False : False : NonNegativeReals
+    su : Size=4, Index=su_index
+        Key        : Lower : Value           : Upper : Fixed : Stale : Domain
+        ('H', 'H') :     0 :     12.34633037 :  None : False : False : NonNegativeReals
+        ('H', 'L') :     0 : 0.0713558368095 :  None : False : False : NonNegativeReals
+        ('L', 'H') :     0 :   5.79448492485 :  None : False : False : NonNegativeReals
+        ('L', 'L') :     0 :   1.48287269948 :  None : False : False : NonNegativeReals
+    obj : Size=1, Index=None
+        Key  : Lower : Value         : Upper : Fixed : Stale : Domain
+        None :  None : 4.92376092288 :  None : False : False :  Reals
+
+  Objectives:
+    oobjO : Size=1, Index=None, Active=True
+        Key  : Active : Value
+        None :   True : 4.92376092288
+
+  Constraints:
+    c1C : Size=1
+        Key  : Lower  : Body   : Upper
+        None : 1000.0 : 1000.0 : 1000.0
+    c2C : Size=1
+        Key  : Lower : Body : Upper
+        None :   1.0 :  1.0 :   1.0
+    c3C : Size=4
+        Key : Lower : Body : Upper
+          A :  None :  0.0 :   0.0
+          B :  None :  0.0 :   0.0
+          C :  None :  0.0 :   0.0
+          D :  None :  0.0 :   0.0
+    c5C : Size=2
+        Key : Lower : Body               : Upper
+          H :  None : -7.14783709554e-07 :   0.0
+          L :  None : -3.22384039464e-07 :   0.0
+    c6C : Size=2
+        Key : Lower : Body : Upper
+          H :   1.0 :  1.0 :   1.0
+          L :   1.0 :  1.0 :   1.0
+    c4C : Size=4
+        Key        : Lower : Body          : Upper
+        ('H', 'H') :  35.0 : 35.0000000063 :  35.0
+        ('H', 'L') :  35.0 : 35.0000000036 :  35.0
+        ('L', 'H') :  35.0 : 35.0000000053 :  35.0
+        ('L', 'L') :  35.0 : 35.0000000043 :  35.0
+    c7C : Size=2
+        Key : Lower : Body              : Upper
+          H :   0.0 : 1.18076375344e-08 :   0.0
+          L :   0.0 : 1.12010614117e-08 :   0.0
+    c8C : Size=8
+        Key        : Lower : Body           : Upper
+        ('H', 'A') :  None :            0.0 :   0.0
+        ('H', 'B') :  None : -964.928644177 :   0.0
+        ('H', 'C') :  None :            0.0 :   0.0
+        ('H', 'D') :  None :            0.0 :   0.0
+        ('L', 'A') :  None :            0.0 :   0.0
+        ('L', 'B') :  None :            0.0 :   0.0
+        ('L', 'C') :  None : -966.833752101 :   0.0
+        ('L', 'D') :  None :            0.0 :   0.0
+    cobjC : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0

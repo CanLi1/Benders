@@ -1,0 +1,15 @@
+lagrangean cuts-1.125 - theta[1]None
+lagrangean cuts-11.0 - theta[2]None
+lagrangean cuts-14.875 - theta[3]None
+Benders cuts1.125 + theta[1] + 22.5*x - 0.25*( 5*x + 7*y )None
+Benders cuts12.25 + theta[2] + 8.25*x - 0.5*( 5*x + 7*y )None
+Benders cuts17.8214285714 + theta[3] + 1.28303571429*x - 0.25*( 5*x + 7*y )None
+lagrangean cuts-32.7916666667 + 7.55555555556*x + 1.88888888889*y - theta[1]None
+lagrangean cuts-6.0 - 2.83333333333*x - 0.944444444444*y - theta[2]None
+lagrangean cuts-3.0 - 4.72222222222*x - 0.944444444444*y - theta[3]None
+Benders cuts1.125 + theta[1] - 0.25*( 5*x + 7*y )None
+Benders cuts22.0 + theta[2] - 0.5*( 5*x + 7*y )None
+Benders cuts17.8214285714 + theta[3] + 1.28303571429*x - 0.25*( 5*x + 7*y )None
+lagrangean cuts-1.125 + 1.06517094017*x + 0.590811965812*y - theta[1]None
+lagrangean cuts-11.9401709402 + 0.411858974359*x - 0.295405982906*y - theta[2]None
+lagrangean cuts-8.04973927788 - 1.47702991453*x - 0.295405982906*y - theta[3]None

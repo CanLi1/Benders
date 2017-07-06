@@ -1,0 +1,4 @@
+this folder we implement the bundle method similar to the TOP paper
+the center is changed when a given improvement in LB has been achieved
+However, this method is not as good as the subgradient method( for some theta
+and half values)

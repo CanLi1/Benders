@@ -1,0 +1,1810 @@
+Model unknown
+
+  Variables:
+    x : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :     5 : False : False :  Reals
+    y : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :     1 : False : False : Binary
+    z1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False : Binary
+    z2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :     1 : False : False : Binary
+    u1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.5 :  None : False : False : NonNegativeReals
+    u2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :  None : False : False : NonNegativeReals
+    obj : Size=1, Index=None
+        Key  : Lower : Value  : Upper : Fixed : Stale : Domain
+        None :  None : -1.125 :  None : False : False :  Reals
+
+  Objectives:
+    oobjC : Size=1, Index=None, Active=True
+        Key  : Active : Value
+        None :   True : -1.125
+
+  Constraints:
+    c1C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c2C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c3C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c4C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c5C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c6C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.5 :   1.0
+    c7C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -0.5 :   1.0
+    cobjC : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+lagrangean cuts-1.125 - theta[1]None
+Model unknown
+
+  Variables:
+    x : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   3.0 :     5 : False : False :  Reals
+    y : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False : Binary
+    z1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False : Binary
+    z2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False : Binary
+    u1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   2.0 :  None : False : False : NonNegativeReals
+    u2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   2.0 :  None : False : False : NonNegativeReals
+    obj : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :  None : -11.0 :  None : False : False :  Reals
+
+  Objectives:
+    oobjC : Size=1, Index=None, Active=True
+        Key  : Active : Value
+        None :   True : -11.0
+
+  Constraints:
+    c1C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -2.0 :   0.0
+    c2C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c3C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c4C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c5C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -5.0 :   0.0
+    c6C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   1.0
+    c7C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   1.0
+    cobjC : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+lagrangean cuts-11.0 - theta[2]None
+Model unknown
+
+  Variables:
+    x : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   5.0 :     5 : False : False :  Reals
+    y : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False : Binary
+    z1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False : Binary
+    z2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False : Binary
+    u1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   4.0 :  None : False : False : NonNegativeReals
+    u2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :  3.75 :  None : False : False : NonNegativeReals
+    obj : Size=1, Index=None
+        Key  : Lower : Value   : Upper : Fixed : Stale : Domain
+        None :  None : -14.875 :  None : False : False :  Reals
+
+  Objectives:
+    oobjC : Size=1, Index=None, Active=True
+        Key  : Active : Value
+        None :   True : -14.875
+
+  Constraints:
+    c1C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c2C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -2.0 :   0.0
+    c3C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c4C : Size=1
+        Key  : Lower : Body  : Upper
+        None :  None : -6.25 :   0.0
+    c5C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c6C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : 0.25 :   1.0
+    c7C : Size=1
+        Key  : Lower : Body  : Upper
+        None :  None : -0.25 :   1.0
+    cobjC : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+lagrangean cuts-14.875 - theta[3]None
+Model unknown
+
+  Variables:
+    x : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :     5 : False : False :  Reals
+    y : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :     1 : False : False : Binary
+    theta : Size=3, Index=s
+        Key : Lower : Value   : Upper : Fixed : Stale : Domain
+          1 :   -50 :  -1.125 :   100 : False : False :  Reals
+          2 :   -50 :   -11.0 :   100 : False : False :  Reals
+          3 :   -50 : -14.875 :   100 : False : False :  Reals
+    f1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :  None :   0.0 :  None : False : False :  Reals
+    obj : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :  None : -27.0 :  None : False : False :  Reals
+
+  Objectives:
+    oobjO : Size=1, Index=None, Active=True
+        Key  : Active : Value
+        None :   True : -27.0
+
+  Constraints:
+    c1C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c2C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c3C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c4C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    benderscuts : Size=0
+        Key : Lower : Body : Upper
+    lagrangeancuts : Size=3
+        Key : Lower : Body : Upper
+          1 :  None :  0.0 :   0.0
+          2 :  None :  0.0 :   0.0
+          3 :  None :  0.0 :   0.0
+===========================================================================
+ BARON version 17.4.1. Built: LNX-64 Sat Apr 1 11:24:13 EDT 2017 
+
+ If you use this software, please cite:
+ Tawarmalani, M. and N. V. Sahinidis, A polyhedral
+ branch-and-cut approach to global optimization,
+ Mathematical Programming, 103(2), 225-249, 2005.
+
+ BARON is a product of The Optimization Firm, LLC. http://www.minlp.com/
+ Parts of the BARON software were created at the
+ University of Illinois at Urbana-Champaign.
+===========================================================================
+ Licensee: Qi Chen at Carnegie Mellon University, qichen@andrew.cmu.edu.
+ Changing option LPSol to 8 (CLP) and continuing.
+ This BARON run may utilize the following subsolver(s)
+ For LP/MIP: CLP/CBC                                         
+ For NLP: IPOPT, FILTERSD
+===========================================================================
+ Starting solution is feasible with a value of     0.00000000000     
+ Doing local search
+ Solving bounding LP
+ Preprocessing found feasible solution with value -1.12500000000     
+ Problem solved during preprocessing
+ Lower bound is -1.12500000000     
+
+ Cleaning up
+
+                         *** Normal completion ***            
+
+ Wall clock time:                     0.00
+ Total CPU time used:                 0.00
+
+ Total no. of BaR iterations:      -1
+ Best solution found at node:      -1
+ Max. no. of nodes in memory:       0
+ 
+ All done
+===========================================================================
+ Unable to find/load CPLEX library /opt/ibm/ILOG/CPLy_Studio127/cplex/bin/x86-64_linux/libcplex1270.so: cannot open shared object file: No such file or directory
+ Unable to find/load CPLEX library libcplex1270.so: cannot open shared object file: No such file or directory
+
+Welcome to IBM(R) ILOG(R) CPLEX(R) Interactive Optimizer 12.7.0.0
+  with Simplex, Mixed Integer & Barrier Optimizers
+5725-A06 5725-A29 5724-Y48 5724-Y49 5724-Y54 5724-Y55 5655-Y21
+Copyright IBM Corp. 1988, 2016.  All Rights Reserved.
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> Logfile 'cplex.log' closed.
+Logfile '/tmp/tmpynpmd1.cplex.log' open.
+CPLEX> Problem '/tmp/tmp4cUxqM.pyomo.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+CPLEX> Problem name         : /tmp/tmp4cUxqM.pyomo.lp
+Objective sense      : Minimize
+Variables            :      13  [Nneg: 8,  Box: 2,  Free: 3]
+Objective nonzeros   :       1
+Linear constraints   :      21  [Less: 10,  Greater: 3,  Equal: 8]
+  Nonzeros           :      40
+  RHS nonzeros       :       4
+
+Variables            : Min LB: 0.000000         Max UB: 1.000000       
+Objective nonzeros   : Min   : 1.000000         Max   : 1.000000       
+Linear constraints   :
+  Nonzeros           : Min   : 0.1500000        Max   : 3.750000       
+  RHS nonzeros       : Min   : 1.000000         Max   : 1.000000       
+CPLEX> Tried aggregator 1 time.
+LP Presolve eliminated 17 rows and 9 columns.
+Aggregator did 4 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.01 ticks)
+
+Dual simplex - Optimal:  Objective = -1.1250000000e+00
+Solution time =    0.00 sec.  Iterations = 0 (0)
+Deterministic time = 0.02 ticks  (16.37 ticks/sec)
+
+CPLEX> Solution written to file '/tmp/tmpRzmnEd.cplex.sol'.
+CPLEX> Model unknown
+
+  Variables:
+    xbar : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :  None :   0.0 :  None : False : False :  Reals
+    ybar : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :  None :   0.0 :  None : False : False :  Reals
+    z1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False :  Reals
+    z2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :     1 : False : False :  Reals
+    u1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.5 :  None : False : False : NonNegativeReals
+    u2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :  None : False : False : NonNegativeReals
+    u12 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :  None : False : False : NonNegativeReals
+    obj : Size=1, Index=None
+        Key  : Lower : Value  : Upper : Fixed : Stale : Domain
+        None :  None : -1.125 :  None : False : False :  Reals
+    u1k : Size=1, Index=u1k_index
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 :   0.5 :  None : False : False : NonNegativeReals
+    u2k : Size=1, Index=u2k_index
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+    u12k : Size=1, Index=u12k_index
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+    deltak : Size=1, Index=deltak_index
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 :   1.0 :  None : False : False : NonNegativeReals
+
+  Objectives:
+    oobjC : Size=1, Index=None, Active=True
+        Key  : Active : Value
+        None :   True : -1.125
+
+  Constraints:
+    c01C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c02C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c3C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c4C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c5C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c6C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.5 :   1.0
+    c7C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -0.5 :   1.0
+    c8C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c9C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c10C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c11C : Size=1
+        Key  : Lower : Body : Upper
+        None :   1.0 :  1.0 :   1.0
+    c12C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :  None :  0.0 :   0.0
+    c13C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :   0.0 :  0.5 :  None
+    c14C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :  None : -0.3 :   0.0
+    c15C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :   0.0 :  0.0 :  None
+    m1C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :  None :  0.0 :   0.0
+    m2C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :   0.0 :  0.0 :  None
+    m3C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :  None :  0.0 :   0.0
+    m4C : Size=1
+        Key    : Lower : Body  : Upper
+        (1, 1) :  None : -0.15 :   0.0
+    cobjC : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+Benders cuts1.125 + theta[1] + 22.5*x - 0.25*( 5*x + 7*y )None
+===========================================================================
+ BARON version 17.4.1. Built: LNX-64 Sat Apr 1 11:24:13 EDT 2017 
+
+ If you use this software, please cite:
+ Tawarmalani, M. and N. V. Sahinidis, A polyhedral
+ branch-and-cut approach to global optimization,
+ Mathematical Programming, 103(2), 225-249, 2005.
+
+ BARON is a product of The Optimization Firm, LLC. http://www.minlp.com/
+ Parts of the BARON software were created at the
+ University of Illinois at Urbana-Champaign.
+===========================================================================
+ Licensee: Qi Chen at Carnegie Mellon University, qichen@andrew.cmu.edu.
+ Changing option LPSol to 8 (CLP) and continuing.
+ This BARON run may utilize the following subsolver(s)
+ For LP/MIP: CLP/CBC                                         
+ For NLP: IPOPT, FILTERSD
+===========================================================================
+ Starting solution is feasible with a value of     0.00000000000     
+ Doing local search
+ Solving bounding LP
+ Starting multi-start local search
+ Done with local search
+===========================================================================
+  Iteration    Open nodes         Time (s)    Lower bound      Upper bound
+*         1             1             0.02    -22.0000         -4.50000    
+*         1+            1             0.02    -10.7500         -6.00000    
+          1             0             0.02    -6.00060         -6.00000    
+
+ Cleaning up
+
+                         *** Normal completion ***            
+
+ Wall clock time:                    10.02
+ Total CPU time used:                 0.02
+
+ Total no. of BaR iterations:       1
+ Best solution found at node:       1
+ Max. no. of nodes in memory:       1
+ 
+ All done
+===========================================================================
+ Unable to find/load CPLEX library /opt/ibm/ILOG/CPLy_Studio127/cplex/bin/x86-64_linux/libcplex1270.so: cannot open shared object file: No such file or directory
+ Unable to find/load CPLEX library libcplex1270.so: cannot open shared object file: No such file or directory
+
+Welcome to IBM(R) ILOG(R) CPLEX(R) Interactive Optimizer 12.7.0.0
+  with Simplex, Mixed Integer & Barrier Optimizers
+5725-A06 5725-A29 5724-Y48 5724-Y49 5724-Y54 5724-Y55 5655-Y21
+Copyright IBM Corp. 1988, 2016.  All Rights Reserved.
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> Logfile 'cplex.log' closed.
+Logfile '/tmp/tmpq4_4qt.cplex.log' open.
+CPLEX> Problem '/tmp/tmpLUjd3K.pyomo.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+CPLEX> Problem name         : /tmp/tmpLUjd3K.pyomo.lp
+Objective sense      : Minimize
+Variables            :      13  [Nneg: 8,  Box: 2,  Free: 3]
+Objective nonzeros   :       1
+Linear constraints   :      21  [Less: 10,  Greater: 3,  Equal: 8]
+  Nonzeros           :      40
+  RHS nonzeros       :       4
+
+Variables            : Min LB: 0.000000         Max UB: 1.000000       
+Objective nonzeros   : Min   : 1.000000         Max   : 1.000000       
+Linear constraints   :
+  Nonzeros           : Min   : 1.000000         Max   : 7.500000       
+  RHS nonzeros       : Min   : 1.000000         Max   : 1.000000       
+CPLEX> Tried aggregator 1 time.
+LP Presolve eliminated 14 rows and 7 columns.
+Aggregator did 4 substitutions.
+Reduced LP has 3 rows, 2 columns, and 6 nonzeros.
+Presolve time = 0.00 sec. (0.01 ticks)
+
+Iteration log . . .
+Iteration:     1   Dual objective     =           -13.500000
+
+Dual simplex - Optimal:  Objective = -1.2250000000e+01
+Solution time =    0.00 sec.  Iterations = 2 (0)
+Deterministic time = 0.02 ticks  (18.52 ticks/sec)
+
+CPLEX> Solution written to file '/tmp/tmpDLKtIp.cplex.sol'.
+CPLEX> Model unknown
+
+  Variables:
+    xbar : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :  None :   0.0 :  None : False : False :  Reals
+    ybar : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :  None :   0.0 :  None : False : False :  Reals
+    z1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :  0.75 :     1 : False : False :  Reals
+    z2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :  0.25 :     1 : False : False :  Reals
+    u1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.5 :  None : False : False : NonNegativeReals
+    u2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.5 :  None : False : False : NonNegativeReals
+    u12 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :  None : False : False : NonNegativeReals
+    obj : Size=1, Index=None
+        Key  : Lower : Value  : Upper : Fixed : Stale : Domain
+        None :  None : -12.25 :  None : False : False :  Reals
+    u1k : Size=1, Index=u1k_index
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 :   1.5 :  None : False : False : NonNegativeReals
+    u2k : Size=1, Index=u2k_index
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 :   0.5 :  None : False : False : NonNegativeReals
+    u12k : Size=1, Index=u12k_index
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+    deltak : Size=1, Index=deltak_index
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 :   1.0 :  None : False : False : NonNegativeReals
+
+  Objectives:
+    oobjC : Size=1, Index=None, Active=True
+        Key  : Active : Value
+        None :   True : -12.25
+
+  Constraints:
+    c01C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c02C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c3C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c4C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c5C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c6C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  1.0 :   1.0
+    c7C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -1.0 :   1.0
+    c8C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c9C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c10C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c11C : Size=1
+        Key  : Lower : Body : Upper
+        None :   1.0 :  1.0 :   1.0
+    c12C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :  None : -0.5 :   0.0
+    c13C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :   0.0 :  1.5 :  None
+    c14C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :  None : -1.5 :   0.0
+    c15C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :   0.0 :  0.5 :  None
+    m1C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :  None :  0.0 :   0.0
+    m2C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :   0.0 :  0.0 :  None
+    m3C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :  None : -1.0 :   0.0
+    m4C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :  None : -3.0 :   0.0
+    cobjC : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+Benders cuts12.25 + theta[2] + 8.25*x - 0.5*( 5*x + 7*y )None
+===========================================================================
+ BARON version 17.4.1. Built: LNX-64 Sat Apr 1 11:24:13 EDT 2017 
+
+ If you use this software, please cite:
+ Tawarmalani, M. and N. V. Sahinidis, A polyhedral
+ branch-and-cut approach to global optimization,
+ Mathematical Programming, 103(2), 225-249, 2005.
+
+ BARON is a product of The Optimization Firm, LLC. http://www.minlp.com/
+ Parts of the BARON software were created at the
+ University of Illinois at Urbana-Champaign.
+===========================================================================
+ Licensee: Qi Chen at Carnegie Mellon University, qichen@andrew.cmu.edu.
+ Changing option LPSol to 8 (CLP) and continuing.
+ This BARON run may utilize the following subsolver(s)
+ For LP/MIP: CLP/CBC                                         
+ For NLP: IPOPT, FILTERSD
+===========================================================================
+ Starting solution is feasible with a value of     0.00000000000     
+ Doing local search
+ Solving bounding LP
+ Starting multi-start local search
+ Done with local search
+===========================================================================
+  Iteration    Open nodes         Time (s)    Lower bound      Upper bound
+*         1             1             0.02    -26.0000         -2.25000    
+*         1+            1             0.03    -12.6667         -3.00000    
+          1             0             0.03    -3.00030         -3.00000    
+
+ Cleaning up
+
+                         *** Normal completion ***            
+
+ Wall clock time:                     0.03
+ Total CPU time used:                 0.03
+
+ Total no. of BaR iterations:       1
+ Best solution found at node:       1
+ Max. no. of nodes in memory:       1
+ 
+ All done
+===========================================================================
+ Unable to find/load CPLEX library /opt/ibm/ILOG/CPLy_Studio127/cplex/bin/x86-64_linux/libcplex1270.so: cannot open shared object file: No such file or directory
+ Unable to find/load CPLEX library libcplex1270.so: cannot open shared object file: No such file or directory
+
+Welcome to IBM(R) ILOG(R) CPLEX(R) Interactive Optimizer 12.7.0.0
+  with Simplex, Mixed Integer & Barrier Optimizers
+5725-A06 5725-A29 5724-Y48 5724-Y49 5724-Y54 5724-Y55 5655-Y21
+Copyright IBM Corp. 1988, 2016.  All Rights Reserved.
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> Logfile 'cplex.log' closed.
+Logfile '/tmp/tmp2bqM8t.cplex.log' open.
+CPLEX> Problem '/tmp/tmpCjL7sw.pyomo.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+CPLEX> Problem name         : /tmp/tmpCjL7sw.pyomo.lp
+Objective sense      : Minimize
+Variables            :      13  [Nneg: 8,  Box: 2,  Free: 3]
+Objective nonzeros   :       1
+Linear constraints   :      21  [Less: 10,  Greater: 3,  Equal: 8]
+  Nonzeros           :      40
+  RHS nonzeros       :       4
+
+Variables            : Min LB: 0.000000         Max UB: 1.000000       
+Objective nonzeros   : Min   : 1.000000         Max   : 1.000000       
+Linear constraints   :
+  Nonzeros           : Min   : 0.7500000        Max   : 40.00000       
+  RHS nonzeros       : Min   : 1.000000         Max   : 1.000000       
+CPLEX> Tried aggregator 1 time.
+LP Presolve eliminated 14 rows and 7 columns.
+Aggregator did 4 substitutions.
+Reduced LP has 3 rows, 2 columns, and 6 nonzeros.
+Presolve time = 0.00 sec. (0.01 ticks)
+
+Iteration log . . .
+Iteration:     1   Dual objective     =           -24.250000
+
+Dual simplex - Optimal:  Objective = -1.7821428571e+01
+Solution time =    0.00 sec.  Iterations = 2 (0)
+Deterministic time = 0.02 ticks  (19.68 ticks/sec)
+
+CPLEX> Solution written to file '/tmp/tmpwOxj0h.cplex.sol'.
+CPLEX> Model unknown
+
+  Variables:
+    xbar : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :  None :   0.0 :  None : False : False :  Reals
+    ybar : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :  None :   0.0 :  None : False : False :  Reals
+    z1 : Size=1, Index=None
+        Key  : Lower : Value          : Upper : Fixed : Stale : Domain
+        None :     0 : 0.642857142857 :     1 : False : False :  Reals
+    z2 : Size=1, Index=None
+        Key  : Lower : Value          : Upper : Fixed : Stale : Domain
+        None :     0 : 0.357142857143 :     1 : False : False :  Reals
+    u1 : Size=1, Index=None
+        Key  : Lower : Value         : Upper : Fixed : Stale : Domain
+        None :     0 : 2.57142857143 :  None : False : False : NonNegativeReals
+    u2 : Size=1, Index=None
+        Key  : Lower : Value         : Upper : Fixed : Stale : Domain
+        None :     0 : 3.57142857143 :  None : False : False : NonNegativeReals
+    u12 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :  None : False : False : NonNegativeReals
+    obj : Size=1, Index=None
+        Key  : Lower : Value          : Upper : Fixed : Stale : Domain
+        None :  None : -17.8214285714 :  None : False : False :  Reals
+    u1k : Size=1, Index=u1k_index
+        Key    : Lower : Value         : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 : 2.57142857143 :  None : False : False : NonNegativeReals
+    u2k : Size=1, Index=u2k_index
+        Key    : Lower : Value         : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 : 3.57142857143 :  None : False : False : NonNegativeReals
+    u12k : Size=1, Index=u12k_index
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+    deltak : Size=1, Index=deltak_index
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 :   1.0 :  None : False : False : NonNegativeReals
+
+  Objectives:
+    oobjC : Size=1, Index=None, Active=True
+        Key  : Active : Value
+        None :   True : -17.8214285714
+
+  Constraints:
+    c01C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c02C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c3C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c4C : Size=1
+        Key  : Lower : Body              : Upper
+        None :  None : -4.4408920985e-16 :   0.0
+    c5C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c6C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -1.0 :   1.0
+    c7C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  1.0 :   1.0
+    c8C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c9C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c10C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c11C : Size=1
+        Key  : Lower : Body : Upper
+        None :   1.0 :  1.0 :   1.0
+    c12C : Size=1
+        Key    : Lower : Body           : Upper
+        (1, 1) :  None : -1.42857142857 :   0.0
+    c13C : Size=1
+        Key    : Lower : Body          : Upper
+        (1, 1) :   0.0 : 2.57142857143 :  None
+    c14C : Size=1
+        Key    : Lower : Body           : Upper
+        (1, 1) :  None : -6.42857142857 :   0.0
+    c15C : Size=1
+        Key    : Lower : Body          : Upper
+        (1, 1) :   0.0 : 3.57142857143 :  None
+    m1C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :  None :  0.0 :   0.0
+    m2C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :   0.0 :  0.0 :  None
+    m3C : Size=1
+        Key    : Lower : Body           : Upper
+        (1, 1) :  None : -14.2857142857 :   0.0
+    m4C : Size=1
+        Key    : Lower : Body           : Upper
+        (1, 1) :  None : -25.7142857143 :   0.0
+    cobjC : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+Benders cuts17.8214285714 + theta[3] + 1.28303571429*x - 0.25*( 5*x + 7*y )None
+upper bound -10.125  lower bound  -27.0
+Model unknown
+
+  Variables:
+    x : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   5.0 :     5 : False : False :  Reals
+    y : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False : Binary
+    z1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False : Binary
+    z2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :     1 : False : False : Binary
+    u1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.5 :  None : False : False : NonNegativeReals
+    u2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :  None : False : False : NonNegativeReals
+    obj : Size=1, Index=None
+        Key  : Lower : Value          : Upper : Fixed : Stale : Domain
+        None :  None : -32.7916666667 :  None : False : False :  Reals
+
+  Objectives:
+    oobjC : Size=1, Index=None, Active=True
+        Key  : Active : Value
+        None :   True : -32.7916666667
+
+  Constraints:
+    c1C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c2C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -2.0 :   0.0
+    c3C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c4C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c5C : Size=1
+        Key  : Lower : Body  : Upper
+        None :  None : -15.0 :   0.0
+    c6C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.5 :   1.0
+    c7C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -0.5 :   1.0
+    cobjC : Size=1
+        Key  : Lower : Body              : Upper
+        None :   0.0 : 3.15303338994e-14 :   0.0
+lagrangean cuts-32.7916666667 + 7.55555555556*x + 1.88888888889*y - theta[1]None
+Model unknown
+
+  Variables:
+    x : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :     5 : False : False :  Reals
+    y : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :     1 : False : False : Binary
+    z1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False : Binary
+    z2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :     1 : False : False : Binary
+    u1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :  None : False : False : NonNegativeReals
+    u2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :  None : False : False : NonNegativeReals
+    obj : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :  None :  -6.0 :  None : False : False :  Reals
+
+  Objectives:
+    oobjC : Size=1, Index=None, Active=True
+        Key  : Active : Value
+        None :   True :  -6.0
+
+  Constraints:
+    c1C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c2C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c3C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -1.0 :   0.0
+    c4C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c5C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c6C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  1.0 :   1.0
+    c7C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -1.0 :   1.0
+    cobjC : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+lagrangean cuts-6.0 - 2.83333333333*x - 0.944444444444*y - theta[2]None
+Model unknown
+
+  Variables:
+    x : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :     5 : False : False :  Reals
+    y : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :     1 : False : False : Binary
+    z1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False : Binary
+    z2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :     1 : False : False : Binary
+    u1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :  None : False : False : NonNegativeReals
+    u2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :  None : False : False : NonNegativeReals
+    obj : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :  None :  -3.0 :  None : False : False :  Reals
+
+  Objectives:
+    oobjC : Size=1, Index=None, Active=True
+        Key  : Active : Value
+        None :   True :  -3.0
+
+  Constraints:
+    c1C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c2C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c3C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -3.0 :   0.0
+    c4C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c5C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c6C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  1.0 :   1.0
+    c7C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -1.0 :   1.0
+    cobjC : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+lagrangean cuts-3.0 - 4.72222222222*x - 0.944444444444*y - theta[3]None
+Model unknown
+
+  Variables:
+    x : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   3.0 :     5 : False : False :  Reals
+    y : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False : Binary
+    theta : Size=3, Index=s
+        Key : Lower : Value   : Upper : Fixed : Stale : Domain
+          1 :   -50 :  -1.125 :   100 : False : False :  Reals
+          2 :   -50 :   -11.0 :   100 : False : False :  Reals
+          3 :   -50 : -14.875 :   100 : False : False :  Reals
+    f1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :  None :  22.0 :  None : False : False :  Reals
+    obj : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :  None : -27.0 :  None : False : False :  Reals
+
+  Objectives:
+    oobjO : Size=1, Index=None, Active=True
+        Key  : Active : Value
+        None :   True : -27.0
+
+  Constraints:
+    c1C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -2.0 :   0.0
+    c2C : Size=1
+        Key  : Lower : Body             : Upper
+        None :  None : -8.881784197e-16 :   0.0
+    c3C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c4C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    benderscuts : Size=3
+        Key : Lower : Body          : Upper
+          1 :   0.0 :          62.0 :  None
+          2 :   0.0 :          15.0 :  None
+          3 :   0.0 : 1.29553571429 :  None
+    lagrangeancuts : Size=6
+        Key : Lower : Body           : Upper
+          1 :  None :            0.0 :   0.0
+          2 :  None :            0.0 :   0.0
+          3 :  None :            0.0 :   0.0
+          4 :  None : -7.11111111111 :   0.0
+          5 :  None : -4.44444444444 :   0.0
+          6 :  None : -3.23611111111 :   0.0
+===========================================================================
+ BARON version 17.4.1. Built: LNX-64 Sat Apr 1 11:24:13 EDT 2017 
+
+ If you use this software, please cite:
+ Tawarmalani, M. and N. V. Sahinidis, A polyhedral
+ branch-and-cut approach to global optimization,
+ Mathematical Programming, 103(2), 225-249, 2005.
+
+ BARON is a product of The Optimization Firm, LLC. http://www.minlp.com/
+ Parts of the BARON software were created at the
+ University of Illinois at Urbana-Champaign.
+===========================================================================
+ Licensee: Qi Chen at Carnegie Mellon University, qichen@andrew.cmu.edu.
+ Changing option LPSol to 8 (CLP) and continuing.
+ This BARON run may utilize the following subsolver(s)
+ For LP/MIP: CLP/CBC                                         
+ For NLP: IPOPT, FILTERSD
+===========================================================================
+ Doing local search
+ Preprocessing found feasible solution with value -1.12500000000     
+ Solving bounding LP
+ Problem solved during preprocessing
+ Lower bound is -1.12500000000     
+
+ Cleaning up
+
+                         *** Normal completion ***            
+
+ Wall clock time:                     0.00
+ Total CPU time used:                 0.00
+
+ Total no. of BaR iterations:      -1
+ Best solution found at node:      -1
+ Max. no. of nodes in memory:       0
+ 
+ All done
+===========================================================================
+ Unable to find/load CPLEX library /opt/ibm/ILOG/CPLy_Studio127/cplex/bin/x86-64_linux/libcplex1270.so: cannot open shared object file: No such file or directory
+ Unable to find/load CPLEX library libcplex1270.so: cannot open shared object file: No such file or directory
+
+Welcome to IBM(R) ILOG(R) CPLEX(R) Interactive Optimizer 12.7.0.0
+  with Simplex, Mixed Integer & Barrier Optimizers
+5725-A06 5725-A29 5724-Y48 5724-Y49 5724-Y54 5724-Y55 5655-Y21
+Copyright IBM Corp. 1988, 2016.  All Rights Reserved.
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> Logfile 'cplex.log' closed.
+Logfile '/tmp/tmplBEQ_x.cplex.log' open.
+CPLEX> Problem '/tmp/tmpug9dWQ.pyomo.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+CPLEX> Problem name         : /tmp/tmpug9dWQ.pyomo.lp
+Objective sense      : Minimize
+Variables            :      13  [Nneg: 8,  Box: 2,  Free: 3]
+Objective nonzeros   :       1
+Linear constraints   :      21  [Less: 10,  Greater: 3,  Equal: 8]
+  Nonzeros           :      40
+  RHS nonzeros       :       6
+
+Variables            : Min LB: 0.000000         Max UB: 1.000000       
+Objective nonzeros   : Min   : 1.000000         Max   : 1.000000       
+Linear constraints   :
+  Nonzeros           : Min   : 0.1500000        Max   : 3.750000       
+  RHS nonzeros       : Min   : 1.000000         Max   : 3.000000       
+CPLEX> Tried aggregator 1 time.
+LP Presolve eliminated 14 rows and 6 columns.
+Aggregator did 4 substitutions.
+Reduced LP has 3 rows, 3 columns, and 7 nonzeros.
+Presolve time = 0.00 sec. (0.01 ticks)
+Initializing dual steep norms . . .
+
+Dual simplex - Optimal:  Objective = -1.1250000000e+00
+Solution time =    0.00 sec.  Iterations = 0 (0)
+Deterministic time = 0.02 ticks  (18.96 ticks/sec)
+
+CPLEX> Solution written to file '/tmp/tmpqy3BRj.cplex.sol'.
+CPLEX> Model unknown
+
+  Variables:
+    xbar : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :  None :   3.0 :  None : False : False :  Reals
+    ybar : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :  None :   1.0 :  None : False : False :  Reals
+    z1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False :  Reals
+    z2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :     1 : False : False :  Reals
+    u1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.5 :  None : False : False : NonNegativeReals
+    u2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :  None : False : False : NonNegativeReals
+    u12 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :  None : False : False : NonNegativeReals
+    obj : Size=1, Index=None
+        Key  : Lower : Value  : Upper : Fixed : Stale : Domain
+        None :  None : -1.125 :  None : False : False :  Reals
+    u1k : Size=1, Index=u1k_index
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 :   0.5 :  None : False : False : NonNegativeReals
+    u2k : Size=1, Index=u2k_index
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+    u12k : Size=1, Index=u12k_index
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 :   0.0 :  None : False : False : NonNegativeReals
+    deltak : Size=1, Index=deltak_index
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 :   1.0 :  None : False : False : NonNegativeReals
+
+  Objectives:
+    oobjC : Size=1, Index=None, Active=True
+        Key  : Active : Value
+        None :   True : -1.125
+
+  Constraints:
+    c01C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c02C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c3C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c4C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c5C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -9.0 :   0.0
+    c6C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.5 :   1.0
+    c7C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -0.5 :   1.0
+    c8C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c9C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c10C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c11C : Size=1
+        Key  : Lower : Body : Upper
+        None :   1.0 :  1.0 :   1.0
+    c12C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :  None :  0.0 :   0.0
+    c13C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :   0.0 :  0.5 :  None
+    c14C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :  None : -0.3 :   0.0
+    c15C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :   0.0 :  0.0 :  None
+    m1C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :  None :  0.0 :   0.0
+    m2C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :   0.0 :  0.0 :  None
+    m3C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :  None :  0.0 :   0.0
+    m4C : Size=1
+        Key    : Lower : Body  : Upper
+        (1, 1) :  None : -0.15 :   0.0
+    cobjC : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+Benders cuts1.125 + theta[1] - 0.25*( 5*x + 7*y )None
+===========================================================================
+ BARON version 17.4.1. Built: LNX-64 Sat Apr 1 11:24:13 EDT 2017 
+
+ If you use this software, please cite:
+ Tawarmalani, M. and N. V. Sahinidis, A polyhedral
+ branch-and-cut approach to global optimization,
+ Mathematical Programming, 103(2), 225-249, 2005.
+
+ BARON is a product of The Optimization Firm, LLC. http://www.minlp.com/
+ Parts of the BARON software were created at the
+ University of Illinois at Urbana-Champaign.
+===========================================================================
+ Licensee: Qi Chen at Carnegie Mellon University, qichen@andrew.cmu.edu.
+ Changing option LPSol to 8 (CLP) and continuing.
+ This BARON run may utilize the following subsolver(s)
+ For LP/MIP: CLP/CBC                                         
+ For NLP: IPOPT, FILTERSD
+===========================================================================
+ Doing local search
+ Preprocessing found feasible solution with value -22.0000000000     
+ Solving bounding LP
+ Problem solved during preprocessing
+ Lower bound is -22.0000000000     
+
+ Cleaning up
+
+                         *** Normal completion ***            
+
+ Wall clock time:                     0.01
+ Total CPU time used:                 0.00
+
+ Total no. of BaR iterations:      -1
+ Best solution found at node:      -1
+ Max. no. of nodes in memory:       0
+ 
+ All done
+===========================================================================
+ Unable to find/load CPLEX library /opt/ibm/ILOG/CPLy_Studio127/cplex/bin/x86-64_linux/libcplex1270.so: cannot open shared object file: No such file or directory
+ Unable to find/load CPLEX library libcplex1270.so: cannot open shared object file: No such file or directory
+
+Welcome to IBM(R) ILOG(R) CPLEX(R) Interactive Optimizer 12.7.0.0
+  with Simplex, Mixed Integer & Barrier Optimizers
+5725-A06 5725-A29 5724-Y48 5724-Y49 5724-Y54 5724-Y55 5655-Y21
+Copyright IBM Corp. 1988, 2016.  All Rights Reserved.
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> Logfile 'cplex.log' closed.
+Logfile '/tmp/tmp6_HYlO.cplex.log' open.
+CPLEX> Problem '/tmp/tmpI1Jate.pyomo.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+CPLEX> Problem name         : /tmp/tmpI1Jate.pyomo.lp
+Objective sense      : Minimize
+Variables            :      13  [Nneg: 8,  Box: 2,  Free: 3]
+Objective nonzeros   :       1
+Linear constraints   :      21  [Less: 10,  Greater: 3,  Equal: 8]
+  Nonzeros           :      40
+  RHS nonzeros       :       6
+
+Variables            : Min LB: 0.000000         Max UB: 1.000000       
+Objective nonzeros   : Min   : 1.000000         Max   : 1.000000       
+Linear constraints   :
+  Nonzeros           : Min   : 1.000000         Max   : 7.500000       
+  RHS nonzeros       : Min   : 1.000000         Max   : 3.000000       
+CPLEX> Tried aggregator 1 time.
+LP Presolve eliminated 12 rows and 6 columns.
+Aggregator did 4 substitutions.
+Reduced LP has 5 rows, 3 columns, and 11 nonzeros.
+Presolve time = 0.00 sec. (0.01 ticks)
+
+Iteration log . . .
+Iteration:     1   Dual objective     =           -22.000000
+
+Dual simplex - Optimal:  Objective = -2.2000000000e+01
+Solution time =    0.00 sec.  Iterations = 1 (0)
+Deterministic time = 0.02 ticks  (19.33 ticks/sec)
+
+CPLEX> Solution written to file '/tmp/tmpOSS2wo.cplex.sol'.
+CPLEX> Model unknown
+
+  Variables:
+    xbar : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :  None :   3.0 :  None : False : False :  Reals
+    ybar : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :  None :   1.0 :  None : False : False :  Reals
+    z1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False :  Reals
+    z2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False :  Reals
+    u1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   2.0 :  None : False : False : NonNegativeReals
+    u2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   2.0 :  None : False : False : NonNegativeReals
+    u12 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   4.0 :  None : False : False : NonNegativeReals
+    obj : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :  None : -22.0 :  None : False : False :  Reals
+    u1k : Size=1, Index=u1k_index
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 :   2.0 :  None : False : False : NonNegativeReals
+    u2k : Size=1, Index=u2k_index
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 :   2.0 :  None : False : False : NonNegativeReals
+    u12k : Size=1, Index=u12k_index
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 :   4.0 :  None : False : False : NonNegativeReals
+    deltak : Size=1, Index=deltak_index
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 :   1.0 :  None : False : False : NonNegativeReals
+
+  Objectives:
+    oobjC : Size=1, Index=None, Active=True
+        Key  : Active : Value
+        None :   True : -22.0
+
+  Constraints:
+    c01C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c02C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c3C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c4C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c5C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -5.0 :   0.0
+    c6C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   1.0
+    c7C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   1.0
+    c8C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c9C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c10C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c11C : Size=1
+        Key  : Lower : Body : Upper
+        None :   1.0 :  1.0 :   1.0
+    c12C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :  None :  0.0 :   0.0
+    c13C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :   0.0 :  2.0 :  None
+    c14C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :  None :  0.0 :   0.0
+    c15C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :   0.0 :  2.0 :  None
+    m1C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :  None :  0.0 :   0.0
+    m2C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :   0.0 :  4.0 :  None
+    m3C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :  None :  0.0 :   0.0
+    m4C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :  None :  0.0 :   0.0
+    cobjC : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+Benders cuts22.0 + theta[2] - 0.5*( 5*x + 7*y )None
+===========================================================================
+ BARON version 17.4.1. Built: LNX-64 Sat Apr 1 11:24:13 EDT 2017 
+
+ If you use this software, please cite:
+ Tawarmalani, M. and N. V. Sahinidis, A polyhedral
+ branch-and-cut approach to global optimization,
+ Mathematical Programming, 103(2), 225-249, 2005.
+
+ BARON is a product of The Optimization Firm, LLC. http://www.minlp.com/
+ Parts of the BARON software were created at the
+ University of Illinois at Urbana-Champaign.
+===========================================================================
+ Licensee: Qi Chen at Carnegie Mellon University, qichen@andrew.cmu.edu.
+ Changing option LPSol to 8 (CLP) and continuing.
+ This BARON run may utilize the following subsolver(s)
+ For LP/MIP: CLP/CBC                                         
+ For NLP: IPOPT, FILTERSD
+===========================================================================
+ Doing local search
+ Preprocessing found feasible solution with value -3.00000000000     
+ Solving bounding LP
+ Starting multi-start local search
+ Done with local search
+===========================================================================
+  Iteration    Open nodes         Time (s)    Lower bound      Upper bound
+*         1             1             0.02    -26.0000         -18.1336    
+          1             0             0.02    -18.1354         -18.1336    
+
+ Cleaning up
+
+                         *** Normal completion ***            
+
+ Wall clock time:                     0.02
+ Total CPU time used:                 0.02
+
+ Total no. of BaR iterations:       1
+ Best solution found at node:       1
+ Max. no. of nodes in memory:       1
+ 
+ All done
+===========================================================================
+ Unable to find/load CPLEX library /opt/ibm/ILOG/CPLy_Studio127/cplex/bin/x86-64_linux/libcplex1270.so: cannot open shared object file: No such file or directory
+ Unable to find/load CPLEX library libcplex1270.so: cannot open shared object file: No such file or directory
+
+Welcome to IBM(R) ILOG(R) CPLEX(R) Interactive Optimizer 12.7.0.0
+  with Simplex, Mixed Integer & Barrier Optimizers
+5725-A06 5725-A29 5724-Y48 5724-Y49 5724-Y54 5724-Y55 5655-Y21
+Copyright IBM Corp. 1988, 2016.  All Rights Reserved.
+
+Type 'help' for a list of available commands.
+Type 'help' followed by a command name for more
+information on commands.
+
+CPLEX> Logfile 'cplex.log' closed.
+Logfile '/tmp/tmp3A9wHn.cplex.log' open.
+CPLEX> Problem '/tmp/tmpgrlcfF.pyomo.lp' read.
+Read time = 0.00 sec. (0.00 ticks)
+CPLEX> Problem name         : /tmp/tmpgrlcfF.pyomo.lp
+Objective sense      : Minimize
+Variables            :      13  [Nneg: 8,  Box: 2,  Free: 3]
+Objective nonzeros   :       1
+Linear constraints   :      21  [Less: 10,  Greater: 3,  Equal: 8]
+  Nonzeros           :      40
+  RHS nonzeros       :       6
+
+Variables            : Min LB: 0.000000         Max UB: 1.000000       
+Objective nonzeros   : Min   : 1.000000         Max   : 1.000000       
+Linear constraints   :
+  Nonzeros           : Min   : 0.7500000        Max   : 40.00000       
+  RHS nonzeros       : Min   : 1.000000         Max   : 3.000000       
+CPLEX> Tried aggregator 1 time.
+LP Presolve eliminated 12 rows and 6 columns.
+Aggregator did 4 substitutions.
+Reduced LP has 5 rows, 3 columns, and 11 nonzeros.
+Presolve time = 0.00 sec. (0.01 ticks)
+
+Iteration log . . .
+Iteration:     1   Dual objective     =           -27.456250
+
+Dual simplex - Optimal:  Objective = -2.1670535714e+01
+Solution time =    0.00 sec.  Iterations = 2 (0)
+Deterministic time = 0.02 ticks  (21.85 ticks/sec)
+
+CPLEX> Solution written to file '/tmp/tmpLxESdf.cplex.sol'.
+CPLEX> Model unknown
+
+  Variables:
+    xbar : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :  None :   3.0 :  None : False : False :  Reals
+    ybar : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :  None :   1.0 :  None : False : False :  Reals
+    z1 : Size=1, Index=None
+        Key  : Lower : Value          : Upper : Fixed : Stale : Domain
+        None :     0 : 0.803571428571 :     1 : False : False :  Reals
+    z2 : Size=1, Index=None
+        Key  : Lower : Value          : Upper : Fixed : Stale : Domain
+        None :     0 : 0.421428571429 :     1 : False : False :  Reals
+    u1 : Size=1, Index=None
+        Key  : Lower : Value         : Upper : Fixed : Stale : Domain
+        None :     0 : 3.21428571429 :  None : False : False : NonNegativeReals
+    u2 : Size=1, Index=None
+        Key  : Lower : Value         : Upper : Fixed : Stale : Domain
+        None :     0 : 4.21428571429 :  None : False : False : NonNegativeReals
+    u12 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   9.0 :  None : False : False : NonNegativeReals
+    obj : Size=1, Index=None
+        Key  : Lower : Value          : Upper : Fixed : Stale : Domain
+        None :  None : -21.6705357143 :  None : False : False :  Reals
+    u1k : Size=1, Index=u1k_index
+        Key    : Lower : Value         : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 : 3.21428571429 :  None : False : False : NonNegativeReals
+    u2k : Size=1, Index=u2k_index
+        Key    : Lower : Value         : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 : 4.21428571429 :  None : False : False : NonNegativeReals
+    u12k : Size=1, Index=u12k_index
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 :   9.0 :  None : False : False : NonNegativeReals
+    deltak : Size=1, Index=deltak_index
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :     0 :   1.0 :  None : False : False : NonNegativeReals
+
+  Objectives:
+    oobjC : Size=1, Index=None, Active=True
+        Key  : Active : Value
+        None :   True : -21.6705357143
+
+  Constraints:
+    c01C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c02C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c3C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c4C : Size=1
+        Key  : Lower : Body             : Upper
+        None :  None : -8.881784197e-16 :   0.0
+    c5C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c6C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -1.0 :   1.0
+    c7C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  1.0 :   1.0
+    c8C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c9C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c10C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    c11C : Size=1
+        Key  : Lower : Body : Upper
+        None :   1.0 :  1.0 :   1.0
+    c12C : Size=1
+        Key    : Lower : Body            : Upper
+        (1, 1) :  None : -0.785714285714 :   0.0
+    c13C : Size=1
+        Key    : Lower : Body          : Upper
+        (1, 1) :   0.0 : 3.21428571429 :  None
+    c14C : Size=1
+        Key    : Lower : Body           : Upper
+        (1, 1) :  None : -5.78571428571 :   0.0
+    c15C : Size=1
+        Key    : Lower : Body          : Upper
+        (1, 1) :   0.0 : 4.21428571429 :  None
+    m1C : Size=1
+        Key    : Lower : Body              : Upper
+        (1, 1) :  None : -3.5527136788e-15 :   0.0
+    m2C : Size=1
+        Key    : Lower : Body : Upper
+        (1, 1) :   0.0 :  9.0 :  None
+    m3C : Size=1
+        Key    : Lower : Body           : Upper
+        (1, 1) :  None : -7.85714285714 :   0.0
+    m4C : Size=1
+        Key    : Lower : Body           : Upper
+        (1, 1) :  None : -23.1428571429 :   0.0
+    cobjC : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+Benders cuts17.8214285714 + theta[3] + 1.28303571429*x - 0.25*( 5*x + 7*y )None
+upper bound -19.2586329072  lower bound  -27.0
+Model unknown
+
+  Variables:
+    x : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :     5 : False : False :  Reals
+    y : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :     1 : False : False : Binary
+    z1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False : Binary
+    z2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :     1 : False : False : Binary
+    u1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.5 :  None : False : False : NonNegativeReals
+    u2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   0.0 :  None : False : False : NonNegativeReals
+    obj : Size=1, Index=None
+        Key  : Lower : Value  : Upper : Fixed : Stale : Domain
+        None :  None : -1.125 :  None : False : False :  Reals
+
+  Objectives:
+    oobjC : Size=1, Index=None, Active=True
+        Key  : Active : Value
+        None :   True : -1.125
+
+  Constraints:
+    c1C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c2C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c3C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c4C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c5C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c6C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.5 :   1.0
+    c7C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -0.5 :   1.0
+    cobjC : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+lagrangean cuts-1.125 + 1.06517094017*x + 0.590811965812*y - theta[1]None
+Model unknown
+
+  Variables:
+    x : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   3.0 :     5 : False : False :  Reals
+    y : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False : Binary
+    z1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False : Binary
+    z2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False : Binary
+    u1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   2.0 :  None : False : False : NonNegativeReals
+    u2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   2.0 :  None : False : False : NonNegativeReals
+    obj : Size=1, Index=None
+        Key  : Lower : Value          : Upper : Fixed : Stale : Domain
+        None :  None : -11.9401709402 :  None : False : False :  Reals
+
+  Objectives:
+    oobjC : Size=1, Index=None, Active=True
+        Key  : Active : Value
+        None :   True : -11.9401709402
+
+  Constraints:
+    c1C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -2.0 :   0.0
+    c2C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c3C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c4C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c5C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -5.0 :   0.0
+    c6C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   1.0
+    c7C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   1.0
+    cobjC : Size=1
+        Key  : Lower : Body              : Upper
+        None :   0.0 : 1.38777878078e-14 :   0.0
+lagrangean cuts-11.9401709402 + 0.411858974359*x - 0.295405982906*y - theta[2]None
+Model unknown
+
+  Variables:
+    x : Size=1, Index=None
+        Key  : Lower : Value         : Upper : Fixed : Stale : Domain
+        None :     0 : 3.81816248577 :     5 : False : False :  Reals
+    y : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False : Binary
+    z1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False : Binary
+    z2 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False : Binary
+    u1 : Size=1, Index=None
+        Key  : Lower : Value         : Upper : Fixed : Stale : Domain
+        None :     0 : 3.92118217248 :  None : False : False : NonNegativeReals
+    u2 : Size=1, Index=None
+        Key  : Lower : Value         : Upper : Fixed : Stale : Domain
+        None :     0 : 2.92118217248 :  None : False : False : NonNegativeReals
+    obj : Size=1, Index=None
+        Key  : Lower : Value          : Upper : Fixed : Stale : Domain
+        None :  None : -8.04973927788 :  None : False : False :  Reals
+
+  Objectives:
+    oobjC : Size=1, Index=None, Active=True
+        Key  : Active : Value
+        None :   True : -8.04973927788
+
+  Constraints:
+    c1C : Size=1
+        Key  : Lower : Body           : Upper
+        None :  None : -1.18183751423 :   0.0
+    c2C : Size=1
+        Key  : Lower : Body            : Upper
+        None :  None : -0.818162485774 :   0.0
+    c3C : Size=1
+        Key  : Lower : Body             : Upper
+        None :  None : -0.0788178275159 :   0.0
+    c4C : Size=1
+        Key  : Lower : Body           : Upper
+        None :  None : -7.07881782752 :   0.0
+    c5C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c6C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  1.0 :   1.0
+    c7C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -1.0 :   1.0
+    cobjC : Size=1
+        Key  : Lower : Body               : Upper
+        None :   0.0 : -3.44169137634e-15 :   0.0
+lagrangean cuts-8.04973927788 - 1.47702991453*x - 0.295405982906*y - theta[3]None
+Model unknown
+
+  Variables:
+    x : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   3.0 :     5 : False : False :  Reals
+    y : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :     0 :   1.0 :     1 : False : False : Binary
+    theta : Size=3, Index=s
+        Key : Lower : Value          : Upper : Fixed : Stale : Domain
+          1 :   -50 :          4.375 :   100 : False : False :  Reals
+          2 :   -50 :          -11.0 :   100 : False : False :  Reals
+          3 :   -50 : -12.7762350044 :   100 : False : False :  Reals
+    f1 : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :  None :  22.0 :  None : False : False :  Reals
+    obj : Size=1, Index=None
+        Key  : Lower : Value          : Upper : Fixed : Stale : Domain
+        None :  None : -19.4012350044 :  None : False : False :  Reals
+
+  Objectives:
+    oobjO : Size=1, Index=None, Active=True
+        Key  : Active : Value
+        None :   True : -19.4012350044
+
+  Constraints:
+    c1C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None : -2.0 :   0.0
+    c2C : Size=1
+        Key  : Lower : Body : Upper
+        None :  None :  0.0 :   0.0
+    c3C : Size=1
+        Key  : Lower : Body              : Upper
+        None :   0.0 : -1.7763568394e-15 :   0.0
+    c4C : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0
+    benderscuts : Size=6
+        Key : Lower : Body          : Upper
+          1 :   0.0 :          67.5 :  None
+          2 :   0.0 :          15.0 :  None
+          3 :   0.0 : 3.39430070991 :  None
+          4 :   0.0 :           0.0 :  None
+          5 :   0.0 :           0.0 :  None
+          6 :   0.0 : 3.39430070991 :  None
+    lagrangeancuts : Size=9
+        Key : Lower : Body              : Upper
+          1 :  None :              -5.5 :   0.0
+          2 :  None :               0.0 :   0.0
+          3 :  None :    -2.09876499563 :   0.0
+          4 :  None :    -12.6111111111 :   0.0
+          5 :  None :    -4.44444444444 :   0.0
+          6 :  None :    -5.33487610674 :   0.0
+          7 :  None :    -1.71367521368 :   0.0
+          8 :  None : 1.42108547152e-14 :   0.0
+          9 :  None :               0.0 :   0.0
+total_solution_time  10.7939209938
+master_solve_time  0.0705487728119
+baron_solve_time  10.1840207577
+lp_solve_time  0.14675283432
+lagrangean_sub_time 0.322853326797
+BenderLB
+-27.0
+-27.0
+-19.4012350044
+BenderUB
+-10.125
+-19.2586329072
+LagrangeanLB
+-27.0
+-41.7916666667
+-21.114910218

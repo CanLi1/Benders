@@ -1,0 +1,4 @@
+we find that the number of constraints in the master problem do have an influence on the algorithm. Now we will not activate the constraints
+whose iteration index is greater than the current iteration. But if we activate all the constraints in all iterations,
+it will have a different result. I think it is due to the fact that there are multiple optimal solution for the benders master problem
+the solution it choose has an influence on the upper bound of the problem and thus on the way we update the multiplers of the lagrangean proble

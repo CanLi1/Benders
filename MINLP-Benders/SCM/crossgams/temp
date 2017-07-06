@@ -1,0 +1,38 @@
+alias (sub0,sub1,sub2,sub3,sub4,sub5,sub6,sub7,sub8,sub9,sub10,sub11,)
+loop(sub0,
+ loop(sub1,
+  loop(sub2,
+   loop(sub3,
+    loop(sub4,
+     loop(sub5,
+      loop(sub6,
+       loop(sub7,
+        loop(sub8,
+         loop(sub9,
+          loop(sub10,
+           loop(sub11,
+           );
+          );
+         );
+        );
+       );
+      );
+     );
+    );
+   );
+  );
+ );
+);
+1*(ord(sub0)-1)+3*(ord(sub1)-1)+9*(ord(sub2)-1)+27*(ord(sub3)-1)+81*(ord(sub4)-1)+243*(ord(sub5)-1)+729*(ord(sub6)-1)+2187*(ord(sub7)-1)+6561*(ord(sub8)-1)+19683*(ord(sub9)-1)+59049*(ord(sub10)-1)+177147*(ord(sub11)-1)+
+            D(j,'C1', w )= tempD(j,'C1','2')*(1 + (ord(sub0)-1.5)/2);
+            D(j,'C2', w )= tempD(j,'C2','2')*(1 + (ord(sub1)-1.5)/2);
+            D(j,'C3', w )= tempD(j,'C3','2')*(1 + (ord(sub2)-1.5)/2);
+            D(j,'C4', w )= tempD(j,'C4','2')*(1 + (ord(sub3)-1.5)/2);
+            D(j,'C5', w )= tempD(j,'C5','2')*(1 + (ord(sub4)-1.5)/2);
+            D(j,'C6', w )= tempD(j,'C6','2')*(1 + (ord(sub5)-1.5)/2);
+            D(j,'C7', w )= tempD(j,'C7','2')*(1 + (ord(sub6)-1.5)/2);
+            D(j,'C8', w )= tempD(j,'C8','2')*(1 + (ord(sub7)-1.5)/2);
+            D(j,'C9', w )= tempD(j,'C9','2')*(1 + (ord(sub8)-1.5)/2);
+            D(j,'C10', w )= tempD(j,'C10','2')*(1 + (ord(sub9)-1.5)/2);
+            D(j,'C11', w )= tempD(j,'C11','2')*(1 + (ord(sub10)-1.5)/2);
+            D(j,'C12', w )= tempD(j,'C12','2')*(1 + (ord(sub11)-1.5)/2);

@@ -1,0 +1,104 @@
+Model unknown
+
+  Variables:
+    y : Size=4, Index=Investments
+        Key : Lower : Value : Upper : Fixed : Stale : Domain
+          A :     0 :   0.0 :     1 : False : False : Binary
+          B :     0 :   0.0 :     1 : False : False : Binary
+          C :     0 :   1.0 :     1 : False : False : Binary
+          D :     0 :   0.0 :     1 : False : False : Binary
+    y2 : Size=8, Index=y2_index
+        Key        : Lower : Value : Upper : Fixed : Stale : Domain
+        ('A', 'H') :     0 :   0.0 :     1 : False : False : Binary
+        ('A', 'L') :     0 :   0.0 :     1 : False : False : Binary
+        ('B', 'H') :     0 :   1.0 :     1 : False : False : Binary
+        ('B', 'L') :     0 :   0.0 :     1 : False : False : Binary
+        ('C', 'H') :     0 :   0.0 :     1 : False : False : Binary
+        ('C', 'L') :     0 :   1.0 :     1 : False : False : Binary
+        ('D', 'H') :     0 :   0.0 :     1 : False : False : Binary
+        ('D', 'L') :     0 :   0.0 :     1 : False : False : Binary
+    x2 : Size=8, Index=x2_index
+        Key        : Lower : Value         : Upper : Fixed : Stale : Domain
+        ('A', 'H') :     0 :           0.0 :  None : False : False : NonNegativeReals
+        ('A', 'L') :     0 :           0.0 :  None : False : False : NonNegativeReals
+        ('B', 'H') :     0 : 35.0713558334 :  None : False : False : NonNegativeReals
+        ('B', 'L') :     0 :           0.0 :  None : False : False : NonNegativeReals
+        ('C', 'H') :     0 :           0.0 :  None : False : False : NonNegativeReals
+        ('C', 'L') :     0 : 33.1662479035 :  None : False : False : NonNegativeReals
+        ('D', 'H') :     0 :           0.0 :  None : False : False : NonNegativeReals
+        ('D', 'L') :     0 :           0.0 :  None : False : False : NonNegativeReals
+    x : Size=4, Index=Investments
+        Key : Lower : Value  : Upper : Fixed : Stale : Domain
+          A :     0 :    0.0 :  None : False : False : NonNegativeReals
+          B :     0 :    0.0 :  None : False : False : NonNegativeReals
+          C :     0 : 1000.0 :  None : False : False : NonNegativeReals
+          D :     0 :    0.0 :  None : False : False : NonNegativeReals
+    f : Size=2, Index=Scenario
+        Key : Lower : Value         : Upper : Fixed : Stale : Domain
+          H : -2000 : 12.4176862083 :  1000 : False : False :  Reals
+          L : -2000 : 7.27735761487 :  1000 : False : False :  Reals
+    d : Size=4, Index=d_index
+        Key        : Lower : Value             : Upper : Fixed : Stale : Domain
+        ('H', 'H') :     0 : 6.88556710184e-11 :  None : False : False : NonNegativeReals
+        ('H', 'L') :     0 : 6.88566764692e-11 :  None : False : False : NonNegativeReals
+        ('L', 'H') :     0 : 6.88556878263e-11 :  None : False : False : NonNegativeReals
+        ('L', 'L') :     0 : 6.88555407879e-11 :  None : False : False : NonNegativeReals
+    su : Size=4, Index=su_index
+        Key        : Lower : Value           : Upper : Fixed : Stale : Domain
+        ('H', 'H') :     0 :   12.3463303752 :  None : False : False : NonNegativeReals
+        ('H', 'L') :     0 : 0.0713558335112 :  None : False : False : NonNegativeReals
+        ('L', 'H') :     0 :   5.79448492137 :  None : False : False : NonNegativeReals
+        ('L', 'L') :     0 :   1.48287269391 :  None : False : False : NonNegativeReals
+    obj : Size=1, Index=None
+        Key  : Lower : Value         : Upper : Fixed : Stale : Domain
+        None :  None : 9.84752191159 :  None : False : False :  Reals
+
+  Objectives:
+    oobjO : Size=1, Index=None, Active=True
+        Key  : Active : Value
+        None :   True : 9.84752191159
+
+  Constraints:
+    c1C : Size=1
+        Key  : Lower  : Body   : Upper
+        None : 1000.0 : 1000.0 : 1000.0
+    c2C : Size=1
+        Key  : Lower : Body : Upper
+        None :   1.0 :  1.0 :   1.0
+    c3C : Size=4
+        Key : Lower : Body : Upper
+          A :  None :  0.0 :   0.0
+          B :  None :  0.0 :   0.0
+          C :  None :  0.0 :   0.0
+          D :  None :  0.0 :   0.0
+    c5C : Size=2
+        Key : Lower : Body               : Upper
+          H :  None : -4.03861122322e-09 :   0.0
+          L :  None : -3.86512510886e-09 :   0.0
+    c6C : Size=2
+        Key : Lower : Body : Upper
+          H :   1.0 :  1.0 :   1.0
+          L :   1.0 :  1.0 :   1.0
+    c4C : Size=4
+        Key        : Lower : Body : Upper
+        ('H', 'H') :  35.0 : 35.0 :  35.0
+        ('H', 'L') :  35.0 : 35.0 :  35.0
+        ('L', 'H') :  35.0 : 35.0 :  35.0
+        ('L', 'L') :  35.0 : 35.0 :  35.0
+    c7C : Size=2
+        Key : Lower : Body              : Upper
+          H :   0.0 : 2.16776596673e-12 :   0.0
+          L :   0.0 : 6.66133814775e-16 :   0.0
+    c8C : Size=8
+        Key        : Lower : Body           : Upper
+        ('H', 'A') :  None :            0.0 :   0.0
+        ('H', 'B') :  None : -964.928644167 :   0.0
+        ('H', 'C') :  None :            0.0 :   0.0
+        ('H', 'D') :  None :            0.0 :   0.0
+        ('L', 'A') :  None :            0.0 :   0.0
+        ('L', 'B') :  None :            0.0 :   0.0
+        ('L', 'C') :  None : -966.833752097 :   0.0
+        ('L', 'D') :  None :            0.0 :   0.0
+    cobjC : Size=1
+        Key  : Lower : Body : Upper
+        None :   0.0 :  0.0 :   0.0

@@ -1,0 +1,6 @@
+*.py[cod]
+*.lst
+*.log
+*DS_Store
+225*/
+Job1.*

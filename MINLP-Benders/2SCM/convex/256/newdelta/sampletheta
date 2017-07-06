@@ -1,0 +1,40 @@
+GAMS 24.8.4  r60966 Released Apr 10, 2017 LEX-LEG x86 64bit/Linux                                                                                                                                                                 06/24/17 22:49:34 Page 474137
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+----    533 PARAMETER UB  
+
+            1           2           3           4
+
+1     881.238     817.183     816.847     749.564
+2     928.139     926.964     933.478     931.417
+3     927.588     828.427     927.589     934.295
+4     926.321     934.314     934.060     934.582
+5     928.056     927.933     934.574     934.936
+
+
+----    533 PARAMETER LB  
+
+            1           2           3           4
+
+1     893.991     897.395     897.251     897.729
+2     899.894     899.790     900.907     901.110
+3     901.097     897.019     901.805     902.243
+4     901.148     902.568     902.497     902.777
+5     902.519     902.713     902.942     902.808
+
+
+
+EXECUTION TIME       =       15.151 SECONDS     84 MB  24.8.4 r60966 LEX-LEG
+
+
+USER: Eval License Carnegie Mellon University        G161202/0001AB-GEN
+      Dept. of Chemical Engineering                              DC9476
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      /home/canl1/work/MINLP-Benders/2SCM/convex/256/newdelta/morebenders.gms
+Output     /home/canl1/work/MINLP-Benders/2SCM/convex/256/newdelta/morebenders.lst
