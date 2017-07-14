@@ -16,4 +16,4 @@
 #PBS -V
 
 cd ~/work/Benders/MINLP-Benders/batch/243
-gams samplecross31.gms -lo=4  
+gams samplecross2-08.gms -lo=4  

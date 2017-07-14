@@ -77,11 +77,12 @@ eobj .. cost =e= sum(j, alpha(j) * exp(n(j) + beta(j) * v(j))) + sum(w, prob(w) 
 
 model batch /all/;
 batch.optfile=1;
-option minlp = baron;
+*option minlp = baron;
 option optcr = 0;
 option optca =0;
 OPTION LIMROW = 0;
 OPTION LIMCOL = 0;
+option threads=12;
 solve batch using minlp minimizing cost;
 
 
@@ -96,7 +97,7 @@ dv(j) = exp(v.l(j));
 dns(j,w) = exp(ns.l(j,w));
 dtl(i,w) = exp(tl.l(i,w));
 db(i,w) = exp(b.l(i,w));
-display yf.l, ys.l, dn, dv, dns, dtl, db, L.l;
+display yf.l, ys.l, dn, dv, dns, dtl, db, L.l,cost.l,batch.resusd;
 
 
 
