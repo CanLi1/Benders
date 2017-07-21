@@ -5,7 +5,7 @@ s /s1*s4/
 r /r1*r4/
 p /p1*p3/
 c /c1*c4/
-w /w1*w128/
+w /w1*w16/
 ;
 alias(j,jj),(s,ss);
 Table
@@ -93,7 +93,7 @@ QEU(p,i)
 PUU /100/
 FUU /150/
 prob(w);
-prob(w) = 1/128;
+prob(w) = 1/16;
 Q0(p,i) = 0;
 rho(i,j,s) =1;
 H(i) = 1;
@@ -136,31 +136,25 @@ loop(sub0,
  loop(sub1,
   loop(sub2,
    loop(sub3,
-    loop(sub4,
-     loop(sub5,
-      loop(sub6,
 
             num = 0;
              
-            num = 1*(ord(sub0)-1)+2*(ord(sub1)-1)+4*(ord(sub2)-1)+8*(ord(sub3)-1)+16*(ord(sub4)-1)+32*(ord(sub5)-1)+64*(ord(sub6)-1);
+            num = 1*(ord(sub0)-1)+2*(ord(sub1)-1)+4*(ord(sub2)-1)+8*(ord(sub3)-1);
             loop(w, 
               if(ord(w) eq num + 1,
 D('c1','j3',w)= baseD('c1', 'j3')*(1 + (ord(sub0)-1.5)*2/3);
 D('c1','j5',w)= baseD('c1', 'j5')*(1 + (ord(sub1)-1.5)*2/3);
 D('c2','j3',w)= baseD('c2', 'j3')*(1 + (ord(sub2)-1.5)*2/3);
 D('c2','j5',w)= baseD('c2', 'j5')*(1 + (ord(sub3)-1.5)*2/3);
-D('c3','j3',w)= baseD('c3', 'j3')*(1 + (ord(sub4)-1.5)*2/3);
-D('c3','j5',w)= baseD('c3', 'j5')*(1 + (ord(sub5)-1.5)*2/3);
-D('c4','j3',w)= baseD('c4', 'j3')*(1 + (ord(sub6)-1.5)*2/3);
+D('c3','j3',w)= baseD('c3', 'j3');
+D('c3','j5',w)= baseD('c3', 'j5');
+D('c4','j3',w)= baseD('c4', 'j3');
 D('c4','j5',w)= baseD('c4', 'j5');
 
             );
               );
               );
-           );
-          );
          );
-        );
        );
       );
 
@@ -245,7 +239,7 @@ eobj .. cost =e= sum(p, sum(i, betaC(i) * QE(p,i) + alphaC(i) * x(p,i))) + sum(w
 model scm /all/;
 scm.threads=12;
 option MINLP = DICOPT;
-option optcr = 0;
+option optcr = 0.03;
 option optca =0;
   OPTION LIMROW = 0;
 OPTION LIMCOL = 0;

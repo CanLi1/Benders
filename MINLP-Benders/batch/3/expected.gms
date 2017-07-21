@@ -10,7 +10,7 @@ alias (k, kk)
 parameters
 alpha(j)
 beta(j)
-delta /220/
+delta /240/
 lambda(j) 
 VL /300/
 VU /2500/
@@ -21,7 +21,7 @@ prob(w)
 ;
 alpha(j) = 250;
 beta(j) = 0.6;
-lambda(j) = 2000;
+lambda(j) = 5000;
 Q(i, 'w1') = baseQ(i)*1.2;
 Q(i, 'w2') = baseQ(i)*1;
 Q(i, 'w3') = baseQ(i) *0.8;

@@ -5,7 +5,7 @@ s /s1*s4/
 r /r1*r4/
 p /p1*p3/
 c /c1*c4/
-w /w1*w3/
+w /w1*w256/
 freeze(w)
 ;
 
@@ -82,6 +82,7 @@ r2       1                             1                      1
 r3       1        1                                           1
 r4       1        1                    1                      1
 ;
+
 Parameters
 Q0(p,i)
 rho(i,j,s)
@@ -93,7 +94,8 @@ phi(c,j) "penalty cost for not satisfying demand from customer c for chemical j"
 QEU(p,i)
 PUU /100/
 FUU /150/
-prob(w)/w1 0.25, w2 0.5, w3 0.25/;
+prob(w);
+prob(w) = 1/256;
 Q0(p,i) = 0;
 rho(i,j,s) =1;
 H(i) = 1;
@@ -123,13 +125,46 @@ c2                         50                     3
 c3                        150                   2.5
 c4                         80                     2
 ;
-
-
 Parameters
 D(c,j,w);
-D(c,j,'w1')=baseD(c,j) * 0.7;
-D(c,j,'w3') = baseD(c,j) * 1.3;
-D(c,j,'w2') = baseD(c,j);
+*generate scenarios
+Set
+subw/1*2/;
+Parameters
+num;
+alias (sub0,sub1,sub2,sub3,sub4,sub5,sub6,sub7,sub8,sub9,sub10,sub11,subw);
+loop(sub0,
+ loop(sub1,
+  loop(sub2,
+   loop(sub3,
+    loop(sub4,
+     loop(sub5,
+      loop(sub6,
+    loop(sub7,
+            num = 0;
+
+            num = 1*(ord(sub0)-1)+2*(ord(sub1)-1)+4*(ord(sub2)-1)+8*(ord(sub3)-1)+16*(ord(sub4)-1)+32*(ord(sub5)-1)+64*(ord(sub6)-1)+128*(ord(sub7)-1);
+            loop(w,
+              if(ord(w) eq num + 1,
+D('c1','j3',w)= baseD('c1', 'j3')*(1 + (ord(sub0)-1.5)*2/3);
+D('c1','j5',w)= baseD('c1', 'j5')*(1 + (ord(sub1)-1.5)*2/3);
+D('c2','j3',w)= baseD('c2', 'j3')*(1 + (ord(sub2)-1.5)*2/3);
+D('c2','j5',w)= baseD('c2', 'j5')*(1 + (ord(sub3)-1.5)*2/3);
+D('c3','j3',w)= baseD('c3', 'j3')*(1 + (ord(sub4)-1.5)*2/3);
+D('c3','j5',w)= baseD('c3', 'j5')*(1 + (ord(sub5)-1.5)*2/3);
+D('c4','j3',w)= baseD('c4', 'j3')*(1 + (ord(sub6)-1.5)*2/3);
+D('c4','j5',w)= baseD('c4', 'j5')*(1 + (ord(sub7)-1.5)*2/3) ;
+
+            );
+              );
+              );
+           );
+);
+          );
+         );
+        );
+      );
+     );
 Table
 betaS(r,j) "price for purchase chemical j from supplier r"
         j1       j2        j3         j4         j5          j6
@@ -199,6 +234,7 @@ pix(p,i,w) = 0;
 piQ(p,i,w) = 0;
 Equations
 e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,e11,e12,eobj;
+
 e1(p,i) .. QE(p,i) =l= QEU(p,i) * x(p,i);
 e2(p,i) .. Q(p,i) =e= Q0(p,i) + QE(p,i);
 e3(p,j,w)$freeze(w) .. sum(r$RJ(r,j), PU(r,p,j,w)) + sum((i,s)$(OJ(i,j) and PS(i,s)), WW(p,i,j,s,w)) =e= sum(c, F(p,c,j,w)) + sum((i,s)$(IJ(i,j) and PS(i,s)), WW(p,i,j,s,w));
@@ -213,7 +249,7 @@ e11(c,j,w)$freeze(w) .. sum(p, F(p,c,j,w)) + Slack(c,j,w) =e= D(c,j,w);
 e12(p,i,j,s,w)$(freeze(w) and (not(JM(i,s,j) or L(i,s,j) or Lbar(i,s,j)))) .. WW(p,i,j,s,w) =e= 0;
 eobj .. cost =e= sum(w$freeze(w), prob(w) * sum(p, sum(i, betaC(i) * QE(p,i)*100 + alphaC(i) * x(p,i)))) + sum(w$freeze(w), prob(w) * (sum((p,i,s,j)$(PS(i,s) and JM(i,s,j)), delta(i,s)*rho(i,j,s) * theta(p,i,j,s,w)) + sum((p,j,r)$RJ(r,j), (betaS(r,j) + betaRP(r,p)) * PU(r,p,j,w)) + sum((r,p), alphaRP(r,p) * y(r,p,w)) + sum((p,c), alphaPC(p,c) * z(p,c,w)) + sum((p,c,j), betaPC(p,c) * F(p,c,j,w)) + sum((c,j), phi(c,j) * Slack(c,j,w)) )) +  sum((p,i,w)$freeze(w), pix(p,i,w) * x(p,i) + piQ(p,i,w) * Q(p,i));
 
-set iter /1*60/
+set iter /1*30/
 aiter(iter)
 biter(iter);
 
@@ -233,7 +269,7 @@ den(iter)
 stepsize
 theta0 /1.5/
 *theta00(ltheta)/1 0.2,2 0.6, 3 1, 4 1.5, 5 2/
-half0 /0.5/
+half0 /0.8/
 *half00(lstep) / 1 0.5, 2 0.6,3 0.7,4 0.8/
 change;
 mux('1',p,i,w) = 0;
@@ -268,13 +304,12 @@ g2(iter,p,i,w)=0;
 v(iter,w) =0;
 
 equations
-bobj, b1,b2,b4,b3;
+bobj, b2,b4,b3;
 bobj .. BenderOBJ =e= sum(w,  yita(w))  ;
-b1(w, iiiter)$aiter(iiiter) .. yita(w) =g= obj_record(iiiter,w ) - sum((p,i), pix_all(iiiter,p,i,w) * xf(p,i)+ piQ_all(iiiter,p,i,w)*Qf(p,i));
 b2(p,i) .. xf(p,i)*QEU(p,i)=g= QEf(p,i);
 b4(p,i) .. Qf(p,i) =e= Q0(p,i) + QEf(p,i);
 b3(w, iiiter)$biter(iiiter)  .. yita(w) =g= v(iiiter, w) + sum((p,i), g1(iiiter, p,i,w) * xf(p,i) + g2(iiiter, p,i, w) * Qf(p,i) ) ;
-model bendersmaster /bobj, b1,b2, b3,b4/;
+model bendersmaster /bobj, b2, b3,b4/;
 
 *----------------------------DEFINE Benders subproblem---------------------------
 parameters
@@ -294,7 +329,7 @@ option optcr = 0;
 option optca =0;
   OPTION LIMROW = 0;
 OPTION LIMCOL = 0;
-option MINLP = dicopt;
+option MINLP = baron;
 option iterlim = 2e9;
 *parallel------------------
 BenderSub.solvelink =3;
@@ -317,42 +352,11 @@ parameters
 LB
 UB;
 LB = 700;
-UB=1016.0;
+UB=1003.2 ;
 aiter(iiiter) = yes;
 loop(iter,
 
 
-*solve each lagrangean subproblem
-if(ord(iter) le 30,
-loop(w3,
-  freeze(w2) = no;
-  freeze(w3) = yes;
-  Slack.l(c,'j3', w3) = 50;
-  Slack.l(c,'j5',w3) = 2;
-  solve sub using MINLP minimizing COST;
-  lag_sub_handle(w3) = sub.handle;
-
-);
-Repeat
-  loop(w3$handlecollect(lag_sub_handle(w3)),
-      x_record_lag(iter,p,i,w3 ) = x.l(p,i);
-      Q_record_lag(iter,p,i,w3)=Q.l(p,i);
-      obj_record(iter, w3) = cost.l;
-      cpu_lag = cpu_lag + sub.resusd;
-      lag_sub_modelstat(iter,w3) = sub.modelStat;
-*      abort$(sub.modelStat ne 8 or sub.solveStat ne 1) 'abort due to error solve lag sub';
-      display$handledelete(lag_sub_handle(w3)) 'trouble deleting handles';
-      lag_sub_handle(w3)=0;
-    );
-until card(lag_sub_handle) =0;
-
-  total_obj_record(iter) = sum(w, obj_record(iter,w));
-*update multiplier
-    pix_all(iter,p,i,w) = pix(p,i,w);
-    piQ_all(iter,p,i,w) = piQ(p,i,w);
-);
-
-*solve benders master problem----------------
     aiter(iiiter) = no;
     biter(iiiter)=no;
   loop(iiter,
@@ -398,6 +402,8 @@ until card(lag_sub_handle) =0;
         Bendersub_handle(w3)=0;
       );
   until card(Bendersub_handle) =0;
+
+
 *add benders cuts, solve each benders subproblem--------------
   loop(w3,
     freeze(w2) = no;
@@ -408,7 +414,6 @@ until card(lag_sub_handle) =0;
     Bendersub_handle(w3)= Bendersub.handle;
 
     );
-
   Repeat
     loop(w3$handlecollect(Bendersub_handle(w3)),
       cpu_bender_sub = cpu_bender_sub + Bendersub.resusd;
@@ -429,35 +434,6 @@ until card(lag_sub_handle) =0;
     );
 *finish benders-------------------
 
-*update lagrangean multiplier
-if(ord(iter) le 30,
-  den(iter) = sum((p,i,w), power(x_record_lag(iter,p,i,w) -x_record_lag(iter,p,i,'w1'), 2 ) + power(Q_record_lag(iter,p,i,w)-Q_record_lag(iter,p,i,'w1'), 2) );
-  stepsize = theta0 * (UB-LB)/den(iter);
-  loop(w,
-    if(ord(w) gt 1,
-      mux(iter+1,p,i,w) = mux(iter,p,i,w) + (x_record_lag(iter,p,i,w)-x_record_lag(iter,p,i,'w1')) * stepsize;
-      muQ(iter+1,p,i,w) = muQ(iter,p,i,w) + (Q_record_lag(iter,p,i,w)-Q_record_lag(iter,p,i,'w1')) * stepsize;
-      );
-    );
-  loop(w,
-    if(ord(w) gt 1,
-      pix(p,i,w) =  mux(iter+1,p,i,w);
-      piQ(p,i,w) = muQ(iter+1,p,i,w);
-
-      );
-    pix(p,i,'w1') = -sum((w2)$( ord(w2) gt 1), mux(iter+1,p,i,w2));
-    piQ(p,i,'w1') = -sum((w2)$( ord(w2) gt 1 ), muQ(iter+1,p,i,w2));
-    );
-  if (ord(iter) gt 1,
-    change = -(total_obj_record(iter-1) - total_obj_record(iter)) / total_obj_record(iter-1);
-    if (change lt 0,
-      theta0 = theta0 * half0;
-      );
-    );
-  );
-  if(LB lt total_obj_record(iter),
-    LB = total_obj_record(iter);
-    );
   if(LB * 1.01 gt UB,
   break; );
   );
@@ -466,7 +442,6 @@ if(ord(iter) le 30,
 parameter
 WallTime;
 WallTime=TimeElapsed;
-display x_record_lag,Q_record_lag,mux, muQ, obj_record, pix_all, piQ_all,g2,v,xf_record, Qf_record;
+display xf_record, Qf_record;
 
-display lag_sub_modelstat,bender_sub_modelstat,upper_sub_modelstat,master_modelstat,total_obj_record, BenderOBJ_record, UB_Bender,UB, LB, WallTime,cpu_ub,cpu_lag, cpu_bender_sub, cpu_bender_master ;
-
+display bender_sub_modelstat,upper_sub_modelstat,master_modelstat, BenderOBJ_record, UB_Bender,UB, LB, WallTime,cpu_ub, cpu_bender_sub, cpu_bender_master ;

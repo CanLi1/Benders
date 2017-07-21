@@ -233,7 +233,7 @@ den(iter)
 stepsize
 theta0 /1.5/
 *theta00(ltheta)/1 0.2,2 0.6, 3 1, 4 1.5, 5 2/
-half0 /0.5/
+half0 /0.8/
 *half00(lstep) / 1 0.5, 2 0.6,3 0.7,4 0.8/
 change;
 mux('1',p,i,w) = 0;

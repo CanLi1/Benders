@@ -16,4 +16,4 @@
 #PBS -V
 
 cd ~/work/Benders/MINLP-Benders/batch/81
-gams batch81.gms -lo=4  
+gams scalemorebenders.gms -lo=4  

@@ -2,7 +2,7 @@ Sets
 i /i1*i5/
 j /j1*j6/
 k /k1*k4/
-w /w1*w243/
+w /w1*w81/
 freeze(w)
 ;
 alias (k, kk), (w,w3,w2);
@@ -34,17 +34,16 @@ loop(sub0,
  loop(sub1,
   loop(sub2,
    loop(sub3,
-    loop(sub4,
-      num = 1*(ord(sub0)-1)+3*(ord(sub1)-1)+9*(ord(sub2)-1)+27*(ord(sub3)-1)+81*(ord(sub4)-1)+1;
-      loop(w3$(ord(w3) eq num),
-             Q('i1', w3 )= baseQ('i1')*(1 + (ord(sub0)-2)/10);
-          Q('i2', w3 )= baseQ('i2')*(1 + (ord(sub1)-2)/10);
-          Q('i3', w3 )= baseQ('i3')*(1 + (ord(sub2)-2)/10);
-          Q('i4', w3 )= baseQ('i4')*(1 + (ord(sub3)-2)/10);
-          Q('i5', w3 )= baseQ('i5')*(1 + (ord(sub4)-2)/10);
-          prob(w3) = baseprob(sub0)* baseprob(sub1) * baseprob(sub2) * baseprob(sub3) * baseprob(sub4);
-        );
-    );
+    	num = 1*(ord(sub0)-1)+3*(ord(sub1)-1)+9*(ord(sub2)-1)+27*(ord(sub3)-1)+1;
+    	loop(w3$(ord(w3) eq num),
+    		     Q('i1', w3 )= baseQ('i1')*(1 + (ord(sub0)-2)/10);
+     			Q('i2', w3 )= baseQ('i2')*(1 + (ord(sub1)-2)/10);
+     			Q('i3', w3 )= baseQ('i3')*(1 + (ord(sub2)-2)/10);
+     			Q('i4', w3 )= baseQ('i4')*(1 + (ord(sub3)-2)/10);
+     			Q('i5', w3 )= baseQ('i5');
+     			prob(w3) = baseprob(sub0)* baseprob(sub1) * baseprob(sub2) * baseprob(sub3) ;
+    		);
+
    );
   );
  );
@@ -80,6 +79,7 @@ cost;
 Positive Variables
 L(w);
 
+
 *Lagrangean subproblem----------------------------------------------------
 parameters
 piyf(k,j,w)
@@ -89,7 +89,9 @@ piv(j,w)
 piyf(k,j,w) = 0;
 pin(j,w)=0;
 piv(j,w)=0;
-
+lambda(j)=lambda(j)/1000;
+delta = delta/1000;
+alpha(j)=alpha(j)/1000;
 Equations
 e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,eobj;
 *first stage
@@ -110,7 +112,7 @@ eobj .. cost =e= sum(w$freeze(w), prob(w)*sum(j, alpha(j) * exp(n(j) + beta(j) *
 model sub /e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,eobj/;
 sub.optfile=1;
 
-set iter /1*30/
+set iter /1*60/
 aiter(iter)
 biter(iter);
 
@@ -135,10 +137,10 @@ cpu_lag/0/
 den(iter)
 stepsize
 theta0 /1.5/
-theta00(ltheta) /1 2/
+theta00(ltheta) /1 3/
 half00(lstep) /1 0.8/
 *theta00(ltheta)/1 0.2,2 0.6, 3 1, 4 1.5, 5 2/
-half0 /0.5/
+half0 /0.8/
 *half00(lstep) / 1 0.5,2 0.8, 3 0.9/
 change;
 muyf('1', k,j,w) = 0;
@@ -218,9 +220,8 @@ parameters
 LB(ltheta, lstep)
 UB(ltheta, lstep)
 ;
-LB(ltheta,lstep) =  250843.7050;
-UB(ltheta,lstep) = 418163.472  ;
-
+LB(ltheta,lstep) =  250.8437050;
+UB(ltheta,lstep) = 417.854182  ;
 aiter(iiiter) = yes;
 loop(ltheta,
 loop(lstep,
@@ -374,29 +375,29 @@ piv_all(iter, j, w)=piv(j,w);
 
     );
 *finish benders-------------------
-
+if(ord(iter) le 30,
 *update lagrangean multiplier
-  den(iter) = sum((j,w), sum(k, power(yf_record_lag(iter, k,j,w) - yf_record_lag(iter, k, j, 'w122'), 2)) + power(n_record_lag(iter, j, w) - n_record_lag(iter, j, 'w122'), 2) + power(v_record_lag(iter, j, w) - v_record_lag(iter, j, 'w122'), 2));
+  den(iter) = sum((j,w), sum(k, power(yf_record_lag(iter, k,j,w) - yf_record_lag(iter, k, j, 'w41'), 2)) + power(n_record_lag(iter, j, w) - n_record_lag(iter, j, 'w41'), 2) + power(v_record_lag(iter, j, w) - v_record_lag(iter, j, 'w41'), 2));
   stepsize = theta0 * (UB(ltheta, lstep)-LB(ltheta, lstep))/den(iter);
 
 
   loop(w,
-    if(ord(w) ne 122,
-      muyf(iter+1, k,j,w) = muyf(iter, k,j,w) + (yf_record_lag(iter, k,j,w) - yf_record_lag(iter, k,j,'w122')) * stepsize;
-      mun(iter+1, j, w) = mun(iter, j, w) + (n_record_lag(iter, j, w) - n_record_lag(iter, j , 'w122'))*stepsize;
-      muv(iter+1, j, w)= muv(iter, j, w) + (v_record_lag(iter, j, w) - v_record_lag(iter, j, 'w122'))*stepsize;
+    if(ord(w) ne 41,
+      muyf(iter+1, k,j,w) = muyf(iter, k,j,w) + (yf_record_lag(iter, k,j,w) - yf_record_lag(iter, k,j,'w41')) * stepsize;
+      mun(iter+1, j, w) = mun(iter, j, w) + (n_record_lag(iter, j, w) - n_record_lag(iter, j , 'w41'))*stepsize;
+      muv(iter+1, j, w)= muv(iter, j, w) + (v_record_lag(iter, j, w) - v_record_lag(iter, j, 'w41'))*stepsize;
       );
     );
   loop(w,
-    if(ord(w) ne 122,
+    if(ord(w) ne 41,
       piyf(k,j,w) = muyf(iter+1, k,j,w);
       pin(j, w) = mun(iter + 1, j, w);
       piv(j,w) = muv(iter+1, j, w);
 
       );
-    piyf(k,j,'w122') = -sum(w2$(ord(w2) ne 122), muyf(iter+1, k,j,w2));
-    pin(j, 'w122') = -sum(w2$(ord(w2) ne 122), mun(iter+1, j, w2));
-    piv(j, 'w122') = -sum(w2$(ord(w2) ne 122), muv(iter+1, j, w2));
+    piyf(k,j,'w41') = -sum(w2$(ord(w2) ne 41), muyf(iter+1, k,j,w2));
+    pin(j, 'w41') = -sum(w2$(ord(w2) ne 41), mun(iter+1, j, w2));
+    piv(j, 'w41') = -sum(w2$(ord(w2) ne 41), muv(iter+1, j, w2));
 
     );
   if (ord(iter) gt 1,
@@ -409,6 +410,7 @@ piv_all(iter, j, w)=piv(j,w);
   if(LB(ltheta, lstep) lt total_obj_record(iter),
     LB(ltheta, lstep) = total_obj_record(iter);
     );
+);
   if(LB(ltheta, lstep) * 1.01 gt UB(ltheta, lstep),
     display LB, UB;
   break; );
@@ -429,5 +431,5 @@ dv(iter,j)
 ;
 dn(iter, j) = exp(n_record(iter, j));
 dv(iter, j) = exp(v_record(iter,j));
-display cpu_ub,cpu_lag,cpu_bender_sub, cpu_bender_master,WallTime;
+display cpu_ub,cpu_lag,cpu_bender_sub, cpu_bender_master,walltime;
 display UB, LB, total_obj_record, BenderOBJ_record, UB_Bender, dn,dv;

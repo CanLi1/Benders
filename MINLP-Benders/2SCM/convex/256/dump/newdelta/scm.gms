@@ -246,7 +246,8 @@ e12(p,i,j,s,w)$(not(JM(i,s,j) or L(i,s,j) or Lbar(i,s,j))) .. WW(p,i,j,s,w) =e= 
 eobj .. cost =e= sum(p, sum(i, betaC(i) * QE(p,i) + alphaC(i) * x(p,i))) + sum(w, prob(w) * (sum((p,i,s,j)$(PS(i,s) and JM(i,s,j)), delta(i,s)*rho(i,j,s) * theta(p,i,j,s,w)) + sum((p,j,r)$RJ(r,j), (betaS(r,j) + betaRP(r,p)) * PU(r,p,j,w)) + sum((r,p), alphaRP(r,p) * y(r,p,w)) + sum((p,c), alphaPC(p,c) * z(p,c,w)) + sum((p,c,j), betaPC(p,c) * F(p,c,j,w)) + sum((c,j), phi(c,j) * Slack(c,j,w)) ));
 
 model scm /all/;
-scm.threads=12;
+*scm.threads=12;
+scm.threads=1;
 option MINLP = DICOPT;
 option optcr = 0;
 option optca =0;
@@ -254,7 +255,7 @@ option optca =0;
 OPTION LIMCOL = 0;
 option threads=12;
 scm.optfile=1;
- OPTION RESLIM = 1e8;
+ OPTION RESLIM = 1e2;
 solve scm using MINLP minimizing cost;
 
 parameters

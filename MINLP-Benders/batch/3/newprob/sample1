@@ -1,0 +1,1000 @@
+w3.16   2687592.5945   2922713.1722        +INF             .          
+w3.17   1818590.1812   1936571.4732        +INF             .          
+w3.18   2211697.1426   2300022.1095        +INF             .          
+w3.19   5271567.5660   6873542.1042        +INF             .          
+w3.20   2730521.8210   3460119.6086        +INF             .          
+w3.21   4690450.8916   5376926.7624        +INF             .          
+w3.22   -387309.1016   -386766.7275        +INF             .          
+w3.23   2198908.2106   2334215.4248        +INF             .          
+w3.24   2536094.8158   2713200.1085        +INF             .          
+w3.25   -378381.7235   -377736.1430        +INF             .          
+w3.26   -389938.2104   -389442.1253        +INF             .          
+w3.27   2369326.2018   2599854.2321        +INF             .          
+w3.28   3808450.1144   4451486.7571        +INF             .          
+w3.29   4173772.1690   5021308.8713        +INF             .          
+w3.30   -378492.2902   -377548.8209        +INF             .          
+w3.31   -383636.7903   -383136.7612        +INF             .          
+w3.32   -387181.3668   -386667.0513        +INF             .          
+w3.33          .        103380.8050        +INF             .          
+
+---- EQU e1  
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+j1         1.0000         1.0000         1.0000          .          
+j2         1.0000         1.0000         1.0000          .          
+j3         1.0000         1.0000         1.0000          .          
+j4         1.0000         1.0000         1.0000          .          
+j5         1.0000         1.0000         1.0000          .          
+j6         1.0000         1.0000         1.0000          .          
+GAMS 24.8.4  r60966 Released Apr 10, 2017 LEX-LEG x86 64bit/Linux                                                                                                                                                                    07/10/17 22:09:31 Page 322
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE bendersmaster Using MIP From line 280
+
+
+---- EQU e2  
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+j1          .              .              .         40105.8255      
+j2          .              .              .         31279.3867      
+j3          .              .              .         41436.3191      
+j4          .              .              .         33748.3664      
+j5          .              .              .         23261.1781      
+j6          .              .              .         23568.5731      
+
+---- EQU e3  
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+j1        -INF            7.7339         7.7407          .          
+j2        -INF            7.3630         7.7407          .          
+j3        -INF            7.2973         7.7407          .          
+j4        -INF            7.6649         7.7407          .          
+j5        -INF            7.5743         7.7407          .          
+j6        -INF            7.4209         7.7407          .          
+
+---- EQU e4  
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+j1         5.7038         7.7339        +INF             .          
+j2         5.7038         7.3630        +INF             .          
+j3         5.7038         7.2973        +INF             .          
+j4         5.7038         7.6649        +INF             .          
+j5         5.7038         7.5743        +INF             .          
+j6         5.7038         7.4209        +INF             .          
+
+---- VAR yf  
+
+             LOWER          LEVEL          UPPER         MARGINAL
+
+k1.j1          .              .             1.0000         EPS         
+k1.j2          .              .             1.0000         EPS         
+k1.j3          .              .             1.0000         EPS         
+k1.j4          .              .             1.0000         EPS         
+k1.j5          .              .             1.0000         EPS         
+k1.j6          .              .             1.0000         EPS         
+k2.j1          .              .             1.0000     27555.4521      
+k2.j2          .              .             1.0000     26434.3428      
+k2.j3          .              .             1.0000     28721.4677      
+k2.j4          .              .             1.0000     30968.7423      
+k2.j5          .             1.0000         1.0000     18934.2792      
+k2.j6          .             1.0000         1.0000     17877.6929      
+k3.j1          .             1.0000         1.0000     45565.7890      
+k3.j2          .             1.0000         1.0000     30872.0428      
+k3.j3          .              .             1.0000     48294.3220      
+k3.j4          .             1.0000         1.0000     35416.3186      
+GAMS 24.8.4  r60966 Released Apr 10, 2017 LEX-LEG x86 64bit/Linux                                                                                                                                                                    07/10/17 22:09:31 Page 323
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE bendersmaster Using MIP From line 280
+
+
+     VAR yf  
+
+             LOWER          LEVEL          UPPER         MARGINAL
+
+k3.j5          .              .             1.0000     21487.6987      
+k3.j6          .              .             1.0000     22871.7521      
+k4.j1          .              .             1.0000     49794.2014      
+k4.j2          .              .             1.0000     42101.1890      
+k4.j3          .             1.0000         1.0000     54671.0629      
+k4.j4          .              .             1.0000     38657.1019      
+k4.j5          .              .             1.0000     28990.3651      
+k4.j6          .              .             1.0000     28847.2405      
+
+---- VAR n  
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+j1        -INF            1.0986        +INF             .          
+j2        -INF            1.0986        +INF             .          
+j3        -INF            1.3863        +INF             .          
+j4        -INF            1.0986        +INF             .          
+j5        -INF            0.6931        +INF             .          
+j6        -INF            0.6931        +INF             .          
+
+---- VAR v  
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+j1        -INF            7.7339        +INF             .          
+j2        -INF            7.3630        +INF             .          
+j3        -INF            7.2973        +INF             .          
+j4        -INF            7.6649        +INF             .          
+j5        -INF            7.5743        +INF             .          
+j6        -INF            7.4209        +INF             .          
+
+---- VAR yita  
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+w1          .        111332.7854        +INF             .          
+w2          .        207346.0873        +INF             .          
+w3          .        103380.8050        +INF             .          
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR BenderOBJ         -INF       422059.6777        +INF             .          
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+GAMS 24.8.4  r60966 Released Apr 10, 2017 LEX-LEG x86 64bit/Linux                                                                                                                                                                    07/10/17 22:09:31 Page 324
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE Bendersub Using MINLP From line 312
+
+
+LOOPS                               ltheta   1
+                                     lstep   1
+                                      iter   33
+                                        w3   w1
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          10     SINGLE EQUATIONS          134
+BLOCKS OF VARIABLES           9     SINGLE VARIABLES           78
+NON ZERO ELEMENTS           319     NON LINEAR N-Z             28
+DERIVATIVE POOL              20     CONSTANT POOL              24
+CODE LENGTH                  76     DISCRETE VARIABLES         48
+
+
+GENERATION TIME      =        0.004 SECONDS      3 MB  24.8.4 r60966 LEX-LEG
+LOOPS                               ltheta   1
+                                     lstep   1
+                                      iter   33
+                                        w3   w2
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          10     SINGLE EQUATIONS          134
+BLOCKS OF VARIABLES           9     SINGLE VARIABLES           78
+NON ZERO ELEMENTS           319     NON LINEAR N-Z             28
+DERIVATIVE POOL              20     CONSTANT POOL              24
+CODE LENGTH                  76     DISCRETE VARIABLES         48
+
+
+GENERATION TIME      =        0.002 SECONDS      3 MB  24.8.4 r60966 LEX-LEG
+LOOPS                               ltheta   1
+                                     lstep   1
+                                      iter   33
+                                        w3   w3
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          10     SINGLE EQUATIONS          134
+BLOCKS OF VARIABLES           9     SINGLE VARIABLES           78
+NON ZERO ELEMENTS           319     NON LINEAR N-Z             28
+DERIVATIVE POOL              20     CONSTANT POOL              24
+CODE LENGTH                  76     DISCRETE VARIABLES         48
+
+
+GENERATION TIME      =        0.002 SECONDS      3 MB  24.8.4 r60966 LEX-LEG
+GAMS 24.8.4  r60966 Released Apr 10, 2017 LEX-LEG x86 64bit/Linux                                                                                                                                                                    07/10/17 22:09:31 Page 325
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE Bendersub Using RMINLP From line 343
+
+
+LOOPS                               ltheta   1
+                                     lstep   1
+                                      iter   33
+                                        w3   w1
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          10     SINGLE EQUATIONS          134
+BLOCKS OF VARIABLES           9     SINGLE VARIABLES           78
+NON ZERO ELEMENTS           319     NON LINEAR N-Z             28
+DERIVATIVE POOL              20     CONSTANT POOL              24
+CODE LENGTH                  76     DISCRETE VARIABLES         48
+
+
+GENERATION TIME      =        0.002 SECONDS      4 MB  24.8.4 r60966 LEX-LEG
+LOOPS                               ltheta   1
+                                     lstep   1
+                                      iter   33
+                                        w3   w2
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          10     SINGLE EQUATIONS          134
+BLOCKS OF VARIABLES           9     SINGLE VARIABLES           78
+NON ZERO ELEMENTS           319     NON LINEAR N-Z             28
+DERIVATIVE POOL              20     CONSTANT POOL              24
+CODE LENGTH                  76     DISCRETE VARIABLES         48
+
+
+GENERATION TIME      =        0.002 SECONDS      4 MB  24.8.4 r60966 LEX-LEG
+LOOPS                               ltheta   1
+                                     lstep   1
+                                      iter   33
+                                        w3   w3
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          10     SINGLE EQUATIONS          134
+BLOCKS OF VARIABLES           9     SINGLE VARIABLES           78
+NON ZERO ELEMENTS           319     NON LINEAR N-Z             28
+DERIVATIVE POOL              20     CONSTANT POOL              24
+CODE LENGTH                  76     DISCRETE VARIABLES         48
+
+
+GENERATION TIME      =        0.002 SECONDS      4 MB  24.8.4 r60966 LEX-LEG
+GAMS 24.8.4  r60966 Released Apr 10, 2017 LEX-LEG x86 64bit/Linux                                                                                                                                                                    07/10/17 22:09:31 Page 326
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE bendersmaster Using MIP From line 280
+
+
+LOOPS                               ltheta   1
+                                     lstep   1
+                                      iter   34
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           7     SINGLE EQUATIONS          217
+BLOCKS OF VARIABLES           5     SINGLE VARIABLES           40
+NON ZERO ELEMENTS         5,948     DISCRETE VARIABLES         24
+
+
+GENERATION TIME      =        0.008 SECONDS      4 MB  24.8.4 r60966 LEX-LEG
+
+
+EXECUTION TIME       =        0.164 SECONDS      4 MB  24.8.4 r60966 LEX-LEG
+               L O O P S             ltheta 1
+                                      lstep 1
+                                       iter 34
+
+GAMS 24.8.4  r60966 Released Apr 10, 2017 LEX-LEG x86 64bit/Linux                                                                                                                                                                    07/10/17 22:09:31 Page 327
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE bendersmaster Using MIP From line 280
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   bendersmaster       OBJECTIVE  BenderOBJ
+     TYPE    MIP                 DIRECTION  MINIMIZE
+     SOLVER  CPLEX               FROM LINE  280
+
+**** SOLVER STATUS     1 Normal Completion         
+**** MODEL STATUS      1 Optimal                   
+**** OBJECTIVE VALUE           422137.3956
+
+ RESOURCE USAGE, LIMIT          0.110      1000.000
+ ITERATION COUNT, LIMIT       159    2000000000
+
+IBM ILOG CPLEX   24.8.4 r60966 Released Apr 10, 2017 LEG x86 64bit/Linux      
+--- GAMS/Cplex licensed for continuous and discrete problems.
+Cplex 12.7.1.0
+
+Space for names approximately 0.00 Mb
+Use option 'names no' to turn use of names off
+MIP status(101): integer optimal solution
+Cplex Time: 0.10sec (det. 27.55 ticks)
+Fixing integer variables, and solving final LP...
+Fixed MIP status(1): optimal
+Cplex Time: 0.00sec (det. 1.06 ticks)
+Proven optimal solution.
+
+MIP Solution:       422137.395601    (127 iterations, 0 nodes)
+Final Solve:        422137.395601    (32 iterations)
+
+Best possible:      422137.395601
+Absolute gap:            0.000000
+Relative gap:            0.000000
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU bobj                .              .              .             1.0000      
+
+---- EQU b1  
+
+             LOWER          LEVEL          UPPER         MARGINAL
+
+w1.1     106371.2842    107873.4100        +INF             .          
+w1.2     138242.5846    162891.5993        +INF             .          
+w1.3     206859.3262    208199.6385        +INF             .          
+w1.4     351585.3833    369095.1139        +INF             .          
+w1.5     371591.7254    380399.9637        +INF             .          
+w1.6     380737.3175    381816.7185        +INF             .          
+w1.7     459156.3862    460158.1683        +INF             .          
+w1.8     476986.0231    482502.8858        +INF             .          
+w1.9     505843.7254    506773.4147        +INF             .          
+w1.10    545035.1719    547395.1353        +INF             .          
+w1.11    551874.2142    552749.7482        +INF             .          
+GAMS 24.8.4  r60966 Released Apr 10, 2017 LEX-LEG x86 64bit/Linux                                                                                                                                                                    07/10/17 22:09:31 Page 328
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE bendersmaster Using MIP From line 280
+
+
+     EQU b1  
+
+             LOWER          LEVEL          UPPER         MARGINAL
+
+w1.12    586063.9208    595435.0873        +INF             .          
+w1.13    609436.3201    610249.2130        +INF             .          
+w1.14    634996.9897    642921.7835        +INF             .          
+w1.15    663449.7070    664181.0531        +INF             .          
+w1.16    936496.3960    937022.3586        +INF             .          
+w1.17    927137.4991    927480.8682        +INF             .          
+w1.18    937207.0075    937641.3931        +INF             .          
+w1.19   1003896.3703   1004155.5333        +INF             .          
+w1.20   1005708.0256   1007799.9430        +INF             .          
+w1.21   1012820.3385   1013076.5012        +INF             .          
+w1.22   1173658.3392   1173783.4842        +INF             .          
+w1.23   1170558.6724   1170691.2218        +INF             .          
+w1.24   1199446.9502   1199543.2794        +INF             .          
+w1.25   1201093.2648   1201363.4465        +INF             .          
+w1.26   1201529.7087   1201625.6941        +INF             .          
+w1.27   1203619.8523   1203718.2059        +INF             .          
+w1.28   1284260.5742   1284260.5742        +INF            0.9066      
+w1.29   1281203.1121   1282200.8532        +INF             .          
+w1.30   1281825.8900   1281830.8057        +INF             .          
+w2.1     199735.6427    209666.9261        +INF             .          
+w2.2     186188.8180    195131.7080        +INF             .          
+w2.3     160079.3858    172552.0109        +INF             .          
+w2.4     101947.1110    109387.6660        +INF             .          
+w2.5      97992.0146    107400.4443        +INF             .          
+w2.6     113790.1870    124350.5635        +INF             .          
+w2.7     117379.7221    125288.1813        +INF             .          
+w2.8     102999.4399    110661.7826        +INF             .          
+w2.9      91190.0167    101073.9085        +INF             .          
+w2.10     86874.5369     94257.8932        +INF             .          
+w2.11     84939.2038     92259.5755        +INF             .          
+w2.12     59223.5285     66103.7801        +INF             .          
+w2.13     52696.2224     59820.5815        +INF             .          
+w2.14     45184.5706     51862.9114        +INF             .          
+w2.15     35544.8499     42008.4318        +INF             .          
+w2.16    -91470.5561    -86712.5807        +INF             .          
+w2.17    -92398.2816    -87671.7322        +INF             .          
+w2.18   -177019.7166   -173215.8481        +INF             .          
+w2.19   -231988.6424   -228606.1227        +INF             .          
+w2.20   -233470.1067   -230324.4026        +INF             .          
+w2.21   -237329.7583   -234236.6899        +INF             .          
+w2.22   -357042.0978   -353637.8488        +INF             .          
+w2.23   -355486.8095   -353766.0100        +INF             .          
+w2.24   -418355.5541   -417311.9959        +INF             .          
+w2.25   -419079.5702   -418102.0767        +INF             .          
+w2.26   -419483.3284   -418516.7939        +INF             .          
+w2.27   -421835.9239   -420896.9044        +INF             .          
+w2.28   -481236.9712   -480259.1479        +INF             .          
+w2.29   -480611.8405   -480318.8902        +INF             .          
+w2.30   -480696.6562   -480408.7729        +INF             .          
+GAMS 24.8.4  r60966 Released Apr 10, 2017 LEX-LEG x86 64bit/Linux                                                                                                                                                                    07/10/17 22:09:31 Page 329
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE bendersmaster Using MIP From line 280
+
+
+     EQU b1  
+
+             LOWER          LEVEL          UPPER         MARGINAL
+
+w3.1      91915.7066    104597.0595        +INF             .          
+w3.2      54790.0355     64114.0883        +INF             .          
+w3.3      30202.1555     41385.7462        +INF             .          
+w3.4     -62188.3554    -56345.3843        +INF             .          
+w3.5     -71105.2094    -65663.0124        +INF             .          
+w3.6     -88927.2078    -84029.8864        +INF             .          
+w3.7    -168275.9870   -163308.9540        +INF             .          
+w3.8    -174116.9620   -171027.2728        +INF             .          
+w3.9    -190243.5019   -185709.9276        +INF             .          
+w3.10   -221536.3092   -219515.6329        +INF             .          
+w3.11   -224811.0617   -222871.9281        +INF             .          
+w3.12   -240746.4499   -239401.4718        +INF             .          
+w3.13   -249026.0663   -247932.3989        +INF             .          
+w3.14   -273155.0625   -272647.2992        +INF             .          
+w3.15   -284231.1995   -284052.0893        +INF             .          
+w3.16   -429101.2957   -428172.3823        +INF             .          
+w3.17   -418322.7506   -417671.7404        +INF             .          
+w3.18   -343546.3905   -342288.1494        +INF             .          
+w3.19   -353759.7021   -353412.0151        +INF             .          
+w3.20   -355536.7816   -355338.1448        +INF             .          
+w3.21   -356847.8922   -356702.4156        +INF             .          
+w3.22   -399539.4305   -398008.2397        +INF             .          
+w3.23   -396147.6311   -394787.8162        +INF             .          
+w3.24   -360169.4192   -360093.8879        +INF             .          
+w3.25   -361153.3442   -361123.9742        +INF             .          
+w3.26   -361121.2399   -360971.5046        +INF             .          
+w3.27   -360683.9059   -360683.9059        +INF            1.0000      
+w3.28   -382031.4861   -381864.0307        +INF             .          
+w3.29   -379993.5296   -379744.5674        +INF             .          
+w3.30   -379521.0500   -379284.6372        +INF             .          
+
+---- EQU b2  
+
+             LOWER          LEVEL          UPPER         MARGINAL
+
+w1.1    4.5582547E+7   7.1396716E+7        +INF             .          
+w1.2    3.4114671E+7   4.7722963E+7        +INF             .          
+w1.3    2.1338085E+7   2.9367011E+7        +INF             .          
+w1.4    1.9816176E+7   2.6940056E+7        +INF             .          
+w1.5    1.2943975E+7   1.7751059E+7        +INF             .          
+w1.6    9124987.5743   1.1306826E+7        +INF             .          
+w1.7    6043204.8234   7262327.7689        +INF             .          
+w1.8    7808316.6590   9544097.2266        +INF             .          
+w1.9    1938499.2659   1957878.6743        +INF             .          
+w1.10   6000560.5517   6676643.4961        +INF             .          
+w1.11   4562593.3550   5032426.5978        +INF             .          
+w1.12   5982119.9992   6829398.7056        +INF             .          
+w1.13   2197663.4261   2221912.6951        +INF             .          
+w1.14   2979583.3691   3142449.4017        +INF             .          
+GAMS 24.8.4  r60966 Released Apr 10, 2017 LEX-LEG x86 64bit/Linux                                                                                                                                                                    07/10/17 22:09:31 Page 330
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE bendersmaster Using MIP From line 280
+
+
+     EQU b2  
+
+             LOWER          LEVEL          UPPER         MARGINAL
+
+w1.15   3447070.6491   3663003.5624        +INF             .          
+w1.16   3436819.4623   3696018.2501        +INF             .          
+w1.17   2384718.1336   2494937.6833        +INF             .          
+w1.18   2856552.3776   2910358.5667        +INF             .          
+w1.19   6586472.4911   8512173.4275        +INF             .          
+w1.20   3490100.8762   4337315.9626        +INF             .          
+w1.21   5871211.1374   6655052.4183        +INF             .          
+w1.22   1859945.9255   1864583.1449        +INF             .          
+w1.23   2846155.4929   2957117.3622        +INF             .          
+w1.24   3263624.3716   3427651.7141        +INF             .          
+w1.25   1941219.9754   1947843.7769        +INF             .          
+w1.26   1763783.0763   1763783.0763        +INF            0.0407      
+w1.27   3053009.4558   3288707.7400        +INF             .          
+w1.28   4814940.6896   5543406.0017        +INF             .          
+w1.29   5278495.7351   6255981.2435        +INF             .          
+w1.30   1898118.4923   1913390.2004        +INF             .          
+w1.31   1868157.6212   1868157.6212        +INF            0.0350      
+w1.32   1794842.1956   1794842.1956        +INF            0.0178      
+w1.33   1802247.2306   1803021.5658        +INF             .          
+w1.34          .        107873.4100        +INF             .          
+w2.1    8.2820570E+7   1.2981358E+8        +INF             .          
+w2.2    6.1957529E+7   8.6753749E+7        +INF             .          
+w2.3    3.8688637E+7   5.3337954E+7        +INF             .          
+w2.4    3.5931332E+7   4.8934702E+7        +INF             .          
+w2.5    2.3404668E+7   3.2193388E+7        +INF             .          
+w2.6    1.6478226E+7   2.0494456E+7        +INF             .          
+w2.7    1.0863986E+7   1.3128247E+7        +INF             .          
+w2.8    1.4075896E+7   1.7279755E+7        +INF             .          
+w2.9    3383752.5362   3465840.7245        +INF             .          
+w2.10   1.0768370E+7   1.2046265E+7        +INF             .          
+w2.11   8171700.8012   9073083.4220        +INF             .          
+w2.12   1.0745703E+7   1.2334010E+7        +INF             .          
+w2.13   3863493.7080   3954367.4026        +INF             .          
+w2.14   5281411.8953   5625271.8524        +INF             .          
+w2.15   6144515.9358   6583905.7713        +INF             .          
+w2.16   6124412.0567   6643356.8808        +INF             .          
+w2.17   4203308.3148   4450372.0877        +INF             .          
+w2.18   5068249.5202   5213127.4808        +INF             .          
+w2.19   1.1858040E+7   1.5407948E+7        +INF             .          
+w2.20   6220622.6972   7806374.3205        +INF             .          
+w2.21   1.0561662E+7   1.2034879E+7        +INF             .          
+w2.22   -752300.7974   -751889.3641        +INF             .          
+w2.23   5045063.7036   5293833.9481        +INF             .          
+w2.24   5799719.1874   6145290.1838        +INF             .          
+w2.25   3398253.3985   3456937.3879        +INF             .          
+w2.26   -760836.7971   -760836.7971        +INF            0.4537      
+w2.27   5422335.6576   5897181.3331        +INF             .          
+w2.28   8623390.8040   9996223.5427        +INF             .          
+w2.29   9452267.9042   1.1278896E+7        +INF             .          
+GAMS 24.8.4  r60966 Released Apr 10, 2017 LEX-LEG x86 64bit/Linux                                                                                                                                                                    07/10/17 22:09:31 Page 331
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE bendersmaster Using MIP From line 280
+
+
+     EQU b2  
+
+             LOWER          LEVEL          UPPER         MARGINAL
+
+w2.30   -733578.0765   -732529.1171        +INF             .          
+w2.31   -745131.7627   -745131.7627        +INF            0.3237      
+w2.32   -752675.6303   -752657.9068        +INF             .          
+w2.33   -737334.3161   -737334.3161        +INF            0.2225      
+w2.34          .        209666.9261        +INF             .          
+w3.1    3.7238023E+7   5.8419663E+7        +INF             .          
+w3.2    2.7842858E+7   3.9033590E+7        +INF             .          
+w3.3    1.7350552E+7   2.3973746E+7        +INF             .          
+w3.4    1.6115156E+7   2.1997450E+7        +INF             .          
+w3.5    1.0460693E+7   1.4445133E+7        +INF             .          
+w3.6    7353238.2413   9190433.4844        +INF             .          
+w3.7    4820781.6038   5868722.3630        +INF             .          
+w3.8    6267579.1512   7738461.5321        +INF             .          
+w3.9    -427201.3053   -424786.0909        +INF             .          
+w3.10   4767809.0138   5372424.9602        +INF             .          
+w3.11   3609107.4463   4043460.3675        +INF             .          
+w3.12   4763582.6437   5507414.7540        +INF             .          
+w3.13   1665830.2819   1735258.2508        +INF             .          
+w3.14   2301828.5262   2485625.9941        +INF             .          
+w3.15   2697445.2868   2923705.7523        +INF             .          
+w3.16   2687592.5945   2950142.1741        +INF             .          
+w3.17   1818590.1812   1958237.9477        +INF             .          
+w3.18   2211697.1426   2305572.4575        +INF             .          
+w3.19   5271567.5660   6898577.9155        +INF             .          
+w3.20   2730521.8210   3471861.9012        +INF             .          
+w3.21   4690450.8916   5382630.1481        +INF             .          
+w3.22   -387309.1016   -386596.3681        +INF             .          
+w3.23   2198908.2106   2339520.1293        +INF             .          
+w3.24   2536094.8158   2720442.0131        +INF             .          
+w3.25   -378381.7235   -377487.8540        +INF             .          
+w3.26   -389938.2104   -389403.3381        +INF             .          
+w3.27   2369326.2018   2611277.1365        +INF             .          
+w3.28   3808450.1144   4455621.0844        +INF             .          
+w3.29   4173772.1690   5025717.8082        +INF             .          
+w3.30   -378492.2902   -377499.3342        +INF             .          
+w3.31   -383636.7903   -383105.8815        +INF             .          
+w3.32   -387181.3668   -386641.8558        +INF             .          
+w3.33   -379273.6031   -378747.5151        +INF             .          
+w3.34          .        104597.0595        +INF             .          
+
+---- EQU e1  
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+j1         1.0000         1.0000         1.0000          .          
+j2         1.0000         1.0000         1.0000          .          
+j3         1.0000         1.0000         1.0000          .          
+j4         1.0000         1.0000         1.0000          .          
+j5         1.0000         1.0000         1.0000          .          
+GAMS 24.8.4  r60966 Released Apr 10, 2017 LEX-LEG x86 64bit/Linux                                                                                                                                                                    07/10/17 22:09:31 Page 332
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE bendersmaster Using MIP From line 280
+
+
+     EQU e1  
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+j6         1.0000         1.0000         1.0000          .          
+
+---- EQU e2  
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+j1          .              .              .         40269.4475      
+j2          .              .              .         31429.8274      
+j3          .              .              .         41046.1977      
+j4          .              .              .         34333.0544      
+j5          .              .              .         23442.8113      
+j6          .              .              .         23235.9550      
+
+---- EQU e3  
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+j1        -INF            7.7407         7.7407      -474.5352      
+j2        -INF            7.3685         7.7407          .          
+j3        -INF            7.3222         7.7407          .          
+j4        -INF            7.6956         7.7407          .          
+j5        -INF            7.5781         7.7407          .          
+j6        -INF            7.4920         7.7407          .          
+
+---- EQU e4  
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+j1         5.7038         7.7407        +INF             .          
+j2         5.7038         7.3685        +INF             .          
+j3         5.7038         7.3222        +INF             .          
+j4         5.7038         7.6956        +INF             .          
+j5         5.7038         7.5781        +INF             .          
+j6         5.7038         7.4920        +INF             .          
+
+---- VAR yf  
+
+             LOWER          LEVEL          UPPER         MARGINAL
+
+k1.j1          .              .             1.0000         EPS         
+k1.j2          .              .             1.0000         EPS         
+k1.j3          .              .             1.0000         EPS         
+k1.j4          .              .             1.0000         EPS         
+k1.j5          .              .             1.0000         EPS         
+k1.j6          .              .             1.0000         EPS         
+k2.j1          .              .             1.0000     27651.1348      
+k2.j2          .              .             1.0000     26477.8251      
+k2.j3          .              .             1.0000     28451.0562      
+k2.j4          .              .             1.0000     31287.7344      
+GAMS 24.8.4  r60966 Released Apr 10, 2017 LEX-LEG x86 64bit/Linux                                                                                                                                                                    07/10/17 22:09:31 Page 333
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE bendersmaster Using MIP From line 280
+
+
+     VAR yf  
+
+             LOWER          LEVEL          UPPER         MARGINAL
+
+k2.j5          .             1.0000         1.0000     19038.5212      
+k2.j6          .             1.0000         1.0000     17623.4921      
+k3.j1          .             1.0000         1.0000     45743.9254      
+k3.j2          .             1.0000         1.0000     31078.7621      
+k3.j3          .              .             1.0000     47813.2602      
+k3.j4          .             1.0000         1.0000     36079.0116      
+k3.j5          .              .             1.0000     21106.7516      
+k3.j6          .              .             1.0000     22698.2131      
+k4.j1          .              .             1.0000     50584.9410      
+k4.j2          .              .             1.0000     42329.0961      
+k4.j3          .             1.0000         1.0000     54182.7094      
+k4.j4          .              .             1.0000     39411.5425      
+k4.j5          .              .             1.0000     27979.4092      
+k4.j6          .              .             1.0000     28658.2486      
+
+---- VAR n  
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+j1        -INF            1.0986        +INF             .          
+j2        -INF            1.0986        +INF             .          
+j3        -INF            1.3863        +INF             .          
+j4        -INF            1.0986        +INF             .          
+j5        -INF            0.6931        +INF             .          
+j6        -INF            0.6931        +INF             .          
+
+---- VAR v  
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+j1        -INF            7.7407        +INF             .          
+j2        -INF            7.3685        +INF             .          
+j3        -INF            7.3222        +INF             .          
+j4        -INF            7.6956        +INF             .          
+j5        -INF            7.5781        +INF             .          
+j6        -INF            7.4920        +INF             .          
+
+---- VAR yita  
+
+          LOWER          LEVEL          UPPER         MARGINAL
+
+w1          .        107873.4100        +INF             .          
+w2          .        209666.9261        +INF             .          
+w3          .        104597.0595        +INF             .          
+GAMS 24.8.4  r60966 Released Apr 10, 2017 LEX-LEG x86 64bit/Linux                                                                                                                                                                    07/10/17 22:09:31 Page 334
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE bendersmaster Using MIP From line 280
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR BenderOBJ         -INF       422137.3956        +INF             .          
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+GAMS 24.8.4  r60966 Released Apr 10, 2017 LEX-LEG x86 64bit/Linux                                                                                                                                                                    07/10/17 22:09:31 Page 335
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE Bendersub Using MINLP From line 312
+
+
+LOOPS                               ltheta   1
+                                     lstep   1
+                                      iter   34
+                                        w3   w1
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          10     SINGLE EQUATIONS          134
+BLOCKS OF VARIABLES           9     SINGLE VARIABLES           78
+NON ZERO ELEMENTS           319     NON LINEAR N-Z             28
+DERIVATIVE POOL              20     CONSTANT POOL              24
+CODE LENGTH                  76     DISCRETE VARIABLES         48
+
+
+GENERATION TIME      =        0.004 SECONDS      3 MB  24.8.4 r60966 LEX-LEG
+LOOPS                               ltheta   1
+                                     lstep   1
+                                      iter   34
+                                        w3   w2
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          10     SINGLE EQUATIONS          134
+BLOCKS OF VARIABLES           9     SINGLE VARIABLES           78
+NON ZERO ELEMENTS           319     NON LINEAR N-Z             28
+DERIVATIVE POOL              20     CONSTANT POOL              24
+CODE LENGTH                  76     DISCRETE VARIABLES         48
+
+
+GENERATION TIME      =        0.002 SECONDS      3 MB  24.8.4 r60966 LEX-LEG
+LOOPS                               ltheta   1
+                                     lstep   1
+                                      iter   34
+                                        w3   w3
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          10     SINGLE EQUATIONS          134
+BLOCKS OF VARIABLES           9     SINGLE VARIABLES           78
+NON ZERO ELEMENTS           319     NON LINEAR N-Z             28
+DERIVATIVE POOL              20     CONSTANT POOL              24
+CODE LENGTH                  76     DISCRETE VARIABLES         48
+
+
+GENERATION TIME      =        0.002 SECONDS      3 MB  24.8.4 r60966 LEX-LEG
+GAMS 24.8.4  r60966 Released Apr 10, 2017 LEX-LEG x86 64bit/Linux                                                                                                                                                                    07/10/17 22:09:31 Page 336
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE Bendersub Using RMINLP From line 343
+
+
+LOOPS                               ltheta   1
+                                     lstep   1
+                                      iter   34
+                                        w3   w1
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          10     SINGLE EQUATIONS          134
+BLOCKS OF VARIABLES           9     SINGLE VARIABLES           78
+NON ZERO ELEMENTS           319     NON LINEAR N-Z             28
+DERIVATIVE POOL              20     CONSTANT POOL              24
+CODE LENGTH                  76     DISCRETE VARIABLES         48
+
+
+GENERATION TIME      =        0.002 SECONDS      4 MB  24.8.4 r60966 LEX-LEG
+LOOPS                               ltheta   1
+                                     lstep   1
+                                      iter   34
+                                        w3   w2
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          10     SINGLE EQUATIONS          134
+BLOCKS OF VARIABLES           9     SINGLE VARIABLES           78
+NON ZERO ELEMENTS           319     NON LINEAR N-Z             28
+DERIVATIVE POOL              20     CONSTANT POOL              24
+CODE LENGTH                  76     DISCRETE VARIABLES         48
+
+
+GENERATION TIME      =        0.003 SECONDS      4 MB  24.8.4 r60966 LEX-LEG
+LOOPS                               ltheta   1
+                                     lstep   1
+                                      iter   34
+                                        w3   w3
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS          10     SINGLE EQUATIONS          134
+BLOCKS OF VARIABLES           9     SINGLE VARIABLES           78
+NON ZERO ELEMENTS           319     NON LINEAR N-Z             28
+DERIVATIVE POOL              20     CONSTANT POOL              24
+CODE LENGTH                  76     DISCRETE VARIABLES         48
+
+
+GENERATION TIME      =        0.002 SECONDS      4 MB  24.8.4 r60966 LEX-LEG
+GAMS 24.8.4  r60966 Released Apr 10, 2017 LEX-LEG x86 64bit/Linux                                                                                                                                                                    07/10/17 22:09:31 Page 337
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+----    408 PARAMETER LB  
+
+            1
+
+1  422137.396
+
+
+----    408 PARAMETER UB  
+
+            1
+
+1  423942.603
+
+
+----    426 PARAMETER cpu_ub               =        4.203  
+            PARAMETER cpu_lag              =       54.780  
+            PARAMETER cpu_bender_sub       =        0.247  
+            PARAMETER cpu_bender_master    =        3.019  
+            PARAMETER WallTime             =       32.040  
+
+----    427 PARAMETER UB  
+
+            1
+
+1  423942.603
+
+
+----    427 PARAMETER LB  
+
+            1
+
+1  422137.396
+
+
+----    427 PARAMETER total_obj_record  
+
+1  398022.633,    2  379221.438,    3  397140.867,    4  391344.139,    5  398478.531,    6  405600.297,    7  408260.121,    8  405868.501,    9  406790.240,    10 410373.400,    11 412002.356,    12 404540.999,    13 413106.476,    14 407026.498
+15 414763.357,    16 415924.544,    17 416416.467,    18 416640.900,    19 418148.026,    20 416701.137,    21 418642.688,    22 417076.811,    23 418924.232,    24 420921.977,    25 420860.350,    26 420925.140,    27 421100.023,    28 420992.117
+29 420597.742,    30 421608.184
+
+
+----    427 PARAMETER BenderOBJ_record  
+
+1  398022.633,    2  398022.633,    3  398126.995,    4  400853.907,    5  400894.160,    6  405600.297,    7  408473.545,    8  408502.293,    9  408539.768,    10 410738.438,    11 412002.356,    12 412005.923,    13 413217.112,    14 413440.453
+15 414763.357,    16 415924.544,    17 416416.467,    18 417032.842,    19 418148.026,    20 418249.074,    21 418642.688,    22 418642.688,    23 419369.443,    24 420921.977,    25 420981.150,    26 421040.478,    27 421100.023,    28 421139.745
+29 421671.424,    30 421702.105,    31 421768.182,    32 421945.992,    33 422059.678,    34 422137.396
+
+
+----    427 PARAMETER UB_Bender  
+
+1  2.380293E+7,    2  1.768552E+7,    3  1.103181E+7,    4  1.011802E+7,    5  6492949.922,    6  3962003.326,    7  2315326.483,    8  3131970.332,    9   502596.832,    10 2692685.215,    11 1631843.139,    12 2553854.184,    13  570721.868
+14  990038.239,    15 1104223.922,    16 1074372.372,    17  699081.515,    18  787738.695,    19 2350946.221,    20 1038409.035,    21 1985509.921,    22  440250.884,    23  806513.227,    24  994246.918,    25  454091.550,    26  430795.319
+27  883409.091,    28 1621017.609,    29 1924901.176,    30  438414.701,    31  434005.913,    32  436169.171,    33  428564.940,    34  423942.603
+GAMS 24.8.4  r60966 Released Apr 10, 2017 LEX-LEG x86 64bit/Linux                                                                                                                                                                    07/10/17 22:09:31 Page 338
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+----    427 PARAMETER dn  
+
+            j1          j2          j3          j4          j5          j6
+
+1        1.000       1.000       1.000       1.000       1.000       1.000
+2        1.000       4.000       4.000       1.000       1.000       1.000
+3        1.000       1.000       4.000       4.000       1.000       1.000
+4        1.000       4.000       4.000       1.000       1.000       1.000
+5        4.000       4.000       4.000       1.000       2.000       2.000
+6        1.000       4.000       4.000       2.000       2.000       1.000
+7        1.000       3.000       4.000       3.000       2.000       2.000
+8        1.000       3.000       4.000       3.000       2.000       2.000
+9        3.000       4.000       4.000       3.000       2.000       2.000
+10       3.000       3.000       4.000       3.000       2.000       4.000
+11       3.000       3.000       4.000       3.000       2.000       1.000
+12       3.000       3.000       4.000       3.000       2.000       1.000
+13       3.000       3.000       4.000       3.000       2.000       2.000
+14       3.000       3.000       4.000       3.000       2.000       4.000
+15       3.000       3.000       4.000       3.000       1.000       2.000
+16       3.000       3.000       4.000       3.000       1.000       1.000
+17       3.000       3.000       4.000       3.000       2.000       3.000
+18       2.000       3.000       4.000       3.000       2.000       2.000
+19       3.000       4.000       1.000       3.000       2.000       1.000
+20       3.000       4.000       2.000       3.000       2.000       2.000
+21       1.000       3.000       4.000       3.000       2.000       1.000
+22       3.000       3.000       4.000       3.000       2.000       2.000
+23       3.000       4.000       4.000       3.000       2.000       1.000
+24       3.000       3.000       4.000       3.000       1.000       4.000
+25       3.000       3.000       4.000       3.000       2.000       2.000
+26       3.000       3.000       4.000       3.000       2.000       2.000
+27       4.000       3.000       4.000       3.000       1.000       2.000
+28       1.000       3.000       4.000       3.000       2.000       4.000
+29       3.000       3.000       4.000       1.000       4.000       4.000
+30       3.000       3.000       4.000       3.000       2.000       2.000
+31       3.000       3.000       4.000       3.000       2.000       2.000
+32       3.000       3.000       4.000       3.000       2.000       2.000
+33       3.000       3.000       4.000       3.000       2.000       2.000
+34       3.000       3.000       4.000       3.000       2.000       2.000
+35       1.000       1.000       1.000       1.000       1.000       1.000
+36       1.000       1.000       1.000       1.000       1.000       1.000
+37       1.000       1.000       1.000       1.000       1.000       1.000
+38       1.000       1.000       1.000       1.000       1.000       1.000
+39       1.000       1.000       1.000       1.000       1.000       1.000
+40       1.000       1.000       1.000       1.000       1.000       1.000
+41       1.000       1.000       1.000       1.000       1.000       1.000
+42       1.000       1.000       1.000       1.000       1.000       1.000
+43       1.000       1.000       1.000       1.000       1.000       1.000
+44       1.000       1.000       1.000       1.000       1.000       1.000
+45       1.000       1.000       1.000       1.000       1.000       1.000
+46       1.000       1.000       1.000       1.000       1.000       1.000
+47       1.000       1.000       1.000       1.000       1.000       1.000
+48       1.000       1.000       1.000       1.000       1.000       1.000
+49       1.000       1.000       1.000       1.000       1.000       1.000
+GAMS 24.8.4  r60966 Released Apr 10, 2017 LEX-LEG x86 64bit/Linux                                                                                                                                                                    07/10/17 22:09:31 Page 339
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+        427 PARAMETER dn  
+
+            j1          j2          j3          j4          j5          j6
+
+50       1.000       1.000       1.000       1.000       1.000       1.000
+
+
+----    427 PARAMETER dv  
+
+            j1          j2          j3          j4          j5          j6
+
+1      300.000     300.000     300.000     300.000     300.000     300.000
+2     2300.000     300.000     300.000     300.000     300.000     300.000
+3     2300.000     300.000    2300.000    2300.000    1260.078     300.000
+4     2300.000    2300.000     304.880    2300.000    2300.000    2300.000
+5     2300.000    2300.000     348.225    2300.000    2300.000    2300.000
+6     1850.075    2300.000     601.702    2300.000    2300.000    2300.000
+7     2300.000    1411.946    2300.000    2300.000    2300.000     986.470
+8     2300.000    1497.486    2300.000     963.068    2300.000    2300.000
+9     2300.000    1464.145    2300.000    2300.000    1605.932    1539.521
+10    2300.000    2300.000    1516.130     540.379    2300.000    2300.000
+11    2300.000    2300.000    1338.205    1047.599    2055.580    2300.000
+12    1237.989    2300.000    2300.000    2300.000    2300.000     599.669
+13    2300.000    2300.000    1037.661    2300.000    1643.844    2137.752
+14    2004.236    2039.749    1277.762    1075.672    1890.622    1888.374
+15    2300.000    1010.361    1162.814    2300.000    2300.000    2300.000
+16    2300.000    2011.137    1955.149    1792.322    1739.903    1163.048
+17    2062.400    2300.000    1382.236    2091.333    1695.488    1003.515
+18    2300.000    1106.804    2065.196    2300.000    1934.614    1246.730
+19    2300.000    1397.260    1454.899    2300.000    2059.508    1459.737
+20    2113.445    1384.375    1689.790    2300.000    2286.105    1230.350
+21    2300.000    1793.541    1289.536    2223.401    1480.801    2087.035
+22    2210.745    1616.439    1533.072    2233.037    2300.000    1615.775
+23    2300.000    1401.842    1320.623    2101.389    2300.000    1674.861
+24    1872.292    1736.420    1657.535    1678.515    2300.000    1628.007
+25    2300.000    1791.073    1248.584    2167.407    2300.000    1649.351
+26    2266.937    1749.043    1428.830    2206.649    1960.387    1882.062
+27    1882.404    1527.587    1472.219    2189.771    2053.513    1416.901
+28    2300.000    1524.530    1631.215    1983.244    1746.082    1933.849
+29    1768.108    1534.393    1353.037    2300.000    2179.609    2287.601
+30    2300.000    1557.614    1640.459    1946.142    1750.658    1928.475
+31    2269.893    1629.017    1563.464    2038.456    1904.351    1911.577
+32    2278.199    1449.379    1496.410    2300.000    2058.324    1914.876
+33    2284.565    1576.626    1476.322    2132.188    1947.551    1670.458
+34    2300.000    1585.288    1513.553    2198.762    1954.926    1793.612
+35       1.000       1.000       1.000       1.000       1.000       1.000
+36       1.000       1.000       1.000       1.000       1.000       1.000
+37       1.000       1.000       1.000       1.000       1.000       1.000
+38       1.000       1.000       1.000       1.000       1.000       1.000
+39       1.000       1.000       1.000       1.000       1.000       1.000
+40       1.000       1.000       1.000       1.000       1.000       1.000
+41       1.000       1.000       1.000       1.000       1.000       1.000
+42       1.000       1.000       1.000       1.000       1.000       1.000
+GAMS 24.8.4  r60966 Released Apr 10, 2017 LEX-LEG x86 64bit/Linux                                                                                                                                                                    07/10/17 22:09:31 Page 340
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+        427 PARAMETER dv  
+
+            j1          j2          j3          j4          j5          j6
+
+43       1.000       1.000       1.000       1.000       1.000       1.000
+44       1.000       1.000       1.000       1.000       1.000       1.000
+45       1.000       1.000       1.000       1.000       1.000       1.000
+46       1.000       1.000       1.000       1.000       1.000       1.000
+47       1.000       1.000       1.000       1.000       1.000       1.000
+48       1.000       1.000       1.000       1.000       1.000       1.000
+49       1.000       1.000       1.000       1.000       1.000       1.000
+50       1.000       1.000       1.000       1.000       1.000       1.000
+
+
+
+EXECUTION TIME       =        0.206 SECONDS      4 MB  24.8.4 r60966 LEX-LEG
+
+
+USER: Eval License Carnegie Mellon University        G161202/0001AB-GEN
+      Dept. of Chemical Engineering                              DC9476
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      /home/canl1/work/Benders/MINLP-Benders/batch/3/newprob/samplecross3.gms
+Output     /home/canl1/work/Benders/MINLP-Benders/batch/3/newprob/samplecross3.lst

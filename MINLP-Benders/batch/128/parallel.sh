@@ -15,5 +15,5 @@
 # Use submission environment
 #PBS -V
 
-cd ~/work/Benders/MINLP-Benders/batch/32
+cd ~/work/Benders/MINLP-Benders/batch/128
 gams cross.gms -lo=4  

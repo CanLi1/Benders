@@ -2,7 +2,7 @@ Sets
 i /i1*i5/
 j /j1*j6/
 k /k1*k4/
-w /w1*w243/
+w /w1*w128/
 freeze(w)
 ;
 alias (k, kk), (w,w3,w2);
@@ -11,7 +11,7 @@ parameters
 alpha(j)
 beta(j)
 delta /230/
-lambda(j) 
+lambda(j)
 VL /300/
 VU /2300/
 H /5000/
@@ -22,33 +22,33 @@ prob(w)
 alpha(j) = 250;
 beta(j) = 0.6;
 lambda(j) = 2000;
-
 *generatre scenarios---------------------------------
-set 
-sub0 /1*3/;
+set
+sub0 /1*4/
+sub4 /1*2/;
+
 parameters
 num
-baseprob(sub0) /1 0.3, 2 0.4, 3 0.3/;
-alias (sub0,sub1,sub2,sub3,sub4);
+baseprob(sub0) /1 0.2, 2 0.3, 3 0.3,4 0.2/
+baseprob2(sub4)/1 0.5, 2 0.5/;
+alias (sub0,sub1,sub2,sub3);
 loop(sub0,
  loop(sub1,
   loop(sub2,
-   loop(sub3,
-    loop(sub4,
-      num = 1*(ord(sub0)-1)+3*(ord(sub1)-1)+9*(ord(sub2)-1)+27*(ord(sub3)-1)+81*(ord(sub4)-1)+1;
-      loop(w3$(ord(w3) eq num),
-             Q('i1', w3 )= baseQ('i1')*(1 + (ord(sub0)-2)/10);
-          Q('i2', w3 )= baseQ('i2')*(1 + (ord(sub1)-2)/10);
-          Q('i3', w3 )= baseQ('i3')*(1 + (ord(sub2)-2)/10);
-          Q('i4', w3 )= baseQ('i4')*(1 + (ord(sub3)-2)/10);
-          Q('i5', w3 )= baseQ('i5')*(1 + (ord(sub4)-2)/10);
-          prob(w3) = baseprob(sub0)* baseprob(sub1) * baseprob(sub2) * baseprob(sub3) * baseprob(sub4);
-        );
+        loop(sub4,
+        num = 1*(ord(sub0)-1)+4*(ord(sub1)-1)+16*(ord(sub2)-1)+64*(ord(sub4)-1)+1;
+        loop(w3$(ord(w3) eq num),
+                     Q('i1', w3 )= baseQ('i1')*(1 + (ord(sub0)-2.5)/5);
+                        Q('i2', w3 )= baseQ('i2')*(1 + (ord(sub1)-2.5)/5);
+                        Q('i3', w3 )= baseQ('i3')*(1 + (ord(sub2)-2.5)/5);
+                        Q('i4', w3)=baseQ('i4');
+                        Q('i5', w3 )= baseQ('i5')*(1+(ord(sub4)-1.5)/5);
+                        prob(w3) = baseprob(sub0)* baseprob(sub1) * baseprob(sub2) *baseprob2(sub4) ;
+                );
     );
    );
   );
  );
-);
 Table S(i,j)
       j1      j2       j3      j4        j5        j6
 i1   7.9     2.0      5.2     4.9       6.1       4.2
@@ -96,22 +96,22 @@ e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,eobj;
 *first stage
 e1(j) .. sum(k, yf(k,j)) =e= 1;
 e2(j) .. n(j) =e= sum(k, log(ord(k)) * yf(k,j));
-e3(j) .. v(j) =l= log(VU);
-e4(j) .. v(j) =g= log(VL);
+e3(j) .. v(j) =l= 1;
+e4(j) .. v(j) =g= log(VL)/log(VU);
 
 *second stage
-e5(i,j,w)$freeze(w) .. v(j) =g= log(S(i,j)) + b(i,w);
+e5(i,j,w)$freeze(w) .. v(j)*log(VU) =g= log(S(i,j)) + b(i,w);
 e6(j,w)$freeze(w) .. ns(j,w) =e= sum(k, log(ord(k)) * ys(k,j,w));
 e7(k,j,w)$freeze(w) .. ys(k,j,w) =l= sum(kk$(ord(kk) ge ord(k)), yf(kk,j));
 e8(i,j,w)$freeze(w) .. ns(j,w) + tl(i,w) =g= log(t(i,j));
 e9(w)$freeze(w) .. sum(i, Q(i,w) * exp(tl(i,w) - b(i,w))) =l= H + L(w);
 e10(j,w)$freeze(w) .. sum(k, ys(k,j,w)) =e= 1;
-eobj .. cost =e= sum(w$freeze(w), prob(w)*sum(j, alpha(j) * exp(n(j) + beta(j) * v(j)))) + sum(w$freeze(w), prob(w) * (sum(j, lambda(j) * exp(ns(j,w))) + delta*L(w)))+sum(w$freeze(w), sum(j, piv(j,w) * v(j) + pin(j,w) * n(j) + sum(k, piyf(k,j,w) * yf(k,j))));
+eobj .. cost =e= sum(w$freeze(w), prob(w)*sum(j, alpha(j) * exp(n(j) + beta(j) *log(VU)* v(j)))) + sum(w$freeze(w), prob(w) * (sum(j, lambda(j) * exp(ns(j,w))) + delta*L(w)))+sum(w$freeze(w), sum(j, piv(j,w) * v(j) + pin(j,w) * n(j) + sum(k, piyf(k,j,w) * yf(k,j))));
 
 model sub /e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,eobj/;
 sub.optfile=1;
 
-set iter /1*50/
+set iter /1*60/
 aiter(iter)
 biter(iter);
 
@@ -132,11 +132,11 @@ muv(iter, j,w)
 piyf_all(iter, k,j,w)
 pin_all(iter,j,w)
 piv_all(iter, j, w)
-cpu_lag/0/ 
+cpu_lag/0/
 den(iter)
 stepsize
 theta0 /1.5/
-theta00(ltheta) /1 0.2/
+theta00(ltheta) /1 2/
 half00(lstep) /1 0.8/
 *theta00(ltheta)/1 0.2,2 0.6, 3 1, 4 1.5, 5 2/
 half0 /0.5/
@@ -172,21 +172,19 @@ Equations
 bobj ,b1,b2;
 
 bobj .. BenderOBJ =e= sum(w, yita(w));
-b1(w, iiiter)$aiter(iiiter) .. yita(w) =g= obj_record(iiiter,w ) - sum(j, pin_all(iiiter, j, w) * n(j) + piv_all(iiiter, j, w) * v(j) + sum(k, piyf_all(iiiter,k,j,w) * yf(k,j))); 
+b1(w, iiiter)$aiter(iiiter) .. yita(w) =g= obj_record(iiiter,w ) - sum(j, pin_all(iiiter, j, w) * n(j) + piv_all(iiiter, j, w) * v(j) + sum(k, piyf_all(iiiter,k,j,w) * yf(k,j)));
 b2(w, iiiter)$biter(iiiter) .. yita(w) =g= v1(iiiter, w) + sum(j, sum(k, g1(iiiter, k , j, w)* yf(k,j)) +g2(iiiter, j, w) * n(j) + g3(iiiter, j, w) * v(j));
 model bendersmaster /bobj, b1, b2, e1, e2,e3,e4/;
 
 *----------------------------DEFINE Benders subproblem---------------------------
 parameters
 yfbar(k,j), nbar(j), vbar(j), UB_Bender(iter), cpu_bender_sub/0/, cpu_bender_master /0/, cpu_ub/0/ ;
-
-
 equations
 Tyf, Tn,Tv,  Beobj;
 Tyf(k,j) .. yf(k,j) =e= yfbar(k,j);
 Tn(j) .. n(j) =e= nbar(j);
 Tv(j) .. v(j) =e= vbar(j);
-Beobj .. cost =e= sum(w$freeze(w), prob(w)*sum(j, alpha(j) * exp(n(j) + beta(j) * v(j)))) + sum(w$freeze(w), prob(w) * (sum(j, lambda(j) * exp(ns(j,w)) )+ delta*L(w)));
+Beobj .. cost =e= sum(w$freeze(w), prob(w)*sum(j, alpha(j) * exp(n(j) + beta(j) *log(VU)* v(j)))) + sum(w$freeze(w), prob(w) * (sum(j, lambda(j) * exp(ns(j,w)) )+ delta*L(w)));
 model Bendersub /Tyf, Tn, Tv,e5,e6,e7,e8,e9,e10,Beobj/;
 BenderSub.optfile=1;
 
@@ -218,11 +216,11 @@ master_modelstat(iter)=0;
 lag_sub_modelstat(iter,w)=0;
 
 parameters
-LB(ltheta, lstep) 
+LB(ltheta, lstep)
 UB(ltheta, lstep)
 ;
 LB(ltheta,lstep) =  250843.7050;
-UB(ltheta,lstep) = 418163.472  ;
+UB(ltheta,lstep)=446486.035  ;
 
 aiter(iiiter) = yes;
 loop(ltheta,
@@ -241,18 +239,18 @@ pin_all(iter,j,w)=0;
 piv_all(iter, j, w)=0;
 piyf(k,j,w) = 0;
 pin(j,w)=0;
-piv(j,w)=0; 
+piv(j,w)=0;
 loop(iter,
 
 
 
 *solve each lagrangean subproblem
 if(ord(iter) le 30,
-loop(w3, 
+loop(w3,
   freeze(w2) = no;
   freeze(w3) = yes;
   n.l(j) = log(3);
-  v.l(j) = log(2300);
+  v.l(j) = 1;
   ns.l(j,w3) = log(3);
   tl.l(i,w3) = log(2);
   b.l(i,w3) = log(400);
@@ -263,7 +261,7 @@ loop(w3,
   L.l(w3) = 1e3;
   solve sub using MINLP minimizing COST;
   lag_sub_handle(w3) = sub.handle;
-  
+
 );
 Repeat
   loop(w3$handlecollect(lag_sub_handle(w3)),
@@ -299,7 +297,7 @@ piv_all(iter, j, w)=piv(j,w);
       );
       if(ord(iiter) le ord(iter) and ord(iiter) le 30,
       aiter(iiter)= yes;
-      );
+     );
     );
   solve bendersmaster using mip minimizing BenderOBJ;
   cpu_bender_master = cpu_bender_master + bendersmaster.resusd;
@@ -327,7 +325,7 @@ piv_all(iter, j, w)=piv(j,w);
     freeze(w3) = yes;
     solve BenderSub using MINLP minimizing COST;
     Bendersub_handle(w3) = Bendersub.handle;
-    
+
     );
   Repeat
     loop(w3$handlecollect(Bendersub_handle(w3)),
@@ -350,7 +348,7 @@ piv_all(iter, j, w)=piv(j,w);
     freeze(w3) = yes;
     solve Bendersub using rMINLP minimizing COST;
     Bendersub_handle(w3)= Bendersub.handle;
-    
+
     );
 
   Repeat
@@ -359,6 +357,7 @@ piv_all(iter, j, w)=piv(j,w);
       v1(iter, w3) = COST.l - sum(j, sum(k, yfbar(k,j)*Tyf.m(k,j)) + nbar(j) * Tn.m(j) + vbar(j) * Tv.m(j));
       g1(iter, k,j, w3) = Tyf.m(k,j);
       g2(iter, j, w3) = Tn.m(j);
+
       g3(iter, j, w3) = Tv.m(j);
       bender_sub_modelstat(iter,w3) = bendersub.modelStat;
       if((bendersub.modelStat ne 2 and bendersub.modelStat ne 1)or bendersub.solveStat ne 1,
@@ -378,32 +377,33 @@ piv_all(iter, j, w)=piv(j,w);
 *finish benders-------------------
 
 *update lagrangean multiplier
-  den(iter) = sum((j,w), sum(k, power(yf_record_lag(iter, k,j,w) - yf_record_lag(iter, k, j, 'w122'), 2)) + power(n_record_lag(iter, j, w) - n_record_lag(iter, j, 'w122'), 2) + power(v_record_lag(iter, j, w) - v_record_lag(iter, j, 'w122'), 2));
+if(ord(iter) le 30,
+  den(iter) = sum((j,w), sum(k, power(yf_record_lag(iter, k,j,w) - yf_record_lag(iter, k, j, 'w22'), 2)) + power(n_record_lag(iter, j, w) - n_record_lag(iter, j, 'w22'), 2) + power(v_record_lag(iter, j, w) - v_record_lag(iter, j, 'w22'), 2));
   stepsize = theta0 * (UB(ltheta, lstep)-LB(ltheta, lstep))/den(iter);
 
- 
+
   loop(w,
-    if(ord(w) ne 122,
-      muyf(iter+1, k,j,w) = muyf(iter, k,j,w) + (yf_record_lag(iter, k,j,w) - yf_record_lag(iter, k,j,'w122')) * stepsize;
-      mun(iter+1, j, w) = mun(iter, j, w) + (n_record_lag(iter, j, w) - n_record_lag(iter, j , 'w122'))*stepsize;
-      muv(iter+1, j, w)= muv(iter, j, w) + (v_record_lag(iter, j, w) - v_record_lag(iter, j, 'w122'))*stepsize;
+    if(ord(w) ne 22,
+      muyf(iter+1, k,j,w) = muyf(iter, k,j,w) + (yf_record_lag(iter, k,j,w) - yf_record_lag(iter, k,j,'w22')) * stepsize;
+      mun(iter+1, j, w) = mun(iter, j, w) + (n_record_lag(iter, j, w) - n_record_lag(iter, j , 'w22'))*stepsize;
+      muv(iter+1, j, w)= muv(iter, j, w) + (v_record_lag(iter, j, w) - v_record_lag(iter, j, 'w22'))*stepsize;
       );
     );
   loop(w,
-    if(ord(w) ne 122,
+    if(ord(w) ne 22,
       piyf(k,j,w) = muyf(iter+1, k,j,w);
       pin(j, w) = mun(iter + 1, j, w);
       piv(j,w) = muv(iter+1, j, w);
 
       );
-    piyf(k,j,'w122') = -sum(w2$(ord(w2) ne 122), muyf(iter+1, k,j,w2));
-    pin(j, 'w122') = -sum(w2$(ord(w2) ne 122), mun(iter+1, j, w2));
-    piv(j, 'w122') = -sum(w2$(ord(w2) ne 122), muv(iter+1, j, w2));
+    piyf(k,j,'w22') = -sum(w2$(ord(w2) ne 22), muyf(iter+1, k,j,w2));
+    pin(j, 'w22') = -sum(w2$(ord(w2) ne 22), mun(iter+1, j, w2));
+    piv(j, 'w22') = -sum(w2$(ord(w2) ne 22), muv(iter+1, j, w2));
 
     );
   if (ord(iter) gt 1,
     change = -(total_obj_record(iter-1) - total_obj_record(iter)) / total_obj_record(iter-1);
-    if (change lt 0, 
+    if (change lt 0,
       theta0 = theta0 * half0;
       );
     );
@@ -411,13 +411,12 @@ piv_all(iter, j, w)=piv(j,w);
   if(LB(ltheta, lstep) lt total_obj_record(iter),
     LB(ltheta, lstep) = total_obj_record(iter);
     );
+);
   if(LB(ltheta, lstep) * 1.01 gt UB(ltheta, lstep),
     display LB, UB;
   break; );
-  if(ord(iter) eq 30,
+ if(ord(iter) eq 30,
     display LB, UB;
-display cpu_ub,cpu_lag,cpu_bender_sub, cpu_bender_master;
-display UB, LB, total_obj_record, BenderOBJ_record, UB_Bender;
     );
   );
 
@@ -434,7 +433,5 @@ dv(iter,j)
 ;
 dn(iter, j) = exp(n_record(iter, j));
 dv(iter, j) = exp(v_record(iter,j));
-display cpu_ub,cpu_lag,cpu_bender_sub, cpu_bender_master;
+display cpu_ub,cpu_lag,cpu_bender_sub, cpu_bender_master,walltime;
 display UB, LB, total_obj_record, BenderOBJ_record, UB_Bender, dn,dv;
-
-

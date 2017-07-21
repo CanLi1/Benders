@@ -161,7 +161,6 @@ D('c4','j5',w)= baseD('c4', 'j5');
         );
        );
       );
-     );
 
 Table
 betaS(r,j) "price for purchase chemical j from supplier r"

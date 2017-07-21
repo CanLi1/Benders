@@ -15,5 +15,5 @@
 # Use submission environment
 #PBS -V
 
-cd /home/canl1/work/MINLP-Benders/2SCM/convex/128
-gams scm.gms -lo=4 
+cd ~/work/Benders/MINLP-Benders/2SCM/convex/128
+gams cross.gms -lo=4 

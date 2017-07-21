@@ -5,7 +5,7 @@ s /s1*s4/
 r /r1*r4/
 p /p1*p3/
 c /c1*c4/
-w /w1*w3/
+w /w1*w64/
 freeze(w)
 ;
 
@@ -93,7 +93,8 @@ phi(c,j) "penalty cost for not satisfying demand from customer c for chemical j"
 QEU(p,i)
 PUU /100/
 FUU /150/
-prob(w)/w1 0.25, w2 0.5, w3 0.25/;
+prob(w);
+prob(w) = 1/64;
 Q0(p,i) = 0;
 rho(i,j,s) =1;
 H(i) = 1;
@@ -127,9 +128,41 @@ c4                         80                     2
 
 Parameters
 D(c,j,w);
-D(c,j,'w1')=baseD(c,j) * 0.7;
-D(c,j,'w3') = baseD(c,j) * 1.3;
-D(c,j,'w2') = baseD(c,j);
+*generate scenarios
+Set
+subw/1*2/;
+Parameters
+num;
+alias (sub0,sub1,sub2,sub3,sub4,sub5,sub6,sub7,sub8,sub9,sub10,sub11,subw);
+loop(sub0,
+ loop(sub1,
+  loop(sub2,
+   loop(sub3,
+    loop(sub4,
+     loop(sub5,
+
+            num = 0;
+
+            num = 1*(ord(sub0)-1)+2*(ord(sub1)-1)+4*(ord(sub2)-1)+8*(ord(sub3)-1)+16*(ord(sub4)-1)+32*(ord(sub5)-1);
+            loop(w,
+              if(ord(w) eq num + 1,
+D('c1','j3',w)= baseD('c1', 'j3')*(1 + (ord(sub0)-1.5)*2/3);
+D('c1','j5',w)= baseD('c1', 'j5')*(1 + (ord(sub1)-1.5)*2/3);
+D('c2','j3',w)= baseD('c2', 'j3')*(1 + (ord(sub2)-1.5)*2/3);
+D('c2','j5',w)= baseD('c2', 'j5')*(1 + (ord(sub3)-1.5)*2/3);
+D('c3','j3',w)= baseD('c3', 'j3')*(1 + (ord(sub4)-1.5)*2/3);
+D('c3','j5',w)= baseD('c3', 'j5')*(1 + (ord(sub5)-1.5)*2/3);
+D('c4','j3',w)= baseD('c4', 'j3');
+D('c4','j5',w)= baseD('c4', 'j5');
+
+            );
+              );
+              );
+          );
+         );
+        );
+      );
+     );
 Table
 betaS(r,j) "price for purchase chemical j from supplier r"
         j1       j2        j3         j4         j5          j6
@@ -213,7 +246,7 @@ e11(c,j,w)$freeze(w) .. sum(p, F(p,c,j,w)) + Slack(c,j,w) =e= D(c,j,w);
 e12(p,i,j,s,w)$(freeze(w) and (not(JM(i,s,j) or L(i,s,j) or Lbar(i,s,j)))) .. WW(p,i,j,s,w) =e= 0;
 eobj .. cost =e= sum(w$freeze(w), prob(w) * sum(p, sum(i, betaC(i) * QE(p,i)*100 + alphaC(i) * x(p,i)))) + sum(w$freeze(w), prob(w) * (sum((p,i,s,j)$(PS(i,s) and JM(i,s,j)), delta(i,s)*rho(i,j,s) * theta(p,i,j,s,w)) + sum((p,j,r)$RJ(r,j), (betaS(r,j) + betaRP(r,p)) * PU(r,p,j,w)) + sum((r,p), alphaRP(r,p) * y(r,p,w)) + sum((p,c), alphaPC(p,c) * z(p,c,w)) + sum((p,c,j), betaPC(p,c) * F(p,c,j,w)) + sum((c,j), phi(c,j) * Slack(c,j,w)) )) +  sum((p,i,w)$freeze(w), pix(p,i,w) * x(p,i) + piQ(p,i,w) * Q(p,i));
 
-set iter /1*60/
+set iter /1*30/
 aiter(iter)
 biter(iter);
 
@@ -233,7 +266,7 @@ den(iter)
 stepsize
 theta0 /1.5/
 *theta00(ltheta)/1 0.2,2 0.6, 3 1, 4 1.5, 5 2/
-half0 /0.5/
+half0 /0.8/
 *half00(lstep) / 1 0.5, 2 0.6,3 0.7,4 0.8/
 change;
 mux('1',p,i,w) = 0;
@@ -317,7 +350,7 @@ parameters
 LB
 UB;
 LB = 700;
-UB=1016.0;
+UB=993.374 ;
 aiter(iiiter) = yes;
 loop(iter,
 

@@ -2,17 +2,17 @@ Sets
 i /i1*i5/
 j /j1*j6/
 k /k1*k4/
-w /w1*w3/
+w /w1*w128/
 ;
-alias (k, kk)
+alias (k, kk), (w,w3);
 
 parameters
 alpha(j)
 beta(j)
-delta /240/
+delta /230/
 lambda(j) 
 VL /300/
-VU /2500/
+VU /2300/
 H /5000/
 baseQ(i) /i1 250000, i2 150000, i3 180000, i4 160000, i5 120000/
 Q(i,w)
@@ -20,13 +20,36 @@ prob(w)
 ;
 alpha(j) = 250;
 beta(j) = 0.6;
-lambda(j) = 5000;
-Q(i, 'w1') = baseQ(i)*1.2;
-Q(i, 'w2') = baseQ(i)*1;
-Q(i, 'w3') = baseQ(i) *0.8;
-prob('w1') = 0.25;
-prob('w2') = 0.5;
-prob('w3') = 0.25;
+lambda(j) = 2000;
+
+*generatre scenarios---------------------------------
+set 
+sub0 /1*4/
+sub4 /1*2/;
+
+parameters
+num
+baseprob(sub0) /1 0.2, 2 0.3, 3 0.3,4 0.2/
+baseprob2(sub4)/1 0.5, 2 0.5/;
+alias (sub0,sub1,sub2,sub3);
+loop(sub0,
+ loop(sub1,
+  loop(sub2,
+	loop(sub4,
+    	num = 1*(ord(sub0)-1)+4*(ord(sub1)-1)+16*(ord(sub2)-1)+64*(ord(sub4)-1)+1;
+    	loop(w3$(ord(w3) eq num),
+    		     Q('i1', w3 )= baseQ('i1')*(1 + (ord(sub0)-2.5)/5);
+     			Q('i2', w3 )= baseQ('i2')*(1 + (ord(sub1)-2.5)/5);
+     			Q('i3', w3 )= baseQ('i3')*(1 + (ord(sub2)-2.5)/5);
+     			Q('i5', w3 )= baseQ('i5')*(1+(ord(sub4)-1.5)/5);
+     			prob(w3) = baseprob(sub0)* baseprob(sub1) * baseprob(sub2) *baseprob2(sub4) ;
+    		);
+    );
+   );
+  );
+ );
+
+*done generating scenarios-------------------------------
 Table S(i,j)
       j1      j2       j3      j4        j5        j6
 i1   7.9     2.0      5.2     4.9       6.1       4.2
@@ -77,12 +100,15 @@ eobj .. cost =e= sum(j, alpha(j) * exp(n(j) + beta(j) * v(j))) + sum(w, prob(w) 
 
 model batch /all/;
 batch.optfile=1;
-solve batch using minlp minimizing cost;
-
+option rminlp = CONOPT4;
+option threads=12;
 option optcr = 0;
+option reslim=5e5;
+option iterlim=2e9;
 option optca =0;
 OPTION LIMROW = 0;
 OPTION LIMCOL = 0;
+solve batch using minlp minimizing cost;
 parameters
 dn(j)
 dv(j)
@@ -94,8 +120,12 @@ dv(j) = exp(v.l(j));
 dns(j,w) = exp(ns.l(j,w));
 dtl(i,w) = exp(tl.l(i,w));
 db(i,w) = exp(b.l(i,w));
+parameters
+walltime;
+walltime=TimeElapsed;
 display yf.l, ys.l, dn, dv, dns, dtl, db, L.l;
-display cost.l;
+display walltime,batch.resusd;
+
 
 
 

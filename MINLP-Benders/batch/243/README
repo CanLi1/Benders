@@ -1,0 +1,6 @@
+We have tested the cross decomposition with differnce parameters for theta0 and half0. The theta=2 half=0.8 have best result
+diffrent initialization has influene on the performance of the nlp solver. Sometimes even though we know that the nlp
+is feasible. CONOPT can converge to an infeasible point
+Ignacio gives two suggestions
+1. try to resolve the nlp if the modelstat of gams is infeasible
+2. try to rescale the variable

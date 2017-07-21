@@ -2,7 +2,7 @@ Sets
 i /i1*i5/
 j /j1*j6/
 k /k1*k4/
-w /w1*w243/
+w /w1*w32/
 freeze(w)
 ;
 alias (k, kk), (w,w3,w2);
@@ -11,7 +11,7 @@ parameters
 alpha(j)
 beta(j)
 delta /230/
-lambda(j) 
+lambda(j)
 VL /300/
 VU /2300/
 H /5000/
@@ -24,24 +24,24 @@ beta(j) = 0.6;
 lambda(j) = 2000;
 
 *generatre scenarios---------------------------------
-set 
-sub0 /1*3/;
+set
+sub0 /1*2/;
 parameters
 num
-baseprob(sub0) /1 0.3, 2 0.4, 3 0.3/;
+baseprob(sub0) /1 0.5, 2 0.5/;
 alias (sub0,sub1,sub2,sub3,sub4);
 loop(sub0,
  loop(sub1,
   loop(sub2,
    loop(sub3,
     loop(sub4,
-      num = 1*(ord(sub0)-1)+3*(ord(sub1)-1)+9*(ord(sub2)-1)+27*(ord(sub3)-1)+81*(ord(sub4)-1)+1;
+      num = 1*(ord(sub0)-1)+2*(ord(sub1)-1)+4*(ord(sub2)-1)+8*(ord(sub3)-1)+16*(ord(sub4)-1)+1;
       loop(w3$(ord(w3) eq num),
-             Q('i1', w3 )= baseQ('i1')*(1 + (ord(sub0)-2)/10);
-          Q('i2', w3 )= baseQ('i2')*(1 + (ord(sub1)-2)/10);
-          Q('i3', w3 )= baseQ('i3')*(1 + (ord(sub2)-2)/10);
-          Q('i4', w3 )= baseQ('i4')*(1 + (ord(sub3)-2)/10);
-          Q('i5', w3 )= baseQ('i5')*(1 + (ord(sub4)-2)/10);
+             Q('i1', w3 )= baseQ('i1')*(1 + (ord(sub0)-1.5)/5);
+          Q('i2', w3 )= baseQ('i2')*(1 + (ord(sub1)-1.5)/5);
+          Q('i3', w3 )= baseQ('i3')*(1 + (ord(sub2)-1.5)/5);
+          Q('i4', w3 )= baseQ('i4')*(1 + (ord(sub3)-1.5)/5);
+          Q('i5', w3 )= baseQ('i5')*(1 + (ord(sub4)-1.5)/5);
           prob(w3) = baseprob(sub0)* baseprob(sub1) * baseprob(sub2) * baseprob(sub3) * baseprob(sub4);
         );
     );
@@ -111,7 +111,7 @@ eobj .. cost =e= sum(w$freeze(w), prob(w)*sum(j, alpha(j) * exp(n(j) + beta(j) *
 model sub /e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,eobj/;
 sub.optfile=1;
 
-set iter /1*50/
+set iter /1*30/
 aiter(iter)
 biter(iter);
 
@@ -132,7 +132,7 @@ muv(iter, j,w)
 piyf_all(iter, k,j,w)
 pin_all(iter,j,w)
 piv_all(iter, j, w)
-cpu_lag/0/ 
+cpu_lag/0/
 den(iter)
 stepsize
 theta0 /1.5/
@@ -172,15 +172,13 @@ Equations
 bobj ,b1,b2;
 
 bobj .. BenderOBJ =e= sum(w, yita(w));
-b1(w, iiiter)$aiter(iiiter) .. yita(w) =g= obj_record(iiiter,w ) - sum(j, pin_all(iiiter, j, w) * n(j) + piv_all(iiiter, j, w) * v(j) + sum(k, piyf_all(iiiter,k,j,w) * yf(k,j))); 
+b1(w, iiiter)$aiter(iiiter) .. yita(w) =g= obj_record(iiiter,w ) - sum(j, pin_all(iiiter, j, w) * n(j) + piv_all(iiiter, j, w) * v(j) + sum(k, piyf_all(iiiter,k,j,w) * yf(k,j)));
 b2(w, iiiter)$biter(iiiter) .. yita(w) =g= v1(iiiter, w) + sum(j, sum(k, g1(iiiter, k , j, w)* yf(k,j)) +g2(iiiter, j, w) * n(j) + g3(iiiter, j, w) * v(j));
 model bendersmaster /bobj, b1, b2, e1, e2,e3,e4/;
 
 *----------------------------DEFINE Benders subproblem---------------------------
 parameters
 yfbar(k,j), nbar(j), vbar(j), UB_Bender(iter), cpu_bender_sub/0/, cpu_bender_master /0/, cpu_ub/0/ ;
-
-
 equations
 Tyf, Tn,Tv,  Beobj;
 Tyf(k,j) .. yf(k,j) =e= yfbar(k,j);
@@ -218,11 +216,11 @@ master_modelstat(iter)=0;
 lag_sub_modelstat(iter,w)=0;
 
 parameters
-LB(ltheta, lstep) 
+LB(ltheta, lstep)
 UB(ltheta, lstep)
 ;
 LB(ltheta,lstep) =  250843.7050;
-UB(ltheta,lstep) = 418163.472  ;
+UB(ltheta,lstep) = 423813.473  ;
 
 aiter(iiiter) = yes;
 loop(ltheta,
@@ -241,14 +239,14 @@ pin_all(iter,j,w)=0;
 piv_all(iter, j, w)=0;
 piyf(k,j,w) = 0;
 pin(j,w)=0;
-piv(j,w)=0; 
+piv(j,w)=0;
 loop(iter,
 
 
 
 *solve each lagrangean subproblem
 if(ord(iter) le 30,
-loop(w3, 
+loop(w3,
   freeze(w2) = no;
   freeze(w3) = yes;
   n.l(j) = log(3);
@@ -263,7 +261,7 @@ loop(w3,
   L.l(w3) = 1e3;
   solve sub using MINLP minimizing COST;
   lag_sub_handle(w3) = sub.handle;
-  
+
 );
 Repeat
   loop(w3$handlecollect(lag_sub_handle(w3)),
@@ -277,8 +275,8 @@ Repeat
         UB(ltheta, lstep)=0;
         display sub.modelStat, sub.solveStat;
         );
-    abort$(sub.modelStat ne 8 and sub.modelStat ne 1) 'abort due to errors';
-*      display$handledelete(lag_sub_handle(w3)) 'trouble deleting handles';
+*    abort$(sub.modelStat ne 8 and sub.modelStat ne 1) 'abort due to errors';
+      display$handledelete(lag_sub_handle(w3)) 'trouble deleting handles';
       lag_sub_handle(w3)=0;
     );
 until card(lag_sub_handle) =0;
@@ -299,7 +297,7 @@ piv_all(iter, j, w)=piv(j,w);
       );
       if(ord(iiter) le ord(iter) and ord(iiter) le 30,
       aiter(iiter)= yes;
-      );
+     );
     );
   solve bendersmaster using mip minimizing BenderOBJ;
   cpu_bender_master = cpu_bender_master + bendersmaster.resusd;
@@ -327,7 +325,7 @@ piv_all(iter, j, w)=piv(j,w);
     freeze(w3) = yes;
     solve BenderSub using MINLP minimizing COST;
     Bendersub_handle(w3) = Bendersub.handle;
-    
+
     );
   Repeat
     loop(w3$handlecollect(Bendersub_handle(w3)),
@@ -337,7 +335,7 @@ piv_all(iter, j, w)=piv(j,w);
         if((bendersub.modelStat ne 8 and bendersub.modelStat ne 2 and bendersub.modelStat ne 1),
           UB(ltheta, lstep) = 0;
           );
-        abort$((bendersub.modelStat ne 8 and bendersub.modelStat ne 2 and bendersub.modelStat ne 1)  or bendersub.solveStat ne 1) 'abort due to errors solve upper bound sub';
+*        abort$((bendersub.modelStat ne 8 and bendersub.modelStat ne 2 and bendersub.modelStat ne 1)  or bendersub.solveStat ne 1) 'abort due to errors solve upper bound sub';
         display$handledelete(Bendersub_handle(w3)) 'trouble deleting handles';
         Bendersub_handle(w3)=0;
       );
@@ -350,7 +348,7 @@ piv_all(iter, j, w)=piv(j,w);
     freeze(w3) = yes;
     solve Bendersub using rMINLP minimizing COST;
     Bendersub_handle(w3)= Bendersub.handle;
-    
+
     );
 
   Repeat
@@ -359,12 +357,13 @@ piv_all(iter, j, w)=piv(j,w);
       v1(iter, w3) = COST.l - sum(j, sum(k, yfbar(k,j)*Tyf.m(k,j)) + nbar(j) * Tn.m(j) + vbar(j) * Tv.m(j));
       g1(iter, k,j, w3) = Tyf.m(k,j);
       g2(iter, j, w3) = Tn.m(j);
+
       g3(iter, j, w3) = Tv.m(j);
       bender_sub_modelstat(iter,w3) = bendersub.modelStat;
       if((bendersub.modelStat ne 2 and bendersub.modelStat ne 1)or bendersub.solveStat ne 1,
         UB(ltheta, lstep) = 0;
         );
-      abort$(bendersub.modelStat ne 2 or bendersub.solveStat ne 1) 'abort due to errors solve Bender subproblem';
+*      abort$(bendersub.modelStat ne 2 or bendersub.solveStat ne 1) 'abort due to errors solve Bender subproblem';
       display$handledelete(Bendersub_handle(w3)) 'trouble deleting handles';
       Bendersub_handle(w3)=0;
       );
@@ -378,32 +377,32 @@ piv_all(iter, j, w)=piv(j,w);
 *finish benders-------------------
 
 *update lagrangean multiplier
-  den(iter) = sum((j,w), sum(k, power(yf_record_lag(iter, k,j,w) - yf_record_lag(iter, k, j, 'w122'), 2)) + power(n_record_lag(iter, j, w) - n_record_lag(iter, j, 'w122'), 2) + power(v_record_lag(iter, j, w) - v_record_lag(iter, j, 'w122'), 2));
+  den(iter) = sum((j,w), sum(k, power(yf_record_lag(iter, k,j,w) - yf_record_lag(iter, k, j, 'w1'), 2)) + power(n_record_lag(iter, j, w) - n_record_lag(iter, j, 'w1'), 2) + power(v_record_lag(iter, j, w) - v_record_lag(iter, j, 'w1'), 2));
   stepsize = theta0 * (UB(ltheta, lstep)-LB(ltheta, lstep))/den(iter);
 
- 
+
   loop(w,
-    if(ord(w) ne 122,
-      muyf(iter+1, k,j,w) = muyf(iter, k,j,w) + (yf_record_lag(iter, k,j,w) - yf_record_lag(iter, k,j,'w122')) * stepsize;
-      mun(iter+1, j, w) = mun(iter, j, w) + (n_record_lag(iter, j, w) - n_record_lag(iter, j , 'w122'))*stepsize;
-      muv(iter+1, j, w)= muv(iter, j, w) + (v_record_lag(iter, j, w) - v_record_lag(iter, j, 'w122'))*stepsize;
+    if(ord(w) ne 1,
+      muyf(iter+1, k,j,w) = muyf(iter, k,j,w) + (yf_record_lag(iter, k,j,w) - yf_record_lag(iter, k,j,'w1')) * stepsize;
+      mun(iter+1, j, w) = mun(iter, j, w) + (n_record_lag(iter, j, w) - n_record_lag(iter, j , 'w1'))*stepsize;
+      muv(iter+1, j, w)= muv(iter, j, w) + (v_record_lag(iter, j, w) - v_record_lag(iter, j, 'w1'))*stepsize;
       );
     );
   loop(w,
-    if(ord(w) ne 122,
+    if(ord(w) ne 1,
       piyf(k,j,w) = muyf(iter+1, k,j,w);
       pin(j, w) = mun(iter + 1, j, w);
       piv(j,w) = muv(iter+1, j, w);
 
       );
-    piyf(k,j,'w122') = -sum(w2$(ord(w2) ne 122), muyf(iter+1, k,j,w2));
-    pin(j, 'w122') = -sum(w2$(ord(w2) ne 122), mun(iter+1, j, w2));
-    piv(j, 'w122') = -sum(w2$(ord(w2) ne 122), muv(iter+1, j, w2));
+    piyf(k,j,'w1') = -sum(w2$(ord(w2) ne 1), muyf(iter+1, k,j,w2));
+    pin(j, 'w1') = -sum(w2$(ord(w2) ne 1), mun(iter+1, j, w2));
+    piv(j, 'w1') = -sum(w2$(ord(w2) ne 1), muv(iter+1, j, w2));
 
     );
   if (ord(iter) gt 1,
     change = -(total_obj_record(iter-1) - total_obj_record(iter)) / total_obj_record(iter-1);
-    if (change lt 0, 
+    if (change lt 0,
       theta0 = theta0 * half0;
       );
     );
@@ -419,7 +418,6 @@ piv_all(iter, j, w)=piv(j,w);
     );
   );
 
-
 );
 );
 
@@ -432,7 +430,5 @@ dv(iter,j)
 ;
 dn(iter, j) = exp(n_record(iter, j));
 dv(iter, j) = exp(v_record(iter,j));
-display cpu_ub,cpu_lag,cpu_bender_sub, cpu_bender_master;
-display UB, LB, total_obj_record, BenderOBJ_record, UB_Bender, dn,dv;
-
-
+display cpu_ub,cpu_lag,cpu_bender_sub, cpu_bender_master,WallTime;
+display UB, LB, total_obj_record, BenderOBJ_record, UB_Bender;
