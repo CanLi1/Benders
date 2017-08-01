@@ -92,7 +92,8 @@ e4(j) .. v(j) =g= log(VL);
 *second stage
 e5(i,j,w) .. v(j) =g= log(S(i,j)) + b(i,w);
 e6(j,w) .. ns(j,w) =e= sum(k, log(ord(k)) * ys(k,j,w));
-e7(k,j,w) .. ys(k,j,w) =l= sum(kk$(ord(kk) ge ord(k)), yf(kk,j));
+*e7(k,j,w) .. ys(k,j,w) =l= sum(kk$(ord(kk) ge ord(k)), yf(kk,j));
+e7(j,w) .. ns(j,w) =l= n(j);
 e8(i,j,w) .. ns(j,w) + tl(i,w) =g= log(t(i,j));
 e9(w) .. sum(i, Q(i,w) * exp(tl(i,w) - b(i,w))) =l= H + L(w);
 e10(j,w) .. sum(k, ys(k,j,w)) =e= 1;
@@ -101,12 +102,15 @@ eobj .. cost =e= sum(j, alpha(j) * exp(n(j) + beta(j) * v(j))) + sum(w, prob(w) 
 model batch /all/;
 batch.optfile=1;
 option rminlp = CONOPT4;
-solve batch using rminlp minimizing cost;
 
 option optcr = 0;
 option optca =0;
 OPTION LIMROW = 0;
 OPTION LIMCOL = 0;
+option iterlim =2e9;
+option reslim=3e4;
+option threads=12;
+solve batch using minlp minimizing cost;
 parameters
 dn(j)
 dv(j)

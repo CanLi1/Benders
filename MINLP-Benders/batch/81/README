@@ -1,0 +1,10 @@
+here we assume each demand can have high low medium
+there are combination for the first three products 
+there are not combination for the last two products
+we test new formulation Njws <= NjF
+which has a much tighter NLP relaxtion than the previous constaint
+used
+so we change to this new formulation thereafter in cross.gms
+we only run cross.gms and cross1.gms
+the others are still in the old formulation
+the best result is in cross1 and cross

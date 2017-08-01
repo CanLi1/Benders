@@ -3,16 +3,17 @@ i /i1*i5/
 j /j1*j6/
 k /k1*k4/
 w /w1*w3/
+freeze(w)
 ;
 alias (k, kk)
 
 parameters
 alpha(j)
 beta(j)
-delta /240/
+delta /230/
 lambda(j) 
 VL /300/
-VU /2500/
+VU /2300/
 H /5000/
 baseQ(i) /i1 250000, i2 150000, i3 180000, i4 160000, i5 120000/
 Q(i,w)
@@ -20,13 +21,13 @@ prob(w)
 ;
 alpha(j) = 250;
 beta(j) = 0.6;
-lambda(j) = 5000;
-Q(i, 'w1') = baseQ(i)*1.2;
+lambda(j) = 2000;
+Q(i, 'w1') = baseQ(i)*1.1;
 Q(i, 'w2') = baseQ(i)*1;
-Q(i, 'w3') = baseQ(i) *0.8;
-prob('w1') = 0.25;
-prob('w2') = 0.5;
-prob('w3') = 0.25;
+Q(i, 'w3') = baseQ(i) *0.9;
+prob('w1') = 0.3;
+prob('w2') = 0.4;
+prob('w3') = 0.3;
 Table S(i,j)
       j1      j2       j3      j4        j5        j6
 i1   7.9     2.0      5.2     4.9       6.1       4.2
@@ -58,6 +59,17 @@ cost;
 Positive Variables
 L(w);
 
+
+*Lagrangean subproblem----------------------------------------------------
+parameters
+piyf(k,j,w)
+pin(j,w)
+piv(j,w)
+;
+piyf(k,j,w) = 0;
+pin(j,w)=0;
+piv(j,w)=0;
+
 Equations
 e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,eobj;
 *first stage
@@ -67,44 +79,20 @@ e3(j) .. v(j) =l= log(VU);
 e4(j) .. v(j) =g= log(VL);
 
 *second stage
-e5(i,j,w) .. v(j) =g= log(S(i,j)) + b(i,w);
-e6(j,w) .. ns(j,w) =e= sum(k, log(ord(k)) * ys(k,j,w));
-e7(k,j,w) .. ys(k,j,w) =l= sum(kk$(ord(kk) ge ord(k)), yf(kk,j));
-e8(i,j,w) .. ns(j,w) + tl(i,w) =g= log(t(i,j));
-e9(w) .. sum(i, Q(i,w) * exp(tl(i,w) - b(i,w))) =l= H + L(w);
-e10(j,w) .. sum(k, ys(k,j,w)) =e= 1;
-eobj .. cost =e= sum(j, alpha(j) * exp(n(j) + beta(j) * v(j))) + sum(w, prob(w) * (sum(j, lambda(j) * exp(ns(j,w))) + delta*L(w)));
+e5(i,j,w)$freeze(w) .. v(j) =g= log(S(i,j)) + b(i,w);
+e6(j,w)$freeze(w) .. ns(j,w) =e= sum(k, log(ord(k)) * ys(k,j,w));
+e7(j,w)$freeze(w) .. ns(j,w) =l= n(j);
+e8(i,j,w)$freeze(w) .. ns(j,w) + tl(i,w) =g= log(t(i,j));
+e9(w)$freeze(w) .. sum(i, Q(i,w) * exp(tl(i,w) - b(i,w))) =l= H + L(w);
+e10(j,w)$freeze(w) .. sum(k, ys(k,j,w)) =e= 1;
+eobj .. cost =e= sum(w$freeze(w), prob(w)*sum(j, alpha(j) * exp(n(j) + beta(j) * v(j)))) + sum(w$freeze(w), prob(w) * (sum(j, lambda(j) * exp(ns(j,w))) + delta*L(w)))+sum(w$freeze(w), sum(j, piv(j,w) * v(j) + pin(j,w) * n(j) + sum(k, piyf(k,j,w) * yf(k,j))));
 
-model batch /all/;
-batch.optfile=1;
-solve batch using minlp minimizing cost;
-
-option optcr = 0;
-option optca =0;
-OPTION LIMROW = 0;
+model sub /e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,eobj/;
+sub.optfile=1;
+options optca = 0;
+options optcr =0;
+  OPTION LIMROW = 0;
 OPTION LIMCOL = 0;
-parameters
-dn(j)
-dv(j)
-dns(j,w)
-dtl(i,w)
-db(i,w);
-dn(j) = exp(n.l(j));
-dv(j) = exp(v.l(j));
-dns(j,w) = exp(ns.l(j,w));
-dtl(i,w) = exp(tl.l(i,w));
-db(i,w) = exp(b.l(i,w));
-display yf.l, ys.l, dn, dv, dns, dtl, db, L.l;
-display cost.l;
-
-
-
-
-
-
-
-
-
-
-
-
+freeze(w)=yes;
+solve sub using minlp minimizing cost;
+display cost.l,l.l;

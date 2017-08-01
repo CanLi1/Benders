@@ -2,7 +2,7 @@ Sets
 i /i1*i5/
 j /j1*j6/
 k /k1*k4/
-w /w1*w244/
+w /w1*w82/
 freeze(w)
 ;
 alias (k, kk), (w,w3,w2);
@@ -11,7 +11,7 @@ parameters
 alpha(j)
 beta(j)
 delta /230/
-lambda(j) 
+lambda(j)
 VL /300/
 VU /2300/
 H /5000/
@@ -19,13 +19,12 @@ baseQ(i) /i1 250000, i2 150000, i3 180000, i4 160000, i5 120000/
 Q(i,w)
 prob(w)
 ;
-prob('w244') = 1;
+prob('w82') = 1;
 alpha(j) = 250;
 beta(j) = 0.6;
 lambda(j) = 2000;
-
 *generatre scenarios---------------------------------
-set 
+set
 sub0 /1*3/;
 parameters
 num
@@ -35,17 +34,16 @@ loop(sub0,
  loop(sub1,
   loop(sub2,
    loop(sub3,
-    loop(sub4,
-    	num = 1*(ord(sub0)-1)+3*(ord(sub1)-1)+9*(ord(sub2)-1)+27*(ord(sub3)-1)+81*(ord(sub4)-1)+1;
+    	num = 1*(ord(sub0)-1)+3*(ord(sub1)-1)+9*(ord(sub2)-1)+27*(ord(sub3)-1)+1;
     	loop(w3$(ord(w3) eq num),
     		     Q('i1', w3 )= baseQ('i1')*(1 + (ord(sub0)-2)/10);
      			Q('i2', w3 )= baseQ('i2')*(1 + (ord(sub1)-2)/10);
      			Q('i3', w3 )= baseQ('i3')*(1 + (ord(sub2)-2)/10);
      			Q('i4', w3 )= baseQ('i4')*(1 + (ord(sub3)-2)/10);
-     			Q('i5', w3 )= baseQ('i5')*(1 + (ord(sub4)-2)/10);
-     			prob(w3) = baseprob(sub0)* baseprob(sub1) * baseprob(sub2) * baseprob(sub3) * baseprob(sub4);
+     			Q('i5', w3 )= baseQ('i5')*(1 + (ord(sub3)-2)/10);
+     			prob(w3) = baseprob(sub0)* baseprob(sub1) * baseprob(sub2) * baseprob(sub3) ;
     		);
-    );
+
    );
   );
  );
@@ -111,13 +109,19 @@ eobj .. cost =e= sum(w$freeze(w), prob(w)*sum(j, alpha(j) * exp(n(j) + beta(j) *
 
 model sub /e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,eobj/;
 sub.optfile=1;
+
+set iter /1*2/
+aiter(iter)
+biter(iter);
+
+
 options optca = 0;
 options optcr =0;
   OPTION LIMROW = 0;
 OPTION LIMCOL = 0;
 freeze(w) = no;
-Q(i, 'w244') = baseQ(i);
-freeze('w244') = yes;
+Q(i, 'w82') = baseQ(i);
+freeze('w82') = yes;
 solve sub using minlp minimizing cost;
 yf.fx(k,j) = yf.l(k,j);
 v.fx(j) = v.l(j);
@@ -125,7 +129,7 @@ n.fx(j) = n.l(j);
 freeze(w) = no;
 parameters
 total_cost /0/;
-loop(w3$(ord(w3) ne 244),
+loop(w3$(ord(w3) ne 82),
 freeze(w2)=no;
 freeze(w3) = yes;
 solve sub using minlp minimizing cost;

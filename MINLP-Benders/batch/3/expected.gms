@@ -10,10 +10,10 @@ alias (k, kk)
 parameters
 alpha(j)
 beta(j)
-delta /240/
+delta /230/
 lambda(j) 
 VL /300/
-VU /2500/
+VU /2300/
 H /5000/
 baseQ(i) /i1 250000, i2 150000, i3 180000, i4 160000, i5 120000/
 Q(i,w)
@@ -21,13 +21,13 @@ prob(w)
 ;
 alpha(j) = 250;
 beta(j) = 0.6;
-lambda(j) = 5000;
-Q(i, 'w1') = baseQ(i)*1.2;
+lambda(j) = 2000;
+Q(i, 'w1') = baseQ(i)*1.1;
 Q(i, 'w2') = baseQ(i)*1;
-Q(i, 'w3') = baseQ(i) *0.8;
-prob('w1') = 0.25;
-prob('w2') = 0.5;
-prob('w3') = 0.25;
+Q(i, 'w3') = baseQ(i) *0.9;
+prob('w1') = 0.3;
+prob('w2') = 0.4;
+prob('w3') = 0.3;
 Table S(i,j)
       j1      j2       j3      j4        j5        j6
 i1   7.9     2.0      5.2     4.9       6.1       4.2
