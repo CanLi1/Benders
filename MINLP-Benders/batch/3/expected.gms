@@ -101,4 +101,9 @@ v.fx(j) = v.l(j);
 n.fx(j) = n.l(j);
 freeze(w) = yes;
 solve sub using minlp minimizing cost;
-display cost.l;
+parameter
+dn(j)
+dv(j);
+dv(j) = exp(v.l(j));
+dn(j)=exp(n.l(j));
+display dn,dv,cost.l;

@@ -116,8 +116,8 @@ cpu_lag/0/
 den(iter)
 stepsize
 theta0 /1.5/
-theta00(ltheta) /1 1.5/
-half00(lstep) /1 0.5/
+theta00(ltheta) /1 2/
+half00(lstep) /1 0.8/
 *theta00(ltheta)/1 0.2,2 0.6, 3 1, 4 1.5, 5 2/
 half0 /0.5/
 *half00(lstep) / 1 0.5,2 0.8, 3 0.9/
@@ -150,12 +150,12 @@ yita(w);
 Variables
 BenderOBJ;
 Equations
-bobj ,b1,b2;
+bobj ,b1;
 
 bobj .. BenderOBJ =e= sum(w, yita(w));
 b1(w, iiiter)$aiter(iiiter) .. yita(w) =g= obj_record(iiiter,w ) - sum(j, pin_all(iiiter, j, w) * n(j) + piv_all(iiiter, j, w) * v(j) + sum(k, piyf_all(iiiter,k,j,w) * yf(k,j))); 
-b2(w, iiiter)$biter(iiiter) .. yita(w) =g= v1(iiiter, w) + sum(j, sum(k, g1(iiiter, k , j, w)* yf(k,j)) +g2(iiiter, j, w) * n(j) + g3(iiiter, j, w) * v(j));
-model bendersmaster /bobj, b1, b2, e1, e2,e3,e4/;
+
+model bendersmaster /bobj, b1,  e1, e2,e3,e4/;
 
 *----------------------------DEFINE Benders subproblem---------------------------
 parameters
@@ -271,9 +271,6 @@ piv_all(iter, j, w)=piv(j,w);
     aiter(iiiter) = no;
     biter(iiiter)=no;
   loop(iiter,
-    if(ord(iiter) le ord(iter),
-      biter(iiter)= yes;
-      );
       if(ord(iiter) le ord(iter) and ord(iiter) le 30,
       aiter(iiter)= yes;
       );
@@ -329,40 +326,7 @@ ns.l(j,w3) = log(3);
   until card(Bendersub_handle) =0;
 
 
-*add benders cuts, solve each benders subproblem--------------
-  loop(w3,
-    freeze(w2) = no;
-    freeze(w3) = yes;
-  ns.l(j,w3) = log(3);
-  tl.l(i,w3) = log(2);
-  b.l(i,w3) = log(400);
-  yf.l(k,j) = 0;
-  yf.l('k3',j) =1;
-  ys.l(k,j,w3)= 0;
-  ys.l('k3',j,w3)= 1;
-  L.l(w3) = 1e3;
-    solve Bendersub using rMINLP minimizing COST;
-    Bendersub_handle(w3)= Bendersub.handle;
-    
-    );
 
-  Repeat
-    loop(w3$handlecollect(Bendersub_handle(w3)),
-      cpu_bender_sub = cpu_bender_sub + Bendersub.resusd;
-      v1(iter, w3) = COST.l - sum(j, sum(k, yfbar(k,j)*Tyf.m(k,j)) + nbar(j) * Tn.m(j) + vbar(j) * Tv.m(j));
-      g1(iter, k,j, w3) = Tyf.m(k,j);
-      g2(iter, j, w3) = Tn.m(j);
-      g3(iter, j, w3) = Tv.m(j);
-      bender_sub_modelstat(iter,w3) = bendersub.modelStat;
-      if((bendersub.modelStat ne 2 and bendersub.modelStat ne 1)or bendersub.solveStat ne 1,
-        UB(ltheta, lstep) = -1e-7;
-        );
-      abort$(bendersub.modelStat ne 2 or bendersub.solveStat ne 1) 'abort due to errors solve Bender subproblem';
-      display$handledelete(Bendersub_handle(w3)) 'trouble deleting handles';
-      Bendersub_handle(w3)=0;
-      );
-
-  until card(Bendersub_handle) =0;
 
   if(UB_Bender(iter) lt UB(ltheta, lstep),
     UB(ltheta, lstep) = UB_Bender(iter);
@@ -424,6 +388,6 @@ dv(iter,j)
 ;
 dn(iter, j) = exp(n_record(iter, j));
 dv(iter, j) = exp(v_record(iter,j));
-display cpu_ub,cpu_lag, cpu_bender_sub, cpu_bender_master, WallTime;
+display cpu_ub,cpu_lag, cpu_bender_master, WallTime;
 display UB, LB, total_obj_record, BenderOBJ_record, UB_Bender, dn,dv;
 

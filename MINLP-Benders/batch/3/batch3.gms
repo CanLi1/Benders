@@ -95,4 +95,9 @@ options optcr =0;
 OPTION LIMCOL = 0;
 freeze(w)=yes;
 solve sub using minlp minimizing cost;
-display cost.l,l.l;
+parameter
+dn(j)
+dv(j);
+dv(j) = exp(v.l(j));
+dn(j)=exp(n.l(j));
+display dn,dv,cost.l;
