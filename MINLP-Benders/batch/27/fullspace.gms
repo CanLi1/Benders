@@ -98,7 +98,7 @@ e4(j) .. v(j) =g= log(VL);
 *second stage
 e5(i,j,w)$freeze(w) .. v(j) =g= log(S(i,j)) + b(i,w);
 e6(j,w)$freeze(w) .. ns(j,w) =e= sum(k, log(ord(k)) * ys(k,j,w));
-e7(k,j,w)$freeze(w) .. ys(k,j,w) =l= sum(kk$(ord(kk) ge ord(k)), yf(kk,j));
+e7(j,w)$freeze(w) .. ns(j,w) =l= n(j);
 e8(i,j,w)$freeze(w) .. ns(j,w) + tl(i,w) =g= log(t(i,j));
 e9(w)$freeze(w) .. sum(i, Q(i,w) * exp(tl(i,w) - b(i,w))) =l= H + L(w);
 e10(j,w)$freeze(w) .. sum(k, ys(k,j,w)) =e= 1;
@@ -114,6 +114,7 @@ options optcr =0;
   OPTION LIMROW = 0;
 OPTION LIMCOL = 0;
 OPTION threads=12;
+option minlp=dicopt;
 freeze(w)=yes;
 solve sub using minlp minimizing cost;
 display cost.l, L.l,sub.resusd;

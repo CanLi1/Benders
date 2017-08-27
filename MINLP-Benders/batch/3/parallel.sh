@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Set the number of nodes and processes per node
-#PBS -l nodes=1:ppn=3
+#PBS -l nodes=1:ppn=12
 
 # Set max wallclock time
 #PBS -l walltime=48:00:00
@@ -16,4 +16,4 @@
 #PBS -V
 
 cd ~/work/Benders/MINLP-Benders/batch/3
-gams benders.gms -lo=4 
+gams dicopt.gms -lo=4 

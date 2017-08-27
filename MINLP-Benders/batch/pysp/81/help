@@ -1,0 +1,402 @@
+usage: runph [options]
+
+optional arguments:
+  -h, --help            show this help message and exit
+
+Input Options:
+  -m MODEL_DIRECTORY, --model-directory MODEL_DIRECTORY
+                        The directory in which all model (reference and
+                        scenario) definitions are stored. Default is ".".
+  -i INSTANCE_DIRECTORY, --instance-directory INSTANCE_DIRECTORY
+                        The directory in which all instance (reference and
+                        scenario) definitions are stored. This option is
+                        required if no callback is found in the model file.
+  -o {-1,max,maximize,1,min,minimize,None}, --objective-sense-stage-based {-1,max,maximize,1,min,minimize,None}
+                        The objective sense to use for the auto-generated
+                        scenario instance objective, which is equal to the sum
+                        of the scenario-tree stage costs. Default is None,
+                        indicating an Objective has been declared on the
+                        reference model.
+  --ph-warmstart-file PH_WARMSTART_FILE
+                        Disable iteration 0 solves and warmstarts rho, weight,
+                        and xbar parameters from solution file.
+  --ph-warmstart-index PH_WARMSTART_INDEX
+                        Indicates the index (ph iteration) of the warmstart
+                        that should be loaded from a ph history file.
+  --bounds-cfgfile BOUNDS_CFGFILE
+                        The name of python script containing a
+                        ph_boundsetter_callback function to compute and update
+                        scenario variable bounds. Default is None.
+
+Scenario Tree Options:
+  --scenario-tree-seed SCENARIO_TREE_RANDOM_SEED
+                        The random seed associated with manipulation
+                        operations on the scenario tree (e.g., down-sampling
+                        or bundle creation). Default is None, indicating
+                        unassigned.
+  --scenario-tree-downsample-fraction SCENARIO_TREE_DOWNSAMPLE_FRACTION
+                        The proportion of the scenarios in the scenario tree
+                        that are actually used. Specific scenarios are
+                        selected at random. Default is 1.0, indicating no
+                        down-sampling.
+  --scenario-bundle-specification SCENARIO_BUNDLE_SPECIFICATION
+                        The name of the scenario bundling specification to be
+                        used when executing Progressive Hedging. Default is
+                        None, indicating no bundling is employed. If the
+                        specified name ends with a .dat suffix, the argument
+                        is interpreted as a filename. Otherwise, the name is
+                        interpreted as a file in the instance directory,
+                        constructed by adding the .dat suffix automatically
+  --create-random-bundles CREATE_RANDOM_BUNDLES
+                        Specification to create the indicated number of
+                        random, equally-sized (to the degree possible)
+                        scenario bundles. Default is 0, indicating disabled.
+
+PH Options:
+  -r DEFAULT_RHO, --default-rho DEFAULT_RHO
+                        The default (global) rho for all blended variables.
+                        *** Required ***
+  --xhat-method XHAT_METHOD
+                        Specify the method used to compute a bounding solution
+                        at PH termination. Defaults to 'closest-scenario'.
+                        Other variants are: 'voting' and 'rounding'
+  --disable-xhat-computation
+                        Disable computation of xhat at the conclusion of a PH
+                        run. Useful *only* when diagnosing PH convergence, as
+                        disabling means the solution at converence is not a
+                        non-anticipative solution.
+  --overrelax           Compute weight updates using combination of previous
+                        and current variable averages
+  --nu NU
+  --async               Run PH in asychronous mode after iteration 0. Default
+                        is False.
+  --async-buffer-length ASYNC_BUFFER_LENGTH
+                        Number of scenarios to collect, if in async mode,
+                        before doing statistics and weight updates. Default is
+                        1.
+  --rho-cfgfile RHO_CFGFILE
+                        The name of python script containing a
+                        ph_rhosetter_callback function to compute and update
+                        PH rho values. Default is None.
+  --aggregate-cfgfile AGGREGATE_CFGFILE
+                        The name of python script containing a
+                        ph_aggregategetter_callback function to collect and
+                        store aggregate scenario data on PH. Default is None.
+  --max-iterations MAX_ITERATIONS
+                        The maximum number of PH iterations. Default is 100.
+  --termdiff-threshold TERMDIFF_THRESHOLD
+                        The convergence threshold used in the term-diff and
+                        normalized term-diff convergence criteria. Default is
+                        0.0001.
+  --enable-free-discrete-count-convergence
+                        Terminate PH based on the free discrete variable count
+                        convergence metric. Default is False.
+  --free-discrete-count-threshold FREE_DISCRETE_COUNT_THRESHOLD
+                        The convergence threshold used in the criterion based
+                        on when the free discrete variable count convergence
+                        criterion. Default is 20.
+  --enable-normalized-termdiff-convergence
+                        Terminate PH based on the normalized termdiff
+                        convergence metric. Default is True.
+  --enable-termdiff-convergence
+                        Terminate PH based on the termdiff convergence metric.
+                        Default is False.
+  --enable-outer-bound-convergence
+                        Terminate PH based on the outer bound convergence
+                        metric. Default is False.
+  --enable-primal-dual-residual-convergence
+                        Terminate PH based on the primal-dual residual
+                        convergence. Default is False.
+  --outer-bound-convergence-threshold OUTER_BOUND_CONVERGENCE_THRESHOLD
+                        The convergence threshold used in the outer bound
+                        convergerence criterion. Default is None, indicating
+                        unassigned
+  --primal-dual-residual-convergence-threshold PRIMAL_DUAL_RESIDUAL_CONVERGENCE_THRESHOLD
+                        The convergence threshold used in the primal-dual
+                        residual convergerence criterion. Default is 0.0001.
+  --linearize-nonbinary-penalty-terms LINEARIZE_NONBINARY_PENALTY_TERMS
+                        Approximate the PH quadratic term for non-binary
+                        variables with a piece-wise linear function, using the
+                        supplied number of equal-length pieces from each bound
+                        to the average
+  --breakpoint-strategy BREAKPOINT_STRATEGY
+                        Specify the strategy to distribute breakpoints on the
+                        [lb, ub] interval of each variable when linearizing. 0
+                        indicates uniform distribution. 1 indicates
+                        breakpoints at the node min and max, uniformly in-
+                        between. 2 indicates more aggressive concentration of
+                        breakpoints near the observed node min/max.
+  --retain-quadratic-binary-terms
+                        Do not linearize PH objective terms involving binary
+                        decision variables
+  --drop-proximal-terms
+                        Eliminate proximal terms (i.e., the quadratic penalty
+                        terms) from the weighted PH objective. Default is
+                        False.
+  --enable-ww-extensions
+                        Enable the Watson-Woodruff PH extensions plugin.
+                        Default is False.
+  --ww-extension-cfgfile WW_EXTENSION_CFGFILE
+                        The name of a configuration file for the Watson-
+                        Woodruff PH extensions plugin.
+  --ww-extension-suffixfile WW_EXTENSION_SUFFIXFILE
+                        The name of a variable suffix file for the Watson-
+                        Woodruff PH extensions plugin.
+  --ww-extension-annotationfile WW_EXTENSION_ANNOTATIONFILE
+                        The name of a variable annotation file for the Watson-
+                        Woodruff PH extensions plugin.
+  --user-defined-extension USER_DEFINED_EXTENSIONS
+                        The name of a python module specifying a user-defined
+                        PH extension plugin.
+  --preprocess-fixed-variables
+                        Preprocess fixed/freed variables in scenario
+                        instances, rather than write them to solver plugins.
+                        Default is False.
+
+Solver Options:
+  --scenario-mipgap SCENARIO_MIPGAP
+                        Specifies the mipgap for all PH scenario sub-problems
+  --scenario-solver-options SCENARIO_SOLVER_OPTIONS
+                        Solver options for all PH scenario sub-problems
+  --solver SOLVER_TYPE  Specify the solver with which to solve scenario sub-
+                        problems. The following solver types are currently
+                        supported: asl, baron, bilevel_blp_global,
+                        bilevel_blp_local, bilevel_ld, cbc, conopt, cplex,
+                        glpk, gurobi, ipopt, mpec_minlp, mpec_nlp, path, pico,
+                        ps, py, scip, xpress; Default: cplex
+  --solver-io SOLVER_IO
+                        The type of IO used to execute the solver. Different
+                        solvers support different types of IO, but the
+                        following are common options: lp - generate LP files,
+                        nl - generate NL files, python - direct Python
+                        interface, os - generate OSiL XML files.
+  --solver-manager SOLVER_MANAGER_TYPE
+                        The type of solver manager used to coordinate scenario
+                        sub-problem solves. Default is serial.
+  --pyro-host PYRO_HOST
+                        The hostname to bind on when searching for a Pyro
+                        nameserver.
+  --pyro-port PYRO_PORT
+                        The port to bind on when searching for a Pyro
+                        nameserver.
+  --handshake-with-phpyro
+                        When updating weights, xbars, and rhos across the
+                        PHPyro solver manager, it is often expedient to ignore
+                        the simple acknowledgement results returned by PH
+                        solver servers. Enabling this option instead enables
+                        hand-shaking, to ensure message receipt. Clearly only
+                        makes sense if the PHPyro solver manager is selected
+  --phpyro-required-workers PHPYRO_REQUIRED_WORKERS
+                        Set the number of idle phsolverserver worker processes
+                        expected to be available when the PHPyro solver
+                        manager is selected. This option should be used when
+                        the number of worker threads is less than the total
+                        number of scenarios (or bundles). When this option is
+                        not used, PH will attempt to assign each scenario (or
+                        bundle) to a single phsolverserver until the timeout
+                        indicated by the --phpyro-workers-timeout option
+                        occurs.
+  --phpyro-workers-timeout PHPYRO_WORKERS_TIMEOUT
+                        Set the time limit (seconds) for finding idle
+                        phsolverserver worker processes to be used when the
+                        PHPyro solver manager is selected. This option is
+                        ignored when --phpyro-required-workers is set
+                        manually. Default is 30.
+  --phpyro-transmit-leaf-stage-variable-solution
+                        By default, when running PH using the PHPyro solver
+                        manager, leaf-stage variable solutions are not
+                        transmitted back to the master PH instance during
+                        intermediate PH iterations. This flag will override
+                        that behavior for the rare cases where these values
+                        are needed. Using this option will possibly have a
+                        negative impact on runtime for PH iterations. When PH
+                        exits, variable values are collected from all stages
+                        whether or not this option was used. Also, note that
+                        PH extensions have the ability to override this flag
+                        at runtime.
+  --disable-warmstarts  Disable warm-start of scenario sub-problem solves in
+                        PH iterations >= 1. Default is False.
+  --shutdown-pyro       Shut down all Pyro-related components associated with
+                        the Pyro and PH Pyro solver managers (if specified),
+                        including the dispatch server, name server, and any
+                        solver servers. Default is False.
+  --shutdown-pyro-workers
+                        Shut down PH solver servers on exit, leaving
+                        dispatcher and nameserver running. Default is False.
+
+Postprocessing Options:
+  --ef-output-file EF_OUTPUT_FILE
+                        The name of the extensive form output file (currently
+                        LP, MPS, and NL file formats are supported). If the
+                        option value does not end in '.lp', '.mps', or '.nl',
+                        then the output format will be inferred from the
+                        settings for the --solver and --solver-io options, and
+                        the appropriate suffix will be appended to the name.
+                        Default is 'efout'.
+  --write-ef            Upon termination, create the extensive-form model and
+                        write it - accounting for all fixed variables. See
+                        --ef-output-file
+  --solve-ef            Upon termination, create the extensive-form model and
+                        solve it - accounting for all fixed variables.
+  --ef-solution-writer EF_SOLUTION_WRITER
+                        The plugin invoked to write the scenario tree solution
+                        following the EF solve. If specified, overrides the
+                        runph option of the same name; otherwise, the runph
+                        option value will be used.
+
+Output Options:
+  --output-scenario-tree-solution
+                        If a feasible solution can be found, report it (even
+                        leaves) in scenario tree format upon termination.
+                        Default is False.
+  --output-solver-logs  Output solver logs during scenario sub-problem solves
+  --symbolic-solver-labels
+                        When interfacing with the solver, use symbol names
+                        derived from the model. For example,
+                        "my_special_variable[1_2_3]" instead of "v1". Useful
+                        for debugging. When using the ASL interface (--solver-
+                        io=nl), generates corresponding .row (constraints) and
+                        .col (variables) files. The ordering in these files
+                        provides a mapping from ASL index to symbolic model
+                        names.
+  --output-solver-results
+                        Output solutions obtained after each scenario sub-
+                        problem solve
+  --output-times        Output timing statistics for various PH components
+  --output-instance-construction-time
+                        Output timing statistics for instance construction
+                        (client-side only when using PHPyro
+  --report-only-statistics
+                        When reporting solutions (if enabled), only output
+                        per-variable statistics - not the individual scenario
+                        values. Default is False.
+  --report-solutions    Always report PH solutions after each iteration.
+                        Enabled if --verbose is enabled. Default is False.
+  --report-weights      Always report PH weights prior to each iteration.
+                        Enabled if --verbose is enabled. Default is False.
+  --report-rhos-all-iterations
+                        Always report PH rhos prior to each iteration. Default
+                        is False.
+  --report-rhos-first-iterations
+                        Report rhos prior to PH iteration 1. Enabled if
+                        --verbose is enabled. Default is False.
+  --report-for-zero-variable-values
+                        Report statistics (variables and weights) for all
+                        variables, not just those with values differing from
+                        0. Default is False.
+  --report-only-nonconverged-variables
+                        Report statistics (variables and weights) only for
+                        non-converged variables. Default is False.
+  --solution-writer SOLUTION_WRITER
+                        The plugin invoked to write the scenario tree
+                        solution. Defaults to the empty list.
+  --suppress-continuous-variable-output
+                        Eliminate PH-related output involving continuous
+                        variables.
+  --verbose             Generate verbose output for both initialization and
+                        execution. Default is False.
+
+Other Options:
+  --disable-gc          Disable the python garbage collecter. Default is
+                        False.
+  -k, --keep-solver-files
+                        Retain temporary input and output files for scenario
+                        sub-problem solves
+  --profile PROFILE     Enable profiling of Python code. The value of this
+                        option is the number of functions that are summarized.
+  --traceback           When an exception is thrown, show the entire call
+                        stack. Ignored if profiling is enabled. Default is
+                        False.
+  --compile-scenario-instances
+                        Replace all linear constraints on scenario instances
+                        with a more memory efficient sparse matrix
+                        representation. Default is False.
+  --activate-jsonio-solution-saver
+                        Activate the jsonio IPySPSolutionSaverExtension.
+                        Stores scenario tree node solution in form that can be
+                        reloaded for evaluation on other scenario trees
+  --jsonsaver-output-name JSONSAVER_OUTPUT_NAME
+                        The directory or filename where the scenario tree
+                        solution should be saved to.
+  --jsonsaver-save-stages JSONSAVER_SAVE_STAGES
+                        The number of scenario tree stages to store for the
+                        solution. The default value of 0 indicates that all
+                        stages should be stored.
+
+EF Options:
+  --ef-cvar-weight      The weight associated with the CVaR term in the risk-
+                        weighted objective formulation. If the weight is 0,
+                        then *only* a non-weighted CVaR cost will appear in
+                        the EF objective - the expected cost component will be
+                        dropped. Default is 1.0.
+  --ef-generate-weighted-cvar
+                        Add a weighted CVaR term to the primary objective.
+                        Default is False.
+  --ef-risk-alpha       The probability threshold associated with CVaR (or any
+                        future) risk-oriented performance metrics. Default is
+                        0.95.
+  --ef-cc-alpha         The probability threshold associated with a chance
+                        constraint. The RHS will be one minus this value.
+                        Default is 0.
+  --ef-cc-indicator-var 
+                        The name of the binary variable to be used to
+                        construct a chance constraint. Default is None, which
+                        indicates no chance constraint.
+  --ef-mipgap           Specifies the mipgap for the EF solve.
+  --ef-solver           Specifies the solver used to solve the extensive form
+                        model. Default is cplex.
+  --ef-solver-io        The type of IO used to execute the solver. Different
+                        solvers support different types of IO, but the
+                        following are common options: lp - generate LP files,
+                        nl - generate NL files, python - direct Python
+                        interface, os - generate OSiL XML files.
+  --ef-solver-manager   The type of solver manager used to coordinate solves.
+                        Default is serial.
+  --ef-solver-options   Persistent solver options used when solving the
+                        extensive form model. This option can be used multiple
+                        times from the command line to specify more than one
+                        solver option.
+  --ef-disable-warmstart
+                        Disable warm-start of EF solves. Default is False.
+  --ef-pyro-host        The hostname to bind on when searching for a Pyro
+                        nameserver.
+  --ef-pyro-port        The port to bind on when searching for a Pyro
+                        nameserver.
+  --ef-pyro-shutdown    Attempt to shut down all Pyro-related components
+                        associated with the Pyro name server used by any
+                        scenario tree manager or solver manager. Components to
+                        shutdown include the name server, dispatch server, and
+                        any scenariotreeserver or pyro_mip_server processes.
+                        Note that if Pyro4 is in use the nameserver will
+                        always ignore this request.
+  --ef-pyro-shutdown-workers
+                        Upon exit, send shutdown requests to all worker
+                        processes that were acquired through the dispatcher.
+                        This typically includes scenariotreeserver processes
+                        (used by the Pyro scenario tree manager) and
+                        pyro_mip_server processes (used by the Pyro solver
+                        manager). This leaves any dispatchers and namservers
+                        running as well as any processes registered with the
+                        dispather that were not acquired for work by this
+                        client.
+  --ef-symbolic-solver-labels
+                        When interfacing with the solver, use symbol names
+                        derived from the model. For example,
+                        'my_special_variable[1_2_3]' instead of 'x552'. Useful
+                        for debugging. When using NL file based solvers, this
+                        option results in corresponding .row (constraints) and
+                        .col (variables) file being created. The ordering in
+                        these files provides a mapping from NL file index to
+                        symbolic model names.
+  --ef-output-solver-log
+                        Output solver log during solves.
+  --ef-verbose          Generate verbose output for both initialization and
+                        execution.
+  --ef-output-times     Output timing statistics during various runtime
+                        stages.
+  --ef-keep-solver-files
+                        Retain temporary input and output files for scenario
+                        sub-problem solves.
+  --ef-output-solver-results
+                        Output solutions obtained after each scenario sub-
+                        problem solve.

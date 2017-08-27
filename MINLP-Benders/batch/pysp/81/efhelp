@@ -1,0 +1,280 @@
+usage: runef [--verbose] [--disable-gc] [--profile] [--traceback]
+             [--output-scenario-tree-solution] [--solution-saver-extension]
+             [--solution-loader-extension] [--solution-writer] [--output-file]
+             [--solve] [--output-scenario-costs]
+             [--output-instance-construction-time]
+             [--compile-scenario-instances] [--output-times] [-m]
+             [--model-directory] [-s] [-i] [-o] [--postinit-callback-location]
+             [--bounds-cfgfile] [--aggregategetter-callback-location]
+             [--aggregate-cfgfile] [--scenario-tree-random-seed INT]
+             [--scenario-tree-seed] [--scenario-tree-downsample-fraction]
+             [--scenario-bundle-specification] [--create-random-bundles]
+             [--profile-memory] [--cvar-weight] [--generate-weighted-cvar]
+             [--risk-alpha] [--cc-alpha] [--cc-indicator-var] [--mipgap]
+             [--solver] [--solver-io] [--solver-manager] [--solver-options]
+             [--disable-warmstart] [--pyro-host] [--pyro-port]
+             [--pyro-shutdown] [--pyro-shutdown-workers]
+             [--symbolic-solver-labels] [--output-solver-log]
+             [--keep-solver-files] [--output-solver-results] [--shutdown-pyro]
+             [--shutdown-pyro-workers] [--activate-jsonio-solution-saver] [-h]
+
+Construct and Solve an Extensive Form for Stochastic Programs
+
+optional arguments:
+  --solve               Solve the extensive form model. Default is False,
+                        which implies that the EF will be saved to a file.
+  --output-scenario-costs 
+                        A file name where individual scenario costs from the
+                        solution will be stored. The format is determined from
+                        the extension used in the filename. Recognized
+                        extensions: [.csv, .json, .yaml]
+  -h, --help            show this help message and exit
+
+Output Options:
+  --verbose             Generate verbose output for both initialization and
+                        execution.
+  --output-scenario-tree-solution
+                        Report the solution in scenario tree format upon
+                        termination. Default is False.
+  --output-file         The name of the extensive form output file (currently
+                        LP, MPS, and NL file formats are supported). If the
+                        option value does not end in '.lp', '.mps', or '.nl',
+                        then the output format will be inferred from the
+                        settings for the --solver and --solver-io options, and
+                        the appropriate suffix will be appended to the name.
+                        Default is 'efout'.
+  --output-instance-construction-time
+                        Output timing information during instance
+                        construction. This option will be ignored when a
+                        'pysp_instance_creation_callback' function is defined
+                        inside the reference model file.
+  --output-times        Output timing statistics during various runtime
+                        stages.
+
+Other Options:
+  --disable-gc          Disable the python garbage collecter.
+  --profile             Enable profiling of Python code. The value of this
+                        option is the number of functions that are summarized.
+                        The default value of 0 disables profiling.
+  --traceback           When an exception is thrown, show the entire call
+                        stack. Ignored if profiling is enabled.
+  --compile-scenario-instances
+                        Replace all linear constraints on scenario instances
+                        with a more memory efficient sparse matrix
+                        representation.
+  --profile-memory      If Guppy or Pympler is available, report memory usage
+                        statistics for objects created by various PySP
+                        constructs. The default value of 0 disables memory
+                        profiling. Values greater than 0 indiciate increasing
+                        levels of verbosity.
+
+Extension Options:
+  --solution-saver-extension 
+                        The name of a python module specifying a user-defined
+                        plugin implementing the IPySPSolutionSaverExtension
+                        interface. Invoked to save a scenario tree solution.
+                        Use this option when generating a template
+                        configuration file or invoking command-line help in
+                        order to include any plugin-specific options. This
+                        option can be used multiple times from the command
+                        line to specify more than one plugin.
+  --solution-loader-extension 
+                        The name of a python module specifying a user-defined
+                        plugin implementing the IPySPSolutionLoaderExtension
+                        interface. Invoked to load a scenario tree solution.
+                        Use this option when generating a template
+                        configuration file or invoking command-line help in
+                        order to include any plugin-specific options. This
+                        option can be used multiple times from the command
+                        line to specify more than one plugin.
+  --solution-writer     The name of a python module specifying a user-defined
+                        plugin implementing the ISolutionWriterExtension
+                        interface. Invoked to save a scenario tree solution.
+                        Use this option when generating a template
+                        configuration file or invoking command-line help in
+                        order to include any plugin-specific options. This
+                        option can used multiple times from the command line
+                        to specify more than one plugin.
+
+Input Options:
+  -m , --model-location 
+                        The directory or filename where the reference model is
+                        found. If a directory is given, the reference model is
+                        assumed to reside in a file named 'ReferenceModel.py'
+                        under that directory. If the reference model file
+                        contains a function named
+                        'pysp_instance_creation_callback', it will be called
+                        to construct each scenario model (not necessarily by
+                        the same running process). Otherwise, the reference
+                        model file must contain an AbstractModel object named
+                        'model'. Default is '.'.
+  -s , --scenario-tree-location 
+                        The directory or filename where the scenario tree
+                        structure .dat file is found. If a directory is given,
+                        the scenario tree structure is assumed to reside in a
+                        file named 'ScenarioStructure.dat' under that
+                        directory. The location of any required scenario data
+                        files will also be inferred from the value of this
+                        option. If unspecified, the reference model file must
+                        define a function named
+                        'pysp_scenario_tree_model_callback' and must be in the
+                        same location as any required scenario data files.
+  -o , --objective-sense-stage-based 
+                        The objective sense to use when auto-generating the
+                        scenario instance objective function, which is equal
+                        to the sum of the scenario-tree stage costs declared
+                        on the reference model. If unspecified, it is assumed
+                        a stage-cost based objective function has been
+                        declared on the reference model.
+  --postinit-callback-location 
+                        File that contains a 'pysp_postinit_callback'
+                        function, which is executed on each scenario at the
+                        end of scenario tree manager initialization. If the
+                        scenario tree is distributed, then this callback will
+                        be transmitted to the respective scenario tree workers
+                        where the constructed scenario instances are
+                        available. This callback can be used to update things
+                        like variable bounds as well as other scenario-
+                        specific information stored on the Scenario objects.
+                        This callback will be executed immediately after any
+                        'pysp_aggregategetter_callback' function that is
+                        specified. This option can be used multiple times from
+                        the command line to specify more than one callback
+                        function location.
+  --aggregategetter-callback-location 
+                        File that contains a 'pysp_aggregategetter_callback'
+                        function, which is executed in a sequential call chain
+                        on each scenario at the end of scenario tree manager
+                        initialization. Most useful in cases where the
+                        scenario tree is distributed across multiple
+                        processes, it can be used to execute arbitrary code
+                        whose return value is passed as input into the next
+                        call in the chain. At the end of the call chain, the
+                        final result is broadcast to all scenario tree worker
+                        processes and stored under the name
+                        _aggregate_user_data on the worker object. Potential
+                        uses include collecting aggregate scenario information
+                        that is subsequently used by a
+                        'pysp_postinit_callback' function to set tight
+                        variable bounds. This option can be used multiple
+                        times from the command line to specify more than one
+                        callback function location.
+
+Deprecated Options:
+  --model-directory     Deprecated alias for --model-location
+  -i , --instance-directory 
+                        Deprecated alias for --scenario-tree-location, -s
+  --bounds-cfgfile      Deprecated alias for --postinit-callback-location
+  --aggregate-cfgfile   Deprecated alias for --aggregategetter-callback-
+                        location
+  --scenario-tree-seed 
+                        Deprecated alias for --scenario-tree-random-seed
+  --shutdown-pyro       Deprecated alias for --pyro-shutdown
+  --shutdown-pyro-workers
+                        Deprecated alias for --pyro-shutdown-workers
+  --activate-jsonio-solution-saver
+                        Deprecated alias for --solution-saver-
+                        extension=pyomo.pysp.plugins.jsonio
+
+Scenario Tree Options:
+  --scenario-tree-random-seed INT
+                        The random seed associated with manipulation
+                        operations on the scenario tree (e.g., down-sampling
+                        or bundle creation). Default is None, indicating
+                        unassigned.
+  --scenario-tree-downsample-fraction 
+                        The proportion of the scenarios in the scenario tree
+                        that are actually used. Specific scenarios are
+                        selected at random. Default is 1.0, indicating no
+                        down-sampling.
+  --scenario-bundle-specification 
+                        The name of the scenario bundling specification to be
+                        used when generating the scenario tree. Default is
+                        None, indicating no bundling is employed. If the
+                        specified name ends with a .dat suffix, the argument
+                        is interpreted as the path to a file. Otherwise, the
+                        name is interpreted as a file in the instance
+                        directory, constructed by adding the .dat suffix
+                        automatically. If scripting, this option can
+                        alternatively be assigned a dictionary mapping bundle
+                        names to a list of scenario names.
+  --create-random-bundles 
+                        Specification to create the indicated number of
+                        random, equally-sized (to the degree possible)
+                        scenario bundles. Default is 0, indicating no scenario
+                        bundles will be created.
+
+EF Options:
+  --cvar-weight         The weight associated with the CVaR term in the risk-
+                        weighted objective formulation. If the weight is 0,
+                        then *only* a non-weighted CVaR cost will appear in
+                        the EF objective - the expected cost component will be
+                        dropped. Default is 1.0.
+  --generate-weighted-cvar
+                        Add a weighted CVaR term to the primary objective.
+                        Default is False.
+  --risk-alpha          The probability threshold associated with CVaR (or any
+                        future) risk-oriented performance metrics. Default is
+                        0.95.
+  --cc-alpha            The probability threshold associated with a chance
+                        constraint. The RHS will be one minus this value.
+                        Default is 0.
+  --cc-indicator-var    The name of the binary variable to be used to
+                        construct a chance constraint. Default is None, which
+                        indicates no chance constraint.
+  --mipgap              Specifies the mipgap for the EF solve.
+  --solver              Specifies the solver used to solve the extensive form
+                        model. Default is cplex.
+  --solver-io           The type of IO used to execute the solver. Different
+                        solvers support different types of IO, but the
+                        following are common options: lp - generate LP files,
+                        nl - generate NL files, python - direct Python
+                        interface, os - generate OSiL XML files.
+  --solver-manager      The type of solver manager used to coordinate solves.
+                        Default is serial.
+  --solver-options      Persistent solver options used when solving the
+                        extensive form model. This option can be used multiple
+                        times from the command line to specify more than one
+                        solver option.
+  --disable-warmstart   Disable warm-start of EF solves. Default is False.
+  --pyro-host           The hostname to bind on when searching for a Pyro
+                        nameserver.
+  --pyro-port           The port to bind on when searching for a Pyro
+                        nameserver.
+  --pyro-shutdown       Attempt to shut down all Pyro-related components
+                        associated with the Pyro name server used by any
+                        scenario tree manager or solver manager. Components to
+                        shutdown include the name server, dispatch server, and
+                        any scenariotreeserver or pyro_mip_server processes.
+                        Note that if Pyro4 is in use the nameserver will
+                        always ignore this request.
+  --pyro-shutdown-workers
+                        Upon exit, send shutdown requests to all worker
+                        processes that were acquired through the dispatcher.
+                        This typically includes scenariotreeserver processes
+                        (used by the Pyro scenario tree manager) and
+                        pyro_mip_server processes (used by the Pyro solver
+                        manager). This leaves any dispatchers and namservers
+                        running as well as any processes registered with the
+                        dispather that were not acquired for work by this
+                        client.
+  --symbolic-solver-labels
+                        When interfacing with the solver, use symbol names
+                        derived from the model. For example,
+                        'my_special_variable[1_2_3]' instead of 'x552'. Useful
+                        for debugging. When using NL file based solvers, this
+                        option results in corresponding .row (constraints) and
+                        .col (variables) file being created. The ordering in
+                        these files provides a mapping from NL file index to
+                        symbolic model names.
+  --output-solver-log   Output solver log during solves.
+  --keep-solver-files   Retain temporary input and output files for scenario
+                        sub-problem solves.
+  --output-solver-results
+                        Output solutions obtained after each scenario sub-
+                        problem solve.
+
+Registered Extensions:
+ - IPySPSolutionLoaderExtension: ['pyomo.pysp.plugins.jsonio']
+ - ISolutionWriterExtension: ['pyomo.pysp.plugins.jsonsolutionwriter', 'pyomo.pysp.plugins.csvsolutionwriter']
+ - IPySPSolutionSaverExtension: ['pyomo.pysp.plugins.jsonio']

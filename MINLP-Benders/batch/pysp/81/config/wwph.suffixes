@@ -1,0 +1,13 @@
+RootNode:
+  StageoneCost[1]:
+    CostForRho: 250
+  StageoneCost[2]:
+    CostForRho: 250
+  StageoneCost[3]:
+    CostForRho: 250
+  StageoneCost[4]:
+    CostForRho: 250
+  StageoneCost[5]:
+    CostForRho: 250
+  StageoneCost[6]:
+    CostForRho: 250
