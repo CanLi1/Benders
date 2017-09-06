@@ -1,0 +1,5 @@
+linearize the nonlinear constraints
+for the infnorm it causes a lot of infeasibility lpsubproblems
+don't understand why because before linearization we haven't experienced so
+many infeasible subproblems
+the 1 norm problem works well.

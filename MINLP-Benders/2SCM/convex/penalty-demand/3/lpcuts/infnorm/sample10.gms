@@ -518,6 +518,8 @@ lag_sub_modelstat(iter,w)=0;
 parameters
 lpsub_obj(iter, w)
 bender_sub_obj(iter,w);
+set baditer(iter);
+baditer(iter) = no;
 parameters
 LB
 UB;
@@ -558,7 +560,7 @@ Repeat
       obj_record(iter, w3) = cost.l;
       cpu_lag = cpu_lag + sub.resusd;
       lag_sub_modelstat(iter,w3) = sub.modelStat;
-*      abort$(sub.modelStat ne 8 or sub.solveStat ne 1) 'abort due to error solve lag sub';
+      abort$(sub.modelStat ne 8 and sub.modelStat ne 1 and sub.modelStat ne 2) 'abort due to error solve lag sub';
       display$handledelete(lag_sub_handle(w3)) 'trouble deleting handles';
       lag_sub_handle(w3)=0;
     );
@@ -762,9 +764,9 @@ loop(r4,
 
 
         display sep.modelStat;
-       abort$(sep.modelStat ne 2 and sep.modelStat ne 1 and sep.modelStat ne 7) "abort due to errors solving sep problem";
-*       display$handledelete(sep_handle(w3)) 'trouble deleting handles';
-        if(dnorm.l lt 1e-6,
+*       abort$(sep.modelStat ne 2 and sep.modelStat ne 1 and sep.modelStat ne 7) "abort due to errors solving sep problem";
+       display$handledelete(sep_handle(w3)) 'trouble deleting handles';
+        if(dnorm.l lt 1e-6 or (sep.modelStat ne 1 and sep.modelStat ne 2),
           aRP(r3,p3,w3) = no;
           );
 
@@ -880,11 +882,11 @@ loop(r4,
 
 
 
-        if(dnorm.l lt 1e-6,
+        if(dnorm.l lt 1e-6 or (sep.modelStat ne 1 and sep.modelStat ne 2),
           aPC(p3,c3,w3) = no;
           );
-       abort$(sep.modelStat ne 2 and sep.modelStat ne 1 and sep.modelStat ne 7) "abort due to errors solving sep problem";
-*       display$handledelete(sep_handle(w3)) 'trouble deleting handles';
+*       abort$(sep.modelStat ne 2 and sep.modelStat ne 1 and sep.modelStat ne 7) "abort due to errors solving sep problem";
+       display$handledelete(sep_handle(w3)) 'trouble deleting handles';
         sep_handle(w3) = 0;
         );
     until card(sep_handle) =0;
@@ -912,11 +914,18 @@ Repeat
   loop(w3$handlecollect(lpsub_handle(w3)),
     cpu_lpsub = cpu_lpsub + lpsub.resusd;
     lpsub_obj(iter, w3) = cost.l;
+    if (lpsub.modelStat eq  1 or lpsub.modelStat eq 2 ,
+
     v(iter, w3) = COST.l - sum((p,i), xbar(p,i) * TX.m(p,i) + Qbar(p,i) * TQ.m(p,i) ) ;
     g1(iter, p,i, w3) = TX.m(p,i);
     g2(iter, p,i, w3) = TQ.m(p,i);
+    else 
+    baditer(iter) = yes;
+      );
+
+
     display lpsub.modelStat;
-   abort$(lpsub.modelStat ne 1 and lpsub.modelStat ne 2 and lpsub.modelStat ne 7) 'abort due to errors solving lpsub';
+*   abort$(lpsub.modelStat ne 1 and lpsub.modelStat ne 2 and lpsub.modelStat ne 7) 'abort due to errors solving lpsub';
     display$handledelete(lpsub_handle(w3)) 'trouble deleting handles';
     lpsub_handle(w3) =0;
     );
@@ -963,4 +972,5 @@ WallTime;
 WallTime=TimeElapsed;
 
 display lag_sub_modelstat,bender_sub_modelstat,upper_sub_modelstat,master_modelstat,bender_sub_obj, aRP, aPC, lpsub_obj,gap_closed,total_obj_record, BenderOBJ_record, UB_Bender,UB, LB, WallTime,cpu_ub,cpu_lag, cpu_bender_sub, cpu_bender_master, cpu_sep, cpu_lpsub ;
+display baditer;
 *display diffzrp,diffyrp,diffFrp , diffPUrp, diffzpc,diffypc,diffFpc , diffPUpc;

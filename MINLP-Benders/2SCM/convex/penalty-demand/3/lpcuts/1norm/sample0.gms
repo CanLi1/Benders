@@ -232,7 +232,7 @@ e11(c,j,w)$freeze(w) .. sum(p, F(p,c,j,w)) + Slack(c,j,w) =e= D(c,j,w);
 e12(p,i,j,s,w)$(freeze(w) and (not(JM(i,s,j) or L(i,s,j) or Lbar(i,s,j)))) .. WW(p,i,j,s,w) =e= 0;
 eobj .. cost =e= sum(w$freeze(w), prob(w) * sum(p, sum(i, betaC(i) * QE(p,i)*100 + alphaC(i) * x(p,i)))) + sum(w$freeze(w), prob(w) * (sum((p,i,s,j)$(PS(i,s) and JM(i,s,j)), delta(i,s)*rho(i,j,s) * theta(p,i,j,s,w)) + sum((p,j,r)$RJ(r,j), (betaS(r,j) + betaRP(r,p)) * PU(r,p,j,w)) + sum((r,p), alphaRP(r,p) * y(r,p,w)) + sum((p,c), alphaPC(p,c) * z(p,c,w)) + sum((p,c,j), betaPC(p,c) * F(p,c,j,w)) + sum((c,j), phi(c,j) * Slack(c,j,w)) )) +  sum((p,i,w)$freeze(w), pix(p,i,w) * x(p,i) + piQ(p,i,w) * Q(p,i));
 
-set iter /1*200/
+set iter /1*100/
 aiter(iter)
 biter(iter);
 
@@ -312,6 +312,11 @@ BenderSub.optfile=1;
 Sets
 djc/1*2/;
 Positive variables
+lpPU(r,p,j,w)
+lpF(p,c,j,w)
+lptheta(p,i,j,s,w)
+lpWW(p,i,j,s,w)
+lpSlack(c,j,w)
 vPU(r,p,j,djc,w)
 vF(p,c,j,djc,w)
 vtheta(p,i,j,s,djc,w)
@@ -323,6 +328,8 @@ lambda(djc);
 Binary variables
 vy(r,p,djc,w)
 vz(p,c,djc,w)
+lpy(r,p,w)
+lpz(p,c,w)
 ;
 
 variables
@@ -348,13 +355,13 @@ PC(p,c);
 equations
 d1, d2,d3,d5,d6,d7,d8,d9,d10,d11,d12,d12p,d14p,d14,d15,d16,d17,de3,de4,de5,de6,de7,de8,de9,de10,de11,de12,ds1,ds2,ds3,ds4,dobj;
 *todo check the domain of each variable, delete the redundant constraints
-d1(r,p,j,w)$freeze(w) .. PU(r,p,j,w)=e=sum(djc,vPU(r,p,j,djc,w));
-d2(p,c,j,w)$freeze(w) .. F(p,c,j,w) =e= sum(djc,vF(p,c,j,djc,w));
-d3(p,i,j,s,w)$freeze(w) .. theta(p,i,j,s,w)=e= sum(djc, vtheta(p,i,j,s,djc,w));
-d5(p,i,j,s,w)$freeze(w) .. WW(p,i,j,s,w) =e= sum(djc, vWW(p,i,j,s,djc,w));
-d6(c,j,w)$freeze(w) .. Slack(c,j,w) =e= sum(djc, vSlack(c,j,djc,w));
-d7(r,p,w)$freeze(w) .. y(r,p,w) =e= sum(djc, vy(r,p,djc,w));
-d8(p,c,w)$freeze(w) .. z(p,c,w) =e= sum(djc, vz(p,c,djc,w));
+d1(r,p,j,w)$freeze(w) .. lpPU(r,p,j,w)=e=sum(djc,vPU(r,p,j,djc,w));
+d2(p,c,j,w)$freeze(w) .. lpF(p,c,j,w) =e= sum(djc,vF(p,c,j,djc,w));
+d3(p,i,j,s,w)$freeze(w) .. lptheta(p,i,j,s,w)=e= sum(djc, vtheta(p,i,j,s,djc,w));
+d5(p,i,j,s,w)$freeze(w) .. lpWW(p,i,j,s,w) =e= sum(djc, vWW(p,i,j,s,djc,w));
+d6(c,j,w)$freeze(w) .. lpSlack(c,j,w) =e= sum(djc, vSlack(c,j,djc,w));
+d7(r,p,w)$freeze(w) .. lpy(r,p,w) =e= sum(djc, vy(r,p,djc,w));
+d8(p,c,w)$freeze(w) .. lpz(p,c,w) =e= sum(djc, vz(p,c,djc,w));
 
 d9 .. sum(djc,lambda(djc)) =e= 1;
 
@@ -404,24 +411,24 @@ az(p,c,w)
 *define equations for calculating 1-norm
 equations
 n1p,n1m,n2p,n2m,n3p,n3m,n4p,n4m,n5p,n5m,n6p,n6m,n7p,n7m,n8p,n8m;
-n1p(r,p,j,w)$freeze(w) .. aPU(r,p,j,w) =g= (PU(r,p,j,w) - PUhat(r,p,j,w))/PUU;
-n1m(r,p,j,w)$freeze(w) .. aPU(r,p,j,w) =g= -(PU(r,p,j,w) - PUhat(r,p,j,w))/PUU;
-n2p(p,c,j,w)$freeze(w) .. aF(p,c,j,w) =g= (F(p,c,j,w)-Fhat(p,c,j,w))/FUU;
-n2m(p,c,j,w)$freeze(w) .. aF(p,c,j,w) =g= -(F(p,c,j,w)-Fhat(p,c,j,w))/FUU;
-n3p(p,i,j,s,w)$(freeze(w) and JM(i,s,j) and PS(i,s) and (ord(i) ne 4 or ord(j) ne 5 )) .. atheta(p,i,j,s,w)=g= (theta(p,i,j,s,w) - thetahat(p,i,j,s,w))/QEU(p,i)/100;
-n3m(p,i,j,s,w)$(freeze(w) and JM(i,s,j) and PS(i,s) and (ord(i) ne 4 or ord(j) ne 5 )) .. atheta(p,i,j,s,w)=g= -(theta(p,i,j,s,w) - thetahat(p,i,j,s,w))/QEU(p,i)/100;
-n4p(p,i,j,s,w)$(freeze(w) and JM(i,s,j) and PS(i,s) and (ord(i) eq 4 and ord(j) eq 5 )) .. atheta(p,i,j,s,w)=g= (theta(p,i,j,s,w) - thetahat(p,i,j,s,w))/QEU(p,i)/5;
-n4m(p,i,j,s,w)$(freeze(w) and JM(i,s,j) and PS(i,s) and (ord(i) eq 4 and ord(j) eq 5 )) .. atheta(p,i,j,s,w)=g= -(theta(p,i,j,s,w) - thetahat(p,i,j,s,w))/QEU(p,i)/5;
-n5p(p,i,j,s,w)$(freeze(w) and (L(i,s,j) or Lbar(i,s,j)) and PS(i,s)) .. WW(p,i,j,s,w) =g= (WW(p,i,j,s,w)-WWhat(p,i,j,s,w))/QEU(p,i)/100;
-n5m(p,i,j,s,w)$(freeze(w) and (L(i,s,j) or Lbar(i,s,j)) and PS(i,s)) .. WW(p,i,j,s,w) =g= -(WW(p,i,j,s,w)-WWhat(p,i,j,s,w))/QEU(p,i)/100;
+n1p(r,p,j,w)$freeze(w) .. aPU(r,p,j,w) =g= (lpPU(r,p,j,w) - PUhat(r,p,j,w))/PUU;
+n1m(r,p,j,w)$freeze(w) .. aPU(r,p,j,w) =g= -(lpPU(r,p,j,w) - PUhat(r,p,j,w))/PUU;
+n2p(p,c,j,w)$freeze(w) .. aF(p,c,j,w) =g= (lpF(p,c,j,w)-Fhat(p,c,j,w))/FUU;
+n2m(p,c,j,w)$freeze(w) .. aF(p,c,j,w) =g= -(lpF(p,c,j,w)-Fhat(p,c,j,w))/FUU;
+n3p(p,i,j,s,w)$(freeze(w) and JM(i,s,j) and PS(i,s) and (ord(i) ne 4 or ord(j) ne 5 )) .. atheta(p,i,j,s,w)=g= (lptheta(p,i,j,s,w) - thetahat(p,i,j,s,w))/QEU(p,i)/100;
+n3m(p,i,j,s,w)$(freeze(w) and JM(i,s,j) and PS(i,s) and (ord(i) ne 4 or ord(j) ne 5 )) .. atheta(p,i,j,s,w)=g= -(lptheta(p,i,j,s,w) - thetahat(p,i,j,s,w))/QEU(p,i)/100;
+n4p(p,i,j,s,w)$(freeze(w) and JM(i,s,j) and PS(i,s) and (ord(i) eq 4 and ord(j) eq 5 )) .. atheta(p,i,j,s,w)=g= (lptheta(p,i,j,s,w) - thetahat(p,i,j,s,w))/QEU(p,i)/5;
+n4m(p,i,j,s,w)$(freeze(w) and JM(i,s,j) and PS(i,s) and (ord(i) eq 4 and ord(j) eq 5 )) .. atheta(p,i,j,s,w)=g= -(lptheta(p,i,j,s,w) - thetahat(p,i,j,s,w))/QEU(p,i)/5;
+n5p(p,i,j,s,w)$(freeze(w) and (L(i,s,j) or Lbar(i,s,j)) and PS(i,s)) .. aWW(p,i,j,s,w) =g= (lpWW(p,i,j,s,w)-WWhat(p,i,j,s,w))/QEU(p,i)/100;
+n5m(p,i,j,s,w)$(freeze(w) and (L(i,s,j) or Lbar(i,s,j)) and PS(i,s)) .. aWW(p,i,j,s,w) =g= -(lpWW(p,i,j,s,w)-WWhat(p,i,j,s,w))/QEU(p,i)/100;
 n6p(c,j,w)$(freeze(w) and (ord(j)=3 or ord(j)=5)) .. aSlack(c,j,w) =g= (Slack(c,j,w) - Slackhat(c,j,w))/D(c,j,w);
 n6m(c,j,w)$(freeze(w) and (ord(j)=3 or ord(j)=5)) .. aSlack(c,j,w) =g= -(Slack(c,j,w) - Slackhat(c,j,w))/D(c,j,w);
-n7p(r,p,w)$freeze(w) .. ay(r,p,w) =g= y(r,p,w)-yhat(r,p,w);
-n7m(r,p,w)$freeze(w) .. ay(r,p,w) =g= -y(r,p,w)+yhat(r,p,w);
-n8p(p,c,w)$freeze(w) .. az(p,c,w) =g= (z(p,c,w)-zhat(p,c,w));
-n8m(p,c,w)$freeze(w) .. az(p,c,w) =g= -(z(p,c,w)-zhat(p,c,w));
+n7p(r,p,w)$freeze(w) .. ay(r,p,w) =g= lpy(r,p,w)-yhat(r,p,w);
+n7m(r,p,w)$freeze(w) .. ay(r,p,w) =g= -lpy(r,p,w)+yhat(r,p,w);
+n8p(p,c,w)$freeze(w) .. az(p,c,w) =g= (lpz(p,c,w)-zhat(p,c,w));
+n8m(p,c,w)$freeze(w) .. az(p,c,w) =g= -(lpz(p,c,w)-zhat(p,c,w));
 *define seperation problem obj
-dobj(w)$(freeze(w)) .. dnorm =e= sum((r,p,j)$RJ(r,j), aPU(r,p,j,w)) + sum((p,c,j), aF(p,c,j,w)) + sum((p,i,j,s)$(JM(i,s,j) and PS(i,s) and (ord(i) ne 4 or ord(j) ne 5 )), atheta(p,i,j,s,w) )+ sum((p,i,j,s)$(JM(i,s,j) and PS(i,s) and (ord(i) eq 4 and ord(j) eq 5 )), atheta(p,i,j,s,w) ) + sum((p,i,j,s)$((L(i,s,j) or Lbar(i,s,j)) and PS(i,s)), aWW(p,i,j,s,w)) + sum((c,j)$(ord(j)=3 or ord(j)=5), aSlack(c,j,w) ) + sum((r,p), ay(r,p,w)) +sum((p,c), az(p,c,w)); 
+dobj(w)$(freeze(w)) .. dnorm =e= sum((r,p,j)$RJ(r,j), aPU(r,p,j,w)) + sum((p,c,j), aF(p,c,j,w)) + sum((p,i,j,s)$(JM(i,s,j) and PS(i,s) and (ord(i) ne 4 or ord(j) ne 5 )), atheta(p,i,j,s,w) )+ sum((p,i,j,s)$(JM(i,s,j) and PS(i,s) and (ord(i) eq 4 and ord(j) eq 5 )), atheta(p,i,j,s,w) ) + sum((p,i,j,s)$((L(i,s,j) or Lbar(i,s,j)) and PS(i,s)), aWW(p,i,j,s,w)) + sum((c,j)$(ord(j)=3 or ord(j)=5), aSlack(c,j,w) ) + sum((r,p), ay(r,p,w)) +sum((p,c), az(p,c,w));
 
 model sep /d1, d2,d3,d5,d6,d7,d8,d9,d10,d11,d12,d12p,d14p,d14,d15,d16,d17,de3,de4,de5,de6,de7,de8,de9,de10,de11,de12,ds1,ds2,ds3,ds4,dobj,n1p,n1m,n2p,n2m,n3p,n3m,n4p,n4m,n5p,n5m,n6p,n6m,n7p,n7m,n8p,n8m/;
 *--------------DEFINE subproblem with lift and project cuts---------------------
@@ -462,6 +469,8 @@ option optca =0;
   OPTION LIMROW = 0;
 OPTION LIMCOL = 0;
 option MINLP = dicopt;
+option nlp = conopt;
+option rMINLP = conopt;
 option iterlim = 2e9;
 option reslim = 1e3;
 *parallel------------------
@@ -489,6 +498,9 @@ lag_sub_modelstat(iter,w)=0;
 parameters
 lpsub_obj(iter, w)
 bender_sub_obj(iter,w);
+set 
+baditer(iter);
+baditer(iter) = no;
 parameters
 LB
 UB;
@@ -516,7 +528,7 @@ Repeat
       obj_record(iter, w3) = cost.l;
       cpu_lag = cpu_lag + sub.resusd;
       lag_sub_modelstat(iter,w3) = sub.modelStat;
-*      abort$(sub.modelStat ne 8 or sub.solveStat ne 1) 'abort due to error solve lag sub';
+      abort$(sub.modelStat ne 8 and sub.modelStat ne 1 and sub.modelStat ne 2) 'abort due to error solve lag sub';
       display$handledelete(lag_sub_handle(w3)) 'trouble deleting handles';
       lag_sub_handle(w3)=0;
     );
@@ -625,6 +637,24 @@ loop(r3,
       freeze(w3) = yes;
       if(yhat(r3,p3,w3) gt 1e-1 and yhat(r3,p3,w3) lt (1 -1e-1),
         aRP(r3,p3,w3) = yes;
+                vPU.l(r,p,j,'2',w3) = PUhat(r,p,j,w3);
+        vF.l(p,c,j,'2',w3) = Fhat(p,c,j,w3);
+        vWW.l(p,i,j,s,'2', w3) = WWhat(p,i,j,s,w3);
+        vtheta.l(p,i,j,s,'2',w3) = thetahat(p,i,j,s,w3);
+        vSlack.l(c,j,'2',w3) = Slackhat(c,j,w3);
+        vy.l(r,p,'2',w3) = yhat(r,p,w3);
+        vz.l(p,c,'2',w3) = zhat(p,c,w3);
+        vPU.l(r,p,j,'1',w3) = 0;
+        vF.l(p,c,j,'1',w3) = 0;
+        vWW.l(p,i,j,s,'1', w3) = 0;
+        vtheta.l(p,i,j,s,'1',w3) = 0;
+        vSlack.l(c,j,'1',w3) = 0;
+        vy.l(r,p,'1',w3) = 0;
+        vz.l(p,c,'1',w3) = 0;
+        vz.l(p3,c3,'2',w3) =1;
+        y.l(r3,p3,w3) = 1;
+        lambda.l('1') =0;
+        lambda.l('2') =1;
         solve sep using rMINLP minimizing dnorm;
         sep_handle(w3) = sep.handle;
         );
@@ -633,17 +663,17 @@ loop(r3,
       loop(w3$handlecollect(sep_handle(w3)),
         cpu_sep = cpu_sep + sep.resusd;
 *update parameters
-          PUrp(r,p,j,w3,r3,p3) = PU.l(r,p,j,w3);
-        Frp(p,c,j,w3,r3,p3) = F.l(p,c,j,w3);
-        thetarp(p,i,j,s,w3,r3,p3) = theta.l(p,i,j,s,w3);
-        WWrp(p,i,j,s,w3,r3,p3) = WW.l(p,i,j,s,w3);
-        Slackrp(c,j,w3,r3,p3) = Slack.l(c,j,w3);
-        yrp(r,p,w3,r3,p3) = y.l(r,p,w3);
-        zrp(p,c,w3,r3,p3) = z.l(p,c, w3);
+          PUrp(r,p,j,w3,r3,p3) = lpPU.l(r,p,j,w3);
+        Frp(p,c,j,w3,r3,p3) = lpF.l(p,c,j,w3);
+        thetarp(p,i,j,s,w3,r3,p3) = lptheta.l(p,i,j,s,w3);
+        WWrp(p,i,j,s,w3,r3,p3) = lpWW.l(p,i,j,s,w3);
+        Slackrp(c,j,w3,r3,p3) = lpSlack.l(c,j,w3);
+        yrp(r,p,w3,r3,p3) = lpy.l(r,p,w3);
+        zrp(p,c,w3,r3,p3) = lpz.l(p,c, w3);
         display sep.modelStat;
 *       abort$(sep.modelStat ne 2 and sep.modelStat ne 1 and sep.modelStat ne 7) "abort due to errors solving sep problem";
-*       display$handledelete(sep_handle(w3)) 'trouble deleting handles';
-        if(dnorm.l lt 1e-6,
+       display$handledelete(sep_handle(w3)) 'trouble deleting handles';
+        if(dnorm.l lt 1e-6 or (sep.modelStat ne 2 and sep.modelStat ne 1),
           aRP(r3,p3,w3) = no;
           );
 
@@ -667,6 +697,24 @@ loop(p3,
       freeze(w3) = yes;
       if(zhat(p3,c3,w3) gt 1e-1 and zhat(p3,c3,w3) lt (1 -1e-1),
         aPC(p3,c3,w3) = yes;
+                vPU.l(r,p,j,'2',w3) = PUhat(r,p,j,w3);
+        vF.l(p,c,j,'2',w3) = Fhat(p,c,j,w3);
+        vWW.l(p,i,j,s,'2', w3) = WWhat(p,i,j,s,w3);
+        vtheta.l(p,i,j,s,'2',w3) = thetahat(p,i,j,s,w3);
+        vSlack.l(c,j,'2',w3) = Slackhat(c,j,w3);
+        vy.l(r,p,'2',w3) = yhat(r,p,w3);
+        vz.l(p,c,'2',w3) = zhat(p,c,w3);
+        vPU.l(r,p,j,'1',w3) = 0;
+        vF.l(p,c,j,'1',w3) = 0;
+        vWW.l(p,i,j,s,'1', w3) = 0;
+        vtheta.l(p,i,j,s,'1',w3) = 0;
+        vSlack.l(c,j,'1',w3) = 0;
+        vy.l(r,p,'1',w3) = 0;
+        vz.l(p,c,'1',w3) = 0;
+        vz.l(p3,c3,'2', w3) =1;
+        z.l(p3,c3,w3) = 1;
+        lambda.l('1') =0;
+        lambda.l('2') =1;
         solve sep using rMINLP minimizing dnorm;
         sep_handle(w3) = sep.handle;
         );
@@ -675,19 +723,19 @@ loop(p3,
       loop(w3$handlecollect(sep_handle(w3)),
         cpu_sep = cpu_sep + sep.resusd;
 *update parameters
-          PUpc(r,p,j,w3,p3,c3) = PU.l(r,p,j,w3);
-        Fpc(p,c,j,w3,p3,c3) = F.l(p,c,j,w3);
-        thetapc(p,i,j,s,w3,p3,c3) = theta.l(p,i,j,s,w3);
-        WWpc(p,i,j,s,w3,p3,c3) = WW.l(p,i,j,s,w3);
-        Slackpc(c,j,w3,p3,c3) = Slack.l(c,j,w3);
-        ypc(r,p,w3,p3,c3) = y.l(r,p,w3);
-        zpc(p,c,w3,p3,c3) = z.l(p,c, w3);
+          PUpc(r,p,j,w3,p3,c3) = lpPU.l(r,p,j,w3);
+        Fpc(p,c,j,w3,p3,c3) = lpF.l(p,c,j,w3);
+        thetapc(p,i,j,s,w3,p3,c3) = lptheta.l(p,i,j,s,w3);
+        WWpc(p,i,j,s,w3,p3,c3) = lpWW.l(p,i,j,s,w3);
+        Slackpc(c,j,w3,p3,c3) = lpSlack.l(c,j,w3);
+        ypc(r,p,w3,p3,c3) = lpy.l(r,p,w3);
+        zpc(p,c,w3,p3,c3) = lpz.l(p,c, w3);
         display sep.modelStat;
-        if(dnorm.l lt 1e-6,
+        if(dnorm.l lt 1e-6 or (sep.modelStat ne 2 and sep.modelStat ne 1),
           aPC(p3,c3,w3) = no;
           );
 *       abort$(sep.modelStat ne 2 and sep.modelStat ne 1 and sep.modelStat ne 7) "abort due to errors solving sep problem";
-*       display$handledelete(sep_handle(w3)) 'trouble deleting handles';
+       display$handledelete(sep_handle(w3)) 'trouble deleting handles';
         sep_handle(w3) = 0;
         );
     until card(sep_handle) =0;
@@ -708,9 +756,13 @@ Repeat
   loop(w3$handlecollect(lpsub_handle(w3)),
     cpu_lpsub = cpu_lpsub + lpsub.resusd;
     lpsub_obj(iter, w3) = cost.l;
+    if(lpsub.modelStat eq 1 or lpsub.modelStat eq 2 ,
     v(iter, w3) = COST.l - sum((p,i), xbar(p,i) * TX.m(p,i) + Qbar(p,i) * TQ.m(p,i) ) ;
     g1(iter, p,i, w3) = TX.m(p,i);
     g2(iter, p,i, w3) = TQ.m(p,i);
+    else 
+    baditer(iter) = yes;
+    );
     display lpsub.modelStat;
 *   abort$(lpsub.modelStat ne 1 and lpsub.modelStat ne 2 and lpsub.modelStat ne 7) 'abort due to errors solving lpsub';
     display$handledelete(lpsub_handle(w3)) 'trouble deleting handles';
@@ -760,3 +812,4 @@ WallTime=TimeElapsed;
 display x_record_lag,Q_record_lag,mux, muQ, obj_record, pix_all, piQ_all,g2,v,xf_record, Qf_record;
 
 display lag_sub_modelstat,bender_sub_modelstat,upper_sub_modelstat,master_modelstat,bender_sub_obj, aRP, aPC, lpsub_obj,gap_closed,total_obj_record, BenderOBJ_record, UB_Bender,UB, LB, WallTime,cpu_ub,cpu_lag, cpu_bender_sub, cpu_bender_master, cpu_sep, cpu_lpsub ;
+display baditer;

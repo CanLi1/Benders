@@ -1,0 +1,7 @@
+In this folder we have the problem with nonlinear lift-and-project cuts
+However sometimes the NLP solver cannot solve the sep problem or lpsub problem even though the problems
+are convex. Therefore for these two types of problem, we will check the modelstat after the problems are
+solved. If the modelstat!=1,2 we will not add the corresponding cut.
+we have tried solvers including conopt conopt4 ipopt, but they tend to return very different results
+for ipopt, it has very weird behavior, the gap closed are either<0 or >>1 which doesn't make sense.
+in the end we used conopt because it return good Lagrangean bound and make more sense for the gap closed

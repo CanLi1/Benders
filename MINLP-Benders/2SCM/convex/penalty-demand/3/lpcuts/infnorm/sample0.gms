@@ -312,18 +312,24 @@ BenderSub.optfile=1;
 Sets
 djc/1*2/;
 Positive variables
+lpPU(r,p,j,w)
+lpF(p,c,j,w)
+lptheta(p,i,j,s,w)
+lpWW(p,i,j,s,w)
+lpSlack(c,j,w)
 vPU(r,p,j,djc,w)
 vF(p,c,j,djc,w)
 vtheta(p,i,j,s,djc,w)
 vQ(p,i, djc)
 vWW(p,i,j,s,djc,w)
 vSlack(c,j,djc,w)
-lambda(djc)
-;
+lambda(djc);
 
 Binary variables
 vy(r,p,djc,w)
 vz(p,c,djc,w)
+lpy(r,p,w)
+lpz(p,c,w)
 ;
 
 variables
@@ -350,13 +356,13 @@ PC(p,c);
 equations
 d1, d2,d3,d5,d6,d7,d8,d9,d10,d11,d12,d12p,d14p,d14,d15,d16,d17,de3,de4,de5,de6,de7,de8,de9,de10,de11,de12,ds1,ds2,ds3,ds4,dobj;
 *todo check the domain of each variable, delete the redundant constraints
-d1(r,p,j,w)$freeze(w) .. PU(r,p,j,w)=e=sum(djc,vPU(r,p,j,djc,w));
-d2(p,c,j,w)$freeze(w) .. F(p,c,j,w) =e= sum(djc,vF(p,c,j,djc,w));
-d3(p,i,j,s,w)$freeze(w) .. theta(p,i,j,s,w)=e= sum(djc, vtheta(p,i,j,s,djc,w));
-d5(p,i,j,s,w)$freeze(w) .. WW(p,i,j,s,w) =e= sum(djc, vWW(p,i,j,s,djc,w));
-d6(c,j,w)$freeze(w) .. Slack(c,j,w) =e= sum(djc, vSlack(c,j,djc,w));
-d7(r,p,w)$freeze(w) .. y(r,p,w) =e= sum(djc, vy(r,p,djc,w));
-d8(p,c,w)$freeze(w) .. z(p,c,w) =e= sum(djc, vz(p,c,djc,w));
+d1(r,p,j,w)$freeze(w) .. lpPU(r,p,j,w)=e=sum(djc,vPU(r,p,j,djc,w));
+d2(p,c,j,w)$freeze(w) .. lpF(p,c,j,w) =e= sum(djc,vF(p,c,j,djc,w));
+d3(p,i,j,s,w)$freeze(w) .. lptheta(p,i,j,s,w)=e= sum(djc, vtheta(p,i,j,s,djc,w));
+d5(p,i,j,s,w)$freeze(w) .. lpWW(p,i,j,s,w) =e= sum(djc, vWW(p,i,j,s,djc,w));
+d6(c,j,w)$freeze(w) .. lpSlack(c,j,w) =e= sum(djc, vSlack(c,j,djc,w));
+d7(r,p,w)$freeze(w) .. lpy(r,p,w) =e= sum(djc, vy(r,p,djc,w));
+d8(p,c,w)$freeze(w) .. lpz(p,c,w) =e= sum(djc, vz(p,c,djc,w));
 
 d9 .. sum(djc,lambda(djc)) =e= 1;
 
@@ -400,22 +406,22 @@ largest_abs(w)
 *define equations for calculating 1-norm
 equations
 n1p,n1m,n2p,n2m,n3p,n3m,n4p,n4m,n5p,n5m,n6p,n6m,n7p,n7m,n8p,n8m;
-n1p(r,p,j,w)$freeze(w) .. largest_abs(w) =g= (PU(r,p,j,w) - PUhat(r,p,j,w))/PUU;
-n1m(r,p,j,w)$freeze(w) .. largest_abs(w) =g= -(PU(r,p,j,w) - PUhat(r,p,j,w))/PUU;
-n2p(p,c,j,w)$freeze(w) .. largest_abs(w) =g= (F(p,c,j,w)-Fhat(p,c,j,w))/FUU;
-n2m(p,c,j,w)$freeze(w) .. largest_abs(w) =g= -(F(p,c,j,w)-Fhat(p,c,j,w))/FUU;
-n3p(p,i,j,s,w)$(freeze(w) and JM(i,s,j) and PS(i,s) and (ord(i) ne 4 or ord(j) ne 5 )) .. largest_abs(w)=g= (theta(p,i,j,s,w) - thetahat(p,i,j,s,w))/QEU(p,i)/100;
-n3m(p,i,j,s,w)$(freeze(w) and JM(i,s,j) and PS(i,s) and (ord(i) ne 4 or ord(j) ne 5 )) .. largest_abs(w)=g= -(theta(p,i,j,s,w) - thetahat(p,i,j,s,w))/QEU(p,i)/100;
-n4p(p,i,j,s,w)$(freeze(w) and JM(i,s,j) and PS(i,s) and (ord(i) eq 4 and ord(j) eq 5 )) .. largest_abs(w)=g= (theta(p,i,j,s,w) - thetahat(p,i,j,s,w))/QEU(p,i)/5;
-n4m(p,i,j,s,w)$(freeze(w) and JM(i,s,j) and PS(i,s) and (ord(i) eq 4 and ord(j) eq 5 )) .. largest_abs(w)=g= -(theta(p,i,j,s,w) - thetahat(p,i,j,s,w))/QEU(p,i)/5;
-n5p(p,i,j,s,w)$(freeze(w) and (L(i,s,j) or Lbar(i,s,j)) and PS(i,s)) .. largest_abs(w) =g= (WW(p,i,j,s,w)-WWhat(p,i,j,s,w))/QEU(p,i)/100;
-n5m(p,i,j,s,w)$(freeze(w) and (L(i,s,j) or Lbar(i,s,j)) and PS(i,s)) .. largest_abs(w) =g= -(WW(p,i,j,s,w)-WWhat(p,i,j,s,w))/QEU(p,i)/100;
-n6p(c,j,w)$(freeze(w) and (ord(j)=3 or ord(j)=5)) .. largest_abs(w) =g= (Slack(c,j,w) - Slackhat(c,j,w))/D(c,j,w);
-n6m(c,j,w)$(freeze(w) and (ord(j)=3 or ord(j)=5)) .. largest_abs(w) =g= -(Slack(c,j,w) - Slackhat(c,j,w))/D(c,j,w);
-n7p(r,p,w)$freeze(w) .. largest_abs(w) =g= y(r,p,w)-yhat(r,p,w);
-n7m(r,p,w)$freeze(w) .. largest_abs(w) =g= -y(r,p,w)+yhat(r,p,w);
-n8p(p,c,w)$freeze(w) .. largest_abs(w) =g= (z(p,c,w)-zhat(p,c,w));
-n8m(p,c,w)$freeze(w) .. largest_abs(w) =g= -(z(p,c,w)-zhat(p,c,w));
+n1p(r,p,j,w)$freeze(w) .. largest_abs(w) =g= (lpPU(r,p,j,w) - PUhat(r,p,j,w))/PUU;
+n1m(r,p,j,w)$freeze(w) .. largest_abs(w) =g= -(lpPU(r,p,j,w) - PUhat(r,p,j,w))/PUU;
+n2p(p,c,j,w)$freeze(w) .. largest_abs(w) =g= (lpF(p,c,j,w)-Fhat(p,c,j,w))/FUU;
+n2m(p,c,j,w)$freeze(w) .. largest_abs(w) =g= -(lpF(p,c,j,w)-Fhat(p,c,j,w))/FUU;
+n3p(p,i,j,s,w)$(freeze(w) and JM(i,s,j) and PS(i,s) and (ord(i) ne 4 or ord(j) ne 5 )) .. largest_abs(w)=g= (lptheta(p,i,j,s,w) - thetahat(p,i,j,s,w))/QEU(p,i)/100;
+n3m(p,i,j,s,w)$(freeze(w) and JM(i,s,j) and PS(i,s) and (ord(i) ne 4 or ord(j) ne 5 )) .. largest_abs(w)=g= -(lptheta(p,i,j,s,w) - thetahat(p,i,j,s,w))/QEU(p,i)/100;
+n4p(p,i,j,s,w)$(freeze(w) and JM(i,s,j) and PS(i,s) and (ord(i) eq 4 and ord(j) eq 5 )) .. largest_abs(w)=g= (lptheta(p,i,j,s,w) - thetahat(p,i,j,s,w))/QEU(p,i)/5;
+n4m(p,i,j,s,w)$(freeze(w) and JM(i,s,j) and PS(i,s) and (ord(i) eq 4 and ord(j) eq 5 )) .. largest_abs(w)=g= -(lptheta(p,i,j,s,w) - thetahat(p,i,j,s,w))/QEU(p,i)/5;
+n5p(p,i,j,s,w)$(freeze(w) and (L(i,s,j) or Lbar(i,s,j)) and PS(i,s)) .. largest_abs(w) =g= (lpWW(p,i,j,s,w)-WWhat(p,i,j,s,w))/QEU(p,i)/100;
+n5m(p,i,j,s,w)$(freeze(w) and (L(i,s,j) or Lbar(i,s,j)) and PS(i,s)) .. largest_abs(w) =g= -(lpWW(p,i,j,s,w)-WWhat(p,i,j,s,w))/QEU(p,i)/100;
+n6p(c,j,w)$(freeze(w) and (ord(j)=3 or ord(j)=5)) .. largest_abs(w) =g= (lpSlack(c,j,w) - Slackhat(c,j,w))/D(c,j,w);
+n6m(c,j,w)$(freeze(w) and (ord(j)=3 or ord(j)=5)) .. largest_abs(w) =g= -(lpSlack(c,j,w) - Slackhat(c,j,w))/D(c,j,w);
+n7p(r,p,w)$freeze(w) .. largest_abs(w) =g= lpy(r,p,w)-yhat(r,p,w);
+n7m(r,p,w)$freeze(w) .. largest_abs(w) =g= -lpy(r,p,w)+yhat(r,p,w);
+n8p(p,c,w)$freeze(w) .. largest_abs(w) =g= (lpz(p,c,w)-zhat(p,c,w));
+n8m(p,c,w)$freeze(w) .. largest_abs(w) =g= -(lpz(p,c,w)-zhat(p,c,w));
 *define seperation problem obj
 dobj(w)$(freeze(w)) .. dnorm =e= largest_abs(w);
 
@@ -489,8 +495,8 @@ option optca =0;
   OPTION LIMROW = 0;
 OPTION LIMCOL = 0;
 option MINLP = dicopt;
-option rMINLP = conopt4;
-option nlp = conopt4;
+option rMINLP = conopt;
+option nlp = conopt;
 option iterlim = 2e9;
 option reslim = 1e3;
 *parallel------------------
@@ -518,6 +524,8 @@ lag_sub_modelstat(iter,w)=0;
 parameters
 lpsub_obj(iter, w)
 bender_sub_obj(iter,w);
+set baditer(iter);
+baditer(iter) = no;
 parameters
 LB
 UB;
@@ -558,7 +566,7 @@ Repeat
       obj_record(iter, w3) = cost.l;
       cpu_lag = cpu_lag + sub.resusd;
       lag_sub_modelstat(iter,w3) = sub.modelStat;
-*      abort$(sub.modelStat ne 8 or sub.solveStat ne 1) 'abort due to error solve lag sub';
+      abort$(sub.modelStat ne 8 and sub.modelStat ne 1 and sub.modelStat ne 2) 'abort due to error solve lag sub';
       display$handledelete(lag_sub_handle(w3)) 'trouble deleting handles';
       lag_sub_handle(w3)=0;
     );
@@ -683,7 +691,7 @@ loop(r3,
         vy.l(r,p,'1',w3) = 0;
         vz.l(p,c,'1',w3) = 0;
         vz.l(p3,c3,'2',w3) =1;
-        y.l(r3,p3,w3) = 1;
+        lpy.l(r3,p3,w3) = 1;
         lambda.l('1') =0;
         lambda.l('2') =1;
         solve sep using rMINLP minimizing dnorm;
@@ -694,22 +702,22 @@ loop(r3,
       loop(w3$handlecollect(sep_handle(w3)),
         cpu_sep = cpu_sep + sep.resusd;
 *update parameters
-          PUrp(r,p,j,w3,r3,p3) = PU.l(r,p,j,w3);
-        Frp(p,c,j,w3,r3,p3) = F.l(p,c,j,w3);
-        thetarp(p,i,j,s,w3,r3,p3) = theta.l(p,i,j,s,w3);
-        WWrp(p,i,j,s,w3,r3,p3) = WW.l(p,i,j,s,w3);
-        Slackrp(c,j,w3,r3,p3) = Slack.l(c,j,w3);
-        yrp(r,p,w3,r3,p3) = y.l(r,p,w3);
-        zrp(p,c,w3,r3,p3) = z.l(p,c, w3);
+          PUrp(r,p,j,w3,r3,p3) = lpPU.l(r,p,j,w3);
+        Frp(p,c,j,w3,r3,p3) = lpF.l(p,c,j,w3);
+        thetarp(p,i,j,s,w3,r3,p3) = lptheta.l(p,i,j,s,w3);
+        WWrp(p,i,j,s,w3,r3,p3) = lpWW.l(p,i,j,s,w3);
+        Slackrp(c,j,w3,r3,p3) = lpSlack.l(c,j,w3);
+        yrp(r,p,w3,r3,p3) = lpy.l(r,p,w3);
+        zrp(p,c,w3,r3,p3) = lpz.l(p,c, w3);
 *find the maximum absolute value among all the variables. 
 active_found = 0;
 loop(r4,
   loop(p4,
         if(active_found=0,
-          if(largest_abs.l(w3) eq (y.l(r4,p4,w3) - yhat(r4,p4,w3)) or largest_abs.l(w3) eq -(y.l(r4,p4,w3) - yhat(r4,p4,w3)),
+          if(largest_abs.l(w3) eq (lpy.l(r4,p4,w3) - yhat(r4,p4,w3)) or largest_abs.l(w3) eq -(lpy.l(r4,p4,w3) - yhat(r4,p4,w3)),
             active_found=1;
-            signyrp(r4,p4,w3,r3,p3) = sign(y.l(r4,p4,w3) - yhat(r4,p4,w3));
-            diffyrp(iter,r4,p4,w3,r3,p3) = abs(y.l(r4,p4,w3) - yhat(r4,p4,w3));
+            signyrp(r4,p4,w3,r3,p3) = sign(lpy.l(r4,p4,w3) - yhat(r4,p4,w3));
+            diffyrp(iter,r4,p4,w3,r3,p3) = abs(lpy.l(r4,p4,w3) - yhat(r4,p4,w3));
             );
           );
     );
@@ -718,10 +726,10 @@ loop(r4,
 loop(c4,
   loop(p4,
         if(active_found=0,
-          if(largest_abs.l(w3) eq (z.l(p4,c4,w3) - zhat(p4,c4,w3)) or largest_abs.l(w3) eq -(z.l(p4,c4,w3) - zhat(p4,c4,w3)),
+          if(largest_abs.l(w3) eq (lpz.l(p4,c4,w3) - zhat(p4,c4,w3)) or largest_abs.l(w3) eq -(lpz.l(p4,c4,w3) - zhat(p4,c4,w3)),
             active_found=1;
-            signzrp(p4,c4,w3,r3,p3) = sign(z.l(p4,c4,w3) - zhat(p4,c4,w3));
-            diffzrp(iter,p4,c4,w3,r3,p3) = abs(z.l(p4,c4,w3) - zhat(p4,c4,w3));
+            signzrp(p4,c4,w3,r3,p3) = sign(lpz.l(p4,c4,w3) - zhat(p4,c4,w3));
+            diffzrp(iter,p4,c4,w3,r3,p3) = abs(lpz.l(p4,c4,w3) - zhat(p4,c4,w3));
             );
           );
     );
@@ -731,10 +739,10 @@ loop(c4,
   loop(p4,
     loop(j4,
       if(active_found=0,
-        if(largest_abs.l(w3) eq ((F.l(p4,c4,j4,w3) - Fhat(p4,c4,j4,w3))/FUU) or largest_abs.l(w3) eq (-(F.l(p4,c4,j4,w3) - Fhat(p4,c4,j4,w3))/FUU),
+        if(largest_abs.l(w3) eq ((lpF.l(p4,c4,j4,w3) - Fhat(p4,c4,j4,w3))/FUU) or largest_abs.l(w3) eq (-(lpF.l(p4,c4,j4,w3) - Fhat(p4,c4,j4,w3))/FUU),
           active_found=1;
-          signFrp(p4,c4,j4,w3,r3,p3) = sign(F.l(p4,c4,j4,w3) - Fhat(p4,c4,j4,w3));
-          diffFrp(iter, p4,c4,j4,w3,r3,p3) = abs(F.l(p4,c4,j4,w3) - Fhat(p4,c4,j4,w3))/FUU;
+          signFrp(p4,c4,j4,w3,r3,p3) = sign(lpF.l(p4,c4,j4,w3) - Fhat(p4,c4,j4,w3));
+          diffFrp(iter, p4,c4,j4,w3,r3,p3) = abs(lpF.l(p4,c4,j4,w3) - Fhat(p4,c4,j4,w3))/FUU;
           
           );
         );
@@ -746,10 +754,10 @@ loop(r4,
   loop(p4,
     loop(j4,
       if(active_found=0,
-        if(largest_abs.l(w3) eq ((PU.l(r4,p4,j4,w3) - PUhat(r4,p4,j4,w3))/PUU) or largest_abs.l(w3) eq (-(PU.l(r4,p4,j4,w3) - PUhat(r4,p4,j4,w3))/PUU),
+        if(largest_abs.l(w3) eq ((lpPU.l(r4,p4,j4,w3) - PUhat(r4,p4,j4,w3))/PUU) or largest_abs.l(w3) eq (-(lpPU.l(r4,p4,j4,w3) - PUhat(r4,p4,j4,w3))/PUU),
           active_found=1;
-          signPUrp(r4,p4,j4,w3,r3,p3) = sign(PU.l(r4,p4,j4,w3) - PUhat(r4,p4,j4,w3));
-          diffPUrp(iter,r4,p4,j4,w3,r3,p3) = abs(PU.l(r4,p4,j4,w3) - PUhat(r4,p4,j4,w3))/PUU;
+          signPUrp(r4,p4,j4,w3,r3,p3) = sign(lpPU.l(r4,p4,j4,w3) - PUhat(r4,p4,j4,w3));
+          diffPUrp(iter,r4,p4,j4,w3,r3,p3) = abs(lpPU.l(r4,p4,j4,w3) - PUhat(r4,p4,j4,w3))/PUU;
 
           );
         );
@@ -762,9 +770,9 @@ loop(r4,
 
 
         display sep.modelStat;
-       abort$(sep.modelStat ne 2 and sep.modelStat ne 1 and sep.modelStat ne 7) "abort due to errors solving sep problem";
-*       display$handledelete(sep_handle(w3)) 'trouble deleting handles';
-        if(dnorm.l lt 1e-6,
+*       abort$(sep.modelStat ne 2 and sep.modelStat ne 1 and sep.modelStat ne 7) "abort due to errors solving sep problem";
+       display$handledelete(sep_handle(w3)) 'trouble deleting handles';
+        if(dnorm.l lt 1e-6 or (sep.modelStat ne 1 and sep.modelStat ne 2),
           aRP(r3,p3,w3) = no;
           );
 
@@ -801,7 +809,7 @@ loop(p3,
         vy.l(r,p,'1',w3) = 0;
         vz.l(p,c,'1',w3) = 0;
         vz.l(p3,c3,'2', w3) =1;
-        z.l(p3,c3,w3) = 1;
+        lpz.l(p3,c3,w3) = 1;
         lambda.l('1') =0;
         lambda.l('2') =1;
         solve sep using rMINLP minimizing dnorm;
@@ -812,23 +820,23 @@ loop(p3,
       loop(w3$handlecollect(sep_handle(w3)),
         cpu_sep = cpu_sep + sep.resusd;
 *update parameters
-          PUpc(r,p,j,w3,p3,c3) = PU.l(r,p,j,w3);
-        Fpc(p,c,j,w3,p3,c3) = F.l(p,c,j,w3);
-        thetapc(p,i,j,s,w3,p3,c3) = theta.l(p,i,j,s,w3);
-        WWpc(p,i,j,s,w3,p3,c3) = WW.l(p,i,j,s,w3);
-        Slackpc(c,j,w3,p3,c3) = Slack.l(c,j,w3);
-        ypc(r,p,w3,p3,c3) = y.l(r,p,w3);
-        zpc(p,c,w3,p3,c3) = z.l(p,c, w3);
+          PUpc(r,p,j,w3,p3,c3) = lpPU.l(r,p,j,w3);
+        Fpc(p,c,j,w3,p3,c3) = lpF.l(p,c,j,w3);
+        thetapc(p,i,j,s,w3,p3,c3) = lptheta.l(p,i,j,s,w3);
+        WWpc(p,i,j,s,w3,p3,c3) = lpWW.l(p,i,j,s,w3);
+        Slackpc(c,j,w3,p3,c3) = lpSlack.l(c,j,w3);
+        ypc(r,p,w3,p3,c3) = lpy.l(r,p,w3);
+        zpc(p,c,w3,p3,c3) = lpz.l(p,c, w3);
 
 *find the maximum absolute value among all the variables. 
 active_found = 0;
 loop(r4,
   loop(p4,
         if(active_found=0,
-          if(largest_abs.l(w3) eq (y.l(r4,p4,w3) - yhat(r4,p4,w3)) or largest_abs.l(w3) eq -(y.l(r4,p4,w3) - yhat(r4,p4,w3)),
+          if(largest_abs.l(w3) eq (lpy.l(r4,p4,w3) - yhat(r4,p4,w3)) or largest_abs.l(w3) eq -(lpy.l(r4,p4,w3) - yhat(r4,p4,w3)),
             active_found=1;
-            signypc(r4,p4,w3,p3,c3) = sign(y.l(r4,p4,w3) - yhat(r4,p4,w3));
-            diffypc(iter,r4,p4,w3,p3,c3) = abs(y.l(r4,p4,w3) - yhat(r4,p4,w3));
+            signypc(r4,p4,w3,p3,c3) = sign(lpy.l(r4,p4,w3) - yhat(r4,p4,w3));
+            diffypc(iter,r4,p4,w3,p3,c3) = abs(lpy.l(r4,p4,w3) - yhat(r4,p4,w3));
             );
           );
     );
@@ -837,10 +845,10 @@ loop(r4,
 loop(c4,
   loop(p4,
         if(active_found=0,
-          if(largest_abs.l(w3) eq (z.l(p4,c4,w3) - zhat(p4,c4,w3)) or largest_abs.l(w3) eq -(z.l(p4,c4,w3) - zhat(p4,c4,w3)),
+          if(largest_abs.l(w3) eq (lpz.l(p4,c4,w3) - zhat(p4,c4,w3)) or largest_abs.l(w3) eq -(lpz.l(p4,c4,w3) - zhat(p4,c4,w3)),
             active_found=1;
-            signzpc(p4,c4,w3,p3,c3) = sign(z.l(p4,c4,w3) - zhat(p4,c4,w3));
-            diffzpc(iter,p4,c4,w3,p3,c3) = abs(z.l(p4,c4,w3) - zhat(p4,c4,w3));
+            signzpc(p4,c4,w3,p3,c3) = sign(lpz.l(p4,c4,w3) - zhat(p4,c4,w3));
+            diffzpc(iter,p4,c4,w3,p3,c3) = abs(lpz.l(p4,c4,w3) - zhat(p4,c4,w3));
             );
           );
     );
@@ -850,10 +858,10 @@ loop(c4,
   loop(p4,
     loop(j4,
       if(active_found=0,
-        if(largest_abs.l(w3) eq ((F.l(p4,c4,j4,w3) - Fhat(p4,c4,j4,w3))/FUU) or largest_abs.l(w3) eq (-(F.l(p4,c4,j4,w3) - Fhat(p4,c4,j4,w3))/FUU),
+        if(largest_abs.l(w3) eq ((lpF.l(p4,c4,j4,w3) - Fhat(p4,c4,j4,w3))/FUU) or largest_abs.l(w3) eq (-(lpF.l(p4,c4,j4,w3) - Fhat(p4,c4,j4,w3))/FUU),
           active_found=1;
-          signFpc(p4,c4,j4,w3,p3,c3) = sign(F.l(p4,c4,j4,w3) - Fhat(p4,c4,j4,w3));
-          diffFpc(iter, p4,c4,j4,w3,p3,c3) = abs(F.l(p4,c4,j4,w3) - Fhat(p4,c4,j4,w3))/FUU;
+          signFpc(p4,c4,j4,w3,p3,c3) = sign(lpF.l(p4,c4,j4,w3) - Fhat(p4,c4,j4,w3));
+          diffFpc(iter, p4,c4,j4,w3,p3,c3) = abs(lpF.l(p4,c4,j4,w3) - Fhat(p4,c4,j4,w3))/FUU;
           
           );
         );
@@ -865,10 +873,10 @@ loop(r4,
   loop(p4,
     loop(j4,
       if(active_found=0,
-        if(largest_abs.l(w3) eq ((PU.l(r4,p4,j4,w3) - PUhat(r4,p4,j4,w3))/PUU) or largest_abs.l(w3) eq (-(PU.l(r4,p4,j4,w3) - PUhat(r4,p4,j4,w3))/PUU),
+        if(largest_abs.l(w3) eq ((lpPU.l(r4,p4,j4,w3) - PUhat(r4,p4,j4,w3))/PUU) or largest_abs.l(w3) eq (-(lpPU.l(r4,p4,j4,w3) - PUhat(r4,p4,j4,w3))/PUU),
           active_found=1;
-          signPUpc(r4,p4,j4,w3,p3,c3) = sign(PU.l(r4,p4,j4,w3) - PUhat(r4,p4,j4,w3));
-          diffPUpc(iter,r4,p4,j4,w3,p3,c3) = abs(PU.l(r4,p4,j4,w3) - PUhat(r4,p4,j4,w3))/PUU;
+          signPUpc(r4,p4,j4,w3,p3,c3) = sign(lpPU.l(r4,p4,j4,w3) - PUhat(r4,p4,j4,w3));
+          diffPUpc(iter,r4,p4,j4,w3,p3,c3) = abs(lpPU.l(r4,p4,j4,w3) - PUhat(r4,p4,j4,w3))/PUU;
 
           );
         );
@@ -880,11 +888,11 @@ loop(r4,
 
 
 
-        if(dnorm.l lt 1e-6,
+        if(dnorm.l lt 1e-6 or (sep.modelStat ne 1 and sep.modelStat ne 2),
           aPC(p3,c3,w3) = no;
           );
-       abort$(sep.modelStat ne 2 and sep.modelStat ne 1 and sep.modelStat ne 7) "abort due to errors solving sep problem";
-*       display$handledelete(sep_handle(w3)) 'trouble deleting handles';
+*       abort$(sep.modelStat ne 2 and sep.modelStat ne 1 and sep.modelStat ne 7) "abort due to errors solving sep problem";
+       display$handledelete(sep_handle(w3)) 'trouble deleting handles';
         sep_handle(w3) = 0;
         );
     until card(sep_handle) =0;
@@ -912,11 +920,18 @@ Repeat
   loop(w3$handlecollect(lpsub_handle(w3)),
     cpu_lpsub = cpu_lpsub + lpsub.resusd;
     lpsub_obj(iter, w3) = cost.l;
+    if (lpsub.modelStat eq  1 or lpsub.modelStat eq 2 ,
+
     v(iter, w3) = COST.l - sum((p,i), xbar(p,i) * TX.m(p,i) + Qbar(p,i) * TQ.m(p,i) ) ;
     g1(iter, p,i, w3) = TX.m(p,i);
     g2(iter, p,i, w3) = TQ.m(p,i);
+    else 
+    baditer(iter) = yes;
+      );
+
+
     display lpsub.modelStat;
-   abort$(lpsub.modelStat ne 1 and lpsub.modelStat ne 2 and lpsub.modelStat ne 7) 'abort due to errors solving lpsub';
+*   abort$(lpsub.modelStat ne 1 and lpsub.modelStat ne 2 and lpsub.modelStat ne 7) 'abort due to errors solving lpsub';
     display$handledelete(lpsub_handle(w3)) 'trouble deleting handles';
     lpsub_handle(w3) =0;
     );
@@ -963,4 +978,5 @@ WallTime;
 WallTime=TimeElapsed;
 
 display lag_sub_modelstat,bender_sub_modelstat,upper_sub_modelstat,master_modelstat,bender_sub_obj, aRP, aPC, lpsub_obj,gap_closed,total_obj_record, BenderOBJ_record, UB_Bender,UB, LB, WallTime,cpu_ub,cpu_lag, cpu_bender_sub, cpu_bender_master, cpu_sep, cpu_lpsub ;
+display baditer;
 *display diffzrp,diffyrp,diffFrp , diffPUrp, diffzpc,diffypc,diffFpc , diffPUpc;

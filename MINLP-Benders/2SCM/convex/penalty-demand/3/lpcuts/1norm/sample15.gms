@@ -462,6 +462,8 @@ option optca =0;
   OPTION LIMROW = 0;
 OPTION LIMCOL = 0;
 option MINLP = dicopt;
+option nlp = conopt4;
+option rMINLP = conopt4;
 option iterlim = 2e9;
 option reslim = 1e3;
 *parallel------------------
@@ -489,6 +491,9 @@ lag_sub_modelstat(iter,w)=0;
 parameters
 lpsub_obj(iter, w)
 bender_sub_obj(iter,w);
+set 
+baditer(iter);
+baditer(iter) = no;
 parameters
 LB
 UB;
@@ -516,7 +521,7 @@ Repeat
       obj_record(iter, w3) = cost.l;
       cpu_lag = cpu_lag + sub.resusd;
       lag_sub_modelstat(iter,w3) = sub.modelStat;
-*      abort$(sub.modelStat ne 8 or sub.solveStat ne 1) 'abort due to error solve lag sub';
+      abort$(sub.modelStat ne 8 and sub.modelStat ne 1 and sub.modelStat ne 2) 'abort due to error solve lag sub';
       display$handledelete(lag_sub_handle(w3)) 'trouble deleting handles';
       lag_sub_handle(w3)=0;
     );
@@ -625,6 +630,24 @@ loop(r3,
       freeze(w3) = yes;
       if(yhat(r3,p3,w3) gt 1e-1 and yhat(r3,p3,w3) lt (1 -1e-1),
         aRP(r3,p3,w3) = yes;
+                vPU.l(r,p,j,'2',w3) = PUhat(r,p,j,w3);
+        vF.l(p,c,j,'2',w3) = Fhat(p,c,j,w3);
+        vWW.l(p,i,j,s,'2', w3) = WWhat(p,i,j,s,w3);
+        vtheta.l(p,i,j,s,'2',w3) = thetahat(p,i,j,s,w3);
+        vSlack.l(c,j,'2',w3) = Slackhat(c,j,w3);
+        vy.l(r,p,'2',w3) = yhat(r,p,w3);
+        vz.l(p,c,'2',w3) = zhat(p,c,w3);
+        vPU.l(r,p,j,'1',w3) = 0;
+        vF.l(p,c,j,'1',w3) = 0;
+        vWW.l(p,i,j,s,'1', w3) = 0;
+        vtheta.l(p,i,j,s,'1',w3) = 0;
+        vSlack.l(c,j,'1',w3) = 0;
+        vy.l(r,p,'1',w3) = 0;
+        vz.l(p,c,'1',w3) = 0;
+        vz.l(p3,c3,'2',w3) =1;
+        y.l(r3,p3,w3) = 1;
+        lambda.l('1') =0;
+        lambda.l('2') =1;
         solve sep using rMINLP minimizing dnorm;
         sep_handle(w3) = sep.handle;
         );
@@ -642,8 +665,8 @@ loop(r3,
         zrp(p,c,w3,r3,p3) = z.l(p,c, w3);
         display sep.modelStat;
 *       abort$(sep.modelStat ne 2 and sep.modelStat ne 1 and sep.modelStat ne 7) "abort due to errors solving sep problem";
-*       display$handledelete(sep_handle(w3)) 'trouble deleting handles';
-        if(dnorm.l lt 1e-6,
+       display$handledelete(sep_handle(w3)) 'trouble deleting handles';
+        if(dnorm.l lt 1e-6 or (sep.modelStat ne 2 and sep.modelStat ne 1),
           aRP(r3,p3,w3) = no;
           );
 
@@ -667,6 +690,24 @@ loop(p3,
       freeze(w3) = yes;
       if(zhat(p3,c3,w3) gt 1e-1 and zhat(p3,c3,w3) lt (1 -1e-1),
         aPC(p3,c3,w3) = yes;
+                vPU.l(r,p,j,'2',w3) = PUhat(r,p,j,w3);
+        vF.l(p,c,j,'2',w3) = Fhat(p,c,j,w3);
+        vWW.l(p,i,j,s,'2', w3) = WWhat(p,i,j,s,w3);
+        vtheta.l(p,i,j,s,'2',w3) = thetahat(p,i,j,s,w3);
+        vSlack.l(c,j,'2',w3) = Slackhat(c,j,w3);
+        vy.l(r,p,'2',w3) = yhat(r,p,w3);
+        vz.l(p,c,'2',w3) = zhat(p,c,w3);
+        vPU.l(r,p,j,'1',w3) = 0;
+        vF.l(p,c,j,'1',w3) = 0;
+        vWW.l(p,i,j,s,'1', w3) = 0;
+        vtheta.l(p,i,j,s,'1',w3) = 0;
+        vSlack.l(c,j,'1',w3) = 0;
+        vy.l(r,p,'1',w3) = 0;
+        vz.l(p,c,'1',w3) = 0;
+        vz.l(p3,c3,'2', w3) =1;
+        z.l(p3,c3,w3) = 1;
+        lambda.l('1') =0;
+        lambda.l('2') =1;
         solve sep using rMINLP minimizing dnorm;
         sep_handle(w3) = sep.handle;
         );
@@ -683,11 +724,11 @@ loop(p3,
         ypc(r,p,w3,p3,c3) = y.l(r,p,w3);
         zpc(p,c,w3,p3,c3) = z.l(p,c, w3);
         display sep.modelStat;
-        if(dnorm.l lt 1e-6,
+        if(dnorm.l lt 1e-6 or (sep.modelStat ne 2 and sep.modelStat ne 1),
           aPC(p3,c3,w3) = no;
           );
 *       abort$(sep.modelStat ne 2 and sep.modelStat ne 1 and sep.modelStat ne 7) "abort due to errors solving sep problem";
-*       display$handledelete(sep_handle(w3)) 'trouble deleting handles';
+       display$handledelete(sep_handle(w3)) 'trouble deleting handles';
         sep_handle(w3) = 0;
         );
     until card(sep_handle) =0;
@@ -708,9 +749,13 @@ Repeat
   loop(w3$handlecollect(lpsub_handle(w3)),
     cpu_lpsub = cpu_lpsub + lpsub.resusd;
     lpsub_obj(iter, w3) = cost.l;
+    if(lpsub.modelStat eq 1 or lpsub.modelStat eq 2 ,
     v(iter, w3) = COST.l - sum((p,i), xbar(p,i) * TX.m(p,i) + Qbar(p,i) * TQ.m(p,i) ) ;
     g1(iter, p,i, w3) = TX.m(p,i);
     g2(iter, p,i, w3) = TQ.m(p,i);
+    else 
+    baditer(iter) = yes;
+    );
     display lpsub.modelStat;
 *   abort$(lpsub.modelStat ne 1 and lpsub.modelStat ne 2 and lpsub.modelStat ne 7) 'abort due to errors solving lpsub';
     display$handledelete(lpsub_handle(w3)) 'trouble deleting handles';
@@ -760,3 +805,4 @@ WallTime=TimeElapsed;
 display x_record_lag,Q_record_lag,mux, muQ, obj_record, pix_all, piQ_all,g2,v,xf_record, Qf_record;
 
 display lag_sub_modelstat,bender_sub_modelstat,upper_sub_modelstat,master_modelstat,bender_sub_obj, aRP, aPC, lpsub_obj,gap_closed,total_obj_record, BenderOBJ_record, UB_Bender,UB, LB, WallTime,cpu_ub,cpu_lag, cpu_bender_sub, cpu_bender_master, cpu_sep, cpu_lpsub ;
+display baditer;

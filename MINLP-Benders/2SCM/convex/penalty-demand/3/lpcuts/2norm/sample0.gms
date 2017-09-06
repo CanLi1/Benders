@@ -389,7 +389,7 @@ ds3(p,c,w)$(freeze(w) and PC(p,c)) .. vz(p,c,'1',w) =e= 0;
 ds4(p,c,w)$(freeze(w) and PC(p,c)) .. vz(p,c, '2',w) =e= lambda('2');
 
 *define seperation problem obj
-dobj(w)$(freeze(w)) .. dnorm =e= sum((r,p,j)$RJ(r,j), power((PU(r,p,j,w) - PUhat(r,p,j,w))/PUU, 2)) + sum((p,c,j), power((F(p,c,j,w)-Fhat(p,c,j,w))/FUU, 2)) + sum((p,i,j,s)$(JM(i,s,j) and PS(i,s) and (ord(i) ne 4 or ord(j) ne 5 )), power((theta(p,i,j,s,w) - thetahat(p,i,j,s,w))/QEU(p,i)/100, 2))+ sum((p,i,j,s)$(JM(i,s,j) and PS(i,s) and (ord(i) eq 4 and ord(j) eq 5 )), power((theta(p,i,j,s,w) - thetahat(p,i,j,s,w))/QEU(p,i)/5, 2)) + sum((p,i,j,s)$((L(i,s,j) or Lbar(i,s,j)) and PS(i,s)), power((WW(p,i,j,s,w)-WWhat(p,i,j,s,w))/QEU(p,i)/100, 2)) + sum((c,j)$(ord(j)=3 or ord(j)=5), power((Slack(c,j,w) - Slackhat(c,j,w))/D(c,j,w), 2)) + sum((r,p), power(y(r,p,w)-yhat(r,p,w), 2)) +sum((p,c), power(z(p,c,w)-zhat(p,c,w), 2));
+dobj(w) .. dnorm =e= sum((r,p,j)$RJ(r,j), power((PU(r,p,j,w) - PUhat(r,p,j,w))/PUU, 2)) + sum((p,c,j), power((F(p,c,j,w)-Fhat(p,c,j,w))/FUU, 2)) + sum((p,i,j,s)$(JM(i,s,j) and PS(i,s) and (ord(i) ne 4 or ord(j) ne 5 )), power((theta(p,i,j,s,w) - thetahat(p,i,j,s,w))/QEU(p,i)/100, 2))+ sum((p,i,j,s)$(JM(i,s,j) and PS(i,s) and (ord(i) eq 4 and ord(j) eq 5 )), power((theta(p,i,j,s,w) - thetahat(p,i,j,s,w))/QEU(p,i)/5, 2)) + sum((p,i,j,s)$((L(i,s,j) or Lbar(i,s,j)) and PS(i,s)), power((WW(p,i,j,s,w)-WWhat(p,i,j,s,w))/QEU(p,i)/100, 2)) + sum((c,j)$(ord(j)=3 or ord(j)=5), power((Slack(c,j,w) - Slackhat(c,j,w))/D(c,j,w), 2)) + sum((r,p), power(y(r,p,w)-yhat(r,p,w), 2)) +sum((p,c), power(z(p,c,w)-zhat(p,c,w), 2));
 
 model sep /d1, d2,d3,d5,d6,d7,d8,d9,d10,d11,d12,d12p,d14p,d14,d15,d16,d17,de3,de4,de5,de6,de7,de8,de9,de10,de11,de12,ds1,ds2,ds3,ds4,dobj/;
 *--------------DEFINE subproblem with lift and project cuts---------------------
@@ -418,6 +418,10 @@ Sets
 aRP(rr,pp,w)
 aPC(pp,cc,w);
 
+set
+baditer(iter);
+baditer(iter) = no;
+
 equations
 lp1, lp2;
 lp1(rr,pp,w)$(freeze(w) and aRP(rr,pp,w)) .. sum((r,p,j)$RJ(r,j), (PUrp(r,p,j,w,rr,pp)-PUhat(r,p,j,w))/PUU*(PU(r,p,j,w) - PUrp(r,p,j,w,rr,pp))/PUU) + sum((p,c,j), (Frp(p,c,j,w,rr,pp)-Fhat(p,c,j,w))/FUU*(F(p,c,j,w)-Frp(p,c,j,w,rr,pp))/FUU) + sum((p,i,j,s)$(JM(i,s,j) and PS(i,s)and (ord(i) ne 4 or ord(j) ne 5 )), (thetarp(p,i,j,s,w,rr,pp)-thetahat(p,i,j,s,w))/QEU(p,i)/100*(theta(p,i,j,s,w) - thetarp(p,i,j,s,w,rr,pp))/QEU(p,i)/100) + sum((p,i,j,s)$(JM(i,s,j) and PS(i,s)and (ord(i) eq 4 and ord(j) eq 5 )), (thetarp(p,i,j,s,w,rr,pp)-thetahat(p,i,j,s,w))/QEU(p,i)/5*(theta(p,i,j,s,w) - thetarp(p,i,j,s,w,rr,pp))/QEU(p,i)/5)+ sum((p,i,j,s)$((L(i,s,j) or Lbar(i,s,j)) and PS(i,s)), (WWrp(p,i,j,s,w,rr,pp)-WWhat(p,i,j,s,w))/QEU(p,i)/100*(WW(p,i,j,s,w)-WWrp(p,i,j,s,w,rr,pp))/QEU(p,i)/100) + sum((c,j)$(ord(j)=3 or ord(j)=5), (Slackrp(c,j,w,rr,pp)-Slackhat(c,j,w))/D(c,j,w)*(Slack(c,j,w) - Slackrp(c,j,w,rr,pp))/D(c,j,w)) + sum((r,p), (yrp(r,p,w,rr,pp)-yhat(r,p,w))*(y(r,p,w)-yrp(r,p,w,rr,pp))) +sum((p,c), (zrp(p,c,w,rr,pp)-zhat(p,c,w))*(z(p,c,w)-zrp(p,c,w,rr,pp))) =g= 0;
@@ -430,6 +434,8 @@ option optca =0;
   OPTION LIMROW = 0;
 OPTION LIMCOL = 0;
 option MINLP = dicopt;
+option rMINLP = conopt4;
+option nlp = conopt4;
 option iterlim = 2e9;
 option reslim = 1e3;
 *parallel------------------
@@ -437,7 +443,7 @@ BenderSub.solvelink =3;
 sub.solvelink =3;
 sep.solvelink=3;
 lpsub.solvelink=3;
-bendersmaster.threads = 12;
+bendersmaster.threads = 3;
 parameters
 cpu_sep /0/
 cpu_lpsub /0/
@@ -610,8 +616,8 @@ loop(r3,
         zrp(p,c,w3,r3,p3) = z.l(p,c, w3);
         display sep.modelStat;
 *       abort$(sep.modelStat ne 2 and sep.modelStat ne 1 and sep.modelStat ne 7) "abort due to errors solving sep problem";
-*       display$handledelete(sep_handle(w3)) 'trouble deleting handles';
-        if(dnorm.l lt 1e-6,
+       display$handledelete(sep_handle(w3)) 'trouble deleting handles';
+        if(dnorm.l lt 1e-6 or (sep.modelStat ne 2 and sep.modelStat ne 1) ,
           aRP(r3,p3,w3) = no;
           );
 
@@ -651,11 +657,11 @@ loop(p3,
         ypc(r,p,w3,p3,c3) = y.l(r,p,w3);
         zpc(p,c,w3,p3,c3) = z.l(p,c, w3);
         display sep.modelStat;
-        if(dnorm.l lt 1e-6,
+        if(dnorm.l lt 1e-6 or (sep.modelStat ne 2 and sep.modelStat ne 1),
           aPC(p3,c3,w3) = no;
           );
 *       abort$(sep.modelStat ne 2 and sep.modelStat ne 1 and sep.modelStat ne 7) "abort due to errors solving sep problem";
-*       display$handledelete(sep_handle(w3)) 'trouble deleting handles';
+       display$handledelete(sep_handle(w3)) 'trouble deleting handles';
         sep_handle(w3) = 0;
         );
     until card(sep_handle) =0;
@@ -674,11 +680,15 @@ loop(w3,
   );
 Repeat
   loop(w3$handlecollect(lpsub_handle(w3)),
+    if(lpsub.modelStat eq 1 or lpsub.modelStat eq 2,
     cpu_lpsub = cpu_lpsub + lpsub.resusd;
     lpsub_obj(iter, w3) = cost.l;
     v(iter, w3) = COST.l - sum((p,i), xbar(p,i) * TX.m(p,i) + Qbar(p,i) * TQ.m(p,i) ) ;
     g1(iter, p,i, w3) = TX.m(p,i);
     g2(iter, p,i, w3) = TQ.m(p,i);
+    else 
+    baditer(iter) = yes;
+    );
     display lpsub.modelStat;
 *   abort$(lpsub.modelStat ne 1 and lpsub.modelStat ne 2 and lpsub.modelStat ne 7) 'abort due to errors solving lpsub';
     display$handledelete(lpsub_handle(w3)) 'trouble deleting handles';
@@ -728,3 +738,4 @@ WallTime=TimeElapsed;
 display x_record_lag,Q_record_lag,mux, muQ, obj_record, pix_all, piQ_all,g2,v,xf_record, Qf_record;
 
 display lag_sub_modelstat,bender_sub_modelstat,upper_sub_modelstat,master_modelstat,bender_sub_obj, aRP, aPC, lpsub_obj,gap_closed,total_obj_record, BenderOBJ_record, UB_Bender,UB, LB, WallTime,cpu_ub,cpu_lag, cpu_bender_sub, cpu_bender_master, cpu_sep, cpu_lpsub ;
+display baditer;
