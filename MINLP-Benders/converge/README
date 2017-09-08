@@ -1,0 +1,8 @@
+in this folder we try to come up with a toy problem 
+stage 1 mixed integer
+stage 2 mixed-integer
+constraints convex
+try to use hierarchy of relaxations to make it converge
+
+solve a toy problem using lift-and-project cut with infnorm
+
