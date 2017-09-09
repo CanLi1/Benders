@@ -16,4 +16,4 @@
 # Use submission environment
 #PBS -V
 cd /home/canl1/work/Benders/MINLP-Benders/2SCM/convex/penalty-demand/3/linearlpcuts/infnorm
-gams test.gms -lo=4 
+gams sample18.gms -lo=4 

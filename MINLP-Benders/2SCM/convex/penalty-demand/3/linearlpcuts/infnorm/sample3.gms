@@ -250,9 +250,9 @@ piQ_all(iter,p,i,w)
 cpu_lag/0/
 den(iter)
 stepsize
-theta0 /3/
+theta0 /0.5/
 *theta00(ltheta)/1 0.2,2 0.6, 3 1, 4 1.5, 5 2/
-half0 /0.5/
+half0 /0.6/
 *half00(lstep) / 1 0.5, 2 0.6,3 0.7,4 0.8/
 change;
 mux('1',p,i,w) = 0;
@@ -352,6 +352,24 @@ Sets
 RP(r,p)
 PC(p,c);
 
+*set for interpolation of WW
+sets
+int /1*20/;
+
+*parameter for interpolation points of WW
+parameter
+intWW(int);
+
+loop(int, 
+  if (ord(int) eq  1,
+    intWW(int) = 0;
+    );
+  if(ord(int) gt 1,
+    intWW(int) = power(2, ord(int) - 13 );
+    );
+
+  );
+
 *DEFINE equations for CGNLP
 equations
 d1, d2,d3,d5,d6,d7,d8,d9,d10,d11,d12,d12p,d14p,d14,d15,d16,d17,de3,de4,de5,de6,de7,de8,de9,de10,de11,de12,ds1,ds2,ds3,ds4,dobj;
@@ -384,7 +402,8 @@ de4(p,i,djc,w)$freeze(w) .. sum((j,s)$(JM(i,s,j) and PS(i,s)), vtheta(p,i,j,s,dj
 de5(p,i,j,s,djc,w)$(freeze(w) and PS(i,s) and JM(i,s,j)) .. vWW(p,i,j,s,djc,w) =e= rho(i,j,s) * vtheta(p,i,j,s,djc,w);
 de6(p,i,j,djc,w,s)$(freeze(w) and (not (PS(i,s) and JM(i,s,j)))) .. vtheta(p,i,j,s,djc,w) =e= 0;
 de7(p,i,j,jj,djc,w,s)$(freeze(w) and L(i,s,j) and PS(i,s) and JM(i,s,jj)) .. vWW(p,i,j,s,djc,w) =e= mu(i,s,j) * vWW(p,i,jj,s,djc,w);
-de8(p,i,j,jj,djc,w,s)$(freeze(w) and Lbar(i,s,j) and PS(i,s) and JM(i,s,jj)) .. (lambda(djc)*(1-epsilon)+epsilon)*log(1+vWW(p,i,j,s,djc,w)/(lambda(djc)*(1-epsilon)+epsilon)) =g= mu(i,s,j) * vWW(p,i,jj,s,djc,w);
+*de8(p,i,j,jj,djc,w,s)$(freeze(w) and Lbar(i,s,j) and PS(i,s) and JM(i,s,jj)) .. (lambda(djc)*(1-epsilon)+epsilon)*log(1+vWW(p,i,j,s,djc,w)/(lambda(djc)*(1-epsilon)+epsilon)) =g= mu(i,s,j) * vWW(p,i,jj,s,djc,w);
+de8(p,i,j,jj,djc,w,s, int )$(freeze(w) and Lbar(i,s,j) and PS(i,s) and JM(i,s,jj)) .. lambda(djc)*(-log(1+intWW(int))) + (-1/(1+intWW(int))) * (vWW(p,i,j,s,djc,w) - intWW(int) * lambda(djc))  + mu(i,s,j) * vWW(p,i,jj,s,djc,w) =l= 0;
 de9(r,p,djc,w,j)$(RJ(r,j) and freeze(w)) .. vPU(r,p,j,djc,w) =l= PUU * vy(r,p,djc,w);
 de10(p,c,j,djc,w)$freeze(w) .. vF(p,c,j,djc,w) =l= FUU * vz(p,c,djc,w);
 de11(c,j,djc,w)$freeze(w) .. sum(p, vF(p,c,j,djc,w)) + vSlack(c,j,djc,w) =e= D(c,j,w)*lambda(djc);
@@ -702,7 +721,7 @@ loop(r3,
         lpy.l(r3,p3,w3) = 1;
         lambda.l('1') =0;
         lambda.l('2') =1;
-        solve sep using rMINLP minimizing dnorm;
+        solve sep using rMIP minimizing dnorm;
         sep_handle(w3) = sep.handle;
         );
       );
@@ -894,7 +913,7 @@ loop(p3,
         lpz.l(p3,c3,w3) = 1;
         lambda.l('1') =0;
         lambda.l('2') =1;
-        solve sep using rMINLP minimizing dnorm;
+        solve sep using rMIP minimizing dnorm;
         sep_handle(w3) = sep.handle;
         );
       );

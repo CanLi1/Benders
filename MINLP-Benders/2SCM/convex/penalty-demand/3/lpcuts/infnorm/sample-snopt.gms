@@ -250,7 +250,7 @@ piQ_all(iter,p,i,w)
 cpu_lag/0/
 den(iter)
 stepsize
-theta0 /3/
+theta0 /1.5/
 *theta00(ltheta)/1 0.2,2 0.6, 3 1, 4 1.5, 5 2/
 half0 /0.5/
 *half00(lstep) / 1 0.5, 2 0.6,3 0.7,4 0.8/
@@ -495,8 +495,8 @@ option optca =0;
   OPTION LIMROW = 0;
 OPTION LIMCOL = 0;
 option MINLP = dicopt;
-option rMINLP = conopt;
-option nlp = conopt;
+option rMINLP = snopt;
+option nlp = snopt;
 option iterlim = 2e9;
 option reslim = 1e3;
 *parallel------------------

@@ -250,7 +250,7 @@ piQ_all(iter,p,i,w)
 cpu_lag/0/
 den(iter)
 stepsize
-theta0 /3/
+theta0 /1.5/
 *theta00(ltheta)/1 0.2,2 0.6, 3 1, 4 1.5, 5 2/
 half0 /0.5/
 *half00(lstep) / 1 0.5, 2 0.6,3 0.7,4 0.8/
@@ -483,10 +483,10 @@ aPC(pp,cc,w);
 
 equations
 lp1, lp2;
-lp1(rr,pp,w)$(freeze(w) and aRP(rr,pp,w)) .. sum((r,p,j)$RJ(r,j), signPUrp(r,p,j,w,rr,pp)*(PU(r,p,j,w) - PUrp(r,p,j,w,rr,pp))/PUU) + sum((p,c,j), signFrp(p,c,j,w,rr,pp)*(F(p,c,j,w)-Frp(p,c,j,w,rr,pp))/FUU) + sum((p,i,j,s)$(JM(i,s,j) and PS(i,s)and (ord(i) ne 4 or ord(j) ne 5 )), signthetarp(p,i,j,s,w,rr,pp)*(theta(p,i,j,s,w) - thetarp(p,i,j,s,w,rr,pp))/QEU(p,i)/100) + sum((p,i,j,s)$(JM(i,s,j) and PS(i,s)and (ord(i) eq 4 and ord(j) eq 5 )), signthetarp(p,i,j,s,w,rr,pp)*(theta(p,i,j,s,w) - thetarp(p,i,j,s,w,rr,pp))/QEU(p,i)/5)+ sum((p,i,j,s)$((L(i,s,j) or Lbar(i,s,j)) and PS(i,s)), signWWrp(p,i,j,s,w,rr,pp)*(WW(p,i,j,s,w)-WWrp(p,i,j,s,w,rr,pp))/QEU(p,i)/100) + sum((c,j)$(ord(j)=3 or ord(j)=5), signSlackrp(c,j,w,rr,pp)*(Slack(c,j,w) - Slackrp(c,j,w,rr,pp))/D(c,j,w)) + sum((r,p), signyrp(r,p,w,rr,pp)*(y(r,p,w)-yrp(r,p,w,rr,pp))) +sum((p,c), signzrp(p,c,w,rr,pp)*(z(p,c,w)-zrp(p,c,w,rr,pp))) =g= 0;
-lp2(pp,cc,w)$(freeze(w) and aPC(pp,cc,w)) .. sum((r,p,j)$RJ(r,j), signPUpc(r,p,j,w,pp,cc)*(PU(r,p,j,w) - PUpc(r,p,j,w,pp,cc))/PUU) + sum((p,c,j), signFpc(p,c,j,w,pp,cc)*(F(p,c,j,w)-Fpc(p,c,j,w,pp,cc))/FUU) + sum((p,i,j,s)$(JM(i,s,j) and PS(i,s)and (ord(i) ne 4 or ord(j) ne 5 )), signthetapc(p,i,j,s,w,pp,cc)*(theta(p,i,j,s,w) - thetapc(p,i,j,s,w,pp,cc))/QEU(p,i)/100)+ sum((p,i,j,s)$(JM(i,s,j) and PS(i,s)and (ord(i) eq 4 and ord(j) eq 5 )), signthetapc(p,i,j,s,w,pp,cc)*(theta(p,i,j,s,w) - thetapc(p,i,j,s,w,pp,cc))/QEU(p,i)/5)+ sum((p,i,j,s)$((L(i,s,j) or Lbar(i,s,j)) and PS(i,s)), signWWpc(p,i,j,s,w,pp,cc)*(WW(p,i,j,s,w)-WWpc(p,i,j,s,w,pp,cc))/QEU(p,i)/100) + sum((c,j)$(ord(j)=3 or ord(j)=5), signSlackpc(c,j,w,pp,cc)*(Slack(c,j,w) - Slackpc(c,j,w,pp,cc))/D(c,j,w)) + sum((r,p), signypc(r,p,w,pp,cc)*(y(r,p,w)-ypc(r,p,w,pp,cc))) +sum((p,c), signzpc(p,c,w,pp,cc)*(z(p,c,w)-zpc(p,c,w,pp,cc))) =g= 0;
-*lp1(rr,pp,w)$(freeze(w) and aRP(rr,pp,w)) .. sum((r,p,j)$RJ(r,j), signPUrp(r,p,j,w,rr,pp)*(PU(r,p,j,w) - PUrp(r,p,j,w,rr,pp))/PUU) + sum((p,c,j), signFrp(p,c,j,w,rr,pp)*(F(p,c,j,w)-Frp(p,c,j,w,rr,pp))/FUU) + sum((r,p), signyrp(r,p,w,rr,pp)*(y(r,p,w)-yrp(r,p,w,rr,pp))) +sum((p,c), signzrp(p,c,w,rr,pp)*(z(p,c,w)-zrp(p,c,w,rr,pp))) =g= 0;
-*lp2(pp,cc,w)$(freeze(w) and aPC(pp,cc,w)) .. sum((r,p,j)$RJ(r,j), signPUpc(r,p,j,w,pp,cc)*(PU(r,p,j,w) - PUpc(r,p,j,w,pp,cc))/PUU) + sum((p,c,j), signFpc(p,c,j,w,pp,cc)*(F(p,c,j,w)-Fpc(p,c,j,w,pp,cc))/FUU) +  sum((r,p), signypc(r,p,w,pp,cc)*(y(r,p,w)-ypc(r,p,w,pp,cc))) +sum((p,c), signzpc(p,c,w,pp,cc)*(z(p,c,w)-zpc(p,c,w,pp,cc))) =g= 0;
+*lp1(rr,pp,w)$(freeze(w) and aRP(rr,pp,w)) .. sum((r,p,j)$RJ(r,j), signPUrp(r,p,j,w,rr,pp)*(PU(r,p,j,w) - PUrp(r,p,j,w,rr,pp))/PUU) + sum((p,c,j), signFrp(p,c,j,w,rr,pp)*(F(p,c,j,w)-Frp(p,c,j,w,rr,pp))/FUU) + sum((p,i,j,s)$(JM(i,s,j) and PS(i,s)and (ord(i) ne 4 or ord(j) ne 5 )), signthetarp(p,i,j,s,w,rr,pp)*(theta(p,i,j,s,w) - thetarp(p,i,j,s,w,rr,pp))/QEU(p,i)/100) + sum((p,i,j,s)$(JM(i,s,j) and PS(i,s)and (ord(i) eq 4 and ord(j) eq 5 )), signthetarp(p,i,j,s,w,rr,pp)*(theta(p,i,j,s,w) - thetarp(p,i,j,s,w,rr,pp))/QEU(p,i)/5)+ sum((p,i,j,s)$((L(i,s,j) or Lbar(i,s,j)) and PS(i,s)), signWWrp(p,i,j,s,w,rr,pp)*(WW(p,i,j,s,w)-WWrp(p,i,j,s,w,rr,pp))/QEU(p,i)/100) + sum((c,j)$(ord(j)=3 or ord(j)=5), signSlackrp(c,j,w,rr,pp)*(Slack(c,j,w) - Slackrp(c,j,w,rr,pp))/D(c,j,w)) + sum((r,p), signyrp(r,p,w,rr,pp)*(y(r,p,w)-yrp(r,p,w,rr,pp))) +sum((p,c), signzrp(p,c,w,rr,pp)*(z(p,c,w)-zrp(p,c,w,rr,pp))) =g= 0;
+*lp2(pp,cc,w)$(freeze(w) and aPC(pp,cc,w)) .. sum((r,p,j)$RJ(r,j), signPUpc(r,p,j,w,pp,cc)*(PU(r,p,j,w) - PUpc(r,p,j,w,pp,cc))/PUU) + sum((p,c,j), signFpc(p,c,j,w,pp,cc)*(F(p,c,j,w)-Fpc(p,c,j,w,pp,cc))/FUU) + sum((p,i,j,s)$(JM(i,s,j) and PS(i,s)and (ord(i) ne 4 or ord(j) ne 5 )), signthetapc(p,i,j,s,w,pp,cc)*(theta(p,i,j,s,w) - thetapc(p,i,j,s,w,pp,cc))/QEU(p,i)/100)+ sum((p,i,j,s)$(JM(i,s,j) and PS(i,s)and (ord(i) eq 4 and ord(j) eq 5 )), signthetapc(p,i,j,s,w,pp,cc)*(theta(p,i,j,s,w) - thetapc(p,i,j,s,w,pp,cc))/QEU(p,i)/5)+ sum((p,i,j,s)$((L(i,s,j) or Lbar(i,s,j)) and PS(i,s)), signWWpc(p,i,j,s,w,pp,cc)*(WW(p,i,j,s,w)-WWpc(p,i,j,s,w,pp,cc))/QEU(p,i)/100) + sum((c,j)$(ord(j)=3 or ord(j)=5), signSlackpc(c,j,w,pp,cc)*(Slack(c,j,w) - Slackpc(c,j,w,pp,cc))/D(c,j,w)) + sum((r,p), signypc(r,p,w,pp,cc)*(y(r,p,w)-ypc(r,p,w,pp,cc))) +sum((p,c), signzpc(p,c,w,pp,cc)*(z(p,c,w)-zpc(p,c,w,pp,cc))) =g= 0;
+lp1(rr,pp,w)$(freeze(w) and aRP(rr,pp,w)) .. sum((r,p,j)$RJ(r,j), signPUrp(r,p,j,w,rr,pp)*(PU(r,p,j,w) - PUrp(r,p,j,w,rr,pp))/PUU) + sum((p,c,j), signFrp(p,c,j,w,rr,pp)*(F(p,c,j,w)-Frp(p,c,j,w,rr,pp))/FUU) + sum((r,p), signyrp(r,p,w,rr,pp)*(y(r,p,w)-yrp(r,p,w,rr,pp))) +sum((p,c), signzrp(p,c,w,rr,pp)*(z(p,c,w)-zrp(p,c,w,rr,pp))) =g= 0;
+lp2(pp,cc,w)$(freeze(w) and aPC(pp,cc,w)) .. sum((r,p,j)$RJ(r,j), signPUpc(r,p,j,w,pp,cc)*(PU(r,p,j,w) - PUpc(r,p,j,w,pp,cc))/PUU) + sum((p,c,j), signFpc(p,c,j,w,pp,cc)*(F(p,c,j,w)-Fpc(p,c,j,w,pp,cc))/FUU) +  sum((r,p), signypc(r,p,w,pp,cc)*(y(r,p,w)-ypc(r,p,w,pp,cc))) +sum((p,c), signzpc(p,c,w,pp,cc)*(z(p,c,w)-zpc(p,c,w,pp,cc))) =g= 0;
 model lpsub /TX, TQ,e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,e11,e12,Beobj, lp1, lp2/;
 
 *-------------------solve model -----------------------------------
@@ -502,7 +502,6 @@ option reslim = 1e3;
 *parallel------------------
 BenderSub.solvelink =3;
 sub.solvelink =3;
-sep.solvelink=3;
 lpsub.solvelink=3;
 bendersmaster.threads = 12;
 parameters
@@ -703,11 +702,7 @@ loop(r3,
         lambda.l('1') =0;
         lambda.l('2') =1;
         solve sep using rMINLP minimizing dnorm;
-        sep_handle(w3) = sep.handle;
-        );
-      );
-    Repeat
-      loop(w3$handlecollect(sep_handle(w3)),
+
         cpu_sep = cpu_sep + sep.resusd;
 *update parameters
           PUrp(r,p,j,w3,r3,p3) = lpPU.l(r,p,j,w3);
@@ -790,7 +785,7 @@ loop(p4,
   );
 
 loop(c4,
-  loop(j4$(ord(j4) eq 3 or ord(j4) eq 5),
+  loop(j4,
         if(active_found=0,
           if(largest_abs.l(w3) eq ((Slack.l(c4,j4,w3) - Slackhat(c4,j4,w3))/D(c4,j4,w3)) or largest_abs.l(w3) eq (-(Slack.l(c4,j4,w3) - Slackhat(c4,j4,w3))/D(c4,j4,w3)),
             active_found=1;
@@ -848,19 +843,20 @@ loop(p4,
       );
     );
   );
-
-
-
         display sep.modelStat;
-*       abort$(sep.modelStat ne 2 and sep.modelStat ne 1 and sep.modelStat ne 7) "abort due to errors solving sep problem";
-       display$handledelete(sep_handle(w3)) 'trouble deleting handles';
         if(dnorm.l lt 1e-6 or (sep.modelStat ne 1 and sep.modelStat ne 2),
           aRP(r3,p3,w3) = no;
           );
 
-        sep_handle(w3) = 0;
         );
-    until card(sep_handle) =0;
+      );
+
+
+
+
+
+
+
   );
 );
 
@@ -895,12 +891,7 @@ loop(p3,
         lambda.l('1') =0;
         lambda.l('2') =1;
         solve sep using rMINLP minimizing dnorm;
-        sep_handle(w3) = sep.handle;
-        );
-      );
-    Repeat
-      loop(w3$handlecollect(sep_handle(w3)),
-        cpu_sep = cpu_sep + sep.resusd;
+                cpu_sep = cpu_sep + sep.resusd;
 *update parameters
           PUpc(r,p,j,w3,p3,c3) = lpPU.l(r,p,j,w3);
         Fpc(p,c,j,w3,p3,c3) = lpF.l(p,c,j,w3);
@@ -983,7 +974,7 @@ loop(p4,
   );
 
 loop(c4,
-  loop(j4$(ord(j4) eq 3 or ord(j4) eq 5),
+  loop(j4,
         if(active_found=0,
           if(largest_abs.l(w3) eq ((Slack.l(c4,j4,w3) - Slackhat(c4,j4,w3))/D(c4,j4,w3)) or largest_abs.l(w3) eq (-(Slack.l(c4,j4,w3) - Slackhat(c4,j4,w3))/D(c4,j4,w3)),
             active_found=1;
@@ -1047,11 +1038,14 @@ loop(p4,
         if(dnorm.l lt 1e-6 or (sep.modelStat ne 1 and sep.modelStat ne 2),
           aPC(p3,c3,w3) = no;
           );
-*       abort$(sep.modelStat ne 2 and sep.modelStat ne 1 and sep.modelStat ne 7) "abort due to errors solving sep problem";
-       display$handledelete(sep_handle(w3)) 'trouble deleting handles';
-        sep_handle(w3) = 0;
+
+
         );
-    until card(sep_handle) =0;
+      );
+
+
+   
+
   );
 );
 *--------------------solve subproblems with lift-and-project cuts
