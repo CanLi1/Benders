@@ -1,8 +1,7 @@
 #!/bin/sh
 
 # Set the number of nodes and processes per node
-#PBS -l nodes=1:ppn=3
-
+#PBS -l nodes=1:ppn=12
 
 # Set max wallclock time
 #PBS -l walltime=48:00:00
@@ -15,5 +14,6 @@
 
 # Use submission environment
 #PBS -V
-cd ~/work/Benders/MINLP-Benders/2SCM/convex/penalty-demand/3/linearlpcuts/1norm
-gams uniformsample12.gms -lo=4 
+
+cd ~/work/Benders/MINLP-Benders/2SCM/convex/penalty-demand/27/lag
+gams sample1.gms -lo=4

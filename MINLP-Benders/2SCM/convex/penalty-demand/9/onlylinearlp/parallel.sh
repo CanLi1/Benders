@@ -15,5 +15,5 @@
 
 # Use submission environment
 #PBS -V
-cd ~/work/Benders/MINLP-Benders/2SCM/convex/penalty-demand/3/linearlpcuts/1norm
-gams uniformsample12.gms -lo=4 
+cd /home/canl1/work/Benders/MINLP-Benders/2SCM/convex/penalty-demand/9/onlylinearlp
+gams sample2.gms -lo=4 

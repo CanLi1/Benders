@@ -1,11 +1,11 @@
-sets
+Sets
 i /i1*i4/
 j /j1*j6/
 s /s1*s4/
 r /r1*r4/
 p /p1*p3/
 c /c1*c4/
-w /w1*w3/
+w /w1*w9/
 freeze(w)
 ;
 
@@ -90,18 +90,19 @@ H(i)
 betaC(i)/ i1 0.1, i2 0.09, i3 0.11, i4 0.8/
 alphaC(i) /i1 20, i2 10, i3 15, i4 30/
 delta(i,s) "operating cost coefficient"
-phi(c,j) "penalty cost for not satisfying demand from customer c for chemical j"
+phi(c,j,w) "penalty cost for not satisfying demand from customer c for chemical j"
+basephi(c,j)
 QEU(p,i)
 PUU /100/
 FUU /150/
 ;
-betaC(i)=betaC(i)*10;
 
+betaC(i)=betaC(i)*10;
 Q0(p,i) = 0;
 rho(i,j,s) =1;
 H(i) = 1;
-phi(c,'j3') = 3;
-phi(c,'j5') = 300;
+basephi(c,'j3') = 3;
+basephi(c,'j5') = 300;
 QEU(p,i) = 1.50;
 delta(i,s) = 0.1;
 delta('i4', s) = 3;
@@ -147,13 +148,17 @@ num
 baseprob(subw)/1 0.25, 2 0.5, 3 0.25/;
 alias (sub0,sub1,sub2,sub3,sub4,sub5,sub6,sub7,sub8,sub9,sub10,sub11,subw);
 loop(sub0,
+loop(sub1,
             num = 0;
 
-            num = 1*(ord(sub0)-1);
+
+            num = 1*(ord(sub0)-1)+3*(ord(sub1)-1);
             loop(w,
               if(ord(w) eq num + 1,
 D(c,j,w)= baseD(c, j)*(1+(ord(sub0)-2)*0.3);
-prob(w)=baseprob(sub0);
+phi(c,j,w)=basephi(c,j)*(1+(ord(sub1)-2)*0.3);
+prob(w)=baseprob(sub0)*baseprob(sub1);
+);
             );
               );
               );
@@ -230,7 +235,7 @@ e9(r,p,w,j)$(RJ(r,j) and freeze(w)) .. PU(r,p,j,w) =l= PUU * y(r,p,w);
 e10(p,c,j,w)$freeze(w) .. F(p,c,j,w) =l= FUU * z(p,c,w);
 e11(c,j,w)$freeze(w) .. sum(p, F(p,c,j,w)) + Slack(c,j,w) =e= D(c,j,w);
 e12(p,i,j,s,w)$(freeze(w) and (not(JM(i,s,j) or L(i,s,j) or Lbar(i,s,j)))) .. WW(p,i,j,s,w) =e= 0;
-eobj .. cost =e= sum(w$freeze(w), prob(w) * sum(p, sum(i, betaC(i) * QE(p,i)*100 + alphaC(i) * x(p,i)))) + sum(w$freeze(w), prob(w) * (sum((p,i,s,j)$(PS(i,s) and JM(i,s,j)), delta(i,s)*rho(i,j,s) * theta(p,i,j,s,w)) + sum((p,j,r)$RJ(r,j), (betaS(r,j) + betaRP(r,p)) * PU(r,p,j,w)) + sum((r,p), alphaRP(r,p) * y(r,p,w)) + sum((p,c), alphaPC(p,c) * z(p,c,w)) + sum((p,c,j), betaPC(p,c) * F(p,c,j,w)) + sum((c,j), phi(c,j) * Slack(c,j,w)) )) +  sum((p,i,w)$freeze(w), pix(p,i,w) * x(p,i) + piQ(p,i,w) * Q(p,i));
+eobj .. cost =e= sum(w$freeze(w), prob(w) * sum(p, sum(i, betaC(i) * QE(p,i)*100 + alphaC(i) * x(p,i)))) + sum(w$freeze(w), prob(w) * (sum((p,i,s,j)$(PS(i,s) and JM(i,s,j)), delta(i,s)*rho(i,j,s) * theta(p,i,j,s,w)) + sum((p,j,r)$RJ(r,j), (betaS(r,j) + betaRP(r,p)) * PU(r,p,j,w)) + sum((r,p), alphaRP(r,p) * y(r,p,w)) + sum((p,c), alphaPC(p,c) * z(p,c,w)) + sum((p,c,j), betaPC(p,c) * F(p,c,j,w)) + sum((c,j), phi(c,j,w) * Slack(c,j,w)) )) +  sum((p,i,w)$freeze(w), pix(p,i,w) * x(p,i) + piQ(p,i,w) * Q(p,i));
 
 set iter /1*100/
 aiter(iter)
@@ -250,9 +255,9 @@ piQ_all(iter,p,i,w)
 cpu_lag/0/
 den(iter)
 stepsize
-theta0 /2/
+theta0 /0.5/
 *theta00(ltheta)/1 0.2,2 0.6, 3 1, 4 1.5, 5 2/
-half0 /0.6/
+half0 /0.8/
 *half00(lstep) / 1 0.5, 2 0.6,3 0.7,4 0.8/
 change;
 mux('1',p,i,w) = 0;
@@ -304,7 +309,7 @@ equations
 TX, TQ,  Beobj;
 TX(p,i) .. x(p,i) =e= xbar(p,i);
 TQ(p,i) .. Q(p,i) =e= Qbar(p,i);
-Beobj .. cost =e= sum(w$freeze(w), prob(w) * sum(p, sum(i, betaC(i) * QE(p,i)*100 + alphaC(i) * x(p,i)))) + sum(w$freeze(w), prob(w) * (sum((p,i,s,j)$(PS(i,s) and JM(i,s,j)), delta(i,s)*rho(i,j,s) * theta(p,i,j,s,w)) + sum((p,j,r)$RJ(r,j), (betaS(r,j) + betaRP(r,p)) * PU(r,p,j,w)) + sum((r,p), alphaRP(r,p) * y(r,p,w)) + sum((p,c), alphaPC(p,c) * z(p,c,w)) + sum((p,c,j), betaPC(p,c) * F(p,c,j,w)) + sum((c,j), phi(c,j) * Slack(c,j,w)) )) ;
+Beobj .. cost =e= sum(w$freeze(w), prob(w) * sum(p, sum(i, betaC(i) * QE(p,i)*100 + alphaC(i) * x(p,i)))) + sum(w$freeze(w), prob(w) * (sum((p,i,s,j)$(PS(i,s) and JM(i,s,j)), delta(i,s)*rho(i,j,s) * theta(p,i,j,s,w)) + sum((p,j,r)$RJ(r,j), (betaS(r,j) + betaRP(r,p)) * PU(r,p,j,w)) + sum((r,p), alphaRP(r,p) * y(r,p,w)) + sum((p,c), alphaPC(p,c) * z(p,c,w)) + sum((p,c,j), betaPC(p,c) * F(p,c,j,w)) + sum((c,j), phi(c,j,w) * Slack(c,j,w)) )) ;
 model Bendersub /TX, TQ,e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,e11,e12,Beobj/;
 BenderSub.optfile=1;
 
@@ -336,16 +341,18 @@ parameters
 LB
 UB;
 LB = 700;
-UB =1703.074  ;
+UB =1702.640 ;
 aiter(iiiter) = yes;
 loop(iter,
 
 
 *solve each lagrangean subproblem
-if(ord(iter) le 60,
+if(ord(iter) le 30,
 loop(w3,
   freeze(w2) = no;
   freeze(w3) = yes;
+  Slack.l(c,'j3', w3) = 50;
+  Slack.l(c,'j5',w3) = 2;
   solve sub using MINLP minimizing COST;
   lag_sub_handle(w3) = sub.handle;
 
@@ -357,7 +364,7 @@ Repeat
       obj_record(iter, w3) = cost.l;
       cpu_lag = cpu_lag + sub.resusd;
       lag_sub_modelstat(iter,w3) = sub.modelStat;
-*      abort$(sub.modelStat ne 8 or sub.solveStat ne 1) 'abort due to error solve lag sub';
+      abort$(sub.modelStat ne 8 or sub.solveStat ne 1) 'abort due to error solve lag sub';
       display$handledelete(lag_sub_handle(w3)) 'trouble deleting handles';
       lag_sub_handle(w3)=0;
     );
@@ -376,7 +383,7 @@ until card(lag_sub_handle) =0;
     if(ord(iiter) le ord(iter),
       biter(iiter)= yes;
       );
-      if(ord(iiter) le ord(iter) and ord(iiter) le 60,
+      if(ord(iiter) le ord(iter) and ord(iiter) le 30,
       aiter(iiter)= yes;
       );
     );
@@ -401,6 +408,8 @@ until card(lag_sub_handle) =0;
   loop(w3,
     freeze(w2) = no;
     freeze(w3) = yes;
+    Slack.l(c,'j3', w3) = 50;
+    Slack.l(c,'j5',w3) = 2;
     solve BenderSub using MINLP minimizing COST;
     Bendersub_handle(w3) = Bendersub.handle;
 
@@ -410,7 +419,10 @@ until card(lag_sub_handle) =0;
         cpu_ub = cpu_ub + BenderSub.resusd;
         UB_Bender(iter) = UB_Bender(iter) + cost.l;
         upper_sub_modelstat(iter,w3) = bendersub.modelStat;
-        abort$((bendersub.modelStat ne 8 and bendersub.modelStat ne 2 and bendersub.modelStat ne 1)  or bendersub.solveStat ne 1) 'abort due to errors solve upper bound sub';
+        if(bendersub.modelStat ne 8 and bendersub.modelStat ne 2 and bendersub.modelStat ne 1,
+          UB_Bender(iter) = 2000;
+          );
+*        abort$((bendersub.modelStat ne 8 and bendersub.modelStat ne 2 and bendersub.modelStat ne 1)  or bendersub.solveStat ne 1) 'abort due to errors solve upper bound sub';
         display$handledelete(Bendersub_handle(w3)) 'trouble deleting handles';
         Bendersub_handle(w3)=0;
       );
@@ -421,6 +433,8 @@ until card(lag_sub_handle) =0;
   loop(w3,
     freeze(w2) = no;
     freeze(w3) = yes;
+    Slack.l(c,'j3', w3) = 50;
+    Slack.l(c,'j5',w3) = 2;
     solve Bendersub using rMINLP minimizing COST;
     Bendersub_handle(w3)= Bendersub.handle;
 
@@ -429,11 +443,13 @@ until card(lag_sub_handle) =0;
   Repeat
     loop(w3$handlecollect(Bendersub_handle(w3)),
       cpu_bender_sub = cpu_bender_sub + Bendersub.resusd;
+      if(bendersub.modelStat eq 2 or bendersub.modelStat eq 1,
       v(iter, w3) = COST.l - sum((p,i), xbar(p,i) * TX.m(p,i) + Qbar(p,i) * TQ.m(p,i) ) ;
       g1(iter, p,i, w3) = TX.m(p,i);
       g2(iter, p,i, w3) = TQ.m(p,i);
+      );
       bender_sub_modelstat(iter,w3) = bendersub.modelStat;
-      abort$(bendersub.modelStat ne 2 or bendersub.solveStat ne 1) 'abort due to errors solve Bender subproblem';
+*      abort$(bendersub.modelStat ne 2 or bendersub.solveStat ne 1) 'abort due to errors solve Bender subproblem';
       display$handledelete(Bendersub_handle(w3)) 'trouble deleting handles';
       Bendersub_handle(w3)=0;
       );
@@ -447,7 +463,7 @@ until card(lag_sub_handle) =0;
 *finish benders-------------------
 
 *update lagrangean multiplier
-if(ord(iter) le 60,
+if(ord(iter) le 30,
   den(iter) = sum((p,i,w), power(x_record_lag(iter,p,i,w) -x_record_lag(iter,p,i,'w1'), 2 ) + power(Q_record_lag(iter,p,i,w)-Q_record_lag(iter,p,i,'w1'), 2) );
   stepsize = theta0 * (UB-LB)/den(iter);
   loop(w,

@@ -1,0 +1,4 @@
+We have two different ways of choosing the 
+interpolation points
+we think the way in the uniform folder makes more sense
+where the log(1+W) with (1+W) increase exponentially
