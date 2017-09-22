@@ -325,6 +325,8 @@ option optca =0;
   OPTION LIMROW = 0;
 OPTION LIMCOL = 0;
 option MINLP = dicopt;
+option rminlp = conopt4;
+option nlp = conopt4;
 option iterlim = 2e9;
 *parallel------------------
 BenderSub.solvelink =3;

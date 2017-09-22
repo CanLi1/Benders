@@ -391,7 +391,10 @@ loop(iter,
         cpu_ub = cpu_ub + BenderSub.resusd;
         UB_Bender(iter) = UB_Bender(iter) + cost.l;
         upper_sub_modelstat(iter,w3) = bendersub.modelStat;
-        abort$((bendersub.modelStat ne 8 and bendersub.modelStat ne 2 and bendersub.modelStat ne 1)  or bendersub.solveStat ne 1) 'abort due to errors solve upper bound sub';
+                if(bendersub.modelStat ne 8 and bendersub.modelStat ne 2 and bendersub.modelStat ne 1,
+          UB_Bender(iter) = 2000;
+          );
+*        abort$((bendersub.modelStat ne 8 and bendersub.modelStat ne 2 and bendersub.modelStat ne 1)  or bendersub.solveStat ne 1) 'abort due to errors solve upper bound sub';
         display$handledelete(Bendersub_handle(w3)) 'trouble deleting handles';
         Bendersub_handle(w3)=0;
       );
@@ -408,15 +411,16 @@ loop(iter,
     Bendersub_handle(w3)= Bendersub.handle;
 
     );
-
-  Repeat
+ Repeat
     loop(w3$handlecollect(Bendersub_handle(w3)),
       cpu_bender_sub = cpu_bender_sub + Bendersub.resusd;
+      if(bendersub.modelStat eq 2 or bendersub.modelStat eq 1,
       v(iter, w3) = COST.l - sum((p,i), xbar(p,i) * TX.m(p,i) + Qbar(p,i) * TQ.m(p,i) ) ;
       g1(iter, p,i, w3) = TX.m(p,i);
       g2(iter, p,i, w3) = TQ.m(p,i);
+      );
       bender_sub_modelstat(iter,w3) = bendersub.modelStat;
-      abort$(bendersub.modelStat ne 2 or bendersub.solveStat ne 1) 'abort due to errors solve Bender subproblem';
+*      abort$(bendersub.modelStat ne 2 or bendersub.solveStat ne 1) 'abort due to errors solve Bender subproblem';
       display$handledelete(Bendersub_handle(w3)) 'trouble deleting handles';
       Bendersub_handle(w3)=0;
       );
