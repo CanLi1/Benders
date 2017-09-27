@@ -166,11 +166,12 @@ yita(w);
 Variables
 BenderOBJ;
 Equations
-bobj ,b2;
+bobj ,b1,b2;
 
 bobj .. BenderOBJ =e= sum(w, yita(w));
+b1(w, iiiter)$aiter(iiiter) .. yita(w) =g= obj_record(iiiter,w ) - sum(j, pin_all(iiiter, j, w) * n(j) + piv_all(iiiter, j, w) * v(j) + sum(k, piyf_all(iiiter,k,j,w) * yf(k,j)));
 b2(w, iiiter)$biter(iiiter) .. yita(w) =g= v1(iiiter, w) + sum(j, sum(k, g1(iiiter, k , j, w)* yf(k,j)) +g2(iiiter, j, w) * n(j) + g3(iiiter, j, w) * v(j));
-model bendersmaster /bobj,  b2, e1, e2,e3,e4/;
+model bendersmaster /bobj, b1, b2, e1, e2,e3,e4/;
 bendersmaster.threads=12;
 
 *----------------------------DEFINE Benders subproblem---------------------------
@@ -210,9 +211,7 @@ bender_sub_modelstat(iter,w)=0;
 upper_sub_modelstat(iter,w)=0;
 master_modelstat(iter)=0;
 lag_sub_modelstat(iter,w)=0;
-parameter
-WallTime;
-WallTime=TimeElapsed;
+
 parameters
 LB(ltheta, lstep)
 UB(ltheta, lstep)
@@ -241,7 +240,49 @@ loop(iter,
 
 
 
+*solve each lagrangean subproblem
+if(ord(iter) le 30,
+loop(w3,
+  freeze(w2) = no;
+  freeze(w3) = yes;
+  n.l(j) = log(3);
+  v.l(j) = log(2300);
+  ns.l(j,w3) = log(3);
+  tl.l(i,w3) = log(2);
+  b.l(i,w3) = log(400);
+  yf.l(k,j) = 0;
+  yf.l('k3',j) =1;
+  ys.l(k,j,w3)= 0;
+  ys.l('k3',j,w3)= 1;
+  L.l(w3) = 1e3;
+  solve sub using MINLP minimizing COST;
+  lag_sub_handle(w3) = sub.handle;
 
+);
+Repeat
+  loop(w3$handlecollect(lag_sub_handle(w3)),
+      yf_record_lag(iter, k,j,w3) = yf.l(k,j);
+      n_record_lag(iter, j, w3) = n.l(j);
+      v_record_lag(iter, j, w3) = v.l(j);
+      obj_record(iter, w3) = cost.l;
+      cpu_lag = cpu_lag + sub.resusd;
+      lag_sub_modelstat(iter,w3) = sub.modelStat;
+      if((sub.modelStat ne 8 and sub.modelStat ne 1) or sub.solveStat ne 1,
+        UB(ltheta, lstep)=0;
+        display sub.modelStat, sub.solveStat;
+        );
+*    abort$(sub.modelStat ne 8 and sub.modelStat ne 1) 'abort due to errors';
+      display$handledelete(lag_sub_handle(w3)) 'trouble deleting handles';
+      lag_sub_handle(w3)=0;
+    );
+until card(lag_sub_handle) =0;
+
+  total_obj_record(iter) = sum(w, obj_record(iter,w));
+*update multiplier
+piyf_all(iter, k,j,w)=piyf(k,j,w);
+pin_all(iter,j,w)=pin(j,w);
+piv_all(iter, j, w)=piv(j,w);
+);
 
 *solve benders master problem----------------
     aiter(iiiter) = no;
@@ -250,7 +291,9 @@ loop(iter,
     if(ord(iiter) le ord(iter),
       biter(iiter)= yes;
       );
-      
+      if(ord(iiter) le ord(iter) and ord(iiter) le 30,
+      aiter(iiter)= yes;
+     );
     );
   solve bendersmaster using mip minimizing BenderOBJ;
   cpu_bender_master = cpu_bender_master + bendersmaster.resusd;
@@ -274,18 +317,6 @@ loop(iter,
   UB_Bender(iter) = 0;
 *solve upper bound each subproblem
   loop(w3,
-      freeze(w2) = no;
-  freeze(w3) = yes;
-  n.l(j) = log(3);
-  v.l(j) = log(2300);
-  ns.l(j,w3) = log(3);
-  tl.l(i,w3) = log(2);
-  b.l(i,w3) = log(400);
-  yf.l(k,j) = 0;
-  yf.l('k3',j) =1;
-  ys.l(k,j,w3)= 0;
-  ys.l('k3',j,w3)= 1;
-  L.l(w3) = 1e3;
     freeze(w2) = no;
     freeze(w3) = yes;
     solve BenderSub using MINLP minimizing COST;
@@ -309,18 +340,6 @@ loop(iter,
 
 *add benders cuts, solve each benders subproblem--------------
   loop(w3,
-      freeze(w2) = no;
-  freeze(w3) = yes;
-  n.l(j) = log(3);
-  v.l(j) = log(2300);
-  ns.l(j,w3) = log(3);
-  tl.l(i,w3) = log(2);
-  b.l(i,w3) = log(400);
-  yf.l(k,j) = 0;
-  yf.l('k3',j) =1;
-  ys.l(k,j,w3)= 0;
-  ys.l('k3',j,w3)= 1;
-  L.l(w3) = 1e3;
     freeze(w2) = no;
     freeze(w3) = yes;
     solve Bendersub using rMINLP minimizing COST;
@@ -351,20 +370,57 @@ loop(iter,
 
     );
 *finish benders-------------------
+if(ord(iter) le 30,
+*update lagrangean multiplier
+  den(iter) = sum((j,w), sum(k, power(yf_record_lag(iter, k,j,w) - yf_record_lag(iter, k, j, 'w14'), 2)) + power(n_record_lag(iter, j, w) - n_record_lag(iter, j, 'w14'), 2) + power(v_record_lag(iter, j, w) - v_record_lag(iter, j, 'w14'), 2));
+  stepsize = theta0 * (UB(ltheta, lstep)-LB(ltheta, lstep))/den(iter);
 
+
+  loop(w,
+    if(ord(w) ne 14,
+      muyf(iter+1, k,j,w) = muyf(iter, k,j,w) + (yf_record_lag(iter, k,j,w) - yf_record_lag(iter, k,j,'w14')) * stepsize;
+      mun(iter+1, j, w) = mun(iter, j, w) + (n_record_lag(iter, j, w) - n_record_lag(iter, j , 'w14'))*stepsize;
+      muv(iter+1, j, w)= muv(iter, j, w) + (v_record_lag(iter, j, w) - v_record_lag(iter, j, 'w14'))*stepsize;
+      );
+    );
+  loop(w,
+    if(ord(w) ne 14,
+      piyf(k,j,w) = muyf(iter+1, k,j,w);
+      pin(j, w) = mun(iter + 1, j, w);
+      piv(j,w) = muv(iter+1, j, w);
+
+      );
+    piyf(k,j,'w14') = -sum(w2$(ord(w2) ne 14), muyf(iter+1, k,j,w2));
+    pin(j, 'w14') = -sum(w2$(ord(w2) ne 14), mun(iter+1, j, w2));
+    piv(j, 'w14') = -sum(w2$(ord(w2) ne 14), muv(iter+1, j, w2));
+
+    );
+  if (ord(iter) gt 1,
+    change = -(total_obj_record(iter-1) - total_obj_record(iter)) / total_obj_record(iter-1);
+    if (change lt 0,
+      theta0 = theta0 * half0;
+      );
+    );
+
+  if(LB(ltheta, lstep) lt total_obj_record(iter),
+    LB(ltheta, lstep) = total_obj_record(iter);
+    );
+);
+  if(LB(ltheta, lstep) * 1.0001 gt UB(ltheta, lstep),
+    display LB, UB;
+  break; );
   if(ord(iter) eq 30,
     display LB, UB;
     );
   );
-walltime = TimeElapsed;
-if(WallTime gt 78,
-  break;
-  );
+
 
 );
 );
 
-
+parameter
+WallTime;
+WallTime=TimeElapsed;
 parameters
 dn(iter,j)
 dv(iter,j)
@@ -372,4 +428,4 @@ dv(iter,j)
 dn(iter, j) = exp(n_record(iter, j));
 dv(iter, j) = exp(v_record(iter,j));
 display cpu_ub,cpu_lag,cpu_bender_sub, cpu_bender_master,walltime;
-display UB, LB, BenderOBJ_record, UB_Bender, dn,dv;
+display UB, LB, total_obj_record, BenderOBJ_record, UB_Bender;

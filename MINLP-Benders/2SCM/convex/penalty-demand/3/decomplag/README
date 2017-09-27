@@ -1,0 +1,7 @@
+in this folder we implement lagrangean decomposition
+algorithm
+we apply two heuristics
+1.take the weighted sum average the lagrangean subproblem. then round the first stage decisions to the nearest integer. the capacity
+which is continous is taken as weighted sum average if the corresponding binary variable is nonzero
+otherwise the capacity is taken as zero
+2.take the weighted average for all the variables then choose the scenario that is closest to this solution. using 2-norm distanc

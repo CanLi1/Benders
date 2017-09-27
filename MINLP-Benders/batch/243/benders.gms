@@ -111,7 +111,7 @@ eobj .. cost =e= sum(w$freeze(w), prob(w)*sum(j, alpha(j) * exp(n(j) + beta(j) *
 model sub /e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,eobj/;
 sub.optfile=1;
 
-set iter /1*60/
+set iter /1*100/
 aiter(iter)
 biter(iter);
 
@@ -361,4 +361,4 @@ dv(iter,j)
 dn(iter, j) = exp(n_record(iter, j));
 dv(iter, j) = exp(v_record(iter,j));
 display cpu_ub,cpu_bender_sub, cpu_bender_master,WallTime;
-display UB, LB, BenderOBJ_record, UB_Bender, dn,dv;
+display UB, LB, BenderOBJ_record, UB_Bender ;

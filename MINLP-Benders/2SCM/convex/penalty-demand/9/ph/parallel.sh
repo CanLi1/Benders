@@ -15,5 +15,5 @@
 # Use submission environment
 #PBS -V
 
-cd ~/work/Benders/MINLP-Benders/batch/81
-gams benders.gms -lo=4  
+cd ~/work/Benders/MINLP-Benders/2SCM/convex/penalty-demand/9/ph
+gams h2sample2.gms -lo=4 
