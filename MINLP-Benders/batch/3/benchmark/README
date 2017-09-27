@@ -1,0 +1,6 @@
+in this folder we implement the benchmark with lagrangean decomposition and
+progressive hedging
+the upper bound heuristic of lagrangean decomposition is "nearest scenario"
+the upper bound procedure of ph is the same
+the selection of parameter rho in ph is based on the heuristic of Watson and Woodruff "progressive 
+hedging innovations for a class of stochastic mixed-integer resource allocation problems"

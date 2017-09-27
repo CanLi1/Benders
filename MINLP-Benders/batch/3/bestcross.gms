@@ -91,7 +91,7 @@ eobj .. cost =e= sum(w$freeze(w), prob(w)*sum(j, alpha(j) * exp(n(j) + beta(j) *
 model sub /e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,eobj/;
 sub.optfile=1;
 
-set iter /1*50/
+set iter /1*100/
 aiter(iter)
 biter(iter);
 
@@ -405,7 +405,7 @@ if(ord(iter) le 30,
   if(LB(ltheta, lstep) lt total_obj_record(iter),
     LB(ltheta, lstep) = total_obj_record(iter);
     );
-  if(LB(ltheta, lstep) * 1.01 gt UB(ltheta, lstep),
+  if(LB(ltheta, lstep) * 1.0001 gt UB(ltheta, lstep),
     display LB, UB;
   break; );
   if(ord(iter) eq 30,
