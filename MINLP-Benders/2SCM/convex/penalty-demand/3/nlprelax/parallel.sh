@@ -16,4 +16,4 @@
 # Use submission environment
 #PBS -V
 cd ~/work/Benders/MINLP-Benders/2SCM/convex/penalty-demand/3/nlprelax
-gams sample12.gms -lo=4 
+gams conopt4iter200.gms -lo=4 

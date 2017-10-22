@@ -105,9 +105,8 @@ e10(j,w)$freeze(w) .. sum(k, ys(k,j,w)) =e= 1;
 eobj .. cost =e= sum(w$freeze(w), prob(w)*sum(j, alpha(j) * exp(n(j) + beta(j) * v(j)))) + sum(w$freeze(w), prob(w) * (sum(j, lambda(j) * exp(ns(j,w))) + delta*L(w)))+sum(w$freeze(w), sum(j, piv(j,w) * v(j) + pin(j,w) * n(j) + sum(k, piyf(k,j,w) * yf(k,j))));
 
 model sub /e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,eobj/;
+sub.nodlim=1e9;
 sub.optfile=1;
-
-
 
 options optca = 0;
 options optcr =0;
@@ -115,6 +114,7 @@ options optcr =0;
 OPTION LIMCOL = 0;
 OPTION threads=12;
 option minlp=sbb;
+option reslim=1e4;
 freeze(w)=yes;
 parameter 
 WallTime;

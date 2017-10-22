@@ -1,0 +1,3 @@
+try to debug for the algorithm with rank-one lift-and-project cuts
+1. include the constraints for both first and second stage variables  in deriving the cuts
+2. only include the constraints for the second stage variables in deriving the cuts

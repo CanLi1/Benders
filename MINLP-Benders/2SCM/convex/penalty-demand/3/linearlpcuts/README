@@ -1,5 +1,4 @@
 linearize the nonlinear constraints
-for the infnorm it causes a lot of infeasibility lpsubproblems
-don't understand why because before linearization we haven't experienced so
-many infeasible subproblems
-the 1 norm problem works well.
+generate rank-1 lift-and-project cuts
+in the folder we have tested different kind of cuts ~/work/Benders/MINLP-Benders/2SCM/convex/penalty-demand/3/cumulate
+it turns out that the infnorm works better than 1 norm 

@@ -1,0 +1,7 @@
+try to debug using the linearized version of the problem
+basically, using underestimators for the -log function.
+the cuts are generated according to mustafa's paper
+it seems that the infnorm works better
+we also tried both rank1 cuts and higher rank cuts
+also we try to cluster all the benders cut by scenarios but it works bad
+

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Set the number of nodes and processes per node
-#PBS -l nodes=1:ppn=3
+#PBS -l nodes=1:ppn=12
 
 
 # Set max wallclock time

@@ -16,4 +16,4 @@
 #PBS -V
 
 cd ~/work/Benders/MINLP-Benders/2SCM/convex/penalty-demand/27
-gams fullspace.gms -lo=4 
+gams relax.gms -lo=4 

@@ -16,4 +16,4 @@
 #PBS -V
 
 cd ~/work/Benders/MINLP-Benders/2SCM/convex/penalty-demand/27/nlprelax
-gams sample1.gms -lo=4
+gams conopt4sample1.gms -lo=4
