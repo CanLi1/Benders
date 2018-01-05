@@ -16,4 +16,4 @@
 #PBS -V
 
 cd ~/work/Benders/MINLP-Benders/2SCM/convex/penalty-demand/3 
-gams sbb.gms -lo=4 
+gams baron.gms -lo=4 

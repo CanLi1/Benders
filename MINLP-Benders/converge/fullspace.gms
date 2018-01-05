@@ -14,7 +14,7 @@ e5 .. -log(1+u) + up =l=0;
 e6 .. -log(1+v) + vp =l= 0;
 e7 .. u =l= 10 * z1;
 e8 .. v =l= 12 * z2;
-e9 .. obj =e=  10 * y1 +14 * y2 + 15 * z1 + 12 * z1 +  2* (qu+qv) + 3* ( u + v) - 50 * (up + vp );
+e9 .. obj =e=  10 * y1 +14 * y2 + 15 * z1 + 12 * z2 +  2* (qu+qv) + 3* ( u + v) - 50 * (up + vp );
 e12 .. u + v =l= 20;
 model toy /all/;
 toy.optfile=1;

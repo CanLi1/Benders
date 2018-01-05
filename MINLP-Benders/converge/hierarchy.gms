@@ -69,7 +69,7 @@ ub7(djc) .. vv(djc) =l= lambda(djc) * 12;
 ub8(djc) .. vu(djc) =l= lambda(djc) * 10;
 ub9(djc) .. vz1(djc) =l= lambda(djc);
 ub10(djc) .. vz2(djc) =l= lambda(djc);
-e9 .. obj =e=  10 * y1 +14 * y2 + 15 * z1 + 12 * z1 +  2* (qu+qv) + 3* ( u + v) - 50 * (up + vp );
+e9 .. obj =e=  10 * y1 +14 * y2 + 15 * z2 + 12 * z1 +  2* (qu+qv) + 3* ( u + v) - 50 * (up + vp );
 
 set1 .. vz1('1') =e= lambda('1');
 set2 .. vz1('2') =e= lambda('2');
